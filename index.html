@@ -99,6 +99,7 @@
     }
     .btn-primary:hover{box-shadow:0 10px 34px rgba(90,169,255,.42)}
     .btn-ghost{background:var(--surface);color:var(--text);border:1px solid var(--line-2)}
+    .perf-idle,.perf-idle *{animation-play-state:paused!important}
     .btn-ghost:hover{background:var(--surface-2)}
     .nav-cta{padding:9px 16px}
     .lang-wrap{position:relative}
@@ -1960,7 +1961,7 @@ html{overflow-x:clip}#aivibe{margin:0!important;display:block!important;backgrou
     <div class="ai-eyebrow"><span class="sp"><span class="sf-symbol sym-sparkles"></span></span> Apple Intelligence · AI Vibecoding</div>
     <h2 class="ai-h2" data-wt="ai.h2">Write a comment.<br><span class="g">Get working code.</span></h2>
     <p class="ai-sub" data-wt="ai.sub">On-device completions finish your imports as you type. Apple Intelligence turns a plain-language comment into runnable code you accept inline. And on Pro, an agent takes on the hard parts — complex builds, and fixing your errors until the cell actually runs.</p>
-  <main class="fit" aria-label="Interactive HTML recreation of Vibeit on iPad">
+  <div class="fit" aria-label="Interactive HTML recreation of Vibeit on iPad">
     <div class="scene">
       <section class="ipad" aria-label="iPad">
         <span class="camera"></span>
@@ -2095,7 +2096,7 @@ speech = <span class="fn">tts</span>(<span class="st">"Hello World"</span>)
       </section>
       <div class="front-lip"></div>
     </div>
-  </main>
+  </div>
     <div class="prov">
       <p class="lead" data-wt="ai.lead"><span class="lqm">Pro</span> unlocks agents from your favorite providers</p>
       <div class="glass-fan">
@@ -2127,7 +2128,9 @@ speech = <span class="fn">tts</span>(<span class="st">"Hello World"</span>)
   const aiAgentSrc=document.getElementById('aiAgentSrc'),aiHintSrc=document.getElementById('aiHintSrc');
   function up(h,n){let o='',c=0,i=0,st=0;while(i<h.length&&c<n){if(h[i]==='<'){const e=h.indexOf('>',i),t=h.slice(i,e+1);o+=t;st+=/^<\//.test(t)?-1:1;i=e+1;}else{o+=h[i];c++;i++;}}while(st-->0)o+='</b>';return o;}
   async function type(t,pre,speed){for(let i=0;i<=t.length;i++){code.innerHTML=pre+esc(t.slice(0,i))+C;await wait(speed);}}
+  let aivVis=true;
   async function loop(){while(true){
+    while(!aivVis){await wait(300);}
     hide(ac,aip,err,out,dm,agent);aibtn.classList.remove('pulse');yes.classList.remove('hit');fix.classList.remove('hit');
     hint.textContent='';amsg.innerHTML='';amsg.classList.remove('gen');awork.style.display='';code.innerHTML=C;await wait(650);
     await type('import tran','',56);
@@ -2143,7 +2146,7 @@ speech = <span class="fn">tts</span>(<span class="st">"Hello World"</span>)
     hide(dm);cell.classList.remove('running');code.innerHTML=fixed;out.classList.add('show');await wait(3600);hide(out,agent);
   }}
   function fitScene(){const f=document.querySelector('.fit'),s=document.querySelector('.scene');if(f&&s)s.style.transform='scale('+(f.clientWidth/1175)+')';}
-  window.addEventListener('resize',fitScene);fitScene();loop();
+  window.addEventListener('resize',fitScene);fitScene();try{new IntersectionObserver(function(es){aivVis=es[0].isIntersecting;},{rootMargin:'150px'}).observe(document.getElementById('aivibe'));}catch(e){}loop();
 })();
 </script>
     <script>
@@ -4200,14 +4203,14 @@ speech = <span class="fn">tts</span>(<span class="st">"Hello World"</span>)
     // Zoom is disabled (wheel blocked before 3Dmol sees it, no preventDefault so the page still scrolls),
     // and the model starts shifted left so the floating agent panel on the right never covers it.
     (function(){
-      const el=document.getElementById('mol-1crn'); if(!el) return; let tries=0;
+      const el=document.getElementById('mol-1crn'); if(!el) return; let tries=0, viewer=null;
       ['wheel','mousewheel','DOMMouseScroll'].forEach(function(ev){
         el.addEventListener(ev, function(e){ e.stopImmediatePropagation(); }, {capture:true});
       });
-      (function init(){
+      function init(){
         if(!window.$3Dmol){ if(tries++<80) setTimeout(init,150); return; }
         fetch('assets/1crn.pdb').then(function(r){return r.text();}).then(function(pdb){
-          const v=$3Dmol.createViewer(el,{backgroundColor:'white'});
+          const v=$3Dmol.createViewer(el,{backgroundColor:'white'}); viewer=v;
           v.addModel(pdb,'pdb');
           v.setStyle({}, {cartoon:{color:'#c9c9c9'}});
           v.setStyle({ss:'h'}, {cartoon:{color:'#cf8d8a'}});
@@ -4216,7 +4219,13 @@ speech = <span class="fn">tts</span>(<span class="st">"Hello World"</span>)
           v.translate(-Math.round(el.clientWidth*0.13), 0);   // start slightly left, clear of the agent panel
           v.render(); v.spin('y',0.35);
         }).catch(function(){});
-      })();
+      }
+      if(!('IntersectionObserver' in window)){ init(); return; }
+      var _built=false;
+      new IntersectionObserver(function(es){es.forEach(function(e){
+        if(e.isIntersecting){ if(!_built){_built=true; init();} else if(viewer){try{viewer.spin('y',0.35);viewer.render();}catch(_){}} }
+        else if(viewer){ try{viewer.spin(false);}catch(_){} }
+      });},{rootMargin:'200px'}).observe(el);
     })();
 
     // M-chip / MPS highlight: glass frame expands, then the text types in
@@ -4293,6 +4302,13 @@ speech = <span class="fn">tts</span>(<span class="st">"Hello World"</span>)
         el.addEventListener("pointerleave",()=>{ el.style.transform=""; });
       });
     }
+  </script>
+  <script>
+  /* Battery/heat: pause off-screen CSS animations; the heavy WebGL + typing loops self-gate below. */
+  (function(){ if(!('IntersectionObserver' in window)) return;
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){e.target.classList.toggle('perf-idle',!e.isIntersecting);});},{rootMargin:'120px'});
+    document.querySelectorAll('main > section, footer').forEach(function(s){io.observe(s);});
+  })();
   </script>
 </body>
 </html>
