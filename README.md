@@ -7,7 +7,7 @@ Static landing page for the Vibeit app.
 Primary public path after GitHub Pages and the custom domain finish provisioning:
 
 ```text
-https://www.mecury.co.uk/vibeit/
+https://mecury.co.uk/vibeit/
 ```
 
 GitHub Pages fallback:
