@@ -22,7 +22,11 @@ https://zhiluo20.github.io/vibeit/
 index.html
 privacy.html
 terms.html
+terms-of-use.html
 support.html
+privacy/
+terms/
+support/
 assets/
 ```
 

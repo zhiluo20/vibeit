@@ -6,9 +6,11 @@
   <meta name="description" content="Privacy Policy for Vibeit, the native Python IDE for iPadOS, iOS, and macOS.">
   <meta name="robots" content="index,follow">
   <meta property="og:title" content="Vibeit Privacy Policy">
-  <meta property="og:url" content="https://mecury.co.uk/vibeit/privacy">
+  <meta property="og:url" content="https://mecury.co.uk/vibeit/privacy.html">
   <meta name="theme-color" content="#f5f5f7">
   <link rel="icon" type="image/png" href="assets/pydev-icon.png">
+  <link rel="canonical" href="https://mecury.co.uk/vibeit/privacy.html">
+  <link rel="stylesheet" href="assets/legal.css">
   <title>Privacy Policy - Vibeit</title>
   <style>
     :root {
@@ -86,21 +88,25 @@
     .site-footer a { color: var(--muted); }
   </style>
 </head>
-<body>
+<body data-legal-page="privacy">
   <nav class="site-nav" aria-label="Primary navigation">
     <div class="nav-inner">
       <a class="brand" href="index.html" aria-label="Vibeit home">
         <img src="assets/pydev-icon.png" width="30" height="30" alt="">
         <span>Vibeit</span>
       </a>
-      <div class="nav-links">
-        <a href="index.html">Home</a>
+      <div class="nav-actions">
+        <a href="index.html" data-ui="home">Home</a>
+        <label class="language-field" for="languageSelect">
+          <span data-ui="languageLabel">Language</span>
+          <select class="language-select" id="languageSelect" aria-label="Language"></select>
+        </label>
       </div>
     </div>
   </nav>
 
   <main>
-    <div class="card">
+    <div class="card" id="legalContent">
       <h1>Privacy Policy</h1>
       <p class="updated">Last updated: June 30, 2026</p>
 
@@ -193,8 +199,14 @@
   </main>
 
   <footer class="site-footer">
-    <span>Vibeit — native Python IDE for iPadOS, iOS, and macOS.</span>
-    <span><a href="index.html">Home</a> / <a href="terms">Terms</a> / <a href="https://github.com/zhiluo20/vibeit">GitHub</a></span>
+    <span data-ui="footerTagline">Vibeit — native Python IDE for iPadOS, iOS, and macOS.</span>
+    <span>
+      <a href="index.html" data-ui="home">Home</a> /
+      <a href="terms.html" data-ui="terms">Terms</a> /
+      <a href="support.html" data-ui="support">Support</a> /
+      <a href="https://github.com/zhiluo20/vibeit">GitHub</a>
+    </span>
   </footer>
+  <script src="assets/legal-i18n.js" defer></script>
 </body>
 </html>
