@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Privacy Policy for Vibeit, the native Python IDE for iPadOS, iOS, and macOS.">
+  <meta name="robots" content="index,follow">
+  <meta property="og:title" content="Vibeit Privacy Policy">
+  <meta property="og:url" content="https://www.mecury.co.uk/vibeit/privacy">
+  <meta name="theme-color" content="#f5f5f7">
+  <link rel="icon" type="image/png" href="assets/pydev-icon.png">
+  <title>Privacy Policy - Vibeit</title>
+  <style>
+    :root {
+      --page: #f5f5f7;
+      --surface: #fbfbfd;
+      --surface-strong: #ffffff;
+      --text: #1d1d1f;
+      --muted: #6e6e73;
+      --line: rgba(29, 29, 31, 0.12);
+      --accent: #0066cc;
+      --soft-blue: #eaf4ff;
+      --radius: 22px;
+      color-scheme: light dark;
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", sans-serif;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --page: #101012;
+        --surface: #171719;
+        --surface-strong: #1f1f22;
+        --text: #f5f5f7;
+        --muted: #a1a1a6;
+        --line: rgba(245, 245, 247, 0.14);
+        --accent: #4da3ff;
+        --soft-blue: rgba(77, 163, 255, 0.16);
+      }
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: radial-gradient(circle at 50% -10%, rgba(0, 102, 204, 0.12), transparent 32rem), var(--page);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .site-nav {
+      position: sticky; top: 0; z-index: 10;
+      border-bottom: 1px solid var(--line);
+      background: color-mix(in srgb, var(--page) 82%, transparent);
+      backdrop-filter: blur(22px) saturate(180%);
+    }
+    .nav-inner {
+      max-width: 820px; height: 64px; margin: 0 auto; padding: 0 24px;
+      display: flex; align-items: center; justify-content: space-between; gap: 24px;
+    }
+    .brand { display: inline-flex; align-items: center; gap: 10px; font-weight: 700; color: var(--text); }
+    .brand img { width: 30px; height: 30px; border-radius: 8px; }
+    .nav-links a { color: var(--muted); font-size: 14px; }
+    .nav-links a:hover { color: var(--text); }
+    main { max-width: 820px; margin: 0 auto; padding: 40px 24px 64px; }
+    .card {
+      background: var(--surface); border: 1px solid var(--line);
+      border-radius: var(--radius); padding: 28px 30px; box-shadow: 0 18px 60px rgba(29, 29, 31, 0.08);
+    }
+    h1 { font-size: clamp(28px, 5vw, 40px); margin: 0 0 6px; letter-spacing: -0.02em; }
+    h2 { font-size: 21px; margin: 32px 0 10px; letter-spacing: -0.01em; }
+    h3 { font-size: 17px; margin: 20px 0 6px; }
+    p, li { color: var(--text); }
+    .muted { color: var(--muted); }
+    .updated { color: var(--muted); font-size: 14px; margin-top: 0; }
+    .tldr {
+      background: var(--soft-blue); border: 1px solid var(--line);
+      border-radius: 16px; padding: 16px 18px; margin: 22px 0;
+    }
+    ul { padding-left: 22px; }
+    li { margin: 6px 0; }
+    code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 0.92em; }
+    .site-footer {
+      max-width: 820px; margin: 0 auto; padding: 24px; color: var(--muted);
+      font-size: 13px; display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap;
+      border-top: 1px solid var(--line);
+    }
+    .site-footer a { color: var(--muted); }
+  </style>
+</head>
+<body>
+  <nav class="site-nav" aria-label="Primary navigation">
+    <div class="nav-inner">
+      <a class="brand" href="index.html" aria-label="Vibeit home">
+        <img src="assets/pydev-icon.png" width="30" height="30" alt="">
+        <span>Vibeit</span>
+      </a>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <div class="card">
+      <h1>Privacy Policy</h1>
+      <p class="updated">Last updated: June 30, 2026</p>
+
+      <p>This Privacy Policy explains how <strong>Vibeit</strong> (“Vibeit”, “the app”, “we”, “us”) handles
+        information when you use the Vibeit app on iPadOS, iOS, and macOS. Vibeit is a native Python notebook
+        IDE designed to run on your device. We built it to be private by default: your code runs in an
+        on-device Python kernel, and your files, credentials, and API keys stay on your device.</p>
+
+      <div class="tldr">
+        <strong>The short version.</strong> We do not operate analytics or advertising servers, and the app
+        contains no third-party tracking or advertising SDKs. We do not sell your personal information. Data
+        leaves your device only when <em>you</em> use a feature that requires it — such as calling an AI
+        provider with your own key, connecting to a remote server you configured, or downloading a package.
+      </div>
+
+      <h2>1. Information stored on your device</h2>
+      <p>The following stay on your device (and in your own iCloud/Files storage if you choose to save there).
+        We do not receive copies of them:</p>
+      <ul>
+        <li><strong>Notebooks, scripts, and workspace files</strong> you create or open.</li>
+        <li><strong>Python execution</strong> — code runs in a local kernel; your code and its output are not
+          sent to us.</li>
+        <li><strong>Credentials and secrets</strong> — API keys, SSH passwords, key passphrases, and Cloudflare
+          Access tokens are stored in the device <strong>Keychain</strong> and are never written into notebooks,
+          logs, or transmitted to us.</li>
+        <li><strong>App settings</strong> — preferences such as theme, language, and host profiles.</li>
+      </ul>
+
+      <h2>2. Features that send data to third parties</h2>
+      <p>When you choose to use these features, data is sent to the relevant third party under
+        <em>their</em> privacy policies. Vibeit acts only as the client.</p>
+
+      <h3>AI assistance</h3>
+      <p>If you enable AI features and use a cloud AI provider (for example OpenAI or Anthropic), the prompts
+        you send and the relevant code or context are transmitted to that provider using the API key or sign-in
+        you supplied, so it can return a response. Apple Intelligence / on-device foundation models, where used,
+        run on your device. We do not receive your prompts or completions.</p>
+
+      <h3>Remote connections (SSH/SFTP and Cloudflare Access)</h3>
+      <p>If you configure a remote host, Vibeit connects directly to the server <em>you</em> specify to run
+        commands, transfer files, or run Python. For hosts reached through Cloudflare Access, a sign-in window
+        authenticates with your identity provider and stores the resulting access token in the Keychain. We do
+        not operate these servers and do not receive your remote session contents.</p>
+
+      <h3>Package downloads</h3>
+      <p>Managed packages are fetched over HTTPS from public package indexes (including this GitHub-hosted
+        registry). As with any web request, the hosting provider may process your IP address and request
+        metadata to deliver the files.</p>
+
+      <h2>3. Subscriptions and payments</h2>
+      <p>Vibeit subscriptions are sold through <strong>Apple In-App Purchase</strong>. Apple processes your
+        payment and manages your subscription; we never receive or store your payment card details. The app
+        receives only your subscription/entitlement status from Apple (via StoreKit) to unlock features. Manage
+        or cancel your subscription anytime in your Apple Account settings.</p>
+
+      <h2>4. Information we collect</h2>
+      <p>We do not maintain user accounts and do not run a backend that collects your personal information. The
+        app does not include third-party analytics or advertising. If you contact us for support by email, we
+        will receive the information you choose to include in your message.</p>
+
+      <h2>5. Data security</h2>
+      <p>Secrets are stored using the operating system Keychain. Network connections use TLS/SSH encryption.
+        No method of storage or transmission is 100% secure, but we rely on Apple platform protections and
+        encrypted transport to safeguard your information.</p>
+
+      <h2>6. Data retention and deletion</h2>
+      <p>Because your data lives on your device, you control it. You can delete files, hosts, and credentials in
+        the app, and removing the app deletes its local data and Keychain items associated with it. Data already
+        sent to a third party (e.g., an AI provider or your remote server) is governed by that party’s policies.</p>
+
+      <h2>7. Children’s privacy</h2>
+      <p>Vibeit is a developer tool and is not directed to children under 13 (or the equivalent minimum age in
+        your jurisdiction). We do not knowingly collect personal information from children.</p>
+
+      <h2>8. International users and your rights</h2>
+      <p>Depending on where you live (for example, under the EU GDPR or California CCPA/CPRA), you may have rights
+        to access, correct, delete, or restrict the processing of your personal information. Because we do not
+        collect or store your personal information on our own servers, most such requests are fulfilled directly
+        on your device or with the relevant third-party provider. You can also contact us using the details below.</p>
+
+      <h2>9. Changes to this policy</h2>
+      <p>We may update this Privacy Policy from time to time. We will revise the “Last updated” date above and,
+        for material changes, provide notice as appropriate. Continued use of the app after an update constitutes
+        acceptance of the revised policy.</p>
+
+      <h2>10. Contact</h2>
+      <p>Questions about this policy or your privacy? Contact us at
+        <a href="mailto:aroluo@icloud.com">aroluo@icloud.com</a>.</p>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <span>Vibeit — native Python IDE for iPadOS, iOS, and macOS.</span>
+    <span><a href="index.html">Home</a> / <a href="terms">Terms</a> / <a href="https://github.com/zhiluo20/vibeit">GitHub</a></span>
+  </footer>
+</body>
+</html>

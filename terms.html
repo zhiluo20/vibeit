@@ -1,0 +1,261 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Terms of Service for Vibeit, the native Python IDE for iPadOS, iOS, and macOS.">
+  <meta name="robots" content="index,follow">
+  <meta property="og:title" content="Vibeit Terms of Service">
+  <meta property="og:url" content="https://www.mecury.co.uk/vibeit/terms">
+  <meta name="theme-color" content="#f5f5f7">
+  <link rel="icon" type="image/png" href="assets/pydev-icon.png">
+  <title>Terms of Service - Vibeit</title>
+  <style>
+    :root {
+      --page: #f5f5f7;
+      --surface: #fbfbfd;
+      --surface-strong: #ffffff;
+      --text: #1d1d1f;
+      --muted: #6e6e73;
+      --line: rgba(29, 29, 31, 0.12);
+      --accent: #0066cc;
+      --soft-blue: #eaf4ff;
+      --radius: 22px;
+      color-scheme: light dark;
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", sans-serif;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --page: #101012;
+        --surface: #171719;
+        --surface-strong: #1f1f22;
+        --text: #f5f5f7;
+        --muted: #a1a1a6;
+        --line: rgba(245, 245, 247, 0.14);
+        --accent: #4da3ff;
+        --soft-blue: rgba(77, 163, 255, 0.16);
+      }
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: radial-gradient(circle at 50% -10%, rgba(0, 102, 204, 0.12), transparent 32rem), var(--page);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .site-nav {
+      position: sticky; top: 0; z-index: 10;
+      border-bottom: 1px solid var(--line);
+      background: color-mix(in srgb, var(--page) 82%, transparent);
+      backdrop-filter: blur(22px) saturate(180%);
+    }
+    .nav-inner {
+      max-width: 820px; height: 64px; margin: 0 auto; padding: 0 24px;
+      display: flex; align-items: center; justify-content: space-between; gap: 24px;
+    }
+    .brand { display: inline-flex; align-items: center; gap: 10px; font-weight: 700; color: var(--text); }
+    .brand img { width: 30px; height: 30px; border-radius: 8px; }
+    .nav-links a { color: var(--muted); font-size: 14px; }
+    .nav-links a:hover { color: var(--text); }
+    main { max-width: 820px; margin: 0 auto; padding: 40px 24px 64px; }
+    .card {
+      background: var(--surface); border: 1px solid var(--line);
+      border-radius: var(--radius); padding: 28px 30px; box-shadow: 0 18px 60px rgba(29, 29, 31, 0.08);
+    }
+    h1 { font-size: clamp(28px, 5vw, 40px); margin: 0 0 6px; letter-spacing: -0.02em; }
+    h2 { font-size: 21px; margin: 32px 0 10px; letter-spacing: -0.01em; }
+    h3 { font-size: 17px; margin: 20px 0 6px; }
+    p, li { color: var(--text); }
+    .muted { color: var(--muted); }
+    .updated { color: var(--muted); font-size: 14px; margin-top: 0; }
+    .tldr {
+      background: var(--soft-blue); border: 1px solid var(--line);
+      border-radius: 16px; padding: 16px 18px; margin: 22px 0;
+    }
+    .legal { text-transform: uppercase; letter-spacing: 0.02em; font-size: 0.92em; }
+    ul { padding-left: 22px; }
+    li { margin: 6px 0; }
+    code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 0.92em; }
+    .site-footer {
+      max-width: 820px; margin: 0 auto; padding: 24px; color: var(--muted);
+      font-size: 13px; display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap;
+      border-top: 1px solid var(--line);
+    }
+    .site-footer a { color: var(--muted); }
+  </style>
+</head>
+<body>
+  <nav class="site-nav" aria-label="Primary navigation">
+    <div class="nav-inner">
+      <a class="brand" href="index.html" aria-label="Vibeit home">
+        <img src="assets/pydev-icon.png" width="30" height="30" alt="">
+        <span>Vibeit</span>
+      </a>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <div class="card">
+      <h1>Terms of Service</h1>
+      <p class="updated">Last updated: July 5, 2026</p>
+
+      <p>These Terms of Service (“Terms”) are a legal agreement between you and the developer of
+        <strong>Vibeit</strong> (“Vibeit”, “the app”, “we”, “us”, “our”) governing your download and use of the
+        Vibeit application on iPadOS, iOS, and macOS. By downloading, installing, or using Vibeit, you agree to
+        these Terms. If you do not agree, do not use the app.</p>
+
+      <div class="tldr">
+        <strong>The short version.</strong> Vibeit is a developer tool that runs Python and optional AI and
+        network features on your device and through services <em>you</em> connect. You are responsible for your
+        own code, data, credentials, and for how you use those features. The app is provided “as is”; AI output
+        and executed code can be wrong or insecure, so review before you rely on them. To the maximum extent
+        permitted by law, we are not liable for data loss, security incidents, or issues arising from third-party
+        services or your use of the app.
+      </div>
+
+      <h2>1. Eligibility and acceptance</h2>
+      <p>You must be at least 13 years old (or the minimum age of digital consent in your jurisdiction) and able to
+        form a binding contract to use Vibeit. If you use the app on behalf of an organization, you represent that
+        you are authorized to accept these Terms for it. Your use is also subject to Apple’s
+        <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/">Licensed Application End User
+        License Agreement (EULA)</a>; where these Terms and Apple’s EULA conflict, Apple’s EULA controls with
+        respect to your license to use the app from the App Store.</p>
+
+      <h2>2. What Vibeit is</h2>
+      <p>Vibeit is a native Python notebook and script IDE that executes code in an on-device Python runtime. It
+        also offers optional features that you may choose to enable, including: AI assistance through providers you
+        configure; connections to remote servers over SSH/SFTP (including via Cloudflare Access); source control
+        and GitHub integration; and installing or downloading Python packages. These optional features connect to
+        services operated by you or by third parties, not by us.</p>
+
+      <h2>3. License</h2>
+      <p>Subject to these Terms and Apple’s EULA, we grant you a personal, limited, non-exclusive, non-transferable,
+        revocable license to use Vibeit on Apple-branded devices that you own or control, for your lawful personal
+        or internal business use. You may not copy (except as permitted by the App Store), modify, reverse engineer,
+        decompile, sublicense, sell, or distribute the app except as allowed by applicable law. All rights not
+        expressly granted are reserved.</p>
+
+      <h2>4. Your responsibilities and acceptable use</h2>
+      <p>You are solely responsible for the code you write or run, the data you process, the credentials you enter,
+        and the systems you connect to. You agree that you will not use Vibeit to:</p>
+      <ul>
+        <li>violate any law or regulation, or infringe the rights (including intellectual-property, privacy, or
+          data-protection rights) of others;</li>
+        <li>access, scan, test, or run commands against any computer, server, network, or account
+          <strong>without authorization</strong> from its owner;</li>
+        <li>develop, store, or distribute malware, or conduct attacks, intrusions, credential theft, unauthorized
+          data exfiltration, or other malicious or abusive activity;</li>
+        <li>upload to, or process through, any third-party service (including AI providers) any data you are not
+          permitted to disclose, or any content that is unlawful; or</li>
+        <li>attempt to circumvent security, usage, or rate limits of the app or of any connected service.</li>
+      </ul>
+      <p>You are responsible for maintaining the security of your device, your Keychain, your API keys, your SSH and
+        access credentials, and your source control tokens, and for backing up your own work.</p>
+
+      <h2>5. Third-party services</h2>
+      <p>When you enable a feature that connects to a third party — for example an AI provider (such as OpenAI or
+        Anthropic), a remote host you specify, Cloudflare Access, GitHub, or a package index — your use of that
+        service is governed by <em>that party’s</em> terms and privacy policy, and you are responsible for any fees
+        those services charge (including AI API usage costs). We do not operate, control, or endorse those services
+        and are not responsible or liable for their availability, content, security, actions, or charges. Vibeit
+        acts only as a client that transmits requests you initiate.</p>
+
+      <h2>6. AI features and generated output</h2>
+      <p>AI features may produce code, explanations, or other content that is inaccurate, incomplete, insecure,
+        biased, or otherwise unsuitable, and may not reflect current best practices. AI output is not professional,
+        legal, financial, medical, or security advice. <strong>You are responsible for reviewing, testing, and
+        validating any AI-generated or app-suggested code or content before you rely on, execute, publish, or ship
+        it.</strong> When you use an AI feature, the prompt and the context you choose to include (which may contain
+        code from the file you are working on) are sent to the provider you configured; you are responsible for not
+        sending data you are not permitted to disclose.</p>
+
+      <h2>7. Code execution, remote commands, and data</h2>
+      <p>Vibeit runs the code and shell commands that you or, at your direction, the AI agent provide. We do not
+        review or control that code, and executing code or remote commands can modify or delete files, consume
+        resources, or have other consequences on your device or on servers you connect to. You accept these risks
+        and are responsible for the outcomes. You retain ownership of your code, notebooks, and data; we do not
+        claim ownership of your content.</p>
+
+      <h2>8. Security and data-loss disclaimer</h2>
+      <p>We design Vibeit to be private by default (see our
+        <a href="privacy">Privacy Policy</a>) and use platform protections such as the Keychain and encrypted
+        transport. However, <strong>no software, storage, or transmission method is completely secure, and we do
+        not warrant that the app will be error-free, uninterrupted, or free from vulnerabilities, data loss, or
+        unauthorized access.</strong> To the maximum extent permitted by law, we are not responsible for any loss,
+        corruption, exposure, or leakage of data, or for any security incident, arising from your use of the app,
+        your configuration, your credentials, the code or commands you run, or any third-party service.</p>
+
+      <h2>9. Subscriptions and payments</h2>
+      <p>Some features may require a paid subscription sold through <strong>Apple In-App Purchase</strong>. Payment
+        is charged to your Apple Account, and subscriptions renew automatically unless canceled at least 24 hours
+        before the end of the current period. You can manage or cancel your subscription in your Apple Account
+        settings. Apple processes all payments and refunds under Apple’s terms; we do not receive or store your
+        payment details. Any free trial converts to a paid subscription unless canceled before it ends.</p>
+
+      <h2 class="legal">10. Disclaimer of warranties</h2>
+      <p class="legal">The app is provided “as is” and “as available”, without warranties of any kind, whether
+        express, implied, or statutory, including any implied warranties of merchantability, fitness for a
+        particular purpose, title, accuracy, and non-infringement. We do not warrant that the app or any feature
+        will meet your requirements, be available, accurate, secure, or error-free, or that defects will be
+        corrected. Some jurisdictions do not allow the exclusion of certain warranties, so some of the above may
+        not apply to you.</p>
+
+      <h2 class="legal">11. Limitation of liability</h2>
+      <p class="legal">To the maximum extent permitted by applicable law, in no event will we be liable for any
+        indirect, incidental, special, consequential, exemplary, or punitive damages, or for any loss of profits,
+        revenue, data, goodwill, or other intangible losses, arising out of or relating to your use of, or
+        inability to use, the app — including any data loss, corruption, or leakage, security incident, unauthorized
+        access, AI output, executed code or commands, or any third-party service — even if we have been advised of
+        the possibility of such damages. To the maximum extent permitted by law, our total aggregate liability for
+        all claims relating to the app will not exceed the greater of (a) the amount you paid us for the app in the
+        twelve (12) months before the event giving rise to the claim, or (b) ten U.S. dollars (US$10). Some
+        jurisdictions do not allow certain limitations, so some of the above may not apply to you.</p>
+
+      <h2>12. Indemnification</h2>
+      <p>To the extent permitted by law, you agree to indemnify and hold us harmless from any claims, damages,
+        liabilities, and expenses (including reasonable legal fees) arising out of your misuse of the app, your
+        violation of these Terms or of any law, your code, data, or content, or your use of any connected
+        third-party service or system.</p>
+
+      <h2>13. Termination</h2>
+      <p>You may stop using the app at any time by deleting it. We may suspend or terminate your license if you
+        materially breach these Terms or use the app unlawfully. Sections that by their nature should survive
+        termination (including ownership, disclaimers, limitation of liability, and indemnification) will survive.</p>
+
+      <h2>14. Apple App Store terms</h2>
+      <p>These Terms are between you and us only, not with Apple. Apple is not responsible for the app or its
+        content, and is under no obligation to provide maintenance or support for it. To the maximum extent
+        permitted by law, Apple has no warranty obligation with respect to the app, and any claims relating to the
+        app are between you and us. Apple and its subsidiaries are third-party beneficiaries of these Terms and may
+        enforce them against you. You represent that you are not located in a country subject to a U.S. Government
+        embargo or designated as “terrorist supporting”, and that you are not on any U.S. Government restricted-party
+        list.</p>
+
+      <h2>15. Governing law</h2>
+      <p>These Terms are governed by the laws of the jurisdiction in which the developer is established, without
+        regard to its conflict-of-laws rules, except where mandatory consumer-protection laws of your place of
+        residence provide otherwise. Nothing in these Terms limits any non-waivable statutory rights you may have as
+        a consumer.</p>
+
+      <h2>16. Changes to these Terms</h2>
+      <p>We may update these Terms from time to time. We will revise the “Last updated” date above and, for material
+        changes, provide notice as appropriate. Your continued use of the app after an update constitutes acceptance
+        of the revised Terms.</p>
+
+      <h2>17. Contact</h2>
+      <p>Questions about these Terms? Contact us at <a href="mailto:aroluo@icloud.com">aroluo@icloud.com</a>.</p>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <span>Vibeit — native Python IDE for iPadOS, iOS, and macOS.</span>
+    <span><a href="index.html">Home</a> / <a href="privacy">Privacy</a> / <a href="https://github.com/zhiluo20/vibeit">GitHub</a></span>
+  </footer>
+</body>
+</html>
