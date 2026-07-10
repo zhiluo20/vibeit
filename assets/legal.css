@@ -31,7 +31,8 @@
   font: inherit;
   font-size: 13px;
   line-height: 1.2;
-  padding: 8px 30px 8px 13px;
+  padding-block: 8px;
+  padding-inline: 13px 30px;
   background-image:
     linear-gradient(45deg, transparent 50%, currentColor 50%),
     linear-gradient(135deg, currentColor 50%, transparent 50%);
@@ -40,6 +41,14 @@
     calc(100% - 11px) 50%;
   background-size: 5px 5px, 5px 5px;
   background-repeat: no-repeat;
+}
+
+/* The caret is two triangles pinned to the right edge. Mirroring it means moving both to the
+   left edge AND swapping which one sits outermost, or the chevron comes out pointing up. */
+[dir="rtl"] .language-select {
+  background-position:
+    11px 50%,
+    16px 50%;
 }
 
 .language-select:focus {
