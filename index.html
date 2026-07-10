@@ -557,6 +557,8 @@
     .plan .price .amount{font-size:34px;font-weight:700;letter-spacing:-.02em;color:var(--text);
       font-variant-numeric:tabular-nums;transition:opacity .18s ease}
     .plan .price .per{font-size:14.5px;color:var(--muted)}
+    .plan .price .was{font-size:14.5px;color:var(--faint);text-decoration:line-through;text-decoration-thickness:1px;margin-left:2px}
+    .plan .price .was[hidden]{display:none}
     .plan .price[data-state="pending"] .amount{opacity:.35}
     .plan.pro .price .amount{background:linear-gradient(100deg,#e6dcff,#fff 52%,#cbbcff);-webkit-background-clip:text;background-clip:text;
       color:transparent;-webkit-text-fill-color:transparent}
@@ -574,6 +576,22 @@
     .btn-pro{background:linear-gradient(100deg,#8b5cf6,#a78bfa 50%,#7c6cff);color:#fff;box-shadow:0 6px 24px rgba(140,92,255,.42);position:relative;overflow:hidden}
     .btn-pro::before{content:"";position:absolute;inset:0;border-radius:inherit;background:linear-gradient(115deg,transparent 38%,rgba(255,255,255,.4) 50%,transparent 62%);background-size:260% 100%;animation:proSheen 3s linear infinite;pointer-events:none}
     .btn-pro:hover{box-shadow:0 10px 36px rgba(140,92,255,.62)}
+
+    /* Corner ribbon: what this cycle saves against paying monthly for the same span.
+       Must sit after `.plan.pro>*`, which would otherwise win the position/z-index cascade. */
+    .plan{position:relative}
+    .plan .ribbon{position:absolute;top:0;right:0;z-index:2;width:132px;height:132px;
+      overflow:hidden;pointer-events:none;border-top-right-radius:var(--radius)}
+    .plan .ribbon[hidden]{display:none}
+    /* Band geometry: with right:-42 and width:180 the label centres on the corner's diagonal
+       and both ends run past the container, so they clip flush with the card edges. */
+    .plan .ribbon .band{position:absolute;top:33px;right:-42px;width:180px;display:block;
+      transform:rotate(45deg);text-align:center;padding:6px 0;font-size:12.5px;font-weight:700;letter-spacing:.01em;
+      background:linear-gradient(100deg,var(--accent),var(--accent-2));color:var(--accent-ink);
+      box-shadow:0 4px 14px rgba(0,0,0,.35)}
+    .plan.pro .ribbon .band{background:linear-gradient(100deg,#8b5cf6,#a78bfa);color:#fff}
+    /* Keep the heading clear of the ribbon only while one is showing. */
+    .plan.has-ribbon h3{padding-right:74px}
 
     .final{text-align:center;padding:96px 0;margin-top:20px;position:relative}
     .final h2{font-size:clamp(30px,4vw,52px);letter-spacing:-.03em;line-height:1.06;margin:0 auto 26px;max-width:26ch;font-weight:680}
@@ -2210,12 +2228,14 @@ speech = <span class="fn">tts</span>(<span class="st">"Hello World"</span>)
       </div>
       <div class="price-wrap">
         <div class="plan std reveal">
+          <span class="ribbon" hidden><span class="band"></span></span>
           <span class="tag" data-i18n="plan.std.tag">Standard</span>
           <h3 data-i18n="plan.std.title">The full on-device IDE</h3>
           <p class="desc" data-i18n="plan.std.desc">Everything you need to write and run real Python on your device.</p>
           <p class="price" data-plan="std" data-state="pending">
             <span class="amount">$2.99</span>
             <span class="per" data-i18n="price.perMonth">/month</span>
+            <span class="was" hidden></span>
           </p>
           <ul>
             <li><svg viewBox="0 0 20 20" fill="none"><path d="M5 10.5 8.5 14 15 6.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-i18n="plan.std.f1">Notebooks and scripts, on-device kernel</span></li>
@@ -2225,12 +2245,14 @@ speech = <span class="fn">tts</span>(<span class="st">"Hello World"</span>)
           <a class="btn btn-primary" style="width:100%" href="https://apps.apple.com/app/id6786619257" data-i18n="plan.cta">Start free trial</a>
         </div>
         <div class="plan pro reveal">
+          <span class="ribbon" hidden><span class="band"></span></span>
           <span class="tag" data-i18n="plan.pro.tag">Pro</span>
           <h3 data-i18n="plan.pro.title">Everything, plus the cloud</h3>
           <p class="desc" data-i18n="plan.pro.desc">For when your work reaches past the device.</p>
           <p class="price" data-plan="pro" data-state="pending">
             <span class="amount">$4.99</span>
             <span class="per" data-i18n="price.perMonth">/month</span>
+            <span class="was" hidden></span>
           </p>
           <ul>
             <li><svg viewBox="0 0 20 20" fill="none"><path d="M5 10.5 8.5 14 15 6.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-i18n="plan.pro.f1">Everything in Standard</span></li>
@@ -3637,7 +3659,7 @@ speech = <span class="fn">tts</span>(<span class="st">"Hello World"</span>)
         "plan.pro.f1":"Everything in Standard","plan.pro.f2":"Remote servers over SSH and SFTP","plan.pro.f3":"GitHub sync and cloud AI providers",
         "plan.cta":"Start free trial","pricing.note":"Billed monthly, quarterly, or yearly after the trial.",
         "price.monthly":"Monthly","price.quarterly":"Quarterly","price.yearly":"Yearly",
-        "price.perMonth":"/month","price.perQuarter":"/quarter","price.perYear":"/year",
+        "price.perMonth":"/month","price.perQuarter":"/quarter","price.perYear":"/year","price.save":"Save {n}%",
         "final.title":"Turn your iPad into a real dev machine.",
         "footer.privacy":"Privacy","footer.terms":"Terms","footer.support":"Support","footer.rights":"Made for iPad."
       },
@@ -3670,7 +3692,7 @@ speech = <span class="fn">tts</span>(<span class="st">"Hello World"</span>)
         "plan.pro.f1":"包含标准版全部内容","plan.pro.f2":"通过 SSH、SFTP 连接远程服务器","plan.pro.f3":"GitHub 同步与云端 AI 服务商",
         "plan.cta":"开始免费试用","pricing.note":"试用结束后按月、季或年计费。",
         "price.monthly":"按月","price.quarterly":"按季","price.yearly":"按年",
-        "price.perMonth":"/月","price.perQuarter":"/季","price.perYear":"/年",
+        "price.perMonth":"/月","price.perQuarter":"/季","price.perYear":"/年","price.save":"省 {n}%",
         "final.title":"把你的 iPad 变成真正的开发机",
         "footer.privacy":"隐私政策","footer.terms":"条款","footer.support":"支持","footer.rights":"为 iPad 打造。"
       },
@@ -3703,7 +3725,7 @@ speech = <span class="fn">tts</span>(<span class="st">"Hello World"</span>)
         "plan.pro.f1":"スタンダードのすべて","plan.pro.f2":"SSH・SFTP でのリモートサーバー","plan.pro.f3":"GitHub 同期とクラウド AI プロバイダ",
         "plan.cta":"無料トライアルを開始","pricing.note":"トライアル後は月額・四半期・年額で課金。",
         "price.monthly":"月額","price.quarterly":"四半期","price.yearly":"年額",
-        "price.perMonth":"/月","price.perQuarter":"/3か月","price.perYear":"/年",
+        "price.perMonth":"/月","price.perQuarter":"/3か月","price.perYear":"/年","price.save":"{n}% お得",
         "final.title":"あなたの iPad を、本物の開発マシンに。",
         "footer.privacy":"プライバシー","footer.terms":"利用規約","footer.support":"サポート","footer.rights":"iPad のために。"
       },
@@ -3736,7 +3758,7 @@ speech = <span class="fn">tts</span>(<span class="st">"Hello World"</span>)
         "plan.pro.f1":"스탠다드의 모든 것","plan.pro.f2":"SSH·SFTP 원격 서버","plan.pro.f3":"GitHub 동기화와 클라우드 AI 제공자",
         "plan.cta":"무료 체험 시작","pricing.note":"체험 후 월·분기·연 단위로 청구.",
         "price.monthly":"월간","price.quarterly":"분기","price.yearly":"연간",
-        "price.perMonth":"/월","price.perQuarter":"/분기","price.perYear":"/년",
+        "price.perMonth":"/월","price.perQuarter":"/분기","price.perYear":"/년","price.save":"{n}% 할인",
         "final.title":"당신의 iPad를 진짜 개발 머신으로.",
         "footer.privacy":"개인정보","footer.terms":"약관","footer.support":"지원","footer.rights":"iPad을 위해 만들었습니다."
       },
@@ -3769,7 +3791,7 @@ speech = <span class="fn">tts</span>(<span class="st">"Hello World"</span>)
         "plan.pro.f1":"Tout le Standard","plan.pro.f2":"Serveurs distants en SSH et SFTP","plan.pro.f3":"Sync GitHub et fournisseurs d'IA cloud",
         "plan.cta":"Commencer l'essai","pricing.note":"Facturé au mois, au trimestre ou à l'année après l'essai.",
         "price.monthly":"Mensuel","price.quarterly":"Trimestriel","price.yearly":"Annuel",
-        "price.perMonth":"/mois","price.perQuarter":"/trimestre","price.perYear":"/an",
+        "price.perMonth":"/mois","price.perQuarter":"/trimestre","price.perYear":"/an","price.save":"-{n} %",
         "final.title":"Faites de votre iPad une vraie machine de dev.",
         "footer.privacy":"Confidentialité","footer.terms":"Conditions","footer.support":"Assistance","footer.rights":"Conçu pour iPad."
       },
@@ -3802,7 +3824,7 @@ speech = <span class="fn">tts</span>(<span class="st">"Hello World"</span>)
         "plan.pro.f1":"Tutto lo Standard","plan.pro.f2":"Server remoti via SSH e SFTP","plan.pro.f3":"Sync GitHub e provider IA cloud",
         "plan.cta":"Inizia la prova","pricing.note":"Fatturato a mese, trimestre o anno dopo la prova.",
         "price.monthly":"Mensile","price.quarterly":"Trimestrale","price.yearly":"Annuale",
-        "price.perMonth":"/mese","price.perQuarter":"/trimestre","price.perYear":"/anno",
+        "price.perMonth":"/mese","price.perQuarter":"/trimestre","price.perYear":"/anno","price.save":"-{n}%",
         "final.title":"Trasforma il tuo iPad in una vera macchina da sviluppo.",
         "footer.privacy":"Privacy","footer.terms":"Termini","footer.support":"Assistenza","footer.rights":"Fatto per iPad."
       },
@@ -3835,7 +3857,7 @@ speech = <span class="fn">tts</span>(<span class="st">"Hello World"</span>)
         "plan.pro.f1":"Alles aus Standard","plan.pro.f2":"Remote-Server per SSH und SFTP","plan.pro.f3":"GitHub-Sync und Cloud-KI-Anbieter",
         "plan.cta":"Testphase starten","pricing.note":"Nach der Testphase monatlich, vierteljährlich oder jährlich abgerechnet.",
         "price.monthly":"Monatlich","price.quarterly":"Vierteljährlich","price.yearly":"Jährlich",
-        "price.perMonth":"/Monat","price.perQuarter":"/Quartal","price.perYear":"/Jahr",
+        "price.perMonth":"/Monat","price.perQuarter":"/Quartal","price.perYear":"/Jahr","price.save":"-{n} %",
         "final.title":"Mach dein iPad zu einer echten Entwicklermaschine.",
         "footer.privacy":"Datenschutz","footer.terms":"AGB","footer.support":"Support","footer.rights":"Für iPad gemacht."
       }
@@ -4147,6 +4169,7 @@ speech = <span class="fn">tts</span>(<span class="st">"Hello World"</span>)
       const EUR_LOCALE={en:"en-IE",zh:"zh-CN",ja:"ja-JP",ko:"ko-KR",fr:"fr-FR",it:"it-IT",de:"de-DE"};
       const FALLBACK="US";
       const PER_KEY={monthly:"price.perMonth",quarterly:"price.perQuarter",yearly:"price.perYear"};
+      const MONTHS={monthly:0,quarterly:3,yearly:12};
 
       const PRICES={};
       Object.keys(PRICE_GROUPS).forEach(sig=>{
@@ -4174,12 +4197,27 @@ speech = <span class="fn">tts</span>(<span class="st">"Hello World"</span>)
       function render(state){
         const row=PRICES[country]||PRICES[FALLBACK];
         const key=PER_KEY[cycle];
+        const months=MONTHS[cycle];
         const dict=T[CURRENT_LANG]||T.en;
         nodes.forEach(node=>{
-          node.querySelector(".amount").textContent=money(row[cycle][node.dataset.plan],row.cur);
+          const plan=node.dataset.plan, price=row[cycle][plan];
+          node.querySelector(".amount").textContent=money(price,row.cur);
           const per=node.querySelector(".per");
           per.setAttribute("data-i18n",key);
           per.textContent=dict[key]||T.en[key];
+
+          // What the same span costs at the monthly rate. A handful of storefronts price a
+          // quarter above 3x monthly (the euro Standard quarter is 8.99 against 8.97), so only
+          // claim a saving when there genuinely is one, and floor it so we never overstate.
+          const full=months?row.monthly[plan]*months:0;
+          const saved=full?Math.floor((1-price/full)*100):0;
+          const card=node.closest(".plan"), ribbon=card.querySelector(".ribbon"), was=node.querySelector(".was");
+          if(saved>=1){
+            was.textContent=money(full,row.cur);
+            ribbon.querySelector(".band").textContent=(dict["price.save"]||T.en["price.save"]).replace("{n}",saved);
+          }
+          was.hidden=ribbon.hidden=saved<1;
+          card.classList.toggle("has-ribbon",saved>=1);
           node.setAttribute("data-state",state||"ready");
         });
       }
