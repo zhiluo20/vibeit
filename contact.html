@@ -271,8 +271,8 @@
     "use strict";
     /* Direct submission endpoint (Cloudflare Worker). Leave API empty to use only the
        GitHub-link flow; set both to enable in-page submission with Turnstile. */
-    var API = "";
-    var SITEKEY = "";
+    var API = "https://vibeit-feedback.aroluo.workers.dev";
+    var SITEKEY = "0x4AAAAAADznleOwb6cuazXa";
     var REPO = "https://github.com/zhiluo20/vibeit/issues/new";
     var MAIL = "aroluo@icloud.com";
     var v = function (id) { return document.getElementById(id).value.trim(); };
