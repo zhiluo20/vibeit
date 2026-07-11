@@ -39,7 +39,31 @@
       languageLabel: "Language",
       footerTagline: "Vibeit - native Python IDE for iPadOS, iOS, and macOS.",
       autoNote: "Language is selected from your saved preference, country lookup, or browser language. You can change it here anytime.",
-      translationNote: "This translation is provided for convenience. If it differs from the English version, the English version controls."
+      translationNote: "This translation is provided for convenience. If it differs from the English version, the English version controls.",
+      contact: "Contact",
+      "c.feature": "Feature suggestion",
+      "c.featureDesc": "Something Vibeit should do, or do better.",
+      "c.bug": "Problem report",
+      "c.bugDesc": "Something isn't working the way it should.",
+      "c.title": "Title",
+      "c.area": "Area",
+      "c.a1": "Notebooks & editor",
+      "c.a2": "AI assistant",
+      "c.a3": "Remote & SSH",
+      "c.a4": "Packages",
+      "c.a5": "Lessons",
+      "c.a6": "Pricing & account",
+      "c.a7": "Other",
+      "c.featWhat": "What would you like Vibeit to do?",
+      "c.useCase": "Use case",
+      "c.optional": "(optional)",
+      "c.bugWhat": "What happened?",
+      "c.steps": "Steps to reproduce",
+      "c.device": "Device and OS version",
+      "c.appver": "Vibeit version",
+      "c.gh": "Open on GitHub",
+      "c.mail": "Send by email instead",
+      "c.ghHint": "GitHub opens with everything pre-filled — you just press Submit. No GitHub account? Use email."
     },
     zh: {
       home: "首页",
@@ -49,7 +73,31 @@
       languageLabel: "语言",
       footerTagline: "Vibeit - 适用于 iPadOS、iOS 和 macOS 的原生 Python IDE。",
       autoNote: "页面会优先使用你保存的语言，其次根据 IP 所在国家和浏览器语言自动选择。你可以随时在这里切换。",
-      translationNote: "本译文仅为阅读便利提供。如与英文版本不一致，以英文版本为准。"
+      translationNote: "本译文仅为阅读便利提供。如与英文版本不一致，以英文版本为准。",
+      contact: "联系我们",
+      "c.feature": "功能建议",
+      "c.featureDesc": "希望 Vibeit 增加或改进的功能。",
+      "c.bug": "问题反馈",
+      "c.bugDesc": "某个功能没有按预期工作。",
+      "c.title": "标题",
+      "c.area": "功能区",
+      "c.a1": "笔记本与编辑器",
+      "c.a2": "AI 助手",
+      "c.a3": "远程与 SSH",
+      "c.a4": "软件包",
+      "c.a5": "课程",
+      "c.a6": "订阅与账户",
+      "c.a7": "其他",
+      "c.featWhat": "你希望 Vibeit 做什么？",
+      "c.useCase": "使用场景",
+      "c.optional": "（选填）",
+      "c.bugWhat": "发生了什么？",
+      "c.steps": "复现步骤",
+      "c.device": "设备与系统版本",
+      "c.appver": "Vibeit 版本",
+      "c.gh": "在 GitHub 打开",
+      "c.mail": "改用邮件发送",
+      "c.ghHint": "GitHub 页面会自动填好全部内容，你只需点击提交。没有 GitHub 账号？用邮件。"
     },
     ja: {
       home: "ホーム",
@@ -59,7 +107,31 @@
       languageLabel: "言語",
       footerTagline: "Vibeit - iPadOS、iOS、macOS 向けのネイティブ Python IDE。",
       autoNote: "保存済みの設定、IP による国判定、ブラウザ言語の順で言語を選びます。ここでいつでも変更できます。",
-      translationNote: "この翻訳は便宜のために提供されています。英語版と相違がある場合は英語版が優先されます。"
+      translationNote: "この翻訳は便宜のために提供されています。英語版と相違がある場合は英語版が優先されます。",
+      contact: "お問い合わせ",
+      "c.feature": "機能のご提案",
+      "c.featureDesc": "Vibeit に欲しい機能や改善点。",
+      "c.bug": "問題の報告",
+      "c.bugDesc": "期待どおりに動かないことがある。",
+      "c.title": "タイトル",
+      "c.area": "機能エリア",
+      "c.a1": "ノートブックとエディタ",
+      "c.a2": "AI アシスタント",
+      "c.a3": "リモートと SSH",
+      "c.a4": "パッケージ",
+      "c.a5": "レッスン",
+      "c.a6": "料金とアカウント",
+      "c.a7": "その他",
+      "c.featWhat": "Vibeit に何をしてほしいですか？",
+      "c.useCase": "ユースケース",
+      "c.optional": "（任意）",
+      "c.bugWhat": "何が起きましたか？",
+      "c.steps": "再現手順",
+      "c.device": "デバイスと OS バージョン",
+      "c.appver": "Vibeit のバージョン",
+      "c.gh": "GitHub で開く",
+      "c.mail": "メールで送る",
+      "c.ghHint": "GitHub にすべて入力済みで開きます。送信を押すだけ。アカウントがなければメールで。"
     },
     ko: {
       home: "홈",
@@ -69,7 +141,31 @@
       languageLabel: "언어",
       footerTagline: "Vibeit - iPadOS, iOS, macOS용 네이티브 Python IDE.",
       autoNote: "저장된 설정, IP 기반 국가 조회, 브라우저 언어 순서로 언어를 선택합니다. 언제든 여기에서 바꿀 수 있습니다.",
-      translationNote: "이 번역은 편의를 위해 제공됩니다. 영어 버전과 다를 경우 영어 버전이 우선합니다."
+      translationNote: "이 번역은 편의를 위해 제공됩니다. 영어 버전과 다를 경우 영어 버전이 우선합니다.",
+      contact: "문의하기",
+      "c.feature": "기능 제안",
+      "c.featureDesc": "Vibeit에 바라는 기능이나 개선점.",
+      "c.bug": "문제 신고",
+      "c.bugDesc": "무언가 기대대로 작동하지 않아요.",
+      "c.title": "제목",
+      "c.area": "기능 영역",
+      "c.a1": "노트북과 편집기",
+      "c.a2": "AI 어시스턴트",
+      "c.a3": "원격 및 SSH",
+      "c.a4": "패키지",
+      "c.a5": "레슨",
+      "c.a6": "요금제 및 계정",
+      "c.a7": "기타",
+      "c.featWhat": "Vibeit이 무엇을 하길 바라나요?",
+      "c.useCase": "사용 사례",
+      "c.optional": "(선택)",
+      "c.bugWhat": "무슨 일이 있었나요?",
+      "c.steps": "재현 단계",
+      "c.device": "기기 및 OS 버전",
+      "c.appver": "Vibeit 버전",
+      "c.gh": "GitHub에서 열기",
+      "c.mail": "이메일로 보내기",
+      "c.ghHint": "GitHub이 모든 내용이 채워진 채 열립니다. 제출만 누르면 돼요. 계정이 없다면 이메일로."
     },
     fr: {
       home: "Accueil",
@@ -79,7 +175,31 @@
       languageLabel: "Langue",
       footerTagline: "Vibeit - IDE Python natif pour iPadOS, iOS et macOS.",
       autoNote: "La langue est choisie selon votre préférence enregistrée, une détection du pays par IP, puis la langue du navigateur. Vous pouvez la changer ici.",
-      translationNote: "Cette traduction est fournie pour votre confort. En cas de différence avec la version anglaise, la version anglaise prévaut."
+      translationNote: "Cette traduction est fournie pour votre confort. En cas de différence avec la version anglaise, la version anglaise prévaut.",
+      contact: "Contact",
+      "c.feature": "Suggestion de fonctionnalité",
+      "c.featureDesc": "Ce que Vibeit devrait faire, ou faire mieux.",
+      "c.bug": "Signaler un problème",
+      "c.bugDesc": "Quelque chose ne fonctionne pas comme prévu.",
+      "c.title": "Titre",
+      "c.area": "Domaine",
+      "c.a1": "Notebooks et éditeur",
+      "c.a2": "Assistant IA",
+      "c.a3": "Distant et SSH",
+      "c.a4": "Paquets",
+      "c.a5": "Leçons",
+      "c.a6": "Tarifs et compte",
+      "c.a7": "Autre",
+      "c.featWhat": "Que voudriez-vous que Vibeit fasse ?",
+      "c.useCase": "Cas d'usage",
+      "c.optional": "(facultatif)",
+      "c.bugWhat": "Que s'est-il passé ?",
+      "c.steps": "Étapes pour reproduire",
+      "c.device": "Appareil et version d'OS",
+      "c.appver": "Version de Vibeit",
+      "c.gh": "Ouvrir sur GitHub",
+      "c.mail": "Envoyer par e-mail",
+      "c.ghHint": "GitHub s'ouvre avec tout pré-rempli — il ne reste qu'à valider. Pas de compte GitHub ? Utilisez l'e-mail."
     },
     it: {
       home: "Home",
@@ -89,7 +209,31 @@
       languageLabel: "Lingua",
       footerTagline: "Vibeit - IDE Python nativo per iPadOS, iOS e macOS.",
       autoNote: "La lingua viene scelta dalla preferenza salvata, dal paese rilevato tramite IP o dalla lingua del browser. Puoi cambiarla qui.",
-      translationNote: "Questa traduzione è fornita per comodità. In caso di differenze, prevale la versione inglese."
+      translationNote: "Questa traduzione è fornita per comodità. In caso di differenze, prevale la versione inglese.",
+      contact: "Contatti",
+      "c.feature": "Suggerimento di funzionalità",
+      "c.featureDesc": "Qualcosa che Vibeit dovrebbe fare, o fare meglio.",
+      "c.bug": "Segnala un problema",
+      "c.bugDesc": "Qualcosa non funziona come dovrebbe.",
+      "c.title": "Titolo",
+      "c.area": "Area",
+      "c.a1": "Notebook ed editor",
+      "c.a2": "Assistente IA",
+      "c.a3": "Remoto e SSH",
+      "c.a4": "Pacchetti",
+      "c.a5": "Lezioni",
+      "c.a6": "Prezzi e account",
+      "c.a7": "Altro",
+      "c.featWhat": "Cosa vorresti che Vibeit facesse?",
+      "c.useCase": "Caso d'uso",
+      "c.optional": "(facoltativo)",
+      "c.bugWhat": "Cosa è successo?",
+      "c.steps": "Passaggi per riprodurre",
+      "c.device": "Dispositivo e versione OS",
+      "c.appver": "Versione di Vibeit",
+      "c.gh": "Apri su GitHub",
+      "c.mail": "Invia per e-mail",
+      "c.ghHint": "GitHub si apre con tutto precompilato — basta premere Invia. Niente account GitHub? Usa l'e-mail."
     },
     de: {
       home: "Start",
@@ -99,7 +243,31 @@
       languageLabel: "Sprache",
       footerTagline: "Vibeit - native Python-IDE für iPadOS, iOS und macOS.",
       autoNote: "Die Sprache wird aus deiner gespeicherten Auswahl, einer IP-Länderabfrage oder der Browsersprache gewählt. Du kannst sie hier jederzeit ändern.",
-      translationNote: "Diese Übersetzung dient nur der besseren Lesbarkeit. Bei Abweichungen gilt die englische Fassung."
+      translationNote: "Diese Übersetzung dient nur der besseren Lesbarkeit. Bei Abweichungen gilt die englische Fassung.",
+      contact: "Kontakt",
+      "c.feature": "Funktionswunsch",
+      "c.featureDesc": "Was Vibeit können sollte — oder besser machen sollte.",
+      "c.bug": "Problem melden",
+      "c.bugDesc": "Etwas funktioniert nicht wie erwartet.",
+      "c.title": "Titel",
+      "c.area": "Bereich",
+      "c.a1": "Notebooks und Editor",
+      "c.a2": "KI-Assistent",
+      "c.a3": "Remote und SSH",
+      "c.a4": "Pakete",
+      "c.a5": "Lektionen",
+      "c.a6": "Preise und Konto",
+      "c.a7": "Sonstiges",
+      "c.featWhat": "Was soll Vibeit können?",
+      "c.useCase": "Anwendungsfall",
+      "c.optional": "(optional)",
+      "c.bugWhat": "Was ist passiert?",
+      "c.steps": "Schritte zum Reproduzieren",
+      "c.device": "Gerät und OS-Version",
+      "c.appver": "Vibeit-Version",
+      "c.gh": "Auf GitHub öffnen",
+      "c.mail": "Stattdessen per E-Mail",
+      "c.ghHint": "GitHub öffnet sich mit allem vorausgefüllt — nur noch absenden. Kein GitHub-Konto? Nimm die E-Mail."
     },
     ar: {
       home: "الرئيسية",
@@ -109,7 +277,31 @@
       languageLabel: "اللغة",
       footerTagline: "Vibeit - بيئة تطوير بايثون أصلية لـ iPadOS و iOS و macOS.",
       autoNote: "تُختار اللغة من تفضيلك المحفوظ، ثم من بلدك حسب عنوان IP، ثم من لغة المتصفح. يمكنك تغييرها من هنا في أي وقت.",
-      translationNote: "هذه الترجمة مقدَّمة لتسهيل القراءة. إذا اختلفت عن النسخة الإنجليزية، فالنسخة الإنجليزية هي المُعتمَدة."
+      translationNote: "هذه الترجمة مقدَّمة لتسهيل القراءة. إذا اختلفت عن النسخة الإنجليزية، فالنسخة الإنجليزية هي المُعتمَدة.",
+      contact: "اتصل بنا",
+      "c.feature": "اقتراح ميزة",
+      "c.featureDesc": "شيء ينبغي لـ Vibeit أن يفعله، أو يفعله بشكل أفضل.",
+      "c.bug": "الإبلاغ عن مشكلة",
+      "c.bugDesc": "شيء لا يعمل كما ينبغي.",
+      "c.title": "العنوان",
+      "c.area": "المنطقة الوظيفية",
+      "c.a1": "الدفاتر والمحرّر",
+      "c.a2": "مساعد الذكاء الاصطناعي",
+      "c.a3": "عن بُعد و SSH",
+      "c.a4": "الحزم",
+      "c.a5": "الدروس",
+      "c.a6": "الأسعار والحساب",
+      "c.a7": "أخرى",
+      "c.featWhat": "ماذا تريد من Vibeit أن يفعل؟",
+      "c.useCase": "حالة الاستخدام",
+      "c.optional": "(اختياري)",
+      "c.bugWhat": "ماذا حدث؟",
+      "c.steps": "خطوات إعادة الإنتاج",
+      "c.device": "الجهاز وإصدار النظام",
+      "c.appver": "إصدار Vibeit",
+      "c.gh": "افتح على GitHub",
+      "c.mail": "أرسل بالبريد بدلًا من ذلك",
+      "c.ghHint": "يفتح GitHub وكل شيء معبّأ مسبقًا — يكفي الضغط على إرسال. لا تملك حساب GitHub؟ استخدم البريد."
     },
     th: {
       home: "หน้าแรก",
@@ -119,7 +311,31 @@
       languageLabel: "ภาษา",
       footerTagline: "Vibeit - Python IDE แบบเนทีฟสำหรับ iPadOS, iOS และ macOS",
       autoNote: "ระบบเลือกภาษาจากค่าที่คุณบันทึกไว้ ถัดมาคือประเทศตามหมายเลข IP แล้วจึงเป็นภาษาของเบราว์เซอร์ คุณเปลี่ยนได้ที่นี่ทุกเมื่อ",
-      translationNote: "คำแปลนี้จัดทำขึ้นเพื่อความสะดวกในการอ่าน หากข้อความใดต่างจากฉบับภาษาอังกฤษ ให้ยึดฉบับภาษาอังกฤษเป็นหลัก"
+      translationNote: "คำแปลนี้จัดทำขึ้นเพื่อความสะดวกในการอ่าน หากข้อความใดต่างจากฉบับภาษาอังกฤษ ให้ยึดฉบับภาษาอังกฤษเป็นหลัก",
+      contact: "ติดต่อเรา",
+      "c.feature": "เสนอฟีเจอร์",
+      "c.featureDesc": "สิ่งที่อยากให้ Vibeit ทำได้ หรือทำได้ดีขึ้น",
+      "c.bug": "แจ้งปัญหา",
+      "c.bugDesc": "มีบางอย่างทำงานไม่ถูกต้อง",
+      "c.title": "หัวข้อ",
+      "c.area": "ส่วนของแอป",
+      "c.a1": "โน้ตบุ๊กและตัวแก้ไข",
+      "c.a2": "ผู้ช่วย AI",
+      "c.a3": "รีโมตและ SSH",
+      "c.a4": "แพ็กเกจ",
+      "c.a5": "บทเรียน",
+      "c.a6": "ราคาและบัญชี",
+      "c.a7": "อื่น ๆ",
+      "c.featWhat": "อยากให้ Vibeit ทำอะไร?",
+      "c.useCase": "กรณีการใช้งาน",
+      "c.optional": "(ไม่บังคับ)",
+      "c.bugWhat": "เกิดอะไรขึ้น?",
+      "c.steps": "ขั้นตอนการทำซ้ำ",
+      "c.device": "อุปกรณ์และเวอร์ชัน OS",
+      "c.appver": "เวอร์ชัน Vibeit",
+      "c.gh": "เปิดใน GitHub",
+      "c.mail": "ส่งอีเมลแทน",
+      "c.ghHint": "GitHub จะเปิดพร้อมข้อมูลที่กรอกให้แล้ว แค่กดส่ง ไม่มีบัญชี GitHub? ใช้อีเมลได้"
     }
   };
 
@@ -207,6 +423,13 @@
           <section class="legal-section"><h2>15. Governing law</h2><p>These Terms are governed by the laws of the jurisdiction in which the developer is established, except where mandatory consumer-protection laws of your place of residence provide otherwise. Nothing in these Terms limits non-waivable statutory rights you may have as a consumer.</p></section>
           <section class="legal-section"><h2>16. Changes to these Terms</h2><p>We may update these Terms from time to time. We will revise the "Last updated" date above and, for material changes, provide notice as appropriate. Continued use after an update constitutes acceptance of the revised Terms.</p></section>
           <section class="legal-section"><h2>17. Contact</h2><p>Questions about these Terms? Contact us at <a href="mailto:aroluo@icloud.com">aroluo@icloud.com</a>.</p></section>`
+      },
+      contact: {
+        title: "Contact",
+        description: "Contact Vibeit: send a feature suggestion or report a problem.",
+        body: `
+          <h1>Contact us</h1>
+          <p class="updated">Feature ideas and problem reports go straight into our GitHub queue, so nothing gets lost.</p>`
       }
     },
 
@@ -267,6 +490,13 @@
           <section class="legal-section"><h2>15. 适用法律</h2><p>本条款受开发者所在地司法辖区法律管辖，但你居住地强制性消费者保护法律另有规定的除外。本条款不限制你作为消费者可能拥有的不可放弃法定权利。</p></section>
           <section class="legal-section"><h2>16. 条款变更</h2><p>我们可能不时更新本条款。我们会修改上方“最后更新”日期；如有重大变更，会酌情提供通知。更新后继续使用即表示接受修订后的条款。</p></section>
           <section class="legal-section"><h2>17. 联系方式</h2><p>如对本条款有疑问，请联系 <a href="mailto:aroluo@icloud.com">aroluo@icloud.com</a>。</p></section>`
+      },
+      contact: {
+        title: "联系我们",
+        description: "联系 Vibeit：提交功能建议或反馈问题。",
+        body: `
+          <h1>联系我们</h1>
+          <p class="updated">功能建议和问题反馈会直接进入我们的 GitHub 队列，不会石沉大海。</p>`
       }
     },
 
@@ -326,6 +556,13 @@
           <section class="legal-section"><h2>15. 準拠法</h2><p>本規約は開発者が設立された法域の法律に準拠します。ただし、居住地の強行的な消費者保護法が別途適用される場合を除きます。</p></section>
           <section class="legal-section"><h2>16. 規約変更</h2><p>当方は本規約を随時更新できます。最終更新日を変更し、重要な変更については適切に通知します。更新後の利用継続は改訂後規約への同意を意味します。</p></section>
           <section class="legal-section"><h2>17. 連絡先</h2><p>質問は <a href="mailto:aroluo@icloud.com">aroluo@icloud.com</a> までご連絡ください。</p></section>`
+      },
+      contact: {
+        title: "お問い合わせ",
+        description: "Vibeit へのお問い合わせ：機能のご提案や問題のご報告。",
+        body: `
+          <h1>お問い合わせ</h1>
+          <p class="updated">ご提案と問題報告はそのまま GitHub のキューに入るので、埋もれません。</p>`
       }
     },
 
@@ -385,6 +622,13 @@
           <section class="legal-section"><h2>15. 준거법</h2><p>본 약관은 개발자가 설립된 관할권의 법률을 따릅니다. 단, 거주지의 강행 소비자 보호법이 달리 적용되는 경우는 제외합니다.</p></section>
           <section class="legal-section"><h2>16. 약관 변경</h2><p>당사는 약관을 때때로 업데이트할 수 있습니다. 최종 업데이트 날짜를 수정하고 중요한 변경에는 적절히 알립니다. 업데이트 후 계속 사용하면 개정 약관을 수락한 것으로 간주됩니다.</p></section>
           <section class="legal-section"><h2>17. 연락처</h2><p>문의는 <a href="mailto:aroluo@icloud.com">aroluo@icloud.com</a> 으로 보내 주세요.</p></section>`
+      },
+      contact: {
+        title: "문의하기",
+        description: "Vibeit 문의: 기능 제안이나 문제 신고를 보내주세요.",
+        body: `
+          <h1>문의하기</h1>
+          <p class="updated">기능 제안과 문제 신고는 GitHub 큐로 바로 들어가 잊히지 않습니다.</p>`
       }
     },
 
@@ -444,6 +688,13 @@
           <section class="legal-section"><h2>15. Droit applicable</h2><p>Ces Conditions sont régies par les lois de la juridiction où le développeur est établi, sauf application obligatoire des lois de protection des consommateurs de votre résidence.</p></section>
           <section class="legal-section"><h2>16. Modifications</h2><p>Nous pouvons mettre à jour ces Conditions. Nous modifierons la date de mise à jour et fournirons un avis approprié pour les changements importants. L'utilisation continue vaut acceptation.</p></section>
           <section class="legal-section"><h2>17. Contact</h2><p>Questions : <a href="mailto:aroluo@icloud.com">aroluo@icloud.com</a>.</p></section>`
+      },
+      contact: {
+        title: "Contact",
+        description: "Contacter Vibeit : suggérer une fonctionnalité ou signaler un problème.",
+        body: `
+          <h1>Nous contacter</h1>
+          <p class="updated">Les suggestions et signalements entrent directement dans notre file GitHub — rien ne se perd.</p>`
       }
     },
 
@@ -503,6 +754,13 @@
           <section class="legal-section"><h2>15. Legge applicabile</h2><p>I Termini sono regolati dalle leggi della giurisdizione in cui lo sviluppatore è stabilito, salvo applicazione obbligatoria delle leggi di tutela dei consumatori del tuo luogo di residenza.</p></section>
           <section class="legal-section"><h2>16. Modifiche</h2><p>Possiamo aggiornare i Termini. Cambieremo la data di aggiornamento e daremo avviso appropriato per modifiche importanti. L'uso continuato vale come accettazione.</p></section>
           <section class="legal-section"><h2>17. Contatti</h2><p>Domande: <a href="mailto:aroluo@icloud.com">aroluo@icloud.com</a>.</p></section>`
+      },
+      contact: {
+        title: "Contatti",
+        description: "Contatta Vibeit: suggerisci una funzionalità o segnala un problema.",
+        body: `
+          <h1>Contattaci</h1>
+          <p class="updated">Suggerimenti e segnalazioni entrano direttamente nella nostra coda GitHub: nulla va perso.</p>`
       }
     },
 
@@ -562,6 +820,13 @@
           <section class="legal-section"><h2>15. Anwendbares Recht</h2><p>Diese Bedingungen unterliegen dem Recht der Gerichtsbarkeit, in der der Entwickler ansässig ist, außer zwingende Verbraucherschutzgesetze deines Wohnorts gelten anderweitig.</p></section>
           <section class="legal-section"><h2>16. Änderungen</h2><p>Wir können diese Bedingungen aktualisieren. Wir ändern das Datum und informieren bei wesentlichen Änderungen angemessen. Fortgesetzte Nutzung gilt als Annahme.</p></section>
           <section class="legal-section"><h2>17. Kontakt</h2><p>Fragen: <a href="mailto:aroluo@icloud.com">aroluo@icloud.com</a>.</p></section>`
+      },
+      contact: {
+        title: "Kontakt",
+        description: "Vibeit kontaktieren: Funktionswunsch senden oder Problem melden.",
+        body: `
+          <h1>Kontakt</h1>
+          <p class="updated">Wünsche und Meldungen landen direkt in unserer GitHub-Warteschlange — nichts geht verloren.</p>`
       }
     },
     ar: {
@@ -647,6 +912,13 @@
           <section class="legal-section"><h2>15. القانون الحاكم</h2><p>تخضع هذه الشروط لقوانين الولاية القضائية التي تأسّس فيها المطوّر، إلا حيث تنصّ قوانين حماية المستهلك الإلزامية في مكان إقامتك على خلاف ذلك. ولا يقيّد أيّ نصّ في هذه الشروط الحقوق القانونية غير القابلة للتنازل التي قد تتمتّع بها بصفتك مستهلكًا.</p></section>
           <section class="legal-section"><h2>16. التغييرات على هذه الشروط</h2><p>قد نحدّث هذه الشروط من حين لآخر. وسنراجع تاريخ "آخر تحديث" أعلاه، وسنقدّم إشعارًا مناسبًا عند التغييرات الجوهرية. ويشكّل استمرار استخدامك بعد التحديث قبولًا للشروط المُعدَّلة.</p></section>
           <section class="legal-section"><h2>17. التواصل</h2><p>أسئلة حول هذه الشروط؟ تواصل معنا عبر <a href="mailto:aroluo@icloud.com">aroluo@icloud.com</a>.</p></section>`
+      },
+      contact: {
+        title: "اتصل بنا",
+        description: "تواصل مع Vibeit: أرسل اقتراح ميزة أو أبلغ عن مشكلة.",
+        body: `
+          <h1>اتصل بنا</h1>
+          <p class="updated">تدخل الاقتراحات وبلاغات المشاكل مباشرة في قائمة GitHub لدينا، فلا يضيع شيء.</p>`
       }
     },
     th: {
@@ -732,6 +1004,13 @@
           <section class="legal-section"><h2>15. กฎหมายที่ใช้บังคับ</h2><p>ข้อกำหนดเหล่านี้อยู่ภายใต้กฎหมายของเขตอำนาจศาลที่ผู้พัฒนาจัดตั้งอยู่ เว้นแต่กฎหมายคุ้มครองผู้บริโภคซึ่งบังคับใช้เด็ดขาดในถิ่นที่อยู่ของคุณจะกำหนดไว้เป็นอย่างอื่น ไม่มีข้อความใดในข้อกำหนดเหล่านี้ที่จำกัดสิทธิตามกฎหมายที่คุณสละไม่ได้ในฐานะผู้บริโภค</p></section>
           <section class="legal-section"><h2>16. การเปลี่ยนแปลงข้อกำหนดเหล่านี้</h2><p>เราอาจปรับปรุงข้อกำหนดเหล่านี้เป็นครั้งคราว เราจะแก้ไขวันที่ "อัปเดตล่าสุด" ด้านบน และจะแจ้งให้ทราบตามสมควรหากมีการเปลี่ยนแปลงในสาระสำคัญ การใช้งานต่อไปหลังการอัปเดตถือเป็นการยอมรับข้อกำหนดฉบับแก้ไข</p></section>
           <section class="legal-section"><h2>17. ติดต่อเรา</h2><p>มีคำถามเกี่ยวกับข้อกำหนดเหล่านี้? ติดต่อเราที่ <a href="mailto:aroluo@icloud.com">aroluo@icloud.com</a></p></section>`
+      },
+      contact: {
+        title: "ติดต่อเรา",
+        description: "ติดต่อ Vibeit: เสนอฟีเจอร์หรือแจ้งปัญหา",
+        body: `
+          <h1>ติดต่อเรา</h1>
+          <p class="updated">ข้อเสนอและรายงานปัญหาเข้าสู่คิว GitHub ของเราโดยตรง ไม่มีอะไรตกหล่น</p>`
       }
     }
   };
