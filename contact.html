@@ -109,10 +109,6 @@
       background: var(--accent); color: #fff; border-radius: 980px;
     }
     .btn-gh:hover { opacity: .92; }
-    .btn-mail {
-      display: inline-block; padding: 10px 18px; cursor: pointer; font: inherit; font-weight: 600;
-      background: transparent; color: var(--accent); border: 1px solid var(--line); border-radius: 980px;
-    }
     .hint { flex-basis: 100%; color: var(--muted); font-size: 12.5px; margin: 2px 0 0; }
 
     .hp { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }
@@ -205,7 +201,6 @@
         <div class="actions">
           <div class="ts-slot" data-ts hidden></div>
           <button type="submit" class="btn-gh" data-direct data-ui="c.send">Submit</button>
-          <button type="button" class="btn-mail" data-mail data-ui="c.mail">Send by email instead</button>
           <p class="status" data-status role="status" hidden></p>
         </div>
       </form>
@@ -247,7 +242,6 @@
         <div class="actions">
           <div class="ts-slot" data-ts hidden></div>
           <button type="submit" class="btn-gh" data-direct data-ui="c.send">Submit</button>
-          <button type="button" class="btn-mail" data-mail data-ui="c.mail">Send by email instead</button>
           <p class="status" data-status role="status" hidden></p>
         </div>
       </form>
@@ -286,7 +280,6 @@
     /* Direct submission endpoint (Cloudflare Worker) + Turnstile site key. */
     var API = "https://vibeit-feedback.aroluo.workers.dev";
     var SITEKEY = "0x4AAAAAADznleOwb6cuazXa";
-    var MAIL = "aroluo@icloud.com";
     var v = function (id) { return document.getElementById(id).value.trim(); };
     var str = function (k) { var e = document.querySelector('#strs [data-str="' + k + '"]'); return e ? e.textContent : k; };
 
@@ -311,22 +304,6 @@
         base.device = v("bDevice"); base.appversion = v("bVer");
       }
       return base;
-    }
-
-    function mailUrl(kind) {
-      var subject, lines;
-      if (kind === "feature") {
-        subject = "[Vibeit][Feature] " + v("fTitle");
-        lines = ["Area: " + document.getElementById("fArea").value, "", v("fDesc")];
-        if (v("fUse")) lines = lines.concat(["", "Use case:", v("fUse")]);
-      } else {
-        subject = "[Vibeit][Bug] " + v("bTitle");
-        lines = ["Area: " + document.getElementById("bArea").value, "", v("bWhat")];
-        if (v("bSteps")) lines = lines.concat(["", "Steps to reproduce:", v("bSteps")]);
-        if (v("bDevice")) lines = lines.concat(["", "Device: " + v("bDevice")]);
-        if (v("bVer")) lines = lines.concat(["Vibeit version: " + v("bVer")]);
-      }
-      return "mailto:" + MAIL + "?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(lines.join("\n"));
     }
 
     /* Turnstile renders one widget per form. */
@@ -386,12 +363,7 @@
       form.addEventListener("submit", function (e) {
         e.preventDefault();
         if (!form.reportValidity()) return;
-        if (API && SITEKEY) directSubmit(form, kind);
-        else window.location.href = mailUrl(kind);
-      });
-      form.querySelector("[data-mail]").addEventListener("click", function () {
-        if (!form.reportValidity()) return;
-        window.location.href = mailUrl(kind);
+        directSubmit(form, kind);
       });
     });
 
