@@ -1,0 +1,12 @@
+{
+  "name": "vibeit-feedback",
+  "main": "worker.js",
+  "compatibility_date": "2026-07-01",
+  "vars": {
+    "REPO": "zhiluo20/vibeit",
+    "ALLOWED_ORIGINS": "https://mecury.co.uk,https://zhiluo20.github.io"
+  }
+  // Secrets (never in this file):
+  //   npx wrangler secret put GITHUB_TOKEN      — fine-grained PAT, only this repo, only Issues R/W
+  //   npx wrangler secret put TURNSTILE_SECRET  — Turnstile secret key
+}

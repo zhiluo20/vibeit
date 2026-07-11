@@ -63,7 +63,13 @@
       "c.appver": "Vibeit version",
       "c.gh": "Open on GitHub",
       "c.mail": "Send by email instead",
-      "c.ghHint": "GitHub opens with everything pre-filled — you just press Submit. No GitHub account? Use email."
+      "c.ghHint": "GitHub opens with everything pre-filled — you just press Submit. No GitHub account? Use email.",
+      "c.send": "Submit",
+      "c.sending": "Submitting…",
+      "c.sent": "Sent — thank you!",
+      "c.view": "View the issue",
+      "c.fail": "Couldn't submit — use the GitHub or email button below.",
+      "c.tooMany": "Too many submissions — try again in a minute."
     },
     zh: {
       home: "首页",
@@ -97,7 +103,13 @@
       "c.appver": "Vibeit 版本",
       "c.gh": "在 GitHub 打开",
       "c.mail": "改用邮件发送",
-      "c.ghHint": "GitHub 页面会自动填好全部内容，你只需点击提交。没有 GitHub 账号？用邮件。"
+      "c.ghHint": "GitHub 页面会自动填好全部内容，你只需点击提交。没有 GitHub 账号？用邮件。",
+      "c.send": "提交",
+      "c.sending": "正在提交…",
+      "c.sent": "已提交，谢谢！",
+      "c.view": "查看 issue",
+      "c.fail": "提交失败——请改用下面的 GitHub 或邮件方式。",
+      "c.tooMany": "提交太频繁——请一分钟后再试。"
     },
     ja: {
       home: "ホーム",
@@ -131,7 +143,13 @@
       "c.appver": "Vibeit のバージョン",
       "c.gh": "GitHub で開く",
       "c.mail": "メールで送る",
-      "c.ghHint": "GitHub にすべて入力済みで開きます。送信を押すだけ。アカウントがなければメールで。"
+      "c.ghHint": "GitHub にすべて入力済みで開きます。送信を押すだけ。アカウントがなければメールで。",
+      "c.send": "送信",
+      "c.sending": "送信中…",
+      "c.sent": "送信しました。ありがとうございます！",
+      "c.view": "Issue を見る",
+      "c.fail": "送信できませんでした。下の GitHub かメールをご利用ください。",
+      "c.tooMany": "送信が多すぎます。1分後にもう一度お試しください。"
     },
     ko: {
       home: "홈",
@@ -165,7 +183,13 @@
       "c.appver": "Vibeit 버전",
       "c.gh": "GitHub에서 열기",
       "c.mail": "이메일로 보내기",
-      "c.ghHint": "GitHub이 모든 내용이 채워진 채 열립니다. 제출만 누르면 돼요. 계정이 없다면 이메일로."
+      "c.ghHint": "GitHub이 모든 내용이 채워진 채 열립니다. 제출만 누르면 돼요. 계정이 없다면 이메일로.",
+      "c.send": "제출",
+      "c.sending": "제출 중…",
+      "c.sent": "제출되었습니다. 감사합니다!",
+      "c.view": "Issue 보기",
+      "c.fail": "제출하지 못했습니다. 아래 GitHub 또는 이메일을 이용해 주세요.",
+      "c.tooMany": "제출이 너무 잦습니다. 1분 후 다시 시도해 주세요."
     },
     fr: {
       home: "Accueil",
@@ -199,7 +223,13 @@
       "c.appver": "Version de Vibeit",
       "c.gh": "Ouvrir sur GitHub",
       "c.mail": "Envoyer par e-mail",
-      "c.ghHint": "GitHub s'ouvre avec tout pré-rempli — il ne reste qu'à valider. Pas de compte GitHub ? Utilisez l'e-mail."
+      "c.ghHint": "GitHub s'ouvre avec tout pré-rempli — il ne reste qu'à valider. Pas de compte GitHub ? Utilisez l'e-mail.",
+      "c.send": "Envoyer",
+      "c.sending": "Envoi…",
+      "c.sent": "Envoyé — merci !",
+      "c.view": "Voir l'issue",
+      "c.fail": "Échec de l'envoi — utilisez GitHub ou l'e-mail ci-dessous.",
+      "c.tooMany": "Trop d'envois — réessayez dans une minute."
     },
     it: {
       home: "Home",
@@ -233,7 +263,13 @@
       "c.appver": "Versione di Vibeit",
       "c.gh": "Apri su GitHub",
       "c.mail": "Invia per e-mail",
-      "c.ghHint": "GitHub si apre con tutto precompilato — basta premere Invia. Niente account GitHub? Usa l'e-mail."
+      "c.ghHint": "GitHub si apre con tutto precompilato — basta premere Invia. Niente account GitHub? Usa l'e-mail.",
+      "c.send": "Invia",
+      "c.sending": "Invio…",
+      "c.sent": "Inviato — grazie!",
+      "c.view": "Vedi l'issue",
+      "c.fail": "Invio non riuscito — usa GitHub o l'e-mail qui sotto.",
+      "c.tooMany": "Troppi invii — riprova tra un minuto."
     },
     de: {
       home: "Start",
@@ -267,7 +303,13 @@
       "c.appver": "Vibeit-Version",
       "c.gh": "Auf GitHub öffnen",
       "c.mail": "Stattdessen per E-Mail",
-      "c.ghHint": "GitHub öffnet sich mit allem vorausgefüllt — nur noch absenden. Kein GitHub-Konto? Nimm die E-Mail."
+      "c.ghHint": "GitHub öffnet sich mit allem vorausgefüllt — nur noch absenden. Kein GitHub-Konto? Nimm die E-Mail.",
+      "c.send": "Absenden",
+      "c.sending": "Wird gesendet…",
+      "c.sent": "Gesendet — danke!",
+      "c.view": "Issue ansehen",
+      "c.fail": "Senden fehlgeschlagen — nutze GitHub oder E-Mail unten.",
+      "c.tooMany": "Zu viele Einsendungen — versuch es in einer Minute erneut."
     },
     ar: {
       home: "الرئيسية",
@@ -301,7 +343,13 @@
       "c.appver": "إصدار Vibeit",
       "c.gh": "افتح على GitHub",
       "c.mail": "أرسل بالبريد بدلًا من ذلك",
-      "c.ghHint": "يفتح GitHub وكل شيء معبّأ مسبقًا — يكفي الضغط على إرسال. لا تملك حساب GitHub؟ استخدم البريد."
+      "c.ghHint": "يفتح GitHub وكل شيء معبّأ مسبقًا — يكفي الضغط على إرسال. لا تملك حساب GitHub؟ استخدم البريد.",
+      "c.send": "إرسال",
+      "c.sending": "جارٍ الإرسال…",
+      "c.sent": "تم الإرسال — شكرًا لك!",
+      "c.view": "عرض الـ issue",
+      "c.fail": "تعذّر الإرسال — استخدم GitHub أو البريد أدناه.",
+      "c.tooMany": "محاولات كثيرة — حاول مرة أخرى بعد دقيقة."
     },
     th: {
       home: "หน้าแรก",
@@ -335,7 +383,13 @@
       "c.appver": "เวอร์ชัน Vibeit",
       "c.gh": "เปิดใน GitHub",
       "c.mail": "ส่งอีเมลแทน",
-      "c.ghHint": "GitHub จะเปิดพร้อมข้อมูลที่กรอกให้แล้ว แค่กดส่ง ไม่มีบัญชี GitHub? ใช้อีเมลได้"
+      "c.ghHint": "GitHub จะเปิดพร้อมข้อมูลที่กรอกให้แล้ว แค่กดส่ง ไม่มีบัญชี GitHub? ใช้อีเมลได้",
+      "c.send": "ส่ง",
+      "c.sending": "กำลังส่ง…",
+      "c.sent": "ส่งแล้ว ขอบคุณ!",
+      "c.view": "ดู issue",
+      "c.fail": "ส่งไม่สำเร็จ ใช้ปุ่ม GitHub หรืออีเมลด้านล่างแทน",
+      "c.tooMany": "ส่งบ่อยเกินไป ลองใหม่ในอีกหนึ่งนาที"
     }
   };
 

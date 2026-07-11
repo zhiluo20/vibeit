@@ -115,6 +115,11 @@
     }
     .hint { flex-basis: 100%; color: var(--muted); font-size: 12.5px; margin: 2px 0 0; }
 
+    .hp { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }
+    .status { flex-basis: 100%; font-size: 14px; margin: 4px 0 0; }
+    .status a { font-weight: 600; }
+    .ts-slot { flex-basis: 100%; }
+
     .site-footer {
       max-width: 820px; margin: 0 auto; padding: 24px; color: var(--muted);
       font-size: 13px; display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap;
@@ -161,6 +166,7 @@
       </div>
 
       <form class="fb-form" id="formFeature">
+        <input class="hp" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
         <div class="field">
           <label for="fTitle" data-ui="c.title">Title</label>
           <input id="fTitle" required maxlength="140">
@@ -186,13 +192,17 @@
           <textarea id="fUse" maxlength="2000"></textarea>
         </div>
         <div class="actions">
-          <button type="submit" class="btn-gh" data-ui="c.gh">Open on GitHub</button>
+          <div class="ts-slot" data-ts hidden></div>
+          <button type="submit" class="btn-gh" data-direct data-ui="c.send" hidden>Submit</button>
+          <button type="submit" class="btn-gh" data-ghbtn data-ui="c.gh">Open on GitHub</button>
           <button type="button" class="btn-mail" data-mail data-ui="c.mail">Send by email instead</button>
+          <p class="status" data-status role="status" hidden></p>
           <p class="hint" data-ui="c.ghHint">GitHub opens with everything pre-filled; you just press "Submit". Needs a GitHub account — no account, use email.</p>
         </div>
       </form>
 
       <form class="fb-form" id="formBug">
+        <input class="hp" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
         <div class="field">
           <label for="bTitle" data-ui="c.title">Title</label>
           <input id="bTitle" required maxlength="140">
@@ -226,13 +236,24 @@
           <input id="bVer" maxlength="60">
         </div>
         <div class="actions">
-          <button type="submit" class="btn-gh" data-ui="c.gh">Open on GitHub</button>
+          <div class="ts-slot" data-ts hidden></div>
+          <button type="submit" class="btn-gh" data-direct data-ui="c.send" hidden>Submit</button>
+          <button type="submit" class="btn-gh" data-ghbtn data-ui="c.gh">Open on GitHub</button>
           <button type="button" class="btn-mail" data-mail data-ui="c.mail">Send by email instead</button>
+          <p class="status" data-status role="status" hidden></p>
           <p class="hint" data-ui="c.ghHint">GitHub opens with everything pre-filled; you just press "Submit". Needs a GitHub account — no account, use email.</p>
         </div>
       </form>
     </div>
   </main>
+
+  <div hidden aria-hidden="true" id="strs">
+    <span data-str="sending" data-ui="c.sending">Submitting…</span>
+    <span data-str="sent" data-ui="c.sent">Sent — thank you!</span>
+    <span data-str="view" data-ui="c.view">View the issue</span>
+    <span data-str="fail" data-ui="c.fail">Couldn't submit — use the GitHub or email button below.</span>
+    <span data-str="tooMany" data-ui="c.tooMany">Too many submissions — try again in a minute.</span>
+  </div>
 
   <footer class="site-footer">
     <span data-ui="footerTagline">Vibeit — native Python IDE for iPadOS, iOS, and macOS.</span>
@@ -248,9 +269,14 @@
   <script>
   (function () {
     "use strict";
+    /* Direct submission endpoint (Cloudflare Worker). Leave API empty to use only the
+       GitHub-link flow; set both to enable in-page submission with Turnstile. */
+    var API = "";
+    var SITEKEY = "";
     var REPO = "https://github.com/zhiluo20/vibeit/issues/new";
     var MAIL = "aroluo@icloud.com";
     var v = function (id) { return document.getElementById(id).value.trim(); };
+    var str = function (k) { var e = document.querySelector('#strs [data-str="' + k + '"]'); return e ? e.textContent : k; };
 
     function show(kind) {
       document.getElementById("formFeature").classList.toggle("active", kind === "feature");
@@ -298,13 +324,94 @@
       return "mailto:" + MAIL + "?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(lines.join("\n"));
     }
 
+    function payload(kind) {
+      var form = kind === "feature" ? document.getElementById("formFeature") : document.getElementById("formBug");
+      var base = { kind: kind, website: form.querySelector(".hp").value };
+      if (kind === "feature") {
+        base.title = v("fTitle"); base.area = document.getElementById("fArea").value;
+        base.description = v("fDesc"); base.usecase = v("fUse");
+      } else {
+        base.title = v("bTitle"); base.area = document.getElementById("bArea").value;
+        base.happened = v("bWhat"); base.steps = v("bSteps");
+        base.device = v("bDevice"); base.appversion = v("bVer");
+      }
+      return base;
+    }
+
+    /* Turnstile: loaded only when direct submission is configured. */
+    var widgets = {};
+    window.__tsReady = function () {
+      [["formFeature", "feature"], ["formBug", "bug"]].forEach(function (pair) {
+        var slot = document.getElementById(pair[0]).querySelector("[data-ts]");
+        slot.hidden = false;
+        widgets[pair[1]] = window.turnstile.render(slot, { sitekey: SITEKEY });
+      });
+    };
+    if (API && SITEKEY) {
+      var ts = document.createElement("script");
+      ts.src = "https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit&onload=__tsReady";
+      ts.async = true;
+      document.head.appendChild(ts);
+    }
+
+    function setStatus(form, html) {
+      var el = form.querySelector("[data-status]");
+      el.hidden = false;
+      el.innerHTML = html;
+    }
+
+    function directSubmit(form, kind) {
+      var body = payload(kind);
+      body.turnstileToken = window.turnstile && widgets[kind] != null ? window.turnstile.getResponse(widgets[kind]) : "";
+      if (!body.turnstileToken) { setStatus(form, str("fail")); return; }
+      var btn = form.querySelector("[data-direct]");
+      btn.disabled = true;
+      setStatus(form, str("sending"));
+      fetch(API, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(body) })
+        .then(function (r) { return r.json().then(function (d) { return { s: r.status, d: d }; }); })
+        .then(function (res) {
+          if (res.d && res.d.ok && res.d.url) {
+            var a = document.createElement("a");
+            a.href = res.d.url; a.target = "_blank"; a.rel = "noopener"; a.textContent = str("view");
+            var el = form.querySelector("[data-status]");
+            el.hidden = false; el.textContent = str("sent") + " ";
+            el.appendChild(a);
+          } else if (res.s === 429) {
+            setStatus(form, str("tooMany"));
+          } else {
+            setStatus(form, str("fail"));
+          }
+        })
+        .catch(function () { setStatus(form, str("fail")); })
+        .finally(function () {
+          btn.disabled = false;
+          if (window.turnstile && widgets[kind] != null) window.turnstile.reset(widgets[kind]);
+        });
+    }
+
     [["formFeature", "feature"], ["formBug", "bug"]].forEach(function (pair) {
       var form = document.getElementById(pair[0]), kind = pair[1];
-      form.addEventListener("submit", function (e) {
-        e.preventDefault();
-        if (!form.reportValidity()) return;
-        window.open(ghUrl(kind), "_blank", "noopener");
-      });
+      var direct = form.querySelector("[data-direct]"), ghBtn = form.querySelector("[data-ghbtn]");
+      if (API && SITEKEY) {
+        direct.hidden = false;
+        ghBtn.type = "button";
+        ghBtn.className = "btn-mail";
+        ghBtn.addEventListener("click", function () {
+          if (!form.reportValidity()) return;
+          window.open(ghUrl(kind), "_blank", "noopener");
+        });
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+          if (!form.reportValidity()) return;
+          directSubmit(form, kind);
+        });
+      } else {
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+          if (!form.reportValidity()) return;
+          window.open(ghUrl(kind), "_blank", "noopener");
+        });
+      }
       form.querySelector("[data-mail]").addEventListener("click", function () {
         if (!form.reportValidity()) return;
         window.location.href = mailUrl(kind);

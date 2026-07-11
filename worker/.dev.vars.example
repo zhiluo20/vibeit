@@ -1,0 +1,7 @@
+# Copy to .dev.vars for `npx wrangler dev`. Never commit .dev.vars.
+# Turnstile official test secret (always passes): 1x0000000000000000000000000000000AA
+TURNSTILE_SECRET=1x0000000000000000000000000000000AA
+GITHUB_TOKEN=dummy-local-token
+# Point at a local mock while developing:
+# GITHUB_API=http://localhost:9999
+ALLOWED_ORIGINS=http://localhost:4173,https://mecury.co.uk,https://zhiluo20.github.io
