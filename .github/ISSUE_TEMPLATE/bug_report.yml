@@ -1,0 +1,56 @@
+name: Bug report
+description: Something in Vibeit isn't working right
+title: "[Bug] "
+labels: ["bug", "from-website"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for the report. Write in whatever language you prefer.
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      description: Which part of the app is this about?
+      options:
+        - Notebooks & editor
+        - AI assistant
+        - Remote & SSH
+        - Packages
+        - Lessons
+        - Pricing & account
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: happened
+    attributes:
+      label: What happened?
+      description: What did you expect, and what happened instead?
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      description: Optional — how can we make it happen?
+      placeholder: |
+        1.
+        2.
+        3.
+    validations:
+      required: false
+  - type: input
+    id: device
+    attributes:
+      label: Device and OS version
+      placeholder: e.g. iPad Pro 11" (M4), iPadOS 26.2
+    validations:
+      required: false
+  - type: input
+    id: appversion
+    attributes:
+      label: Vibeit version
+      placeholder: Settings → About
+    validations:
+      required: false

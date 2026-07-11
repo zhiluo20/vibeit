@@ -1,0 +1,5 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Support by email
+    url: https://mecury.co.uk/vibeit/support.html
+    about: Prefer email, or don't have a GitHub account? Contact us here.

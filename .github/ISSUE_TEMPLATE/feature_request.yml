@@ -1,0 +1,38 @@
+name: Feature request
+description: Suggest an idea or improvement for Vibeit
+title: "[Feature] "
+labels: ["enhancement", "from-website"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for helping make Vibeit better. Write in whatever language you prefer.
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      description: Which part of the app is this about?
+      options:
+        - Notebooks & editor
+        - AI assistant
+        - Remote & SSH
+        - Packages
+        - Lessons
+        - Pricing & account
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: What would you like Vibeit to do?
+      description: Describe the feature or improvement.
+    validations:
+      required: true
+  - type: textarea
+    id: usecase
+    attributes:
+      label: Use case
+      description: Optional — what would this let you do that you can't today?
+    validations:
+      required: false
