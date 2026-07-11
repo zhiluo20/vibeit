@@ -45,7 +45,11 @@ export default {
 
     if (request.method === "OPTIONS") return new Response(null, { status: 204, headers: cors });
     if (request.method !== "POST") return json({ error: "method_not_allowed" }, 405, cors);
-    if (!allowed.includes(origin)) return json({ error: "forbidden_origin" }, 403, cors);
+    /* Browsers must come from an allowed origin (CORS). Native app clients
+       (URLSession) send no Origin header at all; for them Turnstile below is
+       the gate — tokens are single-use and bound to this sitekey's hostnames,
+       so skipping the origin check does not weaken the spam protection. */
+    if (origin && !allowed.includes(origin)) return json({ error: "forbidden_origin" }, 403, cors);
 
     let data;
     try {
@@ -97,7 +101,8 @@ export default {
       if (device) parts.push(`### Device and OS version\n\n${device}`);
       if (appversion) parts.push(`### Vibeit version\n\n${appversion}`);
     }
-    parts.push(`---\n_Submitted from the website contact form._`);
+    const fromApp = data.source === "app";
+    parts.push(`---\n_Submitted from ${fromApp ? "the Vibeit app" : "the website contact form"}._`);
 
     const gh = await fetch(`${env.GITHUB_API || "https://api.github.com"}/repos/${env.REPO}/issues`, {
       method: "POST",
@@ -111,7 +116,7 @@ export default {
       body: JSON.stringify({
         title: (kind === "bug" ? "[Bug] " : "[Feature] ") + title,
         body: parts.join("\n\n"),
-        labels: kind === "bug" ? ["bug", "from-website"] : ["enhancement", "from-website"],
+        labels: [kind === "bug" ? "bug" : "enhancement", fromApp ? "from-app" : "from-website"],
       }),
     });
     if (!gh.ok) return json({ error: "github_error" }, 502, cors);

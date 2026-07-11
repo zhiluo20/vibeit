@@ -1,0 +1,34 @@
+<!doctype html>
+<!-- Turnstile host for the Vibeit app's in-app issue reporter. Loaded in a
+     WKWebView; the widget must run on this (allowed) hostname. The token is
+     handed to native code via the `turnstile` message handler. -->
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+  <meta name="robots" content="noindex">
+  <title>Verification</title>
+  <style>
+    html, body { margin: 0; padding: 0; background: transparent; }
+    body { display: flex; justify-content: center; align-items: center; min-height: 72px; }
+  </style>
+</head>
+<body>
+  <div id="widget"></div>
+  <script>
+    function send(message) {
+      try { window.webkit.messageHandlers.turnstile.postMessage(message); } catch (e) {}
+    }
+    function onload() {
+      turnstile.render("#widget", {
+        sitekey: "0x4AAAAAADznleOwb6cuazXa",
+        callback: function (token) { send({ event: "token", token: token }); },
+        "error-callback": function (code) { send({ event: "error", code: String(code || "") }); return true; },
+        "expired-callback": function () { send({ event: "expired" }); },
+        appearance: "always",
+      });
+    }
+  </script>
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js?onload=onload" async defer></script>
+</body>
+</html>
