@@ -120,6 +120,17 @@
     .status a { font-weight: 600; }
     .ts-slot { flex-basis: 100%; }
 
+    dialog#doneDialog {
+      border: 0; border-radius: 20px; padding: 34px 34px 26px; max-width: 340px; width: calc(100% - 48px);
+      background: var(--surface-strong); color: var(--text); text-align: center;
+      box-shadow: 0 30px 90px rgba(0, 0, 0, .28);
+    }
+    dialog#doneDialog::backdrop { background: rgba(0, 0, 0, .32); backdrop-filter: blur(3px); }
+    .done-icon { color: #30a46c; display: inline-block; margin-bottom: 12px; }
+    dialog#doneDialog h2 { margin: 0 0 6px; font-size: 20px; letter-spacing: -0.01em; }
+    dialog#doneDialog p { margin: 0 0 22px; color: var(--muted); font-size: 14.5px; }
+    dialog#doneDialog .btn-gh { width: 100%; }
+
     .site-footer {
       max-width: 820px; margin: 0 auto; padding: 24px; color: var(--muted);
       font-size: 13px; display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap;
@@ -128,7 +139,7 @@
     .site-footer a { color: var(--muted); }
   </style>
 </head>
-<body data-legal-page="contact">
+<body data-legal-page="contact" data-no-locale-note>
   <nav class="site-nav" aria-label="Primary navigation">
     <div class="nav-inner">
       <a class="brand" href="index.html" aria-label="Vibeit home">
@@ -149,7 +160,7 @@
     <div class="card">
       <div id="legalContent">
         <h1>Contact us</h1>
-        <p class="updated">Feature ideas and problem reports go straight into our GitHub queue, so nothing gets lost.</p>
+        <p class="updated">Send a feature idea or report a problem — we read every message.</p>
       </div>
 
       <div class="kind-grid">
@@ -169,7 +180,7 @@
         <input class="hp" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
         <div class="field">
           <label for="fTitle" data-ui="c.title">Title</label>
-          <input id="fTitle" required maxlength="140">
+          <input id="fTitle" required maxlength="140" data-ui-ph="c.phTitle" placeholder="Brief one-line summary">
         </div>
         <div class="field">
           <label for="fArea" data-ui="c.area">Area</label>
@@ -185,7 +196,7 @@
         </div>
         <div class="field">
           <label for="fDesc" data-ui="c.featWhat">What would you like Vibeit to do?</label>
-          <textarea id="fDesc" required maxlength="4000"></textarea>
+          <textarea id="fDesc" required maxlength="4000" data-ui-ph="c.phFeat" placeholder="Describe the feature and how it should work…"></textarea>
         </div>
         <div class="field">
           <label for="fUse"><span data-ui="c.useCase">Use case</span> <span class="opt" data-ui="c.optional">(optional)</span></label>
@@ -193,11 +204,9 @@
         </div>
         <div class="actions">
           <div class="ts-slot" data-ts hidden></div>
-          <button type="submit" class="btn-gh" data-direct data-ui="c.send" hidden>Submit</button>
-          <button type="submit" class="btn-gh" data-ghbtn data-ui="c.gh">Open on GitHub</button>
+          <button type="submit" class="btn-gh" data-direct data-ui="c.send">Submit</button>
           <button type="button" class="btn-mail" data-mail data-ui="c.mail">Send by email instead</button>
           <p class="status" data-status role="status" hidden></p>
-          <p class="hint" data-ui="c.ghHint">GitHub opens with everything pre-filled; you just press "Submit". Needs a GitHub account — no account, use email.</p>
         </div>
       </form>
 
@@ -205,7 +214,7 @@
         <input class="hp" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
         <div class="field">
           <label for="bTitle" data-ui="c.title">Title</label>
-          <input id="bTitle" required maxlength="140">
+          <input id="bTitle" required maxlength="140" data-ui-ph="c.phTitle" placeholder="Brief one-line summary">
         </div>
         <div class="field">
           <label for="bArea" data-ui="c.area">Area</label>
@@ -221,7 +230,7 @@
         </div>
         <div class="field">
           <label for="bWhat" data-ui="c.bugWhat">What happened?</label>
-          <textarea id="bWhat" required maxlength="4000"></textarea>
+          <textarea id="bWhat" required maxlength="4000" data-ui-ph="c.phBug" placeholder="What did you do, what did you expect, and what happened instead?"></textarea>
         </div>
         <div class="field">
           <label for="bSteps"><span data-ui="c.steps">Steps to reproduce</span> <span class="opt" data-ui="c.optional">(optional)</span></label>
@@ -237,11 +246,9 @@
         </div>
         <div class="actions">
           <div class="ts-slot" data-ts hidden></div>
-          <button type="submit" class="btn-gh" data-direct data-ui="c.send" hidden>Submit</button>
-          <button type="submit" class="btn-gh" data-ghbtn data-ui="c.gh">Open on GitHub</button>
+          <button type="submit" class="btn-gh" data-direct data-ui="c.send">Submit</button>
           <button type="button" class="btn-mail" data-mail data-ui="c.mail">Send by email instead</button>
           <p class="status" data-status role="status" hidden></p>
-          <p class="hint" data-ui="c.ghHint">GitHub opens with everything pre-filled; you just press "Submit". Needs a GitHub account — no account, use email.</p>
         </div>
       </form>
     </div>
@@ -249,11 +256,18 @@
 
   <div hidden aria-hidden="true" id="strs">
     <span data-str="sending" data-ui="c.sending">Submitting…</span>
-    <span data-str="sent" data-ui="c.sent">Sent — thank you!</span>
-    <span data-str="view" data-ui="c.view">View the issue</span>
-    <span data-str="fail" data-ui="c.fail">Couldn't submit — use the GitHub or email button below.</span>
+    <span data-str="fail" data-ui="c.fail">Couldn't submit — please try again, or email us below.</span>
     <span data-str="tooMany" data-ui="c.tooMany">Too many submissions — try again in a minute.</span>
   </div>
+
+  <dialog id="doneDialog" aria-labelledby="doneTitle">
+    <div class="done-icon" aria-hidden="true">
+      <svg viewBox="0 0 52 52" width="52" height="52"><circle cx="26" cy="26" r="25" fill="none" stroke="currentColor" stroke-width="2.5"/><path d="M15 27l7.5 7.5L37.5 19" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </div>
+    <h2 id="doneTitle" data-ui="c.sent">Sent — thank you!</h2>
+    <p data-ui="c.doneBody">We've received your feedback and will read it soon.</p>
+    <button type="button" class="btn-gh" id="doneClose" data-ui="c.close">Done</button>
+  </dialog>
 
   <footer class="site-footer">
     <span data-ui="footerTagline">Vibeit — native Python IDE for iPadOS, iOS, and macOS.</span>
@@ -269,11 +283,9 @@
   <script>
   (function () {
     "use strict";
-    /* Direct submission endpoint (Cloudflare Worker). Leave API empty to use only the
-       GitHub-link flow; set both to enable in-page submission with Turnstile. */
+    /* Direct submission endpoint (Cloudflare Worker) + Turnstile site key. */
     var API = "https://vibeit-feedback.aroluo.workers.dev";
     var SITEKEY = "0x4AAAAAADznleOwb6cuazXa";
-    var REPO = "https://github.com/zhiluo20/vibeit/issues/new";
     var MAIL = "aroluo@icloud.com";
     var v = function (id) { return document.getElementById(id).value.trim(); };
     var str = function (k) { var e = document.querySelector('#strs [data-str="' + k + '"]'); return e ? e.textContent : k; };
@@ -287,25 +299,18 @@
     document.getElementById("kindFeature").addEventListener("click", function () { show("feature"); });
     document.getElementById("kindBug").addEventListener("click", function () { show("bug"); });
 
-    /* GitHub issue forms accept ?template= plus one query param per field id to pre-fill it. */
-    function ghUrl(kind) {
-      var p = new URLSearchParams();
+    function payload(kind) {
+      var form = kind === "feature" ? document.getElementById("formFeature") : document.getElementById("formBug");
+      var base = { kind: kind, website: form.querySelector(".hp").value };
       if (kind === "feature") {
-        p.set("template", "feature_request.yml");
-        p.set("title", "[Feature] " + v("fTitle"));
-        p.set("area", document.getElementById("fArea").value);
-        p.set("description", v("fDesc"));
-        if (v("fUse")) p.set("usecase", v("fUse"));
+        base.title = v("fTitle"); base.area = document.getElementById("fArea").value;
+        base.description = v("fDesc"); base.usecase = v("fUse");
       } else {
-        p.set("template", "bug_report.yml");
-        p.set("title", "[Bug] " + v("bTitle"));
-        p.set("area", document.getElementById("bArea").value);
-        p.set("happened", v("bWhat"));
-        if (v("bSteps")) p.set("steps", v("bSteps"));
-        if (v("bDevice")) p.set("device", v("bDevice"));
-        if (v("bVer")) p.set("appversion", v("bVer"));
+        base.title = v("bTitle"); base.area = document.getElementById("bArea").value;
+        base.happened = v("bWhat"); base.steps = v("bSteps");
+        base.device = v("bDevice"); base.appversion = v("bVer");
       }
-      return REPO + "?" + p.toString();
+      return base;
     }
 
     function mailUrl(kind) {
@@ -324,21 +329,7 @@
       return "mailto:" + MAIL + "?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(lines.join("\n"));
     }
 
-    function payload(kind) {
-      var form = kind === "feature" ? document.getElementById("formFeature") : document.getElementById("formBug");
-      var base = { kind: kind, website: form.querySelector(".hp").value };
-      if (kind === "feature") {
-        base.title = v("fTitle"); base.area = document.getElementById("fArea").value;
-        base.description = v("fDesc"); base.usecase = v("fUse");
-      } else {
-        base.title = v("bTitle"); base.area = document.getElementById("bArea").value;
-        base.happened = v("bWhat"); base.steps = v("bSteps");
-        base.device = v("bDevice"); base.appversion = v("bVer");
-      }
-      return base;
-    }
-
-    /* Turnstile: loaded only when direct submission is configured. */
+    /* Turnstile renders one widget per form. */
     var widgets = {};
     window.__tsReady = function () {
       [["formFeature", "feature"], ["formBug", "bug"]].forEach(function (pair) {
@@ -354,11 +345,14 @@
       document.head.appendChild(ts);
     }
 
-    function setStatus(form, html) {
+    function setStatus(form, text) {
       var el = form.querySelector("[data-status]");
       el.hidden = false;
-      el.innerHTML = html;
+      el.textContent = text;
     }
+
+    var dialog = document.getElementById("doneDialog");
+    document.getElementById("doneClose").addEventListener("click", function () { dialog.close(); });
 
     function directSubmit(form, kind) {
       var body = payload(kind);
@@ -370,12 +364,10 @@
       fetch(API, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(body) })
         .then(function (r) { return r.json().then(function (d) { return { s: r.status, d: d }; }); })
         .then(function (res) {
-          if (res.d && res.d.ok && res.d.url) {
-            var a = document.createElement("a");
-            a.href = res.d.url; a.target = "_blank"; a.rel = "noopener"; a.textContent = str("view");
-            var el = form.querySelector("[data-status]");
-            el.hidden = false; el.textContent = str("sent") + " ";
-            el.appendChild(a);
+          if (res.d && res.d.ok) {
+            form.querySelector("[data-status]").hidden = true;
+            form.reset();
+            dialog.showModal();
           } else if (res.s === 429) {
             setStatus(form, str("tooMany"));
           } else {
@@ -391,27 +383,12 @@
 
     [["formFeature", "feature"], ["formBug", "bug"]].forEach(function (pair) {
       var form = document.getElementById(pair[0]), kind = pair[1];
-      var direct = form.querySelector("[data-direct]"), ghBtn = form.querySelector("[data-ghbtn]");
-      if (API && SITEKEY) {
-        direct.hidden = false;
-        ghBtn.type = "button";
-        ghBtn.className = "btn-mail";
-        ghBtn.addEventListener("click", function () {
-          if (!form.reportValidity()) return;
-          window.open(ghUrl(kind), "_blank", "noopener");
-        });
-        form.addEventListener("submit", function (e) {
-          e.preventDefault();
-          if (!form.reportValidity()) return;
-          directSubmit(form, kind);
-        });
-      } else {
-        form.addEventListener("submit", function (e) {
-          e.preventDefault();
-          if (!form.reportValidity()) return;
-          window.open(ghUrl(kind), "_blank", "noopener");
-        });
-      }
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+        if (!form.reportValidity()) return;
+        if (API && SITEKEY) directSubmit(form, kind);
+        else window.location.href = mailUrl(kind);
+      });
       form.querySelector("[data-mail]").addEventListener("click", function () {
         if (!form.reportValidity()) return;
         window.location.href = mailUrl(kind);

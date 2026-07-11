@@ -68,8 +68,13 @@
       "c.sending": "Submitting…",
       "c.sent": "Sent — thank you!",
       "c.view": "View the issue",
-      "c.fail": "Couldn't submit — use the GitHub or email button below.",
-      "c.tooMany": "Too many submissions — try again in a minute."
+      "c.fail": "Couldn't submit — please try again, or email us below.",
+      "c.tooMany": "Too many submissions — try again in a minute.",
+      "c.doneBody": "We've received your feedback and will read it soon.",
+      "c.close": "Done",
+      "c.phTitle": "Brief one-line summary",
+      "c.phFeat": "Describe the feature and how it should work…",
+      "c.phBug": "What did you do, what did you expect, and what happened instead?"
     },
     zh: {
       home: "首页",
@@ -108,8 +113,13 @@
       "c.sending": "正在提交…",
       "c.sent": "已提交，谢谢！",
       "c.view": "查看 issue",
-      "c.fail": "提交失败——请改用下面的 GitHub 或邮件方式。",
-      "c.tooMany": "提交太频繁——请一分钟后再试。"
+      "c.fail": "提交失败——请稍后重试，或用下方邮件联系我们。",
+      "c.tooMany": "提交太频繁——请一分钟后再试。",
+      "c.doneBody": "我们已收到你的反馈，会尽快查看。",
+      "c.close": "完成",
+      "c.phTitle": "一句话简述",
+      "c.phFeat": "描述这个功能以及它应该如何工作…",
+      "c.phBug": "你做了什么、期望什么、实际发生了什么？"
     },
     ja: {
       home: "ホーム",
@@ -148,8 +158,13 @@
       "c.sending": "送信中…",
       "c.sent": "送信しました。ありがとうございます！",
       "c.view": "Issue を見る",
-      "c.fail": "送信できませんでした。下の GitHub かメールをご利用ください。",
-      "c.tooMany": "送信が多すぎます。1分後にもう一度お試しください。"
+      "c.fail": "送信できませんでした。時間をおいて再試行するか、下のメールをご利用ください。",
+      "c.tooMany": "送信が多すぎます。1分後にもう一度お試しください。",
+      "c.doneBody": "フィードバックを受け取りました。近いうちに確認します。",
+      "c.close": "完了",
+      "c.phTitle": "一行での簡単な説明",
+      "c.phFeat": "機能の内容と希望する動作を書いてください…",
+      "c.phBug": "何をして、何を期待し、実際はどうなりましたか？"
     },
     ko: {
       home: "홈",
@@ -188,8 +203,13 @@
       "c.sending": "제출 중…",
       "c.sent": "제출되었습니다. 감사합니다!",
       "c.view": "Issue 보기",
-      "c.fail": "제출하지 못했습니다. 아래 GitHub 또는 이메일을 이용해 주세요.",
-      "c.tooMany": "제출이 너무 잦습니다. 1분 후 다시 시도해 주세요."
+      "c.fail": "제출하지 못했습니다. 잠시 후 다시 시도하거나 아래 이메일을 이용해 주세요.",
+      "c.tooMany": "제출이 너무 잦습니다. 1분 후 다시 시도해 주세요.",
+      "c.doneBody": "피드백을 받았습니다. 곧 확인하겠습니다.",
+      "c.close": "완료",
+      "c.phTitle": "한 줄 요약",
+      "c.phFeat": "원하는 기능과 동작 방식을 설명해 주세요…",
+      "c.phBug": "무엇을 했고, 무엇을 기대했고, 실제로는 어땠나요?"
     },
     fr: {
       home: "Accueil",
@@ -228,8 +248,13 @@
       "c.sending": "Envoi…",
       "c.sent": "Envoyé — merci !",
       "c.view": "Voir l'issue",
-      "c.fail": "Échec de l'envoi — utilisez GitHub ou l'e-mail ci-dessous.",
-      "c.tooMany": "Trop d'envois — réessayez dans une minute."
+      "c.fail": "Échec de l'envoi — réessayez ou utilisez l'e-mail ci-dessous.",
+      "c.tooMany": "Trop d'envois — réessayez dans une minute.",
+      "c.doneBody": "Nous avons bien reçu votre retour et le lirons bientôt.",
+      "c.close": "OK",
+      "c.phTitle": "Résumé en une ligne",
+      "c.phFeat": "Décrivez la fonctionnalité et son fonctionnement…",
+      "c.phBug": "Qu'avez-vous fait, qu'attendiez-vous, que s'est-il passé ?"
     },
     it: {
       home: "Home",
@@ -268,8 +293,13 @@
       "c.sending": "Invio…",
       "c.sent": "Inviato — grazie!",
       "c.view": "Vedi l'issue",
-      "c.fail": "Invio non riuscito — usa GitHub o l'e-mail qui sotto.",
-      "c.tooMany": "Troppi invii — riprova tra un minuto."
+      "c.fail": "Invio non riuscito — riprova o usa l'e-mail qui sotto.",
+      "c.tooMany": "Troppi invii — riprova tra un minuto.",
+      "c.doneBody": "Abbiamo ricevuto il tuo feedback e lo leggeremo presto.",
+      "c.close": "Fine",
+      "c.phTitle": "Riassunto in una riga",
+      "c.phFeat": "Descrivi la funzionalità e come dovrebbe funzionare…",
+      "c.phBug": "Cosa hai fatto, cosa ti aspettavi e cosa è successo?"
     },
     de: {
       home: "Start",
@@ -308,8 +338,13 @@
       "c.sending": "Wird gesendet…",
       "c.sent": "Gesendet — danke!",
       "c.view": "Issue ansehen",
-      "c.fail": "Senden fehlgeschlagen — nutze GitHub oder E-Mail unten.",
-      "c.tooMany": "Zu viele Einsendungen — versuch es in einer Minute erneut."
+      "c.fail": "Senden fehlgeschlagen — versuch es erneut oder nutze die E-Mail unten.",
+      "c.tooMany": "Zu viele Einsendungen — versuch es in einer Minute erneut.",
+      "c.doneBody": "Wir haben dein Feedback erhalten und lesen es bald.",
+      "c.close": "Fertig",
+      "c.phTitle": "Kurze Zusammenfassung in einer Zeile",
+      "c.phFeat": "Beschreibe die Funktion und wie sie arbeiten soll …",
+      "c.phBug": "Was hast du getan, was hast du erwartet, was ist passiert?"
     },
     ar: {
       home: "الرئيسية",
@@ -348,8 +383,13 @@
       "c.sending": "جارٍ الإرسال…",
       "c.sent": "تم الإرسال — شكرًا لك!",
       "c.view": "عرض الـ issue",
-      "c.fail": "تعذّر الإرسال — استخدم GitHub أو البريد أدناه.",
-      "c.tooMany": "محاولات كثيرة — حاول مرة أخرى بعد دقيقة."
+      "c.fail": "تعذّر الإرسال — حاول مجددًا أو استخدم البريد أدناه.",
+      "c.tooMany": "محاولات كثيرة — حاول مرة أخرى بعد دقيقة.",
+      "c.doneBody": "لقد استلمنا ملاحظاتك وسنطّلع عليها قريبًا.",
+      "c.close": "تم",
+      "c.phTitle": "ملخّص من سطر واحد",
+      "c.phFeat": "صِف الميزة وكيف ينبغي أن تعمل…",
+      "c.phBug": "ماذا فعلت، وماذا توقّعت، وماذا حدث فعلًا؟"
     },
     th: {
       home: "หน้าแรก",
@@ -388,8 +428,13 @@
       "c.sending": "กำลังส่ง…",
       "c.sent": "ส่งแล้ว ขอบคุณ!",
       "c.view": "ดู issue",
-      "c.fail": "ส่งไม่สำเร็จ ใช้ปุ่ม GitHub หรืออีเมลด้านล่างแทน",
-      "c.tooMany": "ส่งบ่อยเกินไป ลองใหม่ในอีกหนึ่งนาที"
+      "c.fail": "ส่งไม่สำเร็จ ลองใหม่หรือใช้อีเมลด้านล่าง",
+      "c.tooMany": "ส่งบ่อยเกินไป ลองใหม่ในอีกหนึ่งนาที",
+      "c.doneBody": "เราได้รับความคิดเห็นของคุณแล้ว และจะอ่านโดยเร็ว",
+      "c.close": "เสร็จสิ้น",
+      "c.phTitle": "สรุปสั้น ๆ หนึ่งบรรทัด",
+      "c.phFeat": "อธิบายฟีเจอร์และการทำงานที่ต้องการ…",
+      "c.phBug": "คุณทำอะไร คาดหวังอะไร แล้วเกิดอะไรขึ้นแทน?"
     }
   };
 
@@ -483,7 +528,7 @@
         description: "Contact Vibeit: send a feature suggestion or report a problem.",
         body: `
           <h1>Contact us</h1>
-          <p class="updated">Feature ideas and problem reports go straight into our GitHub queue, so nothing gets lost.</p>`
+          <p class="updated">Send a feature idea or report a problem — we read every message.</p>`
       }
     },
 
@@ -550,7 +595,7 @@
         description: "联系 Vibeit：提交功能建议或反馈问题。",
         body: `
           <h1>联系我们</h1>
-          <p class="updated">功能建议和问题反馈会直接进入我们的 GitHub 队列，不会石沉大海。</p>`
+          <p class="updated">提交功能建议或反馈问题——每一条我们都会认真阅读。</p>`
       }
     },
 
@@ -616,7 +661,7 @@
         description: "Vibeit へのお問い合わせ：機能のご提案や問題のご報告。",
         body: `
           <h1>お問い合わせ</h1>
-          <p class="updated">ご提案と問題報告はそのまま GitHub のキューに入るので、埋もれません。</p>`
+          <p class="updated">機能のご提案や問題のご報告をお送りください。すべて目を通します。</p>`
       }
     },
 
@@ -682,7 +727,7 @@
         description: "Vibeit 문의: 기능 제안이나 문제 신고를 보내주세요.",
         body: `
           <h1>문의하기</h1>
-          <p class="updated">기능 제안과 문제 신고는 GitHub 큐로 바로 들어가 잊히지 않습니다.</p>`
+          <p class="updated">기능 제안이나 문제를 보내주세요. 모두 꼼꼼히 읽습니다.</p>`
       }
     },
 
@@ -748,7 +793,7 @@
         description: "Contacter Vibeit : suggérer une fonctionnalité ou signaler un problème.",
         body: `
           <h1>Nous contacter</h1>
-          <p class="updated">Les suggestions et signalements entrent directement dans notre file GitHub — rien ne se perd.</p>`
+          <p class="updated">Envoyez une idée ou signalez un problème — nous lisons chaque message.</p>`
       }
     },
 
@@ -814,7 +859,7 @@
         description: "Contatta Vibeit: suggerisci una funzionalità o segnala un problema.",
         body: `
           <h1>Contattaci</h1>
-          <p class="updated">Suggerimenti e segnalazioni entrano direttamente nella nostra coda GitHub: nulla va perso.</p>`
+          <p class="updated">Invia un'idea o segnala un problema — leggiamo ogni messaggio.</p>`
       }
     },
 
@@ -880,7 +925,7 @@
         description: "Vibeit kontaktieren: Funktionswunsch senden oder Problem melden.",
         body: `
           <h1>Kontakt</h1>
-          <p class="updated">Wünsche und Meldungen landen direkt in unserer GitHub-Warteschlange — nichts geht verloren.</p>`
+          <p class="updated">Schick uns einen Funktionswunsch oder melde ein Problem — wir lesen jede Nachricht.</p>`
       }
     },
     ar: {
@@ -972,7 +1017,7 @@
         description: "تواصل مع Vibeit: أرسل اقتراح ميزة أو أبلغ عن مشكلة.",
         body: `
           <h1>اتصل بنا</h1>
-          <p class="updated">تدخل الاقتراحات وبلاغات المشاكل مباشرة في قائمة GitHub لدينا، فلا يضيع شيء.</p>`
+          <p class="updated">أرسل اقتراح ميزة أو أبلغ عن مشكلة — نقرأ كل رسالة.</p>`
       }
     },
     th: {
@@ -1064,7 +1109,7 @@
         description: "ติดต่อ Vibeit: เสนอฟีเจอร์หรือแจ้งปัญหา",
         body: `
           <h1>ติดต่อเรา</h1>
-          <p class="updated">ข้อเสนอและรายงานปัญหาเข้าสู่คิว GitHub ของเราโดยตรง ไม่มีอะไรตกหล่น</p>`
+          <p class="updated">ส่งไอเดียฟีเจอร์หรือแจ้งปัญหา เราอ่านทุกข้อความ</p>`
       }
     }
   };
@@ -1113,16 +1158,23 @@
     setMeta('meta[property="og:title"]', `Vibeit ${data.title}`);
 
     content.innerHTML = data.body;
-    const updated = content.querySelector(".updated");
-    const note = document.createElement("p");
-    note.className = "locale-note";
-    note.textContent = lang === "en" ? ui.autoNote : ui.translationNote;
-    if (updated) updated.insertAdjacentElement("afterend", note);
-    else content.insertAdjacentElement("afterbegin", note);
+    if (!document.body.hasAttribute("data-no-locale-note")) {
+      const updated = content.querySelector(".updated");
+      const note = document.createElement("p");
+      note.className = "locale-note";
+      note.textContent = lang === "en" ? ui.autoNote : ui.translationNote;
+      if (updated) updated.insertAdjacentElement("afterend", note);
+      else content.insertAdjacentElement("afterbegin", note);
+    }
 
     document.querySelectorAll("[data-ui]").forEach((node) => {
       const key = node.getAttribute("data-ui");
       if (ui[key]) node.textContent = ui[key];
+    });
+
+    document.querySelectorAll("[data-ui-ph]").forEach((node) => {
+      const key = node.getAttribute("data-ui-ph");
+      if (ui[key]) node.setAttribute("placeholder", ui[key]);
     });
 
     const select = document.getElementById("languageSelect");
