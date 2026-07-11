@@ -367,10 +367,31 @@
       });
     });
 
-    /* deep links: contact.html#feature / #bug preselect a category */
-    if (location.hash === "#bug") show("bug");
-    else if (location.hash === "#feature") show("feature");
-    else show("feature");
+    /* deep links: contact.html#feature / #bug preselect a category.
+       Query params prefill the fields (used by the in-app "report an issue"
+       flow — the user still reviews, passes Turnstile, and submits). */
+    var q = new URLSearchParams(location.search);
+    var kindParam = q.get("kind") ||
+      (location.hash === "#bug" ? "bug" : location.hash === "#feature" ? "feature" : null);
+    show(kindParam === "bug" ? "bug" : "feature");
+    function fill(id, key) {
+      var el = document.getElementById(id), val = q.get(key);
+      if (el && val) el.value = el.maxLength > 0 ? val.slice(0, el.maxLength) : val;
+    }
+    function pickArea(id) {
+      var el = document.getElementById(id), val = q.get("area");
+      if (!el || !val) return;
+      for (var i = 0; i < el.options.length; i++) {
+        if (el.options[i].value === val) { el.value = val; break; }
+      }
+    }
+    if (kindParam === "bug") {
+      fill("bTitle", "title"); fill("bWhat", "happened"); fill("bSteps", "steps");
+      fill("bDevice", "device"); fill("bVer", "appversion"); pickArea("bArea");
+    } else if (kindParam === "feature") {
+      fill("fTitle", "title"); fill("fDesc", "description"); fill("fUse", "usecase");
+      pickArea("fArea");
+    }
   })();
   </script>
 </body>
