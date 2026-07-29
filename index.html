@@ -182,8 +182,14 @@
        so the negative inline-start margin lands it at the viewport edge in LTR and RTL)
        purely to give the mark room to grow — it stays vertically bound by this height. */
     .hero-mark{position:relative;width:100vw;margin-inline-start:calc(50% - 50vw);
-      height:clamp(240px,40vh,420px);pointer-events:none;overflow:hidden}
-    .hero-mark canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
+      height:clamp(240px,40vh,420px);pointer-events:none}
+    /* The canvas deliberately overflows its slot (symmetrically, so its centre still
+       matches the slot's): the cloud runs taller than the mark, and a framebuffer sized
+       to the slot would slice the haze off in a straight line — which is what makes an
+       effect like this read as an iframe. z-index keeps it behind the copy it overlaps;
+       .hero already establishes the stacking context. */
+    .hero-mark canvas{position:absolute;left:0;width:100%;top:-40%;height:180%;
+      display:block;z-index:-1}
     .hero-mark .mark-fallback{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
       width:min(210px,38vw);display:none}
     .hero-mark.no-gl .mark-fallback{display:block}
@@ -4685,8 +4691,8 @@ speech = <span class="fn">tts</span>(<span class="st">"Hello World"</span>)
   (function(){
     var host = document.getElementById("heroMark"), canvas = document.getElementById("heroFx");
     if(!host || !canvas) return;
-    var gl = canvas.getContext("webgl2",{alpha:true,antialias:false,premultipliedAlpha:true,powerPreference:"high-performance"});
-    if(!gl){ host.classList.add("no-gl"); canvas.style.display = "none"; return; }
+    var gl = null, prog, vbo, maxPS = 64, glReady = false, glTries = 0;
+    function giveUp(){ host.classList.add("no-gl"); canvas.style.display = "none"; }
 
     var reduceMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
     var coarse       = matchMedia("(pointer: coarse)").matches;
@@ -4704,11 +4710,17 @@ speech = <span class="fn">tts</span>(<span class="st">"Hello World"</span>)
         cMid=hex(cs.getPropertyValue("--accent")),
         cNear=hex(cs.getPropertyValue("--accent-2"));
 
+    /* aPos is already clip space. Fading alpha to zero before the framebuffer border is
+       what stops the cloud from being sliced off in a straight line at the canvas edge —
+       without it the effect reads as an iframe pasted into the page. */
     var VS = "#version 300 es\n"+
       "layout(location=0) in vec2 aPos; layout(location=1) in float aSize;"+
       "layout(location=2) in float aDepth; layout(location=3) in float aAlpha;"+
-      "out float vDepth; out float vAlpha;"+
-      "void main(){ vDepth=aDepth; vAlpha=aAlpha;"+
+      "uniform vec2 uFade; out float vDepth; out float vAlpha;"+
+      "void main(){ vDepth=aDepth;"+
+      "float ex=1.0-smoothstep(uFade.x,1.0,abs(aPos.x));"+
+      "float ey=1.0-smoothstep(uFade.y,1.0,abs(aPos.y));"+
+      "vAlpha=aAlpha*ex*ey;"+
       "gl_Position=vec4(aPos,0.0,1.0); gl_PointSize=aSize; }";
     var FS = "#version 300 es\nprecision mediump float;"+
       "in float vDepth; in float vAlpha; uniform vec3 uFar,uMid,uNear; out vec4 frag;"+
@@ -4719,28 +4731,49 @@ speech = <span class="fn">tts</span>(<span class="st">"Hello World"</span>)
       "c=mix(c,uNear,smoothstep(0.45,0.88,vDepth));"+
       "c=mix(c,vec3(1.0),smoothstep(0.88,1.0,vDepth)*0.65);"+
       "frag=vec4(c*a,a); }";
-    function sh(t,s){ var o=gl.createShader(t); gl.shaderSource(o,s); gl.compileShader(o);
-      if(!gl.getShaderParameter(o,gl.COMPILE_STATUS)) throw new Error(gl.getShaderInfoLog(o)); return o; }
-    var prog=gl.createProgram();
-    try{ gl.attachShader(prog,sh(gl.VERTEX_SHADER,VS)); gl.attachShader(prog,sh(gl.FRAGMENT_SHADER,FS));
-         gl.linkProgram(prog);
-         if(!gl.getProgramParameter(prog,gl.LINK_STATUS)) throw new Error(gl.getProgramInfoLog(prog)); }
-    catch(e){ host.classList.add("no-gl"); canvas.style.display="none"; return; }
-    gl.useProgram(prog);
-    gl.uniform3fv(gl.getUniformLocation(prog,"uFar"),cFar);
-    gl.uniform3fv(gl.getUniformLocation(prog,"uMid"),cMid);
-    gl.uniform3fv(gl.getUniformLocation(prog,"uNear"),cNear);
-
     var STRIDE=5, bs=STRIDE*4;
-    gl.bindVertexArray(gl.createVertexArray());
-    var vbo=gl.createBuffer(); gl.bindBuffer(gl.ARRAY_BUFFER,vbo);
-    gl.enableVertexAttribArray(0); gl.vertexAttribPointer(0,2,gl.FLOAT,false,bs,0);
-    gl.enableVertexAttribArray(1); gl.vertexAttribPointer(1,1,gl.FLOAT,false,bs,8);
-    gl.enableVertexAttribArray(2); gl.vertexAttribPointer(2,1,gl.FLOAT,false,bs,12);
-    gl.enableVertexAttribArray(3); gl.vertexAttribPointer(3,1,gl.FLOAT,false,bs,16);
-    gl.disable(gl.DEPTH_TEST); gl.enable(gl.BLEND);
-    gl.blendFunc(gl.ONE,gl.ONE);                         /* additive: order-independent */
-    var maxPS=gl.getParameter(gl.ALIASED_POINT_SIZE_RANGE)[1]||64;
+
+    /* Context acquisition is lazy and retried. A single synchronous probe at parse time
+       is not proof of "no WebGL2": that fires while the GPU process may still be starting
+       and 3Dmol.js is claiming its own context, and a transient miss would drop the page
+       to the static SVG for the rest of the session. Deferring also keeps the setup cost
+       off the first-paint path. */
+    function setupGL(){
+      if(glReady) return true;
+      gl = canvas.getContext("webgl2",{alpha:true,antialias:false,premultipliedAlpha:true,powerPreference:"high-performance"});
+      if(!gl){
+        if(++glTries < 4){ setTimeout(function(){ if(setupGL() && visible) resume(); }, 400); }
+        else giveUp();
+        return false;
+      }
+      function sh(t,s){ var o=gl.createShader(t); gl.shaderSource(o,s); gl.compileShader(o);
+        if(!gl.getShaderParameter(o,gl.COMPILE_STATUS)) throw new Error(gl.getShaderInfoLog(o)); return o; }
+      try{
+        prog=gl.createProgram();
+        gl.attachShader(prog,sh(gl.VERTEX_SHADER,VS)); gl.attachShader(prog,sh(gl.FRAGMENT_SHADER,FS));
+        gl.linkProgram(prog);
+        if(!gl.getProgramParameter(prog,gl.LINK_STATUS)) throw new Error(gl.getProgramInfoLog(prog));
+      } catch(e){ gl=null; giveUp(); return false; }   /* a shader fault is not transient */
+      gl.useProgram(prog);
+      gl.uniform3fv(gl.getUniformLocation(prog,"uFar"),cFar);
+      gl.uniform3fv(gl.getUniformLocation(prog,"uMid"),cMid);
+      gl.uniform3fv(gl.getUniformLocation(prog,"uNear"),cNear);
+      gl.uniform2f(gl.getUniformLocation(prog,"uFade"),0.90,0.85);
+
+      gl.bindVertexArray(gl.createVertexArray());
+      vbo=gl.createBuffer(); gl.bindBuffer(gl.ARRAY_BUFFER,vbo);
+      gl.enableVertexAttribArray(0); gl.vertexAttribPointer(0,2,gl.FLOAT,false,bs,0);
+      gl.enableVertexAttribArray(1); gl.vertexAttribPointer(1,1,gl.FLOAT,false,bs,8);
+      gl.enableVertexAttribArray(2); gl.vertexAttribPointer(2,1,gl.FLOAT,false,bs,12);
+      gl.enableVertexAttribArray(3); gl.vertexAttribPointer(3,1,gl.FLOAT,false,bs,16);
+      gl.disable(gl.DEPTH_TEST); gl.enable(gl.BLEND);
+      gl.blendFunc(gl.ONE,gl.ONE);                       /* additive: order-independent */
+      maxPS=gl.getParameter(gl.ALIASED_POINT_SIZE_RANGE)[1]||64;
+
+      glReady=true; build(); resize();
+      if(reduceMotion) staticFrame();
+      return true;
+    }
 
     /* The mark is rasterised from two strokes measured off assets/pydev-icon.png and
        rejection-sampled — change the strokes and the cloud follows, no 3D asset. */
@@ -4968,23 +5001,29 @@ speech = <span class="fn">tts</span>(<span class="st">"Hello World"</span>)
         fAcc=0; fN=0;
       }
     }
-    function start(){ if(running||reduceMotion) return; running=true;
+    function start(){ if(running||reduceMotion||!glReady) return; running=true;
                       last=0; acc=0; fAcc=0; fN=0; slowRuns=0; rafId=requestAnimationFrame(frame); }
     function stop(){ if(!running) return; running=false; cancelAnimationFrame(rafId); }
+    /* Bring the context up on demand, then run — the retry path calls back into this. */
+    function resume(){ if(setupGL()) start(); }
 
     /* Off-screen and hidden tabs must not animate. */
     if("IntersectionObserver" in window){
       new IntersectionObserver(function(es){ visible=es[0].isIntersecting;
-        visible?start():stop(); },{rootMargin:"120px"}).observe(host);
-    } else { visible=true; start(); }
-    document.addEventListener("visibilitychange",function(){ document.hidden?stop():(visible&&start()); });
+        visible?resume():stop(); },{rootMargin:"120px"}).observe(host);
+    } else { visible=true; resume(); }
+    document.addEventListener("visibilitychange",function(){ document.hidden?stop():(visible&&resume()); });
+    /* preventDefault keeps the context restorable; fall back to the SVG meanwhile and
+       rebuild if the browser hands it back. */
     canvas.addEventListener("webglcontextlost",function(e){ e.preventDefault(); stop();
-                                                            host.classList.add("no-gl"); });
-    var rt; addEventListener("resize",function(){ clearTimeout(rt);
-      rt=setTimeout(function(){ build(true); resize(); if(reduceMotion) staticFrame(); },160); });
+      glReady=false; gl=null; host.classList.add("no-gl"); });
+    canvas.addEventListener("webglcontextrestored",function(){
+      glTries=0; host.classList.remove("no-gl"); canvas.style.display="";
+      if(visible) resume(); });
 
-    build(); resize();
-    if(reduceMotion) staticFrame();
+    var rt; addEventListener("resize",function(){ clearTimeout(rt);
+      rt=setTimeout(function(){ if(!glReady) return;
+        build(true); resize(); if(reduceMotion) staticFrame(); },160); });
   })();
   </script>
 </body>
