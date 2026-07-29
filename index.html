@@ -181,15 +181,11 @@
        cloud can never collide with the copy. Full-bleed width (the parent is centred,
        so the negative inline-start margin lands it at the viewport edge in LTR and RTL)
        purely to give the mark room to grow — it stays vertically bound by this height. */
-    .hero-mark{position:relative;width:100vw;margin-inline-start:calc(50% - 50vw);
-      height:clamp(240px,40vh,420px);pointer-events:none}
-    /* The canvas deliberately overflows its slot (symmetrically, so its centre still
-       matches the slot's): the cloud runs taller than the mark, and a framebuffer sized
-       to the slot would slice the haze off in a straight line — which is what makes an
-       effect like this read as an iframe. z-index keeps it behind the copy it overlaps;
-       .hero already establishes the stacking context. */
-    .hero-mark canvas{position:absolute;left:0;width:100%;top:-40%;height:180%;
-      display:block;z-index:-1}
+    /* Pure layout spacer now: it reserves the mark's room in the hero flow and tells the
+       renderer where to put the mark. The pixels come from the fixed page-wide canvas. */
+    .hero-mark{position:relative;width:100%;height:clamp(240px,40vh,420px);pointer-events:none}
+    #heroFx,#fluidFx{position:fixed;inset:0;width:100%;height:100%;display:block;
+      z-index:0;pointer-events:none}
     .hero-mark .mark-fallback{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
       width:min(210px,38vw);display:none}
     .hero-mark.no-gl .mark-fallback{display:block}
@@ -1525,6 +1521,12 @@ html{overflow-x:clip}#aivibe{margin:0!important;display:block!important;backgrou
     <symbol id="ic-list" viewBox="0 0 24 24"><path d="M8 6.5h12M8 12h12M8 17.5h12" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/><circle cx="4" cy="6.5" r="1.2" fill="currentColor"/><circle cx="4" cy="12" r="1.2" fill="currentColor"/><circle cx="4" cy="17.5" r="1.2" fill="currentColor"/></symbol>
   </defs></svg>
   <div class="glow" aria-hidden="true"></div>
+  <!-- Page-wide atmosphere: underwater shafts + cursor smoke, plus the hero's particle
+       mark drawn at whatever screen position #heroMark currently occupies. Fixed and
+       viewport-sized, sharing .glow's z-index:0 — sections are z-index:1 and carry no
+       background of their own, so this shows through the whole page. -->
+  <canvas id="fluidFx" aria-hidden="true"></canvas>
+  <canvas id="heroFx" aria-hidden="true"></canvas>
 
   <header>
     <nav class="wrap">
@@ -1559,7 +1561,6 @@ html{overflow-x:clip}#aivibe{margin:0!important;display:block!important;backgrou
           <span class="eyebrow"><span class="dot"></span><span data-i18n="hero.eyebrow">iPad</span></span>
           <h1><span data-i18n="hero.title_a">Real Python,</span><br><span class="grad-text" data-i18n="hero.title_b">on your iPad.</span></h1>
           <div class="hero-mark" id="heroMark" aria-hidden="true">
-            <canvas id="heroFx"></canvas>
             <svg class="mark-fallback" viewBox="0 0 100 92" fill="none">
               <path d="M18 12 L52 46 L18 80" stroke="url(#mkg)" stroke-width="17" stroke-linecap="round" stroke-linejoin="round"/>
               <path d="M84 20 L84 72" stroke="url(#mkg)" stroke-width="17" stroke-linecap="round"/>
@@ -4680,6 +4681,322 @@ speech = <span class="fn">tts</span>(<span class="st">"Hello World"</span>)
   </script>
 
   <script>
+  /* ===== Cursor smoke: an actual fluid simulation =================================
+     A puff/particle trail cannot produce this look — advected dye gets its filaments
+     from vorticity, which discrete sprites simply do not have. So this is a real
+     (incompressible, semi-Lagrangian) solver on its own canvas and context, kept
+     separate from the mark renderer so a failure here cannot take the mark down.
+
+     Per frame: splat -> curl -> vorticity confinement -> divergence -> Jacobi pressure
+     -> gradient subtract -> advect velocity -> advect dye. All at low resolution
+     (velocity 128, dye 512), which is why ~24 passes still costs very little. */
+  (function(){
+    var cv=document.getElementById("fluidFx");
+    if(!cv) return;
+    if(matchMedia("(prefers-reduced-motion: reduce)").matches){ cv.style.display="none"; return; }
+    var gl=cv.getContext("webgl2",{alpha:true,antialias:false,depth:false,stencil:false,
+                                   premultipliedAlpha:true,powerPreference:"high-performance"});
+    /* Rendering into float targets is an extension even in WebGL2. Without it there is no
+       cheap way to hold a velocity field, so we simply do without the effect. */
+    if(!gl||!gl.getExtension("EXT_color_buffer_float")){ cv.style.display="none"; return; }
+    var lin=!!gl.getExtension("OES_texture_float_linear");
+    var FILT=lin?gl.LINEAR:gl.NEAREST;
+
+    var SIM=128, DYE=matchMedia("(pointer: coarse)").matches?384:512;
+    /* Dissipation is a DIVISOR exponent — lower means the field lives longer, which is
+       what gives it time to actually spread. Radius is squared distance, so 0.014 is a
+       gaussian reaching ~12% of the screen. */
+    /* DISS_V matters more than it looks: too low and the dye keeps its momentum and simply
+       shoots off the edge of the screen instead of lingering and swirling. */
+    var DISS_D=0.75, DISS_V=1.9, ITER=16, CURL=30.0;
+    var RADIUS=0.006, DYE_RADIUS=0.014;
+    /* Advection moves dye by dt*v*texel, i.e. v/128 per 1/60s — so crossing the screen in
+       about a second needs v in the low hundreds, not single digits. This is the scale the
+       whole solver is calibrated around. */
+    var FORCE=2600, WIND=26.0;
+
+    function hex(v){ v=(v||"").trim().replace("#","");
+      if(v.length===3) v=v[0]+v[0]+v[1]+v[1]+v[2]+v[2];
+      var n=parseInt(v,16)||0; return [((n>>16)&255)/255,((n>>8)&255)/255,(n&255)/255]; }
+    var cs=getComputedStyle(document.documentElement);
+    var C1=hex(cs.getPropertyValue("--accent")), C2=hex(cs.getPropertyValue("--accent-2"));
+
+    var BASE="#version 300 es\nprecision highp float;precision highp sampler2D;"+
+      "in vec2 vUv;in vec2 vL;in vec2 vR;in vec2 vT;in vec2 vB;out vec4 o;";
+    var VERT="#version 300 es\nprecision highp float;"+
+      "const vec2 P[3]=vec2[3](vec2(-1.0,-1.0),vec2(3.0,-1.0),vec2(-1.0,3.0));"+
+      "uniform vec2 uTexel;out vec2 vUv;out vec2 vL;out vec2 vR;out vec2 vT;out vec2 vB;"+
+      "void main(){vec2 p=P[gl_VertexID];vUv=p*0.5+0.5;"+
+      "vL=vUv-vec2(uTexel.x,0.0);vR=vUv+vec2(uTexel.x,0.0);"+
+      "vT=vUv+vec2(0.0,uTexel.y);vB=vUv-vec2(0.0,uTexel.y);"+
+      "gl_Position=vec4(p,0.0,1.0);}";
+
+    function sh(type,src){ var s=gl.createShader(type); gl.shaderSource(s,src); gl.compileShader(s);
+      if(!gl.getShaderParameter(s,gl.COMPILE_STATUS)) throw new Error(gl.getShaderInfoLog(s));
+      return s; }
+    var vsh;
+    function prog(fsrc){ var p=gl.createProgram();
+      gl.attachShader(p,vsh); gl.attachShader(p,sh(gl.FRAGMENT_SHADER,fsrc)); gl.linkProgram(p);
+      if(!gl.getProgramParameter(p,gl.LINK_STATUS)) throw new Error(gl.getProgramInfoLog(p));
+      var u={},n=gl.getProgramParameter(p,gl.ACTIVE_UNIFORMS);
+      for(var i=0;i<n;i++){ var nm=gl.getActiveUniform(p,i).name; u[nm]=gl.getUniformLocation(p,nm); }
+      return {p:p,u:u}; }
+
+    var pSplat,pAdvect,pDiv,pCurl,pVort,pWind,pPress,pGrad,pShow,vao;
+    try{
+      vsh=sh(gl.VERTEX_SHADER,VERT);
+      /* uCap bounds accumulation. Without it, holding the cursor still keeps piling dye
+         into one texel forever, and no amount of tone mapping saves a field that has run
+         away by orders of magnitude. Velocity passes a huge cap — only dye needs bounding. */
+      pSplat=prog(BASE+"uniform sampler2D uT;uniform vec3 uColor;uniform vec2 uPoint;"+
+        "uniform float uRadius;uniform float uRatio;uniform float uCap;"+
+        "void main(){vec2 p=vUv-uPoint;p.x*=uRatio;"+
+        "vec3 s=exp(-dot(p,p)/uRadius)*uColor;"+
+        "o=vec4(min(s+texture(uT,vUv).xyz,vec3(uCap)),1.0);}");
+      /* Semi-Lagrangian: trace backwards along the velocity field and resample. */
+      pAdvect=prog(BASE+"uniform sampler2D uVel;uniform sampler2D uSrc;uniform vec2 uTexelS;"+
+        "uniform float uDt;uniform float uDiss;"+
+        "void main(){vec2 c=vUv-uDt*texture(uVel,vUv).xy*uTexelS;"+
+        "o=texture(uSrc,c)/(1.0+uDiss*uDt);}");
+      pDiv=prog(BASE+"uniform sampler2D uVel;"+
+        "void main(){float L=texture(uVel,vL).x,R=texture(uVel,vR).x;"+
+        "float T=texture(uVel,vT).y,B=texture(uVel,vB).y;"+
+        "o=vec4(0.5*(R-L+T-B),0.0,0.0,1.0);}");
+      pCurl=prog(BASE+"uniform sampler2D uVel;"+
+        "void main(){float L=texture(uVel,vL).y,R=texture(uVel,vR).y;"+
+        "float T=texture(uVel,vT).x,B=texture(uVel,vB).x;"+
+        "o=vec4(0.5*(R-L-T+B),0.0,0.0,1.0);}");
+      /* Vorticity confinement: pushes energy back into the swirls the solver damps out.
+         This is the step that produces the filaments — without it the dye just blurs. */
+      pVort=prog(BASE+"uniform sampler2D uVel;uniform sampler2D uCurl;"+
+        "uniform float uCurlAmt;uniform float uDt;"+
+        "void main(){float L=texture(uCurl,vL).x,R=texture(uCurl,vR).x;"+
+        "float T=texture(uCurl,vT).x,B=texture(uCurl,vB).x,C=texture(uCurl,vUv).x;"+
+        "vec2 f=vec2(abs(T)-abs(B),abs(R)-abs(L))*0.5;"+
+        "f/=length(f)+0.0001;f*=uCurlAmt*C;f.y*=-1.0;"+
+        "vec2 v=texture(uVel,vUv).xy+f*uDt;"+
+        "o=vec4(clamp(v,-1000.0,1000.0),0.0,1.0);}");
+      /* Ambient airflow. The direction varies across SPACE as well as over time — a single
+         uniform breeze would just translate the whole field off-screen instead of tearing
+         it apart. Injected before the pressure solve, so the projection strips its
+         divergent part and what remains actually disperses the dye. */
+      pWind=prog(BASE+"uniform sampler2D uVel;uniform float uTime;uniform float uDt;"+
+        "uniform float uAmt;"+
+        "void main(){"+
+        "float a1=sin(vUv.y*2.3+uTime*0.11)+cos(vUv.x*1.9-uTime*0.08);"+
+        "float a2=sin((vUv.x+vUv.y)*3.1-uTime*0.05);"+
+        "float ang=a1*1.1+a2*0.7+uTime*0.06;"+
+        /* gusts: swells and lulls rather than a constant push */
+        "float g=0.30+0.70*pow(0.5+0.5*sin(uTime*0.19+sin(uTime*0.071)*2.0),2.0);"+
+        "vec2 f=vec2(cos(ang),sin(ang))*uAmt*g;"+
+        "o=vec4(texture(uVel,vUv).xy+f*uDt,0.0,1.0);}");
+      pPress=prog(BASE+"uniform sampler2D uPress;uniform sampler2D uDiv;"+
+        "void main(){float L=texture(uPress,vL).x,R=texture(uPress,vR).x;"+
+        "float T=texture(uPress,vT).x,B=texture(uPress,vB).x;"+
+        "o=vec4((L+R+B+T-texture(uDiv,vUv).x)*0.25,0.0,0.0,1.0);}");
+      pGrad=prog(BASE+"uniform sampler2D uPress;uniform sampler2D uVel;"+
+        "void main(){float L=texture(uPress,vL).x,R=texture(uPress,vR).x;"+
+        "float T=texture(uPress,vT).x,B=texture(uPress,vB).x;"+
+        "vec2 v=texture(uVel,vUv).xy-vec2(R-L,T-B);o=vec4(v,0.0,1.0);}");
+      /* Additive over a dark page reads as luminous dye. But clamping would blow out to
+         WHITE, because the channels hit 1.0 one at a time (blue first for our accent) and
+         each one that saturates desaturates the colour further. Reinhard on the PEAK
+         channel instead rescales all three together: brightness asymptotes to 1 and the
+         hue is preserved exactly, so it can never turn white. */
+      pShow=prog(BASE+"uniform sampler2D uT;"+
+        "void main(){vec3 c=texture(uT,vUv).rgb;"+
+        "float l=max(c.r,max(c.g,c.b));"+
+        "c*=(l/(1.0+l))/max(l,1e-4);"+
+        "float a=clamp(max(c.r,max(c.g,c.b)),0.0,1.0);o=vec4(c,a);}");
+      vao=gl.createVertexArray();
+    }catch(e){ if(window.console) console.warn("fluid: shader failed —",e.message);
+               cv.style.display="none"; return; }
+
+    function fbo(w,h,internal,format,type){
+      var tex=gl.createTexture();
+      gl.bindTexture(gl.TEXTURE_2D,tex);
+      gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_MIN_FILTER,FILT);
+      gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_MAG_FILTER,FILT);
+      gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_WRAP_S,gl.CLAMP_TO_EDGE);
+      gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_WRAP_T,gl.CLAMP_TO_EDGE);
+      gl.texImage2D(gl.TEXTURE_2D,0,internal,w,h,0,format,type,null);
+      var f=gl.createFramebuffer();
+      gl.bindFramebuffer(gl.FRAMEBUFFER,f);
+      gl.framebufferTexture2D(gl.FRAMEBUFFER,gl.COLOR_ATTACHMENT0,gl.TEXTURE_2D,tex,0);
+      gl.viewport(0,0,w,h); gl.clear(gl.COLOR_BUFFER_BIT);
+      return {tex:tex,fb:f,w:w,h:h,texel:[1/w,1/h],
+              bind:function(u){ gl.activeTexture(gl.TEXTURE0+u); gl.bindTexture(gl.TEXTURE_2D,tex); return u; }};
+    }
+    function dbl(w,h,i,f,t){ var a=fbo(w,h,i,f,t),b=fbo(w,h,i,f,t);
+      return {w:w,h:h,texel:a.texel,get read(){return a;},get write(){return b;},
+              swap:function(){var s=a;a=b;b=s;}}; }
+
+    var HF=gl.HALF_FLOAT;
+    var velocity,dye,pressure,divergence,curl;
+    function alloc(){
+      velocity  =dbl(SIM,SIM,gl.RG16F,gl.RG,HF);
+      pressure  =dbl(SIM,SIM,gl.R16F,gl.RED,HF);
+      divergence=fbo(SIM,SIM,gl.R16F,gl.RED,HF);
+      curl      =fbo(SIM,SIM,gl.R16F,gl.RED,HF);
+      dye       =dbl(DYE,DYE,gl.RGBA16F,gl.RGBA,HF);
+    }
+    try{ alloc(); }
+    catch(e){ if(window.console) console.warn("fluid: no float targets —",e.message);
+              cv.style.display="none"; return; }
+
+    function use(pr,target){
+      gl.useProgram(pr.p); gl.bindVertexArray(vao);
+      var w=target?target.w:cv.width, h=target?target.h:cv.height;
+      gl.bindFramebuffer(gl.FRAMEBUFFER,target?target.fb:null);
+      gl.viewport(0,0,w,h);
+      if(pr.u.uTexel) gl.uniform2f(pr.u.uTexel,1/w,1/h);
+    }
+    function blit(){ gl.drawArrays(gl.TRIANGLES,0,3); }
+
+    var W=0,H=0;
+    function size(){
+      var d=Math.min(devicePixelRatio||1,1.5);
+      W=Math.round(innerWidth*d); H=Math.round(innerHeight*d);
+      cv.width=W; cv.height=H;
+    }
+    size();
+
+    /* Pointer state is COALESCED, not queued. pointermove can fire many times per frame,
+       and splatting each one stacks the full impulse repeatedly into a single step — the
+       velocity field then explodes into the clamp and sweeps every bit of dye off-screen.
+       One delta, one splat, per frame. */
+    var curX=0, curY=0, prvX=0, prvY=0, moved=false, havePrev=false;
+    var queue=[];                                  /* clicks only: discrete, so not coalesced */
+    addEventListener("pointermove",function(e){
+      curX=e.clientX/innerWidth; curY=1-e.clientY/innerHeight;
+      if(!havePrev){ prvX=curX; prvY=curY; havePrev=true; }
+      moved=true;
+    },{passive:true});
+    addEventListener("pointerdown",function(e){
+      var x=e.clientX/innerWidth, y=1-e.clientY/innerHeight;
+      curX=prvX=x; curY=prvY=y; havePrev=true;
+      queue.push({x:x,y:y,dx:0,dy:0,burst:1});
+    },{passive:true});
+
+    function splat(s){
+      var ratio=cv.width/cv.height;
+      var m=s.burst?2.2:1.0;
+      use(pSplat,velocity.write);
+      gl.uniform1i(pSplat.u.uT,velocity.read.bind(0));
+      gl.uniform1f(pSplat.u.uRatio,ratio);
+      gl.uniform2f(pSplat.u.uPoint,s.x,s.y);
+      gl.uniform3f(pSplat.u.uColor,s.dx*m,s.dy*m,0);
+      gl.uniform1f(pSplat.u.uRadius,RADIUS);
+      gl.uniform1f(pSplat.u.uCap,1e5);            /* velocity is not the thing blowing out */
+      blit(); velocity.swap();
+
+      /* Dye colour stays inside the brand ramp instead of cycling hue like the reference. */
+      var k=0.5+0.5*Math.sin(s.x*9.0+s.y*7.0);
+      use(pSplat,dye.write);
+      gl.uniform1i(pSplat.u.uT,dye.read.bind(0));
+      gl.uniform1f(pSplat.u.uRatio,ratio);
+      gl.uniform2f(pSplat.u.uPoint,s.x,s.y);
+      gl.uniform3f(pSplat.u.uColor,
+        (C1[0]+(C2[0]-C1[0])*k)*0.20*m,
+        (C1[1]+(C2[1]-C1[1])*k)*0.20*m,
+        (C1[2]+(C2[2]-C1[2])*k)*0.20*m);
+      gl.uniform1f(pSplat.u.uRadius,DYE_RADIUS);   /* dye spreads wider than the impulse */
+      gl.uniform1f(pSplat.u.uCap,1.7);
+      blit(); dye.swap();
+    }
+
+    var clock=0;
+    function stepFluid(dt){
+      clock+=dt;
+      gl.disable(gl.BLEND);
+      if(moved){
+        moved=false;
+        var dx=(curX-prvX)*FORCE, dy=(curY-prvY)*FORCE;
+        prvX=curX; prvY=curY;
+        if(dx*dx+dy*dy>1e-6) splat({x:curX,y:curY,dx:dx,dy:dy,burst:0});
+      }
+      while(queue.length) splat(queue.shift());
+
+      use(pCurl,curl);
+      gl.uniform2f(pCurl.u.uTexel,velocity.texel[0],velocity.texel[1]);
+      gl.uniform1i(pCurl.u.uVel,velocity.read.bind(0)); blit();
+
+      use(pVort,velocity.write);
+      gl.uniform2f(pVort.u.uTexel,velocity.texel[0],velocity.texel[1]);
+      gl.uniform1i(pVort.u.uVel,velocity.read.bind(0));
+      gl.uniform1i(pVort.u.uCurl,curl.bind(1));
+      gl.uniform1f(pVort.u.uCurlAmt,CURL); gl.uniform1f(pVort.u.uDt,dt);
+      blit(); velocity.swap();
+
+      use(pWind,velocity.write);
+      gl.uniform2f(pWind.u.uTexel,velocity.texel[0],velocity.texel[1]);
+      gl.uniform1i(pWind.u.uVel,velocity.read.bind(0));
+      gl.uniform1f(pWind.u.uTime,clock); gl.uniform1f(pWind.u.uDt,dt);
+      gl.uniform1f(pWind.u.uAmt,WIND);
+      blit(); velocity.swap();
+
+      use(pDiv,divergence);
+      gl.uniform2f(pDiv.u.uTexel,velocity.texel[0],velocity.texel[1]);
+      gl.uniform1i(pDiv.u.uVel,velocity.read.bind(0)); blit();
+
+      /* Decay the previous pressure instead of clearing: it is a much better initial
+         guess, so 16 Jacobi iterations converge as well as far more from zero. */
+      use(pPress,pressure.write);
+      gl.uniform2f(pPress.u.uTexel,velocity.texel[0],velocity.texel[1]);
+      gl.uniform1i(pPress.u.uDiv,divergence.bind(0));
+      gl.uniform1i(pPress.u.uPress,pressure.read.bind(1));
+      for(var i=0;i<ITER;i++){
+        use(pPress,pressure.write);
+        gl.uniform2f(pPress.u.uTexel,velocity.texel[0],velocity.texel[1]);
+        gl.uniform1i(pPress.u.uDiv,divergence.bind(0));
+        gl.uniform1i(pPress.u.uPress,pressure.read.bind(1));
+        blit(); pressure.swap();
+      }
+
+      use(pGrad,velocity.write);
+      gl.uniform2f(pGrad.u.uTexel,velocity.texel[0],velocity.texel[1]);
+      gl.uniform1i(pGrad.u.uPress,pressure.read.bind(0));
+      gl.uniform1i(pGrad.u.uVel,velocity.read.bind(1));
+      blit(); velocity.swap();
+
+      use(pAdvect,velocity.write);
+      gl.uniform2f(pAdvect.u.uTexel,velocity.texel[0],velocity.texel[1]);
+      gl.uniform2f(pAdvect.u.uTexelS,velocity.texel[0],velocity.texel[1]);
+      gl.uniform1i(pAdvect.u.uVel,velocity.read.bind(0));
+      gl.uniform1i(pAdvect.u.uSrc,velocity.read.bind(0));
+      gl.uniform1f(pAdvect.u.uDt,dt); gl.uniform1f(pAdvect.u.uDiss,DISS_V);
+      blit(); velocity.swap();
+
+      use(pAdvect,dye.write);
+      gl.uniform2f(pAdvect.u.uTexel,dye.texel[0],dye.texel[1]);
+      gl.uniform2f(pAdvect.u.uTexelS,velocity.texel[0],velocity.texel[1]);
+      gl.uniform1i(pAdvect.u.uVel,velocity.read.bind(0));
+      gl.uniform1i(pAdvect.u.uSrc,dye.read.bind(1));
+      gl.uniform1f(pAdvect.u.uDt,dt); gl.uniform1f(pAdvect.u.uDiss,DISS_D);
+      blit(); dye.swap();
+
+      use(pShow,null);
+      gl.enable(gl.BLEND); gl.blendFunc(gl.ONE,gl.ONE);
+      gl.clearColor(0,0,0,0); gl.clear(gl.COLOR_BUFFER_BIT);
+      gl.uniform1i(pShow.u.uT,dye.read.bind(0)); blit();
+    }
+
+    var last=0,raf=0,run=false;
+    function loop(now){
+      raf=requestAnimationFrame(loop);
+      var dt=last?Math.min((now-last)/1000,0.0166):0.0166; last=now;
+      stepFluid(dt);
+    }
+    function go(){ if(run) return; run=true; last=0; raf=requestAnimationFrame(loop); }
+    function halt(){ if(!run) return; run=false; cancelAnimationFrame(raf); }
+    document.addEventListener("visibilitychange",function(){ document.hidden?halt():go(); });
+    cv.addEventListener("webglcontextlost",function(e){ e.preventDefault(); halt(); });
+    var rz; addEventListener("resize",function(){ clearTimeout(rz); rz=setTimeout(size,180); });
+    requestAnimationFrame(go);
+  })();
+  </script>
+
+  <script>
   /* ===== Hero particle ">|" mark ==================================================
      ~6.5k additive point sprites forming the Vibeit mark as an extruded shell, with
      cursor repulsion + spring return, expanding water ripples and a caustic shimmer.
@@ -4692,6 +5009,7 @@ speech = <span class="fn">tts</span>(<span class="st">"Hello World"</span>)
     var host = document.getElementById("heroMark"), canvas = document.getElementById("heroFx");
     if(!host || !canvas) return;
     var gl = null, prog, vbo, maxPS = 64, glReady = false, glTries = 0;
+    var rayProg, rayVao, ptVao, uRayRes, uRayTime;
     function giveUp(){ host.classList.add("no-gl"); canvas.style.display = "none"; }
 
     var reduceMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -4723,7 +5041,8 @@ speech = <span class="fn">tts</span>(<span class="st">"Hello World"</span>)
       "vAlpha=aAlpha*ex*ey;"+
       "gl_Position=vec4(aPos,0.0,1.0); gl_PointSize=aSize; }";
     var FS = "#version 300 es\nprecision mediump float;"+
-      "in float vDepth; in float vAlpha; uniform vec3 uFar,uMid,uNear; out vec4 frag;"+
+      "in float vDepth; in float vAlpha;"+
+      "uniform vec3 uFar,uMid,uNear; out vec4 frag;"+
       "void main(){ vec2 d=gl_PointCoord-0.5; float r=length(d)*2.0; if(r>1.0) discard;"+
       "float core=pow(1.0-r,3.0); float halo=pow(1.0-r,1.1)*0.22;"+   /* restrained halo */
       "float a=(core+halo)*vAlpha;"+
@@ -4731,6 +5050,52 @@ speech = <span class="fn">tts</span>(<span class="st">"Hello World"</span>)
       "c=mix(c,uNear,smoothstep(0.45,0.88,vDepth));"+
       "c=mix(c,vec3(1.0),smoothstep(0.88,1.0,vDepth)*0.65);"+
       "frag=vec4(c*a,a); }";
+
+    /* ---- sunlight through a water surface: shafts + caustics, drawn behind the mark ---
+       A full-canvas pass. The band mask early-outs before the caustic loop so most of the
+       frame never pays for it — the shafts are confined to the mark's zone and fade out
+       well before the copy, which has to stay readable. */
+    var RVS = "#version 300 es\n"+
+      "const vec2 P[3]=vec2[3](vec2(-1.0,-1.0),vec2(3.0,-1.0),vec2(-1.0,3.0));"+
+      "void main(){ gl_Position=vec4(P[gl_VertexID],0.0,1.0); }";
+    var RFS = "#version 300 es\nprecision highp float;"+
+      "uniform vec2 uRes; uniform float uTime, uAmp; uniform vec3 uMid,uNear; out vec4 frag;"+
+      "void main(){"+
+      "vec2 uv=(gl_FragCoord.xy/uRes)*2.0-1.0; uv.x*=uRes.x/uRes.y;"+
+      /* Light enters at the top and dies out toward the floor. Doubles as the perf gate:
+         the lower part of the screen returns before the caustic loop ever runs. */
+      "float band=smoothstep(-1.05,0.55,uv.y);"+
+      "if(band<0.004){ frag=vec4(0.0); return; }"+
+      /* shafts radiate from a sun above the frame */
+      "vec2 d=uv-vec2(0.10,1.55); float rr=length(d); float an=atan(d.x,-d.y);"+
+      /* Few, narrow, unevenly spaced shafts. The inner sin() jitters their angular spacing
+         so they don't come out as a fan of equal wedges. */
+      "float s=sin(an*13.0+uTime*0.18+sin(an*4.5-uTime*0.12)*2.1)*0.5+0.5; s=pow(s,3.4);"+
+      "float s2=sin(an*5.0-uTime*0.09+1.3)*0.5+0.5;"+
+      "float rays=s*(0.30+0.70*s2)*smoothstep(2.7,0.35,rr);"+
+      /* Caustic web riding on the shafts. The mod()-250.0 offset is load-bearing: it keeps
+         p large so the 1/length() term stays order-1. Without it the denominator collapses
+         and pow(...,8.0) blows the whole pass out to white. */
+      "const float TAU=6.28318; const float inten=0.005;"+
+      /* Warp the domain before the mod() so the tiling never reads as a regular lattice —
+         this is what makes the raw formula look like graph paper. */
+      "vec2 w=uv*0.85;"+
+      "w+=0.42*vec2(sin(uv.y*1.6+uTime*0.12),cos(uv.x*1.8-uTime*0.10));"+
+      "w+=0.20*vec2(sin(uv.y*3.7-uTime*0.07),cos(uv.x*3.1+uTime*0.085));"+
+      "vec2 p=mod(w*TAU*0.6,TAU)-250.0; vec2 q=p; float c=1.0;"+
+      "for(int n=0;n<4;n++){ float ti=uTime*0.22*(1.0-3.5/float(n+1));"+
+      "q=p+vec2(cos(ti-q.x)+sin(ti+q.y),sin(ti-q.y)+cos(ti+q.x));"+
+      "c+=1.0/length(vec2(p.x/(sin(q.x+ti)/inten),p.y/(cos(q.y+ti)/inten))); }"+
+      /* pow 11 instead of 8: keeps only the brightest filaments, leaving real dark space */
+      "c/=4.0; c=1.17-pow(c,1.4); float caus=clamp(pow(abs(c),11.0),0.0,1.0);"+
+      /* large slow blobs, so the light lands in patches instead of covering everything */
+      "float blotch=sin(uv.x*1.15+uTime*0.07)*sin(uv.y*0.9-uTime*0.055)*0.5+0.5;"+
+      "caus*=smoothstep(0.18,0.95,blotch);"+   /* NB: 'patch' is a reserved word in ES 3.00 */
+      /* caustics mostly MODULATE the shafts; only a little of it stands on its own */
+      /* clamped on the way out: a numerical edge case must never white out the hero */
+      "float v=clamp((rays*(0.55+1.15*caus)+caus*0.22)*band*uAmp,0.0,1.0);"+
+      "vec3 col=mix(uMid,uNear,clamp(caus*1.6,0.0,1.0));"+
+      "frag=vec4(col*v,v); }";
     var STRIDE=5, bs=STRIDE*4;
 
     /* Context acquisition is lazy and retried. A single synchronous probe at parse time
@@ -4748,19 +5113,36 @@ speech = <span class="fn">tts</span>(<span class="st">"Hello World"</span>)
       }
       function sh(t,s){ var o=gl.createShader(t); gl.shaderSource(o,s); gl.compileShader(o);
         if(!gl.getShaderParameter(o,gl.COMPILE_STATUS)) throw new Error(gl.getShaderInfoLog(o)); return o; }
-      try{
-        prog=gl.createProgram();
-        gl.attachShader(prog,sh(gl.VERTEX_SHADER,VS)); gl.attachShader(prog,sh(gl.FRAGMENT_SHADER,FS));
-        gl.linkProgram(prog);
-        if(!gl.getProgramParameter(prog,gl.LINK_STATUS)) throw new Error(gl.getProgramInfoLog(prog));
-      } catch(e){ gl=null; giveUp(); return false; }   /* a shader fault is not transient */
+      function link(vs,fs){ var p=gl.createProgram();
+        gl.attachShader(p,sh(gl.VERTEX_SHADER,vs)); gl.attachShader(p,sh(gl.FRAGMENT_SHADER,fs));
+        gl.linkProgram(p);
+        if(!gl.getProgramParameter(p,gl.LINK_STATUS)) throw new Error(gl.getProgramInfoLog(p));
+        return p; }
+      try{ prog=link(VS,FS); rayProg=link(RVS,RFS); }
+      /* A shader fault is not transient, so fall back for good — but say why. Swallowing
+         the log silently turns a one-line typo into a black-box "it just shows the SVG". */
+      catch(e){ if(window.console) console.warn("hero mark: shader failed —",e.message);
+                gl=null; giveUp(); return false; }
+
+      gl.useProgram(rayProg);
+      gl.uniform3fv(gl.getUniformLocation(rayProg,"uMid"),cMid);
+      gl.uniform3fv(gl.getUniformLocation(rayProg,"uNear"),cNear);
+      uRayRes  = gl.getUniformLocation(rayProg,"uRes");
+      uRayTime = gl.getUniformLocation(rayProg,"uTime");
+      gl.uniform1f(gl.getUniformLocation(rayProg,"uAmp"), coarse ? 0.42 : 0.62);
+      rayVao = gl.createVertexArray();               /* attribute-less fullscreen triangle */
+
       gl.useProgram(prog);
       gl.uniform3fv(gl.getUniformLocation(prog,"uFar"),cFar);
       gl.uniform3fv(gl.getUniformLocation(prog,"uMid"),cMid);
       gl.uniform3fv(gl.getUniformLocation(prog,"uNear"),cNear);
-      gl.uniform2f(gl.getUniformLocation(prog,"uFade"),0.90,0.85);
+      /* Kept even though the canvas edge is now the screen edge: WebGL culls a point
+         sprite by its CENTRE, so a 250px smoke puff would vanish whole the moment its
+         centre crossed the border. Fading it out first hides that pop. */
+      gl.uniform2f(gl.getUniformLocation(prog,"uFade"),0.93,0.93);
 
-      gl.bindVertexArray(gl.createVertexArray());
+      ptVao = gl.createVertexArray();
+      gl.bindVertexArray(ptVao);
       vbo=gl.createBuffer(); gl.bindBuffer(gl.ARRAY_BUFFER,vbo);
       gl.enableVertexAttribArray(0); gl.vertexAttribPointer(0,2,gl.FLOAT,false,bs,0);
       gl.enableVertexAttribArray(1); gl.vertexAttribPointer(1,1,gl.FLOAT,false,bs,8);
@@ -4797,7 +5179,7 @@ speech = <span class="fn">tts</span>(<span class="st">"Hello World"</span>)
       }
     })();
 
-    var N=0, hx,hy,hz,px,py,pz,vx,vy,vz,ph,sz,br,kk,data, markH=1, halfD=1;
+    var N=0, drawN=0, hx,hy,hz,px,py,pz,vx,vy,vz,ph,sz,br,kk,data, markH=1, halfD=1;
     function rnd(){ return Math.random(); }
     function gauss(){ return (rnd()+rnd()+rnd()-1.5)*0.9; }
 
@@ -4846,14 +5228,25 @@ speech = <span class="fn">tts</span>(<span class="st">"Hello World"</span>)
       gl.bufferData(gl.ARRAY_BUFFER,data.byteLength,gl.DYNAMIC_DRAW);
     }
 
-    var dpr=1, cw=0, chh=0, cx=0, cy=0, CAM=1500;
+    var dpr=1, cw=0, chh=0, cx=0, cy=0, CAM=1500, markOn=true;
     function resize(){
-      dpr=Math.min(devicePixelRatio||1,2);
+      /* 1.75 instead of 2: the canvas is the whole viewport now and the shaft pass is
+         per-pixel, so the top DPR tier costs far more than it visibly returns. */
+      dpr=Math.min(devicePixelRatio||1,1.75);
       cw=canvas.clientWidth; chh=canvas.clientHeight;
       canvas.width=Math.round(cw*dpr); canvas.height=Math.round(chh*dpr);
       gl.viewport(0,0,canvas.width,canvas.height);
-      cx=cw/2; cy=chh/2;                          /* the block IS the slot */
       CAM=Math.max(900,markH*3.2);
+      trackMark();
+    }
+    /* The canvas is fixed, so the mark has to chase its layout slot to keep scrolling with
+       the hero. Rect read only — nothing writes layout in the frame before it, so this
+       does not force a reflow. markOn also lets the mark's simulation idle once the hero
+       is gone, while the page-wide atmosphere carries on. */
+    function trackMark(){
+      var r=host.getBoundingClientRect();
+      cx=r.left+r.width/2; cy=r.top+r.height/2;
+      markOn = r.bottom > -240 && r.top < chh+240;
     }
 
     /* Ring buffer of expanding wavefronts. Evaluated at projection time as a pure display
@@ -4894,7 +5287,9 @@ speech = <span class="fn">tts</span>(<span class="st">"Hello World"</span>)
       var cyw=Math.cos(yaw),syw=Math.sin(yaw),cpt=Math.cos(pitch),spt=Math.sin(pitch);
       var R2=P.radius*P.radius, pushK=P.force*(1+Math.min(speed/14,1.3));
 
-      for(var i=0;i<N;i++){
+      /* The mark is a hero-region element — its simulation idles once that region has
+         scrolled away, while the page-wide atmosphere keeps running. */
+      for(var i=0;markOn&&i<N;i++){
         var b=ph[i];
         var bx=hx[i]+Math.sin(t*0.70+b)*markH*0.006,
             by=hy[i]+Math.cos(t*0.55+b*1.31)*markH*0.006,
@@ -4929,8 +5324,9 @@ speech = <span class="fn">tts</span>(<span class="st">"Hello World"</span>)
       var ampZ=markH*0.115*P.ripple, ampXY=markH*0.028*P.ripple;
       var wid=markH*0.16, spd=markH*0.62*P.rspeed, spread=markH*0.55;
       var water=P.water, doRip=P.ripple>0, j=0;
+      drawN=0;
 
-      for(var i=0;i<N;i++){
+      for(var i=0;markOn&&i<N;i++){
         var bx=px[i], by=py[i], ox=0, oy=0, oz=0, litR=0;
         if(doRip){
           for(var r=0;r<RN;r++){
@@ -4965,17 +5361,25 @@ speech = <span class="fn">tts</span>(<span class="st">"Hello World"</span>)
         data[j+2]=ps;
         data[j+3]=dep<0?0:(dep>1?1:dep);
         data[j+4]=br[i]*P.glow*(1+lit*0.85);
-        j+=STRIDE;
+        j+=STRIDE; drawN++;
       }
     }
 
     function draw(){
       gl.clearColor(0,0,0,0); gl.clear(gl.COLOR_BUFFER_BIT);
+      /* Shafts first, mark and smoke additively over them. */
+      gl.useProgram(rayProg); gl.bindVertexArray(rayVao);
+      gl.uniform2f(uRayRes,canvas.width,canvas.height);
+      gl.uniform1f(uRayTime,t);
+      gl.drawArrays(gl.TRIANGLES,0,3);
+
+      gl.useProgram(prog); gl.bindVertexArray(ptVao);
       gl.bindBuffer(gl.ARRAY_BUFFER,vbo);
-      gl.bufferSubData(gl.ARRAY_BUFFER,0,data);
-      gl.drawArrays(gl.POINTS,0,N);
+      gl.bufferSubData(gl.ARRAY_BUFFER,0,data,0,drawN*STRIDE);
+      gl.drawArrays(gl.POINTS,0,drawN);
     }
-    function staticFrame(){ for(var i=0;i<N;i++){ px[i]=hx[i]; py[i]=hy[i]; pz[i]=hz[i]; }
+    function staticFrame(){ trackMark();
+                            for(var i=0;i<N;i++){ px[i]=hx[i]; py[i]=hy[i]; pz[i]=hz[i]; }
                             project(); draw(); }
 
     var running=false, rafId=0, visible=false, fAcc=0, fN=0, degraded=false, slowRuns=0;
@@ -4983,6 +5387,7 @@ speech = <span class="fn">tts</span>(<span class="st">"Hello World"</span>)
       rafId=requestAnimationFrame(frame);
       var dt=last?(now-last)/1000:DT; last=now;
       if(dt>0.25) dt=0.25;                        /* came back from a background tab */
+      trackMark();                                /* the mark chases its slot as we scroll */
       acc+=dt;
       var guard=0; while(acc>=DT && guard<4){ step(); acc-=DT; guard++; }
       if(acc>DT) acc=0;
@@ -5007,11 +5412,10 @@ speech = <span class="fn">tts</span>(<span class="st">"Hello World"</span>)
     /* Bring the context up on demand, then run — the retry path calls back into this. */
     function resume(){ if(setupGL()) start(); }
 
-    /* Off-screen and hidden tabs must not animate. */
-    if("IntersectionObserver" in window){
-      new IntersectionObserver(function(es){ visible=es[0].isIntersecting;
-        visible?resume():stop(); },{rootMargin:"120px"}).observe(host);
-    } else { visible=true; resume(); }
+    /* The atmosphere is page-wide, so there is no "off-screen" left to gate on — a hidden
+       tab is the only stop condition. The expensive part, the mark's per-particle
+       simulation, still idles by itself via markOn once the hero scrolls away. */
+    requestAnimationFrame(function(){ visible=true; resume(); });   /* after first paint */
     document.addEventListener("visibilitychange",function(){ document.hidden?stop():(visible&&resume()); });
     /* preventDefault keeps the context restorable; fall back to the SVG meanwhile and
        rebuild if the browser hands it back. */
