@@ -24,6 +24,7 @@
       --line-2:rgba(255,255,255,.14);
       --accent:#5aa9ff;
       --accent-2:#79e6ff;
+      --accent-far:#12326e;   /* deepest end of the hero particle depth ramp */
       --accent-ink:#0a0a0c;
       --radius:20px;
       --maxw:1200px;
@@ -175,6 +176,19 @@
       .mps-point .mps-txt{font-size:12px;max-width:26ch}
       .deck-dots{margin-top:14px}
     }
+    /* ===== Particle ">|" brand mark between the headline and the sub (WebGL2) =====
+       The block reserves the mark's room in the flow and IS the render slot, so the
+       cloud can never collide with the copy. Full-bleed width (the parent is centred,
+       so the negative inline-start margin lands it at the viewport edge in LTR and RTL)
+       purely to give the mark room to grow — it stays vertically bound by this height. */
+    .hero-mark{position:relative;width:100vw;margin-inline-start:calc(50% - 50vw);
+      height:clamp(240px,40vh,420px);pointer-events:none;overflow:hidden}
+    .hero-mark canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
+    .hero-mark .mark-fallback{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
+      width:min(210px,38vw);display:none}
+    .hero-mark.no-gl .mark-fallback{display:block}
+    @media(max-width:900px){.hero-mark{height:clamp(190px,30vh,300px)}}
+
     .hero-shot{position:relative}
     /* black gradient mask that fades the bottom edge of the showcase windows into the page background */
     .hero-shot::after{content:"";position:absolute;left:50%;transform:translateX(-50%);width:100vw;bottom:0;height:27%;z-index:7;pointer-events:none;
@@ -1538,6 +1552,16 @@ html{overflow-x:clip}#aivibe{margin:0!important;display:block!important;backgrou
         <div class="reveal">
           <span class="eyebrow"><span class="dot"></span><span data-i18n="hero.eyebrow">iPad</span></span>
           <h1><span data-i18n="hero.title_a">Real Python,</span><br><span class="grad-text" data-i18n="hero.title_b">on your iPad.</span></h1>
+          <div class="hero-mark" id="heroMark" aria-hidden="true">
+            <canvas id="heroFx"></canvas>
+            <svg class="mark-fallback" viewBox="0 0 100 92" fill="none">
+              <path d="M18 12 L52 46 L18 80" stroke="url(#mkg)" stroke-width="17" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M84 20 L84 72" stroke="url(#mkg)" stroke-width="17" stroke-linecap="round"/>
+              <defs><linearGradient id="mkg" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#5aa9ff"/><stop offset="1" stop-color="#79e6ff"/>
+              </linearGradient></defs>
+            </svg>
+          </div>
           <p class="sub" data-i18n="hero.sub">A full Python IDE with Jupyter notebooks, PyTorch on the Apple GPU, and guided lessons. Runs completely offline.</p>
           <div class="hero-cta">
             <a class="btn btn-primary" href="https://apps.apple.com/app/id6786619257" data-i18n="hero.cta">Download on the App Store</a>
@@ -4646,6 +4670,321 @@ speech = <span class="fn">tts</span>(<span class="st">"Hello World"</span>)
   (function(){ if(!('IntersectionObserver' in window)) return;
     var io=new IntersectionObserver(function(es){es.forEach(function(e){e.target.classList.toggle('perf-idle',!e.isIntersecting);});},{rootMargin:'120px'});
     document.querySelectorAll('main > section, footer').forEach(function(s){io.observe(s);});
+  })();
+  </script>
+
+  <script>
+  /* ===== Hero particle ">|" mark ==================================================
+     ~6.5k additive point sprites forming the Vibeit mark as an extruded shell, with
+     cursor repulsion + spring return, expanding water ripples and a caustic shimmer.
+     Hand-rolled WebGL2, no dependency: the CPU runs physics and projection (the cursor
+     repulsion has to be measured in screen space anyway) and the GPU does one additive
+     POINTS draw per frame, so nothing needs depth sorting.
+     Falls back to the static SVG mark without WebGL2, renders a single settled frame
+     under prefers-reduced-motion, and stops dead when off-screen or the tab is hidden. */
+  (function(){
+    var host = document.getElementById("heroMark"), canvas = document.getElementById("heroFx");
+    if(!host || !canvas) return;
+    var gl = canvas.getContext("webgl2",{alpha:true,antialias:false,premultipliedAlpha:true,powerPreference:"high-performance"});
+    if(!gl){ host.classList.add("no-gl"); canvas.style.display = "none"; return; }
+
+    var reduceMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
+    var coarse       = matchMedia("(pointer: coarse)").matches;
+
+    var P = { count: coarse ? 3200 : 6500, scale:0.59, depth:0.30, yawDeg:45,
+              radius:190, force:130, k:0.014, size:2.00, glow:1.45,
+              ripple:1.00, rspeed:1.00, water:0.75 };
+
+    /* Colours come from the CSS tokens, so the ramp tracks the brand gradient. */
+    function hex(v){ v=(v||"").trim().replace("#","");
+      if(v.length===3) v=v[0]+v[0]+v[1]+v[1]+v[2]+v[2];
+      var n=parseInt(v,16)||0; return [((n>>16)&255)/255,((n>>8)&255)/255,(n&255)/255]; }
+    var cs=getComputedStyle(document.documentElement),
+        cFar=hex(cs.getPropertyValue("--accent-far")),
+        cMid=hex(cs.getPropertyValue("--accent")),
+        cNear=hex(cs.getPropertyValue("--accent-2"));
+
+    var VS = "#version 300 es\n"+
+      "layout(location=0) in vec2 aPos; layout(location=1) in float aSize;"+
+      "layout(location=2) in float aDepth; layout(location=3) in float aAlpha;"+
+      "out float vDepth; out float vAlpha;"+
+      "void main(){ vDepth=aDepth; vAlpha=aAlpha;"+
+      "gl_Position=vec4(aPos,0.0,1.0); gl_PointSize=aSize; }";
+    var FS = "#version 300 es\nprecision mediump float;"+
+      "in float vDepth; in float vAlpha; uniform vec3 uFar,uMid,uNear; out vec4 frag;"+
+      "void main(){ vec2 d=gl_PointCoord-0.5; float r=length(d)*2.0; if(r>1.0) discard;"+
+      "float core=pow(1.0-r,3.0); float halo=pow(1.0-r,1.1)*0.22;"+   /* restrained halo */
+      "float a=(core+halo)*vAlpha;"+
+      "vec3 c=mix(uFar,uMid,smoothstep(0.0,0.55,vDepth));"+
+      "c=mix(c,uNear,smoothstep(0.45,0.88,vDepth));"+
+      "c=mix(c,vec3(1.0),smoothstep(0.88,1.0,vDepth)*0.65);"+
+      "frag=vec4(c*a,a); }";
+    function sh(t,s){ var o=gl.createShader(t); gl.shaderSource(o,s); gl.compileShader(o);
+      if(!gl.getShaderParameter(o,gl.COMPILE_STATUS)) throw new Error(gl.getShaderInfoLog(o)); return o; }
+    var prog=gl.createProgram();
+    try{ gl.attachShader(prog,sh(gl.VERTEX_SHADER,VS)); gl.attachShader(prog,sh(gl.FRAGMENT_SHADER,FS));
+         gl.linkProgram(prog);
+         if(!gl.getProgramParameter(prog,gl.LINK_STATUS)) throw new Error(gl.getProgramInfoLog(prog)); }
+    catch(e){ host.classList.add("no-gl"); canvas.style.display="none"; return; }
+    gl.useProgram(prog);
+    gl.uniform3fv(gl.getUniformLocation(prog,"uFar"),cFar);
+    gl.uniform3fv(gl.getUniformLocation(prog,"uMid"),cMid);
+    gl.uniform3fv(gl.getUniformLocation(prog,"uNear"),cNear);
+
+    var STRIDE=5, bs=STRIDE*4;
+    gl.bindVertexArray(gl.createVertexArray());
+    var vbo=gl.createBuffer(); gl.bindBuffer(gl.ARRAY_BUFFER,vbo);
+    gl.enableVertexAttribArray(0); gl.vertexAttribPointer(0,2,gl.FLOAT,false,bs,0);
+    gl.enableVertexAttribArray(1); gl.vertexAttribPointer(1,1,gl.FLOAT,false,bs,8);
+    gl.enableVertexAttribArray(2); gl.vertexAttribPointer(2,1,gl.FLOAT,false,bs,12);
+    gl.enableVertexAttribArray(3); gl.vertexAttribPointer(3,1,gl.FLOAT,false,bs,16);
+    gl.disable(gl.DEPTH_TEST); gl.enable(gl.BLEND);
+    gl.blendFunc(gl.ONE,gl.ONE);                         /* additive: order-independent */
+    var maxPS=gl.getParameter(gl.ALIASED_POINT_SIZE_RANGE)[1]||64;
+
+    /* The mark is rasterised from two strokes measured off assets/pydev-icon.png and
+       rejection-sampled — change the strokes and the cloud follows, no 3D asset. */
+    var MW=300, MH=276, mask;
+    (function(){
+      var c=document.createElement("canvas"); c.width=MW; c.height=MH;
+      var x=c.getContext("2d");
+      x.strokeStyle="#fff"; x.lineCap="round"; x.lineJoin="round"; x.lineWidth=MW*0.178;
+      var L=MW*0.089, A=MW*0.536, R=MW*0.911;
+      x.beginPath(); x.moveTo(L,MH*0.055); x.lineTo(A,MH*0.502); x.lineTo(L,MH*0.950); x.stroke();
+      x.beginPath(); x.moveTo(R,MH*0.154); x.lineTo(R,MH*0.841); x.stroke();
+      mask=x.getImageData(0,0,MW,MH).data;
+    })();
+    /* Silhouette edges take most of the particles — that outline is what reads as 3D. */
+    var inner=[], rim=[];
+    (function(){
+      function on(ix,iy){ return ix>=0&&iy>=0&&ix<MW&&iy<MH&&mask[(iy*MW+ix)*4+3]>128; }
+      for(var iy=0;iy<MH;iy++) for(var ix=0;ix<MW;ix++){
+        if(!on(ix,iy)) continue;
+        (( !on(ix-1,iy)||!on(ix+1,iy)||!on(ix,iy-1)||!on(ix,iy+1) ) ? rim : inner).push(iy*MW+ix);
+      }
+    })();
+
+    var N=0, hx,hy,hz,px,py,pz,vx,vy,vz,ph,sz,br,kk,data, markH=1, halfD=1;
+    function rnd(){ return Math.random(); }
+    function gauss(){ return (rnd()+rnd()+rnd()-1.5)*0.9; }
+
+    function build(settled){
+      N=P.count|0;
+      hx=new Float32Array(N); hy=new Float32Array(N); hz=new Float32Array(N);
+      px=new Float32Array(N); py=new Float32Array(N); pz=new Float32Array(N);
+      vx=new Float32Array(N); vy=new Float32Array(N); vz=new Float32Array(N);
+      ph=new Float32Array(N); sz=new Float32Array(N); br=new Float32Array(N); kk=new Float32Array(N);
+      data=new Float32Array(N*STRIDE);
+
+      var w=canvas.clientWidth||innerWidth, h=host.clientHeight||260;
+      /* Narrow viewports have nothing competing beside the mark, so it may claim more
+         width. Interpolated, never stepped, so a resize can't snap. */
+      var wf = w>=900 ? 0.55 : (w<=380 ? 0.90 : 0.90+(0.55-0.90)*(w-380)/520);
+      markH=Math.min(w*wf, innerHeight*0.62)*P.scale;
+      /* The drawn cloud runs ~1.47x taller than markH (haze scatters ~13.5% past the
+         silhouette; near-camera particles gain perspective). Derived from P.depth so it
+         stays correct if the extrusion is retuned — otherwise the mark bleeds onto copy. */
+      var zf=Math.min(P.depth*1.5,2.4);
+      markH=Math.min(markH, h*Math.max(0.6,3.2-zf)/(1.27*3.2));
+
+      var unit=markH/MH; halfD=markH*P.depth*0.5;
+      var nRim=(N*0.52)|0, nFace=(N*0.34)|0;
+      for(var i=0;i<N;i++){
+        var kind = i<nRim ? 0 : (i<nRim+nFace ? 1 : 2);
+        var pool = (kind===0 && rim.length) ? rim : (inner.length ? inner : rim);
+        var idx=pool[(rnd()*pool.length)|0], mx=idx%MW, my=(idx/MW)|0;
+        /* Sub-pixel jitter, else the cloud betrays the raster grid. */
+        var wx=(mx+rnd()-MW/2)*unit, wy=(MH/2-my-rnd())*unit, wz;
+        if(kind===0){ wz=(rnd()*2-1)*halfD;                          /* extruded side wall */
+          sz[i]=0.85+rnd()*1.05; br[i]=0.85+rnd()*0.35; }
+        else if(kind===1){ wz=(rnd()<0.5?-1:1)*halfD*(0.86+rnd()*0.14); /* front/back caps */
+          sz[i]=0.62+rnd()*0.7;  br[i]=0.38+rnd()*0.28; }
+        else { var a=rnd()*Math.PI*2, rr=markH*(0.03+Math.abs(gauss())*0.10); /* bokeh haze */
+          wx+=Math.cos(a)*rr; wy+=Math.sin(a)*rr; wz=gauss()*halfD*3.0;
+          sz[i]=2.0+rnd()*3.4;   br[i]=0.10+rnd()*0.18; }
+        hx[i]=wx; hy[i]=wy; hz[i]=wz; ph[i]=rnd()*Math.PI*2;
+        kk[i]=0.75+rnd()*0.55;                    /* desynced return: no lock-step snap */
+        if(settled){ px[i]=wx; py[i]=wy; pz[i]=wz; }
+        else { var t1=rnd()*Math.PI*2, t2=Math.acos(rnd()*2-1), rs=markH*(1.1+rnd()*0.9);
+          px[i]=Math.sin(t2)*Math.cos(t1)*rs; py[i]=Math.sin(t2)*Math.sin(t1)*rs*0.7;
+          pz[i]=Math.cos(t2)*rs*0.5; }
+      }
+      gl.bindBuffer(gl.ARRAY_BUFFER,vbo);
+      gl.bufferData(gl.ARRAY_BUFFER,data.byteLength,gl.DYNAMIC_DRAW);
+    }
+
+    var dpr=1, cw=0, chh=0, cx=0, cy=0, CAM=1500;
+    function resize(){
+      dpr=Math.min(devicePixelRatio||1,2);
+      cw=canvas.clientWidth; chh=canvas.clientHeight;
+      canvas.width=Math.round(cw*dpr); canvas.height=Math.round(chh*dpr);
+      gl.viewport(0,0,canvas.width,canvas.height);
+      cx=cw/2; cy=chh/2;                          /* the block IS the slot */
+      CAM=Math.max(900,markH*3.2);
+    }
+
+    /* Ring buffer of expanding wavefronts. Evaluated at projection time as a pure display
+       field, never fed to the physics: the k=0.014 spring is far too slow to carry a wave
+       and mixing the two just turns the ripple to mush. */
+    var RN=8, RIPPLE_LIFE=2.6, rpHead=0;
+    var rpX=new Float32Array(RN), rpY=new Float32Array(RN),
+        rpT=new Float32Array(RN), rpA=new Float32Array(RN);
+    function ripple(wx,wy,amp){ rpX[rpHead]=wx; rpY[rpHead]=wy; rpT[rpHead]=t; rpA[rpHead]=amp;
+                                rpHead=(rpHead+1)%RN; }
+
+    var mx=-1e5,my=-1e5,pmx=0,pmy=0,speed=0,active=false,travel=0;
+    if(!reduceMotion){
+      addEventListener("pointermove",function(e){
+        var r=canvas.getBoundingClientRect(), nx=e.clientX-r.left, ny=e.clientY-r.top;
+        if(active){ var dd=Math.hypot(nx-pmx,ny-pmy); speed=Math.min(dd,40); travel+=dd;
+          if(travel>46){ travel=0; ripple(nx-cx,cy-ny,0.5); } }   /* wake behind the cursor */
+        pmx=nx; pmy=ny; mx=nx; my=ny; active=true;
+      },{passive:true});
+      addEventListener("pointerdown",function(e){                  /* click / tap = splash */
+        var r=canvas.getBoundingClientRect();
+        ripple(e.clientX-r.left-cx, cy-(e.clientY-r.top), 1.7);
+      },{passive:true});
+      addEventListener("pointerleave",function(){ active=false; mx=my=-1e5; speed=0; });
+      addEventListener("pointerup",function(){ if(coarse){ active=false; mx=my=-1e5; } },{passive:true});
+    }
+
+    var t=0,last=0,acc=0,DT=1/60,intro=0,nextDrop=1.6;
+    function step(){
+      t+=DT; intro=Math.min(intro+DT,4);
+      /* Ambient "rain" so the mark still lives with no cursor on the page — which is the
+         normal case on first paint and on every touch device. */
+      if(t>nextDrop){ nextDrop=t+1.5+rnd()*2.4;
+        ripple((rnd()-0.5)*markH*1.5,(rnd()-0.5)*markH*1.1,0.30+rnd()*0.22); }
+
+      var yaw=Math.sin(t*0.16)*(P.yawDeg*Math.PI/180), pitch=Math.sin(t*0.107)*0.085;
+      if(active && !coarse){ yaw+=((mx-cx)/cw)*0.20; pitch+=((my-cy)/chh)*0.13; }
+      var cyw=Math.cos(yaw),syw=Math.sin(yaw),cpt=Math.cos(pitch),spt=Math.sin(pitch);
+      var R2=P.radius*P.radius, pushK=P.force*(1+Math.min(speed/14,1.3));
+
+      for(var i=0;i<N;i++){
+        var b=ph[i];
+        var bx=hx[i]+Math.sin(t*0.70+b)*markH*0.006,
+            by=hy[i]+Math.cos(t*0.55+b*1.31)*markH*0.006,
+            bz=hz[i]+Math.sin(t*0.41+b*0.77)*markH*0.010;
+        /* Rotate the rest target; particles chase it, so scattered ones lag behind. */
+        var rx=bx*cyw+bz*syw, rz=-bx*syw+bz*cyw, ry=by*cpt-rz*spt; rz=by*spt+rz*cpt;
+
+        var kEff=P.k*kk[i]*Math.min(1,Math.max(0,(intro-b*0.10)/1.1));
+        vx[i]+=(rx-px[i])*kEff; vy[i]+=(ry-py[i])*kEff; vz[i]+=(rz-pz[i])*kEff;
+
+        if(active){
+          /* Repulsion is measured in SCREEN space to match what the eye sees, then
+             divided back through the perspective factor into a world-space push. */
+          var persp=CAM/(CAM-pz[i]);
+          var dx=(cx+px[i]*persp)-mx, dy=(cy-py[i]*persp)-my, d2=dx*dx+dy*dy;
+          if(d2<R2 && d2>1e-4){
+            var d=Math.sqrt(d2), f=1-d/P.radius; f*=f;
+            var ux=dx/d, uy=dy/d, g=pushK*f*DT/persp;
+            vx[i]+=(ux-uy*0.28)*g; vy[i]-=(uy+ux*0.28)*g;
+            vz[i]+=f*pushK*DT*0.55;               /* burst toward camera -> reads as 3D */
+          }
+        }
+        vx[i]*=0.90; vy[i]*=0.90; vz[i]*=0.90;
+        px[i]+=vx[i]; py[i]+=vy[i]; pz[i]+=vz[i];
+      }
+      speed*=0.86;
+    }
+
+    function project(){
+      var hw=canvas.width/2, hh=canvas.height/2, zSpan=Math.max(halfD*4,markH*0.5);
+      var sizeK=P.size*dpr;
+      var ampZ=markH*0.115*P.ripple, ampXY=markH*0.028*P.ripple;
+      var wid=markH*0.16, spd=markH*0.62*P.rspeed, spread=markH*0.55;
+      var water=P.water, doRip=P.ripple>0, j=0;
+
+      for(var i=0;i<N;i++){
+        var bx=px[i], by=py[i], ox=0, oy=0, oz=0, litR=0;
+        if(doRip){
+          for(var r=0;r<RN;r++){
+            var amp=rpA[r]; if(amp<=0) continue;
+            var age=t-rpT[r]; if(age<0||age>RIPPLE_LIFE) continue;
+            var dx=bx-rpX[r], dy=by-rpY[r], d=Math.sqrt(dx*dx+dy*dy);
+            var u=(d-age*spd)/wid;
+            if(u<-2.2||u>2.2) continue;                /* outside the packet: skip the sin */
+            var env=1-u*u*0.2066; env*=env;            /* compact support, 0 at |u|=2.2 */
+            var dec=1-age/RIPPLE_LIFE; dec*=dec;
+            /* -sin puts the main crest just behind the advancing front. */
+            var w=-Math.sin(u*2.6)*env*dec*amp/(1+d/spread);
+            oz+=w*ampZ;
+            if(d>0.001){ var inv=w*ampXY/d; ox+=dx*inv; oy+=dy*inv; }
+            if(w>0) litR+=w;                           /* only crests catch the light */
+          }
+          if(litR>1.2) litR=1.2;
+        }
+        /* Caustics: two PHASE-MODULATED sines (not summed) give branching veins that read
+           as light through water; cubing keeps them sparse instead of a flat wash. */
+        var litC=0;
+        if(water>0){
+          var a1=Math.sin(hx[i]*0.0135+t*0.55);
+          var a2=Math.sin(hy[i]*0.0172-t*0.42+a1*1.15);
+          var c=(a1*0.42+a2*0.58)*0.5+0.5; litC=c*c*c*water;
+        }
+        var lit=litR*0.75+litC*0.9, wz=pz[i]+oz, persp=CAM/(CAM-wz);
+        var ps=sz[i]*sizeK*persp*(1+lit*0.14); if(ps>maxPS) ps=maxPS;
+        var dep=0.5+wz/zSpan+lit*0.17;
+        data[j]  =((cx+(bx+ox)*persp)*dpr)/hw-1;
+        data[j+1]=1-((cy-(by+oy)*persp)*dpr)/hh;
+        data[j+2]=ps;
+        data[j+3]=dep<0?0:(dep>1?1:dep);
+        data[j+4]=br[i]*P.glow*(1+lit*0.85);
+        j+=STRIDE;
+      }
+    }
+
+    function draw(){
+      gl.clearColor(0,0,0,0); gl.clear(gl.COLOR_BUFFER_BIT);
+      gl.bindBuffer(gl.ARRAY_BUFFER,vbo);
+      gl.bufferSubData(gl.ARRAY_BUFFER,0,data);
+      gl.drawArrays(gl.POINTS,0,N);
+    }
+    function staticFrame(){ for(var i=0;i<N;i++){ px[i]=hx[i]; py[i]=hy[i]; pz[i]=hz[i]; }
+                            project(); draw(); }
+
+    var running=false, rafId=0, visible=false, fAcc=0, fN=0, degraded=false, slowRuns=0;
+    function frame(now){
+      rafId=requestAnimationFrame(frame);
+      var dt=last?(now-last)/1000:DT; last=now;
+      if(dt>0.25) dt=0.25;                        /* came back from a background tab */
+      acc+=dt;
+      var guard=0; while(acc>=DT && guard<4){ step(); acc-=DT; guard++; }
+      if(acc>DT) acc=0;
+      project(); draw();
+
+      fAcc+=dt; fN++;
+      if(fAcc>=0.5){
+        var fps=fN/fAcc;
+        /* Mobile perf is a hard constraint. Require 3 consecutive slow samples (~1.5s) so
+           a one-off stall — GC, a resize, a throttled tab — can't permanently halve this. */
+        if(!degraded && t>2.5 && N>2500){
+          slowRuns = fps<45 ? slowRuns+1 : 0;
+          if(slowRuns>=3){ degraded=true; P.count=Math.max(2500,(N*0.55)|0);
+                           build(true); resize(); }
+        }
+        fAcc=0; fN=0;
+      }
+    }
+    function start(){ if(running||reduceMotion) return; running=true;
+                      last=0; acc=0; fAcc=0; fN=0; slowRuns=0; rafId=requestAnimationFrame(frame); }
+    function stop(){ if(!running) return; running=false; cancelAnimationFrame(rafId); }
+
+    /* Off-screen and hidden tabs must not animate. */
+    if("IntersectionObserver" in window){
+      new IntersectionObserver(function(es){ visible=es[0].isIntersecting;
+        visible?start():stop(); },{rootMargin:"120px"}).observe(host);
+    } else { visible=true; start(); }
+    document.addEventListener("visibilitychange",function(){ document.hidden?stop():(visible&&start()); });
+    canvas.addEventListener("webglcontextlost",function(e){ e.preventDefault(); stop();
+                                                            host.classList.add("no-gl"); });
+    var rt; addEventListener("resize",function(){ clearTimeout(rt);
+      rt=setTimeout(function(){ build(true); resize(); if(reduceMotion) staticFrame(); },160); });
+
+    build(); resize();
+    if(reduceMotion) staticFrame();
   })();
   </script>
 </body>
