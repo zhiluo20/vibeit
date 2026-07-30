@@ -206,15 +206,20 @@
        removes the window instead of painting over it, so whatever is behind stays
        continuous. Masking #hero-deck and not .hero-shot keeps .deck-dots visible. */
     .hero-shot::after{content:none}
-    #hero-deck{
+    /* Masks go on the WINDOWS, never on #hero-deck.
+       The deck carries will-change:transform, so it is a composited layer, and
+       .agent-float deliberately overhangs its box at right:-7%. Engines disagree on
+       whether a mask rasterises to the mask box or to the layer bounds — WebKit uses the
+       layer, so it clips the overhang no matter how wide the mask box is made. .vwin
+       already has overflow:hidden and no overhanging children, so masking it behaves
+       identically everywhere. The floating agent panel is left unmasked on purpose: it is
+       a discrete rounded panel that ends well above the fade and has nothing to dissolve
+       into. Its drop shadow below the window is clipped, which is the intent. */
+    #hero-deck .slide>.vwin,
+    #hero-deck .slide>.agent-stage>.vwin{
       -webkit-mask-image:linear-gradient(to bottom,#000 52%,rgba(0,0,0,.78) 70%,rgba(0,0,0,.32) 86%,transparent 100%);
       mask-image:linear-gradient(to bottom,#000 52%,rgba(0,0,0,.78) 70%,rgba(0,0,0,.32) 86%,transparent 100%);
-      /* The mask box is deliberately WIDER than the deck. Outside it, no-repeat means
-         alpha 0 — and .agent-float sits at right:-7%, overhanging on purpose, so a
-         100%-wide mask erased the part that pokes out. Height stays 100% so the vertical
-         fade still lines up with the deck; only the horizontal reach is widened. */
-      -webkit-mask-size:170% 100%;mask-size:170% 100%;
-      -webkit-mask-position:center top;mask-position:center top;
+      -webkit-mask-size:100% 100%;mask-size:100% 100%;
       -webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;
     }
     .hero-shot .deck-dots{position:relative;z-index:8}
