@@ -28,14 +28,16 @@
       --accent-ink:#0a0a0c;
       /* Frosted-glass panels. One token source for both card families, so the pricing
          and feature cards cannot drift apart. */
-      /* Cool-tinted rather than neutral grey: the panels should look like they are picking
-         up the blue light behind them, not sitting in front of it. Lower alpha + higher
-         saturate() is what lets that colour actually come through. */
-      --glass:rgba(40,52,80,.36);
-      --glass-2:rgba(12,17,30,.56);
-      --glass-line:rgba(150,185,255,.22);
-      --glass-spec:rgba(200,222,255,.13);   /* top specular edge — this is what reads as glass */
-      --glass-blur:blur(20px) saturate(170%);
+      /* FLAT matte frosted glass. Deliberately a single uniform tint with no vertical
+         gradient and no specular: a light-at-top/dark-at-bottom wash reads as a curved,
+         polished surface, which is the opposite of matte. All the tonal variation across
+         a panel should come from what the blur picks up BEHIND it, never from a gradient
+         painted onto the glass itself. */
+      --glass:rgba(34,44,68,.42);
+      --glass-tint-blue:rgba(38,56,96,.44);
+      --glass-tint-purple:rgba(52,40,88,.44);
+      --glass-line:rgba(150,185,255,.18);
+      --glass-blur:blur(22px) saturate(150%);
       --radius:20px;
       --maxw:1200px;
       --font:-apple-system,BlinkMacSystemFont,"SF Pro Display","SF Pro Text","Segoe UI",Roboto,sans-serif;
@@ -547,17 +549,10 @@
     }
 
     .bento{display:grid;grid-template-columns:repeat(6,1fr);gap:16px}
-    /* The specular is a background LAYER rather than a pseudo-element: ::after would paint
-       over the card's text, and .plan.pro already uses ::before for its sheen. */
     .card{
-      background:
-        linear-gradient(180deg,var(--glass-spec),transparent 22%),
-        linear-gradient(180deg,var(--glass),var(--glass-2));
+      background:var(--glass);
       border:1px solid var(--glass-line);
       backdrop-filter:var(--glass-blur);-webkit-backdrop-filter:var(--glass-blur);
-      /* Crisp 1px top hairline. The background gradient alone gives a soft wash; this hard
-         edge is what actually reads as the lit rim of a glass panel. */
-      box-shadow:inset 0 1px 0 rgba(255,255,255,.10);
       border-radius:var(--radius);padding:26px;position:relative;overflow:hidden;
     }
     .card .ico{
@@ -569,10 +564,7 @@
     .card p{margin:0;color:var(--muted);font-size:14.5px;line-height:1.5}
     .c-3{grid-column:span 3}
     .c-2{grid-column:span 2}
-    .card.feature-tint{background:
-      linear-gradient(180deg,var(--glass-spec),transparent 22%),
-      radial-gradient(120% 120% at 100% 0%,rgba(90,169,255,.16),transparent 45%),
-      linear-gradient(180deg,var(--glass),var(--glass-2));}
+    .card.feature-tint{background:var(--glass-tint-blue)}
     .langflags{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
     .langflags span{font-size:13px;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:5px 11px}
 
@@ -587,17 +579,11 @@
     }
 
     .price-wrap{display:grid;grid-template-columns:1fr 1fr;gap:20px;max-width:820px;margin:0 auto}
-    .plan{background:
-        linear-gradient(180deg,var(--glass-spec),transparent 22%),
-        linear-gradient(180deg,var(--glass),var(--glass-2));
+    .plan{background:var(--glass);
       border:1px solid var(--glass-line);
       backdrop-filter:var(--glass-blur);-webkit-backdrop-filter:var(--glass-blur);
-      box-shadow:inset 0 1px 0 rgba(255,255,255,.10);
       border-radius:var(--radius);padding:30px}
-    .plan.pro{border-color:rgba(90,169,255,.4);background:
-      linear-gradient(180deg,var(--glass-spec),transparent 22%),
-      radial-gradient(120% 90% at 50% 0%,rgba(90,169,255,.14),transparent 55%),
-      linear-gradient(180deg,var(--glass),var(--glass-2));}
+    .plan.pro{border-color:rgba(90,169,255,.4);background:var(--glass-tint-blue)}
     .plan .tag{font-size:13px;color:var(--accent);font-weight:600;letter-spacing:.02em}
     .plan h3{margin:6px 0 6px;font-size:22px}
     .plan .desc{color:var(--muted);font-size:14.5px;margin:0 0 18px;min-height:42px}
@@ -630,20 +616,10 @@
       color:transparent;-webkit-text-fill-color:transparent}
     @media(prefers-reduced-motion:reduce){.plan .price .amount{transition:none}}
     /* Standard takes the former blue highlight (static); Pro = purple glow/liquid-metal/sheen */
-    .plan.std{border-color:rgba(90,169,255,.4);background:
-      linear-gradient(180deg,var(--glass-spec),transparent 22%),
-      radial-gradient(120% 90% at 50% 0%,rgba(90,169,255,.14),transparent 55%),
-      linear-gradient(180deg,var(--glass),var(--glass-2))}
-    .plan.pro{border-color:rgba(162,120,255,.5);background:
-      linear-gradient(180deg,var(--glass-spec),transparent 22%),
-      radial-gradient(120% 90% at 50% 0%,rgba(140,92,255,.20),transparent 55%),
-      linear-gradient(180deg,var(--glass),var(--glass-2));
+    .plan.std{border-color:rgba(90,169,255,.4);background:var(--glass-tint-blue)}
+    .plan.pro{border-color:rgba(162,120,255,.5);background:var(--glass-tint-purple);
       position:relative;overflow:hidden;animation:proAura 3.8s steps(30) infinite}
-    /* Carries the inset hairline through: these keyframes replace box-shadow wholesale,
-       so without it the Pro card would be the one card missing its lit top edge. */
-    @keyframes proAura{
-      0%,100%{box-shadow:inset 0 1px 0 rgba(255,255,255,.10),0 0 0 1px rgba(160,120,255,.12),0 22px 60px rgba(120,70,255,.16)}
-      50%{box-shadow:inset 0 1px 0 rgba(255,255,255,.14),0 0 0 1px rgba(185,145,255,.32),0 30px 90px rgba(140,90,255,.42)}}
+    @keyframes proAura{0%,100%{box-shadow:0 0 0 1px rgba(160,120,255,.12),0 22px 60px rgba(120,70,255,.16)}50%{box-shadow:0 0 0 1px rgba(185,145,255,.32),0 30px 90px rgba(140,90,255,.42)}}
     .plan.pro::before{content:"";position:absolute;inset:0;background:linear-gradient(115deg,transparent 32%,rgba(190,160,255,.14) 48%,rgba(255,255,255,.07) 52%,transparent 68%);animation:sheenX 5s linear infinite;pointer-events:none}
     @keyframes sheenX{from{transform:translateX(-120%)}to{transform:translateX(120%)}}
     .plan.pro>*{position:relative;z-index:1}
@@ -760,7 +736,9 @@
          background is where text becomes hard to read. */
       .card,.card.feature-tint,.plan,.plan.std,.plan.pro{
         backdrop-filter:none;-webkit-backdrop-filter:none;
-        --glass:rgba(24,31,48,.90);--glass-2:rgba(11,14,24,.94);
+        --glass:rgba(20,26,42,.91);
+        --glass-tint-blue:rgba(24,36,64,.92);
+        --glass-tint-purple:rgba(36,26,62,.92);
       }
       .bento{grid-template-columns:1fr 1fr}
       .c-3,.c-2{grid-column:span 1}
