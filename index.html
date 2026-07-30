@@ -3,14 +3,46 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="description" content="Vibeit is a full Python IDE for iPad: real CPython, Jupyter notebooks, PyTorch on the Apple GPU, an AI agent, SSH remote dev, and guided lessons. Runs offline.">
-  <meta property="og:title" content="Vibeit - Real Python on your iPad">
+  <!-- The App Store lists this as "Vibeit Studio"; in practice everyone shortens it to
+       "Vibeit". Both names are stated here and tied together in the structured data below,
+       so a search for either resolves to one entity instead of splitting into two. -->
+  <meta name="description" content="Vibeit Studio (Vibeit) is a full Python IDE for iPad: real CPython, Jupyter notebooks, PyTorch on the Apple GPU, an AI agent, SSH remote dev, and guided lessons. Runs offline.">
+  <meta name="robots" content="index,follow">
+  <link rel="canonical" href="https://mecury.co.uk/vibeit/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Vibeit Studio">
+  <meta property="og:locale" content="en">
+  <meta property="og:title" content="Vibeit Studio - Real Python on your iPad">
   <meta property="og:description" content="A full Python IDE with notebooks, PyTorch on the Apple GPU, and guided lessons. Runs offline.">
   <meta property="og:image" content="https://mecury.co.uk/vibeit/assets/pydev-icon.png">
   <meta property="og:url" content="https://mecury.co.uk/vibeit/">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Vibeit Studio - Real Python on your iPad">
+  <meta name="twitter:description" content="A full Python IDE with notebooks, PyTorch on the Apple GPU, and guided lessons. Runs offline.">
+  <meta name="twitter:image" content="https://mecury.co.uk/vibeit/assets/pydev-icon.png">
   <meta name="theme-color" content="#0a0a0c">
   <link rel="icon" type="image/png" href="assets/pydev-icon.png">
-  <title>Vibeit - Real Python on your iPad</title>
+  <title>Vibeit Studio - Real Python on your iPad</title>
+  <!-- sameAs pointing at the App Store listing is the actual mechanism that ties the
+       store name to this site. alternateName is what lets the short name resolve here. -->
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@graph":[
+    {"@type":"WebSite","@id":"https://mecury.co.uk/vibeit/#website",
+     "url":"https://mecury.co.uk/vibeit/",
+     "name":"Vibeit Studio","alternateName":["Vibeit","Vibeit Studio Python IDE"],
+     "inLanguage":"en"},
+    {"@type":"SoftwareApplication","@id":"https://mecury.co.uk/vibeit/#app",
+     "name":"Vibeit Studio","alternateName":"Vibeit",
+     "applicationCategory":"DeveloperApplication",
+     "operatingSystem":"iPadOS 17, iOS 17, macOS 14",
+     "url":"https://mecury.co.uk/vibeit/",
+     "downloadUrl":"https://apps.apple.com/app/id6786619257",
+     "sameAs":["https://apps.apple.com/app/id6786619257"],
+     "image":"https://mecury.co.uk/vibeit/assets/pydev-icon.png",
+     "author":{"@type":"Person","name":"Zhi Luo"},
+     "description":"A full Python IDE for iPad: real CPython, Jupyter notebooks, PyTorch on the Apple GPU, an AI agent, SSH remote development, and guided lessons. Runs completely offline."}
+  ]}
+  </script>
   <style>
     :root{
       --bg:#0a0a0c;
@@ -2330,7 +2362,7 @@ speech = <span class="fn">tts</span>(<span class="st">"Hello World"</span>)
   <footer>
     <div class="wrap">
       <div class="foot">
-        <a class="brand" href="#top"><img src="assets/pydev-icon.png" alt="Vibeit" style="width:24px;height:24px;border-radius:7px"> Vibeit</a>
+        <a class="brand" href="#top"><img src="assets/pydev-icon.png" alt="Vibeit Studio" style="width:24px;height:24px;border-radius:7px"> Vibeit Studio</a>
         <div class="foot-links">
           <a href="privacy.html" data-i18n="footer.privacy">Privacy</a>
           <a href="terms.html" data-i18n="footer.terms">Terms</a>

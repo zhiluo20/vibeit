@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Served at https://mecury.co.uk/vibeit/sitemap.xml
+
+  A sitemap may only list URLs at or below its own path, which is exactly the case here,
+  so this is valid despite not being at the domain root. It cannot be auto-discovered via
+  robots.txt though — that file has to live at mecury.co.uk/robots.txt, which this repo
+  does not serve. Submit this URL directly in Search Console instead.
+
+  Only the five indexable pages are listed. ts.html and the trailing-slash redirect shims
+  under contact/, privacy/, terms/, support/ are all marked noindex and are deliberately
+  left out.
+-->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://mecury.co.uk/vibeit/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://mecury.co.uk/vibeit/support.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://mecury.co.uk/vibeit/contact.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://mecury.co.uk/vibeit/privacy.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://mecury.co.uk/vibeit/terms.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+</urlset>
