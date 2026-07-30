@@ -199,9 +199,24 @@
     @media(max-width:900px){.hero-mark{height:clamp(190px,30vh,300px)}}
 
     .hero-shot{position:relative}
-    /* black gradient mask that fades the bottom edge of the showcase windows into the page background */
-    .hero-shot::after{content:"";position:absolute;left:50%;transform:translateX(-50%);width:100vw;bottom:0;height:27%;z-index:7;pointer-events:none;
-      background:linear-gradient(to bottom,transparent 0%,rgba(10,10,12,.35) 34%,rgba(10,10,12,.72) 62%,var(--bg) 86%)}
+    /* The showcase window dissolves via an ALPHA MASK on the deck itself.
+       It used to be an overlay ending in solid var(--bg). That only worked while the page
+       behind it really was flat #0a0a0c — with the light shafts now running back there, an
+       opaque band matches nothing and reads as a hard black cut across the section. A mask
+       removes the window instead of painting over it, so whatever is behind stays
+       continuous. Masking #hero-deck and not .hero-shot keeps .deck-dots visible. */
+    .hero-shot::after{content:none}
+    #hero-deck{
+      -webkit-mask-image:linear-gradient(to bottom,#000 52%,rgba(0,0,0,.78) 70%,rgba(0,0,0,.32) 86%,transparent 100%);
+      mask-image:linear-gradient(to bottom,#000 52%,rgba(0,0,0,.78) 70%,rgba(0,0,0,.32) 86%,transparent 100%);
+      /* The mask box is deliberately WIDER than the deck. Outside it, no-repeat means
+         alpha 0 — and .agent-float sits at right:-7%, overhanging on purpose, so a
+         100%-wide mask erased the part that pokes out. Height stays 100% so the vertical
+         fade still lines up with the deck; only the horizontal reach is widened. */
+      -webkit-mask-size:170% 100%;mask-size:170% 100%;
+      -webkit-mask-position:center top;mask-position:center top;
+      -webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;
+    }
     .hero-shot .deck-dots{position:relative;z-index:8}
     .hero-shot img{width:100%;border-radius:var(--radius);border:1px solid var(--line-2);box-shadow:0 40px 100px rgba(0,0,0,.55)}
     /* desktop-level product showcase under the "desktop dev environment" heading */
