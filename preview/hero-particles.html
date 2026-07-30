@@ -1,0 +1,704 @@
+<!doctype html>
+<!--
+  Tuning harness for the hero particle mark. Not linked from the site; open it directly.
+
+  SCOPE: the MARK only — extruded-shell sampling, cursor repulsion + spring return,
+  water ripples, caustic shimmer. Its P values match what ships in index.html.
+
+  It does NOT include the page-wide atmosphere added later (light shafts, the fluid
+  cursor trail, ambient airflow), nor the production guards (lazy/retried GL context,
+  tiered perf watchdog, page-wide fixed canvas). Tune the mark here, then port the
+  numbers across; do not treat this as a mirror of the live page.
+-->
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<link rel="icon" href="data:,">
+<title>Vibeit hero — particle logo tuning harness</title>
+<style>
+  /* Tokens mirrored 1:1 from index.html so the prototype and the site share one source of truth. */
+  :root{
+    --bg:#0a0a0c; --bg-2:#0e0e12; --surface:#141418; --surface-2:#1a1a20;
+    --text:#f4f4f6; --muted:#9a9aa4; --faint:#6c6c76;
+    --line:rgba(255,255,255,.08); --line-2:rgba(255,255,255,.14);
+    --accent:#5aa9ff; --accent-2:#79e6ff; --accent-ink:#0a0a0c;
+    /* deepest depth tint — the "far" end of the particle ramp */
+    --accent-far:#12326e;
+    --radius:20px; --maxw:1200px;
+    --font:-apple-system,BlinkMacSystemFont,"SF Pro Display","SF Pro Text","Segoe UI",Roboto,sans-serif;
+    color-scheme:dark;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;background:var(--bg);color:var(--text);font-family:var(--font);line-height:1.5;-webkit-font-smoothing:antialiased}
+  .grad-text{background:linear-gradient(100deg,var(--accent),var(--accent-2));-webkit-background-clip:text;background-clip:text;color:transparent}
+
+  /* ---------- hero shell ---------- */
+  .hero{position:relative;min-height:100svh;display:flex;flex-direction:column;align-items:center;
+        justify-content:center;padding:96px 24px 64px;overflow:hidden;isolation:isolate}
+  /* Ambient glow uses the UI background family, never flat black (design-system: 光斑背景). */
+  .hero::before{content:"";position:absolute;top:38%;left:50%;transform:translate(-50%,-50%);
+    width:min(1100px,120vw);height:min(760px,90vh);border-radius:50%;pointer-events:none;z-index:0;
+    background:radial-gradient(circle,rgba(90,169,255,.16),rgba(121,230,255,.05) 45%,transparent 68%);filter:blur(50px)}
+
+  #fx{position:absolute;inset:0;width:100%;height:100%;display:block;z-index:1;pointer-events:none}
+  /* Static SVG fallback: shown when WebGL2 is unavailable. Same mark, same tokens. */
+  #fallback{position:absolute;left:50%;top:42%;transform:translate(-50%,-50%);width:min(320px,46vw);z-index:1;display:none}
+
+  .copy{position:relative;z-index:2;text-align:center;max-width:820px;margin:0 auto;
+        display:flex;flex-direction:column;align-items:center}
+  .eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:13px;color:var(--muted);
+    border:1px solid var(--line);background:rgba(20,20,24,.5);backdrop-filter:blur(10px);
+    border-radius:999px;padding:6px 14px;margin:0 0 22px}
+  .eyebrow .dot{width:6px;height:6px;border-radius:50%;background:var(--accent);box-shadow:0 0 10px var(--accent)}
+  h1{font-size:clamp(40px,6.4vw,72px);line-height:1.03;letter-spacing:-.035em;font-weight:700;margin:0 0 18px}
+  p.sub{font-size:clamp(16px,1.7vw,20px);color:var(--muted);max-width:46ch;margin:0 auto 30px}
+  /* Reserves the mark's room in the flex flow; the canvas itself stays full-bleed. */
+  .mark-slot{flex:1 1 auto;width:100%;min-height:150px;pointer-events:none}
+  .cta{display:flex;gap:14px;flex-wrap:wrap;justify-content:center}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-weight:600;font-size:14.5px;
+       border-radius:999px;padding:11px 20px;cursor:pointer;text-decoration:none;color:inherit;
+       transition:transform .12s ease,box-shadow .2s,background .2s;white-space:nowrap}
+  .btn:active{transform:translateY(1px)}
+  .btn-primary{background:linear-gradient(100deg,var(--accent),var(--accent-2));color:var(--accent-ink);box-shadow:0 6px 24px rgba(90,169,255,.28)}
+  .btn-primary:hover{box-shadow:0 10px 34px rgba(90,169,255,.42)}
+  .btn-ghost{background:var(--surface);color:var(--text);border:1px solid var(--line-2)}
+  .btn-ghost:hover{background:var(--surface-2)}
+
+  /* ---------- layout A: mark as an ambient backdrop behind the copy ---------- */
+  /* Copy stays exactly where it is today; the mark breathes behind it. Lowest risk. */
+  .hero.mode-a .mark-slot{display:none}
+  .hero.mode-a h1{text-shadow:0 2px 40px rgba(10,10,12,.85)}
+
+  /* ---------- layout B: 标题 / 标志 / 正文+CTA 三段 ---------- */
+  .hero.mode-b{justify-content:center;padding-bottom:clamp(40px,7vh,88px)}
+  .hero.mode-b h1{font-size:clamp(32px,4.4vw,52px);margin-bottom:0}
+  .hero.mode-b p.sub{font-size:clamp(15px,1.4vw,17px)}
+
+  /* ---------- prototype-only tuning panel ---------- */
+  .panel{position:fixed;right:14px;top:14px;z-index:30;width:252px;font-size:12px;
+    background:rgba(16,16,20,.82);backdrop-filter:blur(18px) saturate(160%);
+    border:1px solid var(--line);border-radius:16px;padding:12px 14px 14px;
+    box-shadow:0 20px 50px rgba(0,0,0,.55);color:var(--muted)}
+  .panel h4{margin:0 0 10px;font-size:12px;color:var(--text);font-weight:650;display:flex;align-items:center;gap:8px}
+  .panel h4 button{margin-inline-start:auto;background:transparent;border:1px solid var(--line);color:var(--muted);
+    border-radius:8px;font:inherit;padding:2px 8px;cursor:pointer}
+  .panel h4 button:hover{color:var(--text);border-color:var(--line-2)}
+  .panel.collapsed .pbody{display:none}
+  .pbody{max-height:calc(100vh - 92px);overflow-y:auto;scrollbar-width:thin;
+         scrollbar-color:rgba(255,255,255,.18) transparent;padding-inline-end:2px}
+  .sep{margin:14px 0 2px;padding-top:10px;border-top:1px solid var(--line);
+       color:var(--accent-2);font-size:11px;font-weight:650;letter-spacing:.04em}
+  .row{display:grid;grid-template-columns:1fr auto;gap:4px 8px;align-items:center;margin:9px 0 0}
+  .row label{color:var(--muted)}
+  .row output{color:var(--accent-2);font-variant-numeric:tabular-nums;font-size:11px}
+  .row input[type=range]{grid-column:1/-1;width:100%;accent-color:var(--accent);height:16px;margin:0}
+  .seg{display:flex;gap:6px;margin:2px 0 8px}
+  .seg button{flex:1;background:var(--surface);border:1px solid var(--line);color:var(--muted);
+    border-radius:9px;padding:6px 4px;font:inherit;cursor:pointer;transition:.15s}
+  .seg button[aria-pressed=true]{background:linear-gradient(100deg,var(--accent),var(--accent-2));
+    color:var(--accent-ink);border-color:transparent;font-weight:650}
+  .hint{margin:12px 0 0;padding-top:10px;border-top:1px solid var(--line);color:var(--faint);line-height:1.45;font-size:11px}
+  .fps{position:fixed;left:14px;bottom:14px;z-index:30;font-size:11px;color:var(--faint);
+    font-variant-numeric:tabular-nums;background:rgba(16,16,20,.7);border:1px solid var(--line);
+    border-radius:9px;padding:5px 9px;backdrop-filter:blur(10px)}
+
+  @media (max-width:760px){ .panel{display:none} }
+  @media (prefers-reduced-motion:reduce){ .hero::before{filter:blur(50px)} }
+</style>
+</head>
+<body>
+
+<section class="hero mode-b" id="hero">
+  <canvas id="fx" aria-hidden="true"></canvas>
+
+  <!-- No-WebGL2 fallback: the same mark, drawn crisply. -->
+  <svg id="fallback" viewBox="0 0 100 92" fill="none" aria-hidden="true">
+    <path d="M18 12 L52 46 L18 80" stroke="url(#g)" stroke-width="17" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M84 20 L84 72" stroke="url(#g)" stroke-width="17" stroke-linecap="round"/>
+    <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#5aa9ff"/><stop offset="1" stop-color="#79e6ff"/>
+    </linearGradient></defs>
+  </svg>
+
+  <div class="copy copy-top">
+    <span class="eyebrow"><span class="dot"></span>iPad</span>
+    <h1>Real Python,<br><span class="grad-text">on your iPad.</span></h1>
+  </div>
+
+  <!-- The mark is drawn on the full-bleed canvas, but this element reserves its slot in
+       the flex flow. The renderer reads this rect for the mark's centre and max height,
+       so the logo can never collide with the copy at any viewport size. -->
+  <div class="mark-slot" id="markSlot" aria-hidden="true"></div>
+
+  <div class="copy copy-bottom">
+    <p class="sub">A full Python IDE with Jupyter notebooks, PyTorch on the Apple GPU, and guided lessons. Runs completely offline.</p>
+    <div class="cta">
+      <a class="btn btn-primary" href="#">Download on the App Store</a>
+      <a class="btn btn-ghost" href="#">See what's inside</a>
+    </div>
+  </div>
+</section>
+
+<div class="panel" id="panel">
+  <h4>粒子 Logo 调参 <button id="toggle">收起</button></h4>
+  <div class="pbody">
+    <div class="seg" role="group" aria-label="布局">
+      <button data-mode="a" aria-pressed="false">A 背景层</button>
+      <button data-mode="b" aria-pressed="true">B 主视觉</button>
+    </div>
+    <div class="row"><label>粒子数</label><output id="o-count"></output><input id="i-count" type="range" min="1500" max="26000" step="500"></div>
+    <div class="row"><label>标志尺寸</label><output id="o-scale"></output><input id="i-scale" type="range" min="0.35" max="1.5" step="0.01"></div>
+    <div class="row"><label>厚度（Z 挤出）</label><output id="o-depth"></output><input id="i-depth" type="range" min="0" max="0.4" step="0.005"></div>
+    <div class="row"><label>摆动幅度</label><output id="o-yaw"></output><input id="i-yaw" type="range" min="0" max="60" step="1"></div>
+    <div class="row"><label>斥力半径</label><output id="o-rad"></output><input id="i-rad" type="range" min="60" max="420" step="5"></div>
+    <div class="row"><label>斥力强度</label><output id="o-force"></output><input id="i-force" type="range" min="0" max="260" step="5"></div>
+    <div class="row"><label>回聚速度</label><output id="o-k"></output><input id="i-k" type="range" min="0.002" max="0.06" step="0.001"></div>
+    <div class="row"><label>粒子大小</label><output id="o-size"></output><input id="i-size" type="range" min="0.4" max="3" step="0.05"></div>
+    <div class="row"><label>亮度</label><output id="o-glow"></output><input id="i-glow" type="range" min="0.2" max="2.2" step="0.05"></div>
+    <div class="sep">水光波纹</div>
+    <div class="row"><label>波纹强度</label><output id="o-ripple"></output><input id="i-ripple" type="range" min="0" max="2.5" step="0.05"></div>
+    <div class="row"><label>波纹速度</label><output id="o-rspeed"></output><input id="i-rspeed" type="range" min="0.3" max="2.5" step="0.05"></div>
+    <div class="row"><label>水光强度</label><output id="o-water"></output><input id="i-water" type="range" min="0" max="1.6" step="0.05"></div>
+    <p class="hint">鼠标划过标志 → 粒子被驱散并向镜头方向炸开，松开后按弹簧缓慢回聚。<br>移动会拖出波纹，<b>点击/轻点</b>激起一圈大水花；无人操作时会自己泛起细波。触屏用手指拖动。</p>
+  </div>
+</div>
+<div class="fps" id="fps">—</div>
+
+<script>
+(function(){
+  "use strict";
+
+  var canvas = document.getElementById("fx");
+  var hero   = document.getElementById("hero");
+  var gl     = canvas.getContext("webgl2", {alpha:true, antialias:false, premultipliedAlpha:true, powerPreference:"high-performance"});
+
+  if(!gl){                                    // graceful degradation, not a blank hole
+    canvas.style.display = "none";
+    document.getElementById("fallback").style.display = "block";
+    document.getElementById("panel").style.display = "none";
+    return;
+  }
+
+  var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var coarse       = window.matchMedia("(pointer: coarse)").matches;
+
+  // ---------------------------------------------------------------- tunables
+  // Locked-in values from the tuning pass. `coarse` scales the count for touch devices.
+  var P = {
+    count : coarse ? 3200 : 6500,    // adaptive baseline; the FPS watchdog can lower it
+    scale : 0.59,                    // mark height as a fraction of min(vw*0.55, vh*0.62)
+    depth : 0.30,                    // Z extrusion as a fraction of mark height
+    yawDeg: 45,                      // ± sway. NOT a full spin — the mark must stay legible.
+    radius: 190,                     // cursor repulsion radius, CSS px
+    force : 130,                     // repulsion strength
+    k     : 0.014,                   // spring constant pulling particles home
+    size  : 2.00,                    // global sprite size multiplier
+    glow  : 1.45,                    // global brightness multiplier
+    ripple: 1.00,                    // wavefront amplitude
+    rspeed: 1.00,                    // wavefront travel speed
+    water : 0.75                     // caustic shimmer intensity
+  };
+
+  // ------------------------------------------------- palette from CSS tokens
+  // Read colours from the stylesheet instead of hardcoding: one token source.
+  function hex(v){
+    v = (v||"").trim().replace("#","");
+    if(v.length === 3) v = v[0]+v[0]+v[1]+v[1]+v[2]+v[2];
+    var n = parseInt(v,16) || 0;
+    return [((n>>16)&255)/255, ((n>>8)&255)/255, (n&255)/255];
+  }
+  var cs   = getComputedStyle(document.documentElement);
+  var cFar = hex(cs.getPropertyValue("--accent-far"));
+  var cMid = hex(cs.getPropertyValue("--accent"));
+  var cNear= hex(cs.getPropertyValue("--accent-2"));
+
+  // ------------------------------------------------------------- GL programs
+  var VS = `#version 300 es
+  layout(location=0) in vec2 aPos;    // clip space, projected on the CPU
+  layout(location=1) in float aSize;  // device px
+  layout(location=2) in float aDepth; // 0 = far, 1 = near
+  layout(location=3) in float aAlpha;
+  out float vDepth; out float vAlpha;
+  void main(){
+    vDepth = aDepth; vAlpha = aAlpha;
+    gl_Position  = vec4(aPos, 0.0, 1.0);
+    gl_PointSize = aSize;
+  }`;
+
+  var FS = `#version 300 es
+  precision mediump float;
+  in float vDepth; in float vAlpha;
+  uniform vec3 uFar, uMid, uNear;
+  out vec4 frag;
+  void main(){
+    vec2 d = gl_PointCoord - 0.5;
+    float r = length(d) * 2.0;
+    if(r > 1.0) discard;
+    // Tight core + a deliberately restrained halo (design-system: 辉光半径克制).
+    float core = pow(1.0 - r, 3.0);
+    float halo = pow(1.0 - r, 1.1) * 0.22;
+    float a = (core + halo) * vAlpha;
+
+    vec3 c = mix(uFar,  uMid,  smoothstep(0.00, 0.55, vDepth));
+    c      = mix(c,     uNear, smoothstep(0.45, 0.88, vDepth));
+    c      = mix(c, vec3(1.0), smoothstep(0.88, 1.00, vDepth) * 0.65);
+    frag = vec4(c * a, a);           // premultiplied, blended with ONE/ONE
+  }`;
+
+  function compile(type, src){
+    var s = gl.createShader(type);
+    gl.shaderSource(s, src); gl.compileShader(s);
+    if(!gl.getShaderParameter(s, gl.COMPILE_STATUS)) throw new Error(gl.getShaderInfoLog(s));
+    return s;
+  }
+  var prog = gl.createProgram();
+  gl.attachShader(prog, compile(gl.VERTEX_SHADER, VS));
+  gl.attachShader(prog, compile(gl.FRAGMENT_SHADER, FS));
+  gl.linkProgram(prog);
+  if(!gl.getProgramParameter(prog, gl.LINK_STATUS)) throw new Error(gl.getProgramInfoLog(prog));
+  gl.useProgram(prog);
+  gl.uniform3fv(gl.getUniformLocation(prog,"uFar"),  cFar);
+  gl.uniform3fv(gl.getUniformLocation(prog,"uMid"),  cMid);
+  gl.uniform3fv(gl.getUniformLocation(prog,"uNear"), cNear);
+
+  var STRIDE = 5;                                   // x, y, size, depth, alpha
+  var vao = gl.createVertexArray(); gl.bindVertexArray(vao);
+  var vbo = gl.createBuffer();      gl.bindBuffer(gl.ARRAY_BUFFER, vbo);
+  var bs = STRIDE * 4;
+  gl.enableVertexAttribArray(0); gl.vertexAttribPointer(0, 2, gl.FLOAT, false, bs, 0);
+  gl.enableVertexAttribArray(1); gl.vertexAttribPointer(1, 1, gl.FLOAT, false, bs, 8);
+  gl.enableVertexAttribArray(2); gl.vertexAttribPointer(2, 1, gl.FLOAT, false, bs, 12);
+  gl.enableVertexAttribArray(3); gl.vertexAttribPointer(3, 1, gl.FLOAT, false, bs, 16);
+
+  gl.disable(gl.DEPTH_TEST);
+  gl.enable(gl.BLEND);
+  gl.blendFunc(gl.ONE, gl.ONE);                      // additive: order-independent, no sorting
+  var maxPointSize = gl.getParameter(gl.ALIASED_POINT_SIZE_RANGE)[1] || 64;
+
+  // ---------------------------------------------------- the >| mark as a mask
+  // The mark is rasterised, then rejection-sampled. Change these strokes (or swap in
+  // an SVG Path2D) and the particle cloud follows — no 3D asset, no re-export.
+  var MW = 300, MH = 276;                            // mask resolution ~ the icon's 438:402
+  function buildMask(){
+    var c = document.createElement("canvas");
+    c.width = MW; c.height = MH;
+    var x = c.getContext("2d");
+    x.clearRect(0,0,MW,MH);
+    x.strokeStyle = "#fff"; x.lineCap = "round"; x.lineJoin = "round";
+    x.lineWidth = MW * 0.178;                        // stroke ratio measured off pydev-icon.png
+    var L = MW*0.089, A = MW*0.536, R = MW*0.911;
+    x.beginPath(); x.moveTo(L, MH*0.055); x.lineTo(A, MH*0.502); x.lineTo(L, MH*0.950); x.stroke();
+    x.beginPath(); x.moveTo(R, MH*0.154); x.lineTo(R, MH*0.841); x.stroke();
+    return x.getImageData(0,0,MW,MH).data;
+  }
+  var mask = buildMask();
+
+  // Split the mask into interior pixels and silhouette-edge pixels. Edges get the
+  // lion's share of particles: that outline is what actually reads as a 3D form.
+  var inner = [], rim = [];
+  (function classify(){
+    function on(ix,iy){
+      if(ix<0||iy<0||ix>=MW||iy>=MH) return false;
+      return mask[(iy*MW+ix)*4+3] > 128;
+    }
+    for(var iy=0; iy<MH; iy++) for(var ix=0; ix<MW; ix++){
+      if(!on(ix,iy)) continue;
+      var edge = !on(ix-1,iy)||!on(ix+1,iy)||!on(ix,iy-1)||!on(ix,iy+1);
+      (edge ? rim : inner).push(iy*MW + ix);
+    }
+  })();
+
+  // -------------------------------------------------------- particle buffers
+  var N = 0;
+  var hx,hy,hz, px,py,pz, vx,vy,vz, ph, sz, br, kk;
+  var data;                                          // interleaved GPU upload buffer
+  var markH = 1, halfD = 1;
+  var markSlot = document.getElementById("markSlot");
+
+  // Layout B drives the mark off the reserved slot instead of a magic fraction, so the
+  // logo tracks the copy at every viewport height rather than drifting into it.
+  function slotMetrics(){
+    if(!hero.classList.contains("mode-b")) return null;
+    var s = markSlot.getBoundingClientRect();
+    if(s.height <= 0) return null;
+    var c = canvas.getBoundingClientRect();
+    return { cy: s.top - c.top + s.height/2, h: s.height };
+  }
+
+  function rand(){ return Math.random(); }
+  function gauss(){ return (rand()+rand()+rand()-1.5) * 0.9; }
+
+  // `settled` = place particles directly at rest instead of replaying the entrance.
+  // Rebuilds triggered by the FPS watchdog or a slider drag must not re-animate.
+  function build(settled){
+    N = P.count|0;
+    hx=new Float32Array(N); hy=new Float32Array(N); hz=new Float32Array(N);
+    px=new Float32Array(N); py=new Float32Array(N); pz=new Float32Array(N);
+    vx=new Float32Array(N); vy=new Float32Array(N); vz=new Float32Array(N);
+    ph=new Float32Array(N); sz=new Float32Array(N); br=new Float32Array(N); kk=new Float32Array(N);
+    data = new Float32Array(N * STRIDE);
+
+    var w = canvas.clientWidth || window.innerWidth;
+    var h = canvas.clientHeight || window.innerHeight;
+    // Narrow viewports have nothing competing beside the mark, so it may claim more of
+    // the width. Interpolated rather than stepped, so a resize never snaps. >=900px keeps
+    // the 0.55 the desktop look was tuned against.
+    var wf = w >= 900 ? 0.55 : (w <= 380 ? 0.90 : 0.90 + (0.55-0.90)*(w-380)/520);
+    markH = Math.min(w * wf, h * 0.62) * P.scale;
+    var sm = slotMetrics();
+    if(sm){
+      // The drawn cloud is taller than markH: haze scatters ~13.5% past the silhouette on
+      // each side, and near-camera particles gain CAM/(CAM-zMax) from perspective. Derive
+      // the clamp from those terms instead of a magic constant, so it stays correct when
+      // 厚度 is retuned. Without this the mark bleeds onto the copy at the sway extremes.
+      var zf = Math.min(P.depth * 1.5, 2.4);         // haze reaches ~3x halfD, in markH units
+      markH = Math.min(markH, sm.h * Math.max(0.6, 3.2 - zf) / (1.27 * 3.2));
+    }
+    var unit = markH / MH;                           // mask px -> world px
+    halfD = markH * P.depth * 0.5;
+
+    var nRim = (N * 0.52)|0, nFace = (N * 0.34)|0;   // rest = haze
+
+    for(var i=0;i<N;i++){
+      var kind = i < nRim ? 0 : (i < nRim+nFace ? 1 : 2);
+      var pool = (kind === 0 || rim.length === 0) ? (rim.length ? rim : inner) : inner;
+      var idx  = pool[(rand()*pool.length)|0];
+      var mx   = idx % MW, my = (idx / MW)|0;
+
+      // Sub-pixel jitter — without it the cloud betrays the raster grid (机械马赛克).
+      var wx = (mx + rand() - MW/2) * unit;
+      var wy = (MH/2 - my - rand()) * unit;
+      var wz;
+
+      if(kind === 0){                                // rim -> the extruded side wall
+        wz = (rand()*2 - 1) * halfD;
+        sz[i] = 0.85 + rand()*1.05;  br[i] = 0.85 + rand()*0.35;
+      }else if(kind === 1){                          // faces -> front & back caps
+        wz = (rand() < 0.5 ? -1 : 1) * halfD * (0.86 + rand()*0.14);
+        sz[i] = 0.62 + rand()*0.7;   br[i] = 0.38 + rand()*0.28;
+      }else{                                         // haze -> bokeh bubbles around the form
+        var a = rand()*Math.PI*2, rr = markH * (0.03 + Math.abs(gauss())*0.10);
+        wx += Math.cos(a)*rr; wy += Math.sin(a)*rr;
+        wz = gauss() * halfD * 3.0;
+        sz[i] = 2.0 + rand()*3.4;    br[i] = 0.10 + rand()*0.18;
+      }
+
+      hx[i]=wx; hy[i]=wy; hz[i]=wz;
+      ph[i]=rand()*Math.PI*2;
+      kk[i]=0.75 + rand()*0.55;                      // desynced return: no lock-step snap
+
+      if(settled){
+        px[i]=wx; py[i]=wy; pz[i]=wz;
+      }else{
+        // Entrance: converge inward from a loose shell.
+        var t1 = rand()*Math.PI*2, t2 = Math.acos(rand()*2-1), rs = markH*(1.1 + rand()*0.9);
+        px[i] = Math.sin(t2)*Math.cos(t1)*rs;
+        py[i] = Math.sin(t2)*Math.sin(t1)*rs*0.7;
+        pz[i] = Math.cos(t2)*rs*0.5;
+      }
+    }
+    gl.bindBuffer(gl.ARRAY_BUFFER, vbo);
+    gl.bufferData(gl.ARRAY_BUFFER, data.byteLength, gl.DYNAMIC_DRAW);
+  }
+
+  // ------------------------------------------------------------------ sizing
+  var dpr = 1, cw = 0, chh = 0, cx = 0, cy = 0, CAM = 1500;
+  function resize(){
+    dpr = Math.min(window.devicePixelRatio || 1, 2);
+    cw  = canvas.clientWidth; chh = canvas.clientHeight;
+    canvas.width  = Math.round(cw  * dpr);
+    canvas.height = Math.round(chh * dpr);
+    gl.viewport(0,0,canvas.width,canvas.height);
+    cx = cw/2;
+    var sm = slotMetrics();
+    cy = sm ? sm.cy : chh * 0.50;
+    CAM = Math.max(900, markH * 3.2);
+  }
+
+  // ---------------------------------------------------------- water ripples
+  // A ring buffer of expanding wavefronts. Deliberately evaluated at PROJECTION time
+  // as a pure display field, never fed into the physics: the spring (k=0.014) is far
+  // too slow to carry a wave, and mixing the two just turns the ripple to mush.
+  var RN = 8, RIPPLE_LIFE = 2.6;                      // seconds
+  var rpX = new Float32Array(RN), rpY = new Float32Array(RN),
+      rpT = new Float32Array(RN), rpA = new Float32Array(RN);
+  var rpHead = 0;
+  function spawnRipple(wx, wy, amp){
+    rpX[rpHead]=wx; rpY[rpHead]=wy; rpT[rpHead]=t; rpA[rpHead]=amp;
+    rpHead = (rpHead+1) % RN;
+  }
+
+  // ----------------------------------------------------------------- pointer
+  var mx = -1e5, my = -1e5, pmx = 0, pmy = 0, speed = 0, active = false, travel = 0;
+  if(!reduceMotion){
+    window.addEventListener("pointermove", function(e){
+      var r = canvas.getBoundingClientRect();
+      var nx = e.clientX - r.left, ny = e.clientY - r.top;
+      if(active){
+        var dd = Math.hypot(nx-pmx, ny-pmy);
+        speed = Math.min(dd, 40);
+        travel += dd;
+        // Drag a wake behind the cursor — one ripple per ~46px travelled.
+        if(travel > 46){ travel = 0; spawnRipple(nx-cx, cy-ny, 0.5); }
+      }
+      pmx = nx; pmy = ny; mx = nx; my = ny; active = true;
+    }, {passive:true});
+    // Click / tap = a proper splash.
+    window.addEventListener("pointerdown", function(e){
+      var r = canvas.getBoundingClientRect();
+      spawnRipple(e.clientX-r.left-cx, cy-(e.clientY-r.top), 1.7);
+    }, {passive:true});
+    window.addEventListener("pointerleave", function(){ active=false; mx=my=-1e5; speed=0; });
+    // Touch has no hover: dragging is the equivalent gesture.
+    window.addEventListener("pointerup", function(){ if(coarse){ active=false; mx=my=-1e5; } }, {passive:true});
+  }
+
+  // -------------------------------------------------------------- simulation
+  var t = 0, last = 0, acc = 0, DT = 1/60, intro = 0, nextDrop = 1.6;
+
+  function step(){
+    t += DT; intro = Math.min(intro + DT, 4);
+
+    // Ambient "rain": the surface keeps stirring with no cursor on the page at all,
+    // so the hero still reads as alive on first paint and on touch devices.
+    if(t > nextDrop){
+      nextDrop = t + 1.5 + rand()*2.4;
+      spawnRipple((rand()-0.5)*markH*1.5, (rand()-0.5)*markH*1.1, 0.30 + rand()*0.22);
+    }
+
+    var yaw   = Math.sin(t*0.16) * (P.yawDeg*Math.PI/180);
+    var pitch = Math.sin(t*0.107) * 0.085;
+    if(active && !coarse){                            // gentle parallax toward the cursor
+      yaw   += ((mx-cx)/cw)  * 0.20;
+      pitch += ((my-cy)/chh) * 0.13;
+    }
+    var cyw=Math.cos(yaw), syw=Math.sin(yaw), cpt=Math.cos(pitch), spt=Math.sin(pitch);
+
+    var R2 = P.radius*P.radius;
+    var boost = 1 + Math.min(speed/14, 1.3);
+    var pushK = P.force * boost;
+
+    for(var i=0;i<N;i++){
+      // Idle breathing so the mark never looks frozen.
+      var b = ph[i];
+      var ox = Math.sin(t*0.70 + b)       * markH*0.006;
+      var oy = Math.cos(t*0.55 + b*1.31)  * markH*0.006;
+      var oz = Math.sin(t*0.41 + b*0.77)  * markH*0.010;
+
+      // Rotate the rest target (Y then X) — particles chase it, so scattered ones lag.
+      var bx=hx[i]+ox, by=hy[i]+oy, bz=hz[i]+oz;
+      var rx =  bx*cyw + bz*syw;
+      var rz = -bx*syw + bz*cyw;
+      var ry =  by*cpt - rz*spt;
+      rz     =  by*spt + rz*cpt;
+
+      var kEff = P.k * kk[i] * Math.min(1, Math.max(0, (intro - b*0.10) / 1.1));
+      vx[i] += (rx - px[i]) * kEff;
+      vy[i] += (ry - py[i]) * kEff;
+      vz[i] += (rz - pz[i]) * kEff;
+
+      // Cursor repulsion is computed in SCREEN space so it matches what the eye sees,
+      // then divided back through the perspective factor to become a world-space push.
+      if(active){
+        var persp = CAM / (CAM - pz[i]);
+        var sx = cx + px[i]*persp, sy = cy - py[i]*persp;
+        var dx = sx - mx, dy = sy - my, d2 = dx*dx + dy*dy;
+        if(d2 < R2 && d2 > 0.0001){
+          var d = Math.sqrt(d2), f = 1 - d/P.radius; f *= f;
+          var ux = dx/d, uy = dy/d;
+          var g = pushK * f * DT / persp;
+          vx[i] += (ux - uy*0.28) * g;                // radial + a little curl
+          vy[i] -= (uy + ux*0.28) * g;
+          vz[i] += f * pushK * DT * 0.55;             // burst toward the camera -> reads 3D
+        }
+      }
+
+      vx[i]*=0.90; vy[i]*=0.90; vz[i]*=0.90;
+      px[i]+=vx[i]; py[i]+=vy[i]; pz[i]+=vz[i];
+    }
+    speed *= 0.86;
+  }
+
+  function project(){
+    var hw = canvas.width/2, hh = canvas.height/2;
+    var zSpan = Math.max(halfD*4, markH*0.5);
+    var sizeK = P.size * dpr;
+
+    // Wave geometry scales with the mark so it looks identical at every viewport size.
+    var ampZ   = markH * 0.115 * P.ripple;   // crest height, mostly in Z
+    var ampXY  = markH * 0.028 * P.ripple;   // slight radial drag, like real surface water
+    var wid    = markH * 0.16;               // half-width of the wave packet
+    var spd    = markH * 0.62 * P.rspeed;    // wavefront travel, world px/s
+    var spread = markH * 0.55;               // radial energy falloff
+    var water  = P.water, doRip = P.ripple > 0;
+    var j = 0;
+
+    for(var i=0;i<N;i++){
+      var bx = px[i], by = py[i];
+      var ox = 0, oy = 0, oz = 0, litR = 0;
+
+      // ---- expanding wavefronts ------------------------------------------
+      if(doRip){
+        for(var r=0;r<RN;r++){
+          var amp = rpA[r]; if(amp <= 0) continue;
+          var age = t - rpT[r];
+          if(age < 0 || age > RIPPLE_LIFE) continue;
+          var dx = bx - rpX[r], dy = by - rpY[r];
+          var d  = Math.sqrt(dx*dx + dy*dy);
+          var u  = (d - age*spd) / wid;
+          if(u < -2.2 || u > 2.2) continue;        // outside the packet — skip the sin
+          var env = 1 - u*u*0.2066;  env *= env;   // compact-support bump, 0 at |u|=2.2
+          var dec = 1 - age/RIPPLE_LIFE; dec *= dec;
+          // -sin puts the main crest just behind the advancing front.
+          var w = -Math.sin(u*2.6) * env * dec * amp / (1 + d/spread);
+          oz += w * ampZ;
+          if(d > 0.001){ var inv = w*ampXY/d; ox += dx*inv; oy += dy*inv; }
+          if(w > 0) litR += w;                      // only crests catch the light
+        }
+        if(litR > 1.2) litR = 1.2;
+      }
+
+      // ---- caustic shimmer -------------------------------------------------
+      // Two phase-modulated sines (not summed — modulated) give branching veins that
+      // read as light through water; cubing keeps them sparse instead of a wash.
+      var litC = 0;
+      if(water > 0){
+        var a1 = Math.sin(hx[i]*0.0135 + t*0.55);
+        var a2 = Math.sin(hy[i]*0.0172 - t*0.42 + a1*1.15);
+        var c  = (a1*0.42 + a2*0.58)*0.5 + 0.5;
+        litC = c*c*c * water;
+      }
+
+      var lit = litR*0.75 + litC*0.9;
+      var wz  = pz[i] + oz;
+      var persp = CAM / (CAM - wz);
+      var sx = (cx + (bx+ox)*persp) * dpr;
+      var sy = (cy - (by+oy)*persp) * dpr;
+      var ps = sz[i] * sizeK * persp * (1 + lit*0.14);
+      if(ps > maxPointSize) ps = maxPointSize;
+
+      var dep = 0.5 + wz/zSpan + lit*0.17;         // crests ride toward cyan/white
+      data[j]   = sx/hw - 1;
+      data[j+1] = 1 - sy/hh;
+      data[j+2] = ps;
+      data[j+3] = dep < 0 ? 0 : (dep > 1 ? 1 : dep);
+      data[j+4] = br[i] * P.glow * (1 + lit*0.85);
+      j += STRIDE;
+    }
+  }
+
+  function draw(){
+    gl.clearColor(0,0,0,0); gl.clear(gl.COLOR_BUFFER_BIT);
+    gl.bindBuffer(gl.ARRAY_BUFFER, vbo);
+    gl.bufferSubData(gl.ARRAY_BUFFER, 0, data);
+    gl.drawArrays(gl.POINTS, 0, N);
+  }
+
+  // ---------------------------------------------------- loop + perf gating
+  var running = false, rafId = 0, visible = true;
+  var fpsEl = document.getElementById("fps"), fAcc = 0, fN = 0, degraded = false, slowRuns = 0;
+
+  function frame(now){
+    rafId = requestAnimationFrame(frame);
+    var dt = last ? (now - last)/1000 : DT; last = now;
+    if(dt > 0.25) dt = 0.25;                          // tab was backgrounded; don't explode
+    acc += dt;
+    var guard = 0;
+    while(acc >= DT && guard < 4){ step(); acc -= DT; guard++; }
+    if(acc > DT) acc = 0;
+    project(); draw();
+
+    fAcc += dt; fN++;
+    if(fAcc >= 0.5){
+      var fps = fN/fAcc;
+      fpsEl.textContent = fps.toFixed(0) + " fps · " + N.toLocaleString() + " 粒子";
+      // One-shot degrade: mobile perf is a hard constraint, not a nice-to-have. Require
+      // 3 consecutive slow samples (~1.5s) so a one-off stall — a background tab being
+      // rAF-throttled, a GC pause, a resize — can't permanently halve quality.
+      if(!degraded && t > 2.5 && N > 2500){
+        slowRuns = fps < 45 ? slowRuns + 1 : 0;
+        if(slowRuns >= 3){
+          degraded = true; P.count = Math.max(2500, (N*0.55)|0);
+          build(true); resize(); syncUI();
+        }
+      }
+      fAcc = 0; fN = 0;
+    }
+  }
+  // Clear the FPS sample on resume too — a window straddling a pause is meaningless.
+  function start(){ if(running||reduceMotion) return; running = true; last = 0; acc = 0;
+                    fAcc = 0; fN = 0; slowRuns = 0; rafId = requestAnimationFrame(frame); }
+  function stop(){ if(!running) return; running = false; cancelAnimationFrame(rafId); }
+
+  // Off-screen and hidden tabs must not animate (design-system: 离屏不动).
+  if("IntersectionObserver" in window){
+    new IntersectionObserver(function(es){
+      visible = es[0].isIntersecting;
+      visible ? start() : stop();
+    }, {rootMargin:"80px"}).observe(hero);
+  }
+  document.addEventListener("visibilitychange", function(){
+    document.hidden ? stop() : (visible && start());
+  });
+  gl.canvas.addEventListener("webglcontextlost", function(e){
+    e.preventDefault(); stop();
+    document.getElementById("fallback").style.display = "block";
+  });
+
+  var rt;
+  window.addEventListener("resize", function(){
+    clearTimeout(rt);
+    rt = setTimeout(function(){ build(true); resize(); if(reduceMotion) staticFrame(); }, 160);
+  });
+
+  function staticFrame(){                             // reduced motion: one settled frame
+    for(var i=0;i<N;i++){ px[i]=hx[i]; py[i]=hy[i]; pz[i]=hz[i]; }
+    project(); draw();
+  }
+
+  // ------------------------------------------------------------------- panel
+  var ids = ["count","scale","depth","yaw","rad","force","k","size","glow","ripple","rspeed","water"];
+  var map = {count:"count", scale:"scale", depth:"depth", yaw:"yawDeg", rad:"radius", force:"force",
+             k:"k", size:"size", glow:"glow", ripple:"ripple", rspeed:"rspeed", water:"water"};
+  function syncUI(){
+    ids.forEach(function(id){
+      var el = document.getElementById("i-"+id), out = document.getElementById("o-"+id);
+      var v = P[map[id]];
+      el.value = v;
+      out.textContent = (id==="k") ? v.toFixed(3) : (id==="yaw" ? v+"°" : (v>=100 ? v|0 : (+v).toFixed(2)));
+    });
+  }
+  ids.forEach(function(id){
+    document.getElementById("i-"+id).addEventListener("input", function(e){
+      P[map[id]] = parseFloat(e.target.value);
+      if(id==="count"||id==="scale"||id==="depth"){ build(true); resize(); }
+      syncUI();
+      if(reduceMotion) staticFrame();
+    });
+  });
+  document.querySelectorAll(".seg button").forEach(function(btn){
+    btn.addEventListener("click", function(){
+      document.querySelectorAll(".seg button").forEach(function(b){ b.setAttribute("aria-pressed", String(b===btn)); });
+      hero.classList.toggle("mode-a", btn.dataset.mode==="a");
+      hero.classList.toggle("mode-b", btn.dataset.mode==="b");
+      P.scale = btn.dataset.mode==="b" ? 0.59 : 0.78;
+      build(true); resize(); syncUI();
+      if(reduceMotion) staticFrame();
+    });
+  });
+  var panel = document.getElementById("panel"), tog = document.getElementById("toggle");
+  tog.addEventListener("click", function(){
+    panel.classList.toggle("collapsed");
+    tog.textContent = panel.classList.contains("collapsed") ? "展开" : "收起";
+  });
+
+  // ------------------------------------------------------------------- boot
+  build(); resize(); syncUI();
+  if(reduceMotion){ staticFrame(); fpsEl.textContent = "静态帧（已开启减少动态效果）"; }
+  else start();
+})();
+</script>
+</body>
+</html>
