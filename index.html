@@ -4694,6 +4694,12 @@ speech = <span class="fn">tts</span>(<span class="st">"Hello World"</span>)
     var cv=document.getElementById("fluidFx");
     if(!cv) return;
     if(matchMedia("(prefers-reduced-motion: reduce)").matches){ cv.style.display="none"; return; }
+    /* Not built on touch devices at all. This is a CURSOR-follow effect and a phone has no
+       cursor — it only responds to a deliberate drag, which almost nobody performs on a
+       marketing page. It is also by far the most expensive thing on the page: a second GL
+       context plus ~24 passes every frame. Paying that for an interaction that barely
+       exists is the wrong trade on mobile. */
+    if(matchMedia("(pointer: coarse)").matches){ cv.style.display="none"; return; }
     var gl=cv.getContext("webgl2",{alpha:true,antialias:false,depth:false,stencil:false,
                                    premultipliedAlpha:true,powerPreference:"high-performance"});
     /* Rendering into float targets is an extension even in WebGL2. Without it there is no
@@ -5058,7 +5064,13 @@ speech = <span class="fn">tts</span>(<span class="st">"Hello World"</span>)
     var RVS = "#version 300 es\n"+
       "const vec2 P[3]=vec2[3](vec2(-1.0,-1.0),vec2(3.0,-1.0),vec2(-1.0,3.0));"+
       "void main(){ gl_Position=vec4(P[gl_VertexID],0.0,1.0); }";
-    var RFS = "#version 300 es\nprecision highp float;"+
+    /* NB: a preprocessor directive must start its own line — hence the \n after the
+       precision statement, not just before the next one. */
+    /* Stays highp on every tier: the caustic works on values around -250 and still needs
+       fine detail out of them, which mediump's ~10-bit mantissa turns into banding. The
+       savings come from the iteration count and DPR instead. */
+    var RFS = "#version 300 es\nprecision highp float;\n"+
+      "#define CAUS_N "+(coarse?2:4)+"\n"+
       "uniform vec2 uRes; uniform float uTime, uAmp; uniform vec3 uMid,uNear; out vec4 frag;"+
       "void main(){"+
       "vec2 uv=(gl_FragCoord.xy/uRes)*2.0-1.0; uv.x*=uRes.x/uRes.y;"+
@@ -5077,17 +5089,19 @@ speech = <span class="fn">tts</span>(<span class="st">"Hello World"</span>)
          p large so the 1/length() term stays order-1. Without it the denominator collapses
          and pow(...,8.0) blows the whole pass out to white. */
       "const float TAU=6.28318; const float inten=0.005;"+
+      /* Iteration count is compiled per tier: this loop runs for every pixel of the
+         viewport, so it is the single most expensive thing in the pass. */
       /* Warp the domain before the mod() so the tiling never reads as a regular lattice —
          this is what makes the raw formula look like graph paper. */
       "vec2 w=uv*0.85;"+
       "w+=0.42*vec2(sin(uv.y*1.6+uTime*0.12),cos(uv.x*1.8-uTime*0.10));"+
       "w+=0.20*vec2(sin(uv.y*3.7-uTime*0.07),cos(uv.x*3.1+uTime*0.085));"+
       "vec2 p=mod(w*TAU*0.6,TAU)-250.0; vec2 q=p; float c=1.0;"+
-      "for(int n=0;n<4;n++){ float ti=uTime*0.22*(1.0-3.5/float(n+1));"+
+      "for(int n=0;n<CAUS_N;n++){ float ti=uTime*0.22*(1.0-3.5/float(n+1));"+
       "q=p+vec2(cos(ti-q.x)+sin(ti+q.y),sin(ti-q.y)+cos(ti+q.x));"+
       "c+=1.0/length(vec2(p.x/(sin(q.x+ti)/inten),p.y/(cos(q.y+ti)/inten))); }"+
       /* pow 11 instead of 8: keeps only the brightest filaments, leaving real dark space */
-      "c/=4.0; c=1.17-pow(c,1.4); float caus=clamp(pow(abs(c),11.0),0.0,1.0);"+
+      "c/=float(CAUS_N); c=1.17-pow(c,1.4); float caus=clamp(pow(abs(c),11.0),0.0,1.0);"+
       /* large slow blobs, so the light lands in patches instead of covering everything */
       "float blotch=sin(uv.x*1.15+uTime*0.07)*sin(uv.y*0.9-uTime*0.055)*0.5+0.5;"+
       "caus*=smoothstep(0.18,0.95,blotch);"+   /* NB: 'patch' is a reserved word in ES 3.00 */
@@ -5230,23 +5244,33 @@ speech = <span class="fn">tts</span>(<span class="st">"Hello World"</span>)
 
     var dpr=1, cw=0, chh=0, cx=0, cy=0, CAM=1500, markOn=true;
     function resize(){
-      /* 1.75 instead of 2: the canvas is the whole viewport now and the shaft pass is
-         per-pixel, so the top DPR tier costs far more than it visibly returns. */
-      dpr=Math.min(devicePixelRatio||1,1.75);
+      /* The canvas is the whole viewport and the shaft pass is per-pixel, so DPR is the
+         most direct fill-rate lever there is. Phones run 3x+ natively; 1.25 is a quarter
+         of the pixels of 2.5 for a difference almost nobody sees on a glow effect. */
+      dpr=Math.min(devicePixelRatio||1,coarse?1.25:1.75);
       cw=canvas.clientWidth; chh=canvas.clientHeight;
       canvas.width=Math.round(cw*dpr); canvas.height=Math.round(chh*dpr);
       gl.viewport(0,0,canvas.width,canvas.height);
       CAM=Math.max(900,markH*3.2);
-      trackMark();
+      measureSlot(); trackMark();
     }
     /* The canvas is fixed, so the mark has to chase its layout slot to keep scrolling with
-       the hero. Rect read only — nothing writes layout in the frame before it, so this
-       does not force a reflow. markOn also lets the mark's simulation idle once the hero
-       is gone, while the page-wide atmosphere carries on. */
-    function trackMark(){
+       the hero. The slot's DOCUMENT position is measured only on resize and the screen
+       position is derived from a cached scroll offset — reading getBoundingClientRect()
+       every frame forces a synchronous layout, and this page has other rAF loops writing
+       to the DOM, so that interleaving is exactly what produces jank rather than merely
+       a lower frame rate. */
+    var slotX=0, slotY=0, slotW=0, slotH=0, scX=0, scY=0;
+    function measureSlot(){
       var r=host.getBoundingClientRect();
-      cx=r.left+r.width/2; cy=r.top+r.height/2;
-      markOn = r.bottom > -240 && r.top < chh+240;
+      scX=window.scrollX; scY=window.scrollY;
+      slotX=r.left+scX; slotY=r.top+scY;
+      slotW=r.width; slotH=r.height;
+    }
+    addEventListener("scroll",function(){ scX=window.scrollX; scY=window.scrollY; },{passive:true});
+    function trackMark(){
+      cx=slotX-scX+slotW/2; cy=slotY-scY+slotH/2;
+      markOn = (cy+slotH/2) > -240 && (cy-slotH/2) < chh+240;
     }
 
     /* Ring buffer of expanding wavefronts. Evaluated at projection time as a pure display
@@ -5367,11 +5391,13 @@ speech = <span class="fn">tts</span>(<span class="st">"Hello World"</span>)
 
     function draw(){
       gl.clearColor(0,0,0,0); gl.clear(gl.COLOR_BUFFER_BIT);
-      /* Shafts first, mark and smoke additively over them. */
-      gl.useProgram(rayProg); gl.bindVertexArray(rayVao);
-      gl.uniform2f(uRayRes,canvas.width,canvas.height);
-      gl.uniform1f(uRayTime,t);
-      gl.drawArrays(gl.TRIANGLES,0,3);
+      /* Shafts first, mark over them. Skipped once the watchdog has stepped down. */
+      if(rays){
+        gl.useProgram(rayProg); gl.bindVertexArray(rayVao);
+        gl.uniform2f(uRayRes,canvas.width,canvas.height);
+        gl.uniform1f(uRayTime,t);
+        gl.drawArrays(gl.TRIANGLES,0,3);
+      }
 
       gl.useProgram(prog); gl.bindVertexArray(ptVao);
       gl.bindBuffer(gl.ARRAY_BUFFER,vbo);
@@ -5382,7 +5408,7 @@ speech = <span class="fn">tts</span>(<span class="st">"Hello World"</span>)
                             for(var i=0;i<N;i++){ px[i]=hx[i]; py[i]=hy[i]; pz[i]=hz[i]; }
                             project(); draw(); }
 
-    var running=false, rafId=0, visible=false, fAcc=0, fN=0, degraded=false, slowRuns=0;
+    var running=false, rafId=0, visible=false, fAcc=0, fN=0, slowRuns=0, tier=0, rays=true;
     function frame(now){
       rafId=requestAnimationFrame(frame);
       var dt=last?(now-last)/1000:DT; last=now;
@@ -5396,12 +5422,18 @@ speech = <span class="fn">tts</span>(<span class="st">"Hello World"</span>)
       fAcc+=dt; fN++;
       if(fAcc>=0.5){
         var fps=fN/fAcc;
-        /* Mobile perf is a hard constraint. Require 3 consecutive slow samples (~1.5s) so
-           a one-off stall — GC, a resize, a throttled tab — can't permanently halve this. */
-        if(!degraded && t>2.5 && N>2500){
+        /* Device class is a poor proxy for GPU capability, so quality also steps down on
+           measured evidence, cheapest-looking sacrifice first. 3 consecutive slow samples
+           (~1.5s) so a one-off stall — GC, a resize, a throttled tab — cannot permanently
+           degrade the page. */
+        if(t>2.5 && tier<3){
           slowRuns = fps<45 ? slowRuns+1 : 0;
-          if(slowRuns>=3){ degraded=true; P.count=Math.max(2500,(N*0.55)|0);
-                           build(true); resize(); }
+          if(slowRuns>=3){
+            slowRuns=0; tier++;
+            if(tier===1){ P.count=Math.max(1600,(N*0.55)|0); build(true); resize(); }
+            else if(tier===2){ rays=false; }   /* full-screen per-pixel pass goes next */
+            else { stop(); host.classList.add("no-gl"); }   /* last resort: static mark */
+          }
         }
         fAcc=0; fN=0;
       }
