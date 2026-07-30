@@ -5021,9 +5021,13 @@ speech = <span class="fn">tts</span>(<span class="st">"Hello World"</span>)
     var reduceMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
     var coarse       = matchMedia("(pointer: coarse)").matches;
 
-    var P = { count: coarse ? 3200 : 6500, scale:0.59, depth:0.30, yawDeg:45,
-              radius:190, force:130, k:0.014, size:2.00, glow:1.45,
-              ripple:1.00, rspeed:1.00, water:0.75 };
+    /* Every particle costs main-thread JS every frame — spring, repulsion, rotation,
+       projection — so the count is the single biggest CPU lever on a phone. water:0 on
+       touch drops two Math.sin per particle per frame; the shafts already supply the
+       light variation the caustic was adding. */
+    var P = { count: coarse ? 1800 : 6500, scale:0.59, depth:0.30, yawDeg:45,
+              radius:190, force:130, k:0.014, size:coarse?2.35:2.00, glow:1.45,
+              ripple:1.00, rspeed:1.00, water:coarse?0:0.75 };
 
     /* Colours come from the CSS tokens, so the ramp tracks the brand gradient. */
     function hex(v){ v=(v||"").trim().replace("#","");
@@ -5408,14 +5412,19 @@ speech = <span class="fn">tts</span>(<span class="st">"Hello World"</span>)
                             for(var i=0;i<N;i++){ px[i]=hx[i]; py[i]=hy[i]; pz[i]=hz[i]; }
                             project(); draw(); }
 
-    var running=false, rafId=0, visible=false, fAcc=0, fN=0, slowRuns=0, tier=0, rays=true;
+    var running=false, rafId=0, visible=false, fAcc=0, fN=0, slowRuns=0, tier=0, rays=true, grace=0;
     function frame(now){
       rafId=requestAnimationFrame(frame);
       var dt=last?(now-last)/1000:DT; last=now;
       if(dt>0.25) dt=0.25;                        /* came back from a background tab */
       trackMark();                                /* the mark chases its slot as we scroll */
       acc+=dt;
-      var guard=0; while(acc>=DT && guard<4){ step(); acc-=DT; guard++; }
+      /* Substep cap is 1 on touch. The fixed-timestep catch-up is a death spiral on a slow
+         device: a longer frame accumulates more time, so MORE physics runs per frame, so
+         the frame gets longer again. Better to let an ambient effect run slightly slow —
+         nobody can tell — than to pile on work exactly when the device is struggling. */
+      var guard=0, maxStep=coarse?1:4;
+      while(acc>=DT && guard<maxStep){ step(); acc-=DT; guard++; }
       if(acc>DT) acc=0;
       project(); draw();
 
@@ -5423,14 +5432,23 @@ speech = <span class="fn">tts</span>(<span class="st">"Hello World"</span>)
       if(fAcc>=0.5){
         var fps=fN/fAcc;
         /* Device class is a poor proxy for GPU capability, so quality also steps down on
-           measured evidence, cheapest-looking sacrifice first. 3 consecutive slow samples
-           (~1.5s) so a one-off stall — GC, a resize, a throttled tab — cannot permanently
-           degrade the page. */
-        if(t>2.5 && tier<3){
-          slowRuns = fps<45 ? slowRuns+1 : 0;
+           measured evidence, cheapest-looking sacrifice first.
+
+           Each tier has its OWN threshold, and they fall steeply. A single 45fps bar for
+           every step meant a phone sitting at a perfectly acceptable 42fps would walk all
+           the way down to the static SVG. Killing the mark should need genuinely bad
+           performance, not merely "not 60".
+
+           grace also matters: tier 1 calls build(), which reallocates every buffer and is
+           itself a slow frame. Without a settling window that frame counts toward the next
+           step, and the degrade cascades straight to the bottom — which is exactly what
+           was happening on phones. */
+        var bar = tier===0 ? 48 : (tier===1 ? 38 : 20);
+        if(t>2.5 && t>grace && tier<3){
+          slowRuns = fps<bar ? slowRuns+1 : 0;
           if(slowRuns>=3){
-            slowRuns=0; tier++;
-            if(tier===1){ P.count=Math.max(1600,(N*0.55)|0); build(true); resize(); }
+            slowRuns=0; tier++; grace=t+2.0;
+            if(tier===1){ P.count=Math.max(1400,(N*0.55)|0); build(true); resize(); }
             else if(tier===2){ rays=false; }   /* full-screen per-pixel pass goes next */
             else { stop(); host.classList.add("no-gl"); }   /* last resort: static mark */
           }
