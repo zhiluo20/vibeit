@@ -1,0 +1,48 @@
+---
+title: "Lire les tableaux, graphiques et résultats interactifs"
+description: "Retrouvez les sorties à l’endroit où le code s’exécute et manipulez les résultats interactifs pris en charge."
+sidebar:
+  order: 3
+---
+
+import ArticleMeta from '../../../../components/ArticleMeta.astro';
+import TutorialSteps from '../../../../components/TutorialSteps.astro';
+
+<ArticleMeta labels={{"copy":"Copier le code","copied":"Copié","tap":"Touchez","longPress":"Maintenez le doigt","swipe":"Balayez","input":"Saisissez ici","verified":"Contenu vérifié le","siteTitle":"Centre d’aide Vibeit","intro":"Apprenez une tâche à la fois grâce à des captures réelles de l’app et à des étapes claires.","version":"Version de l’app","screenshotLanguage":"Langue des captures","device":"Appareil","goal":"Ce que vous allez faire","before":"Avant de commencer","entry":"Point de départ","steps":"Suivez les étapes","expected":"Vérifiez le résultat","troubleshooting":"En cas de problème","next":"Pour continuer","references":"Documentation associée","enlarge":"Agrandir la capture","detail":"Voir la commande de plus près","previousStep":"Précédent","nextStep":"Suivant","close":"Fermer","capturePending":"Les captures de cette page sont encore en préparation. Cet aperçu n’est pas validé pour publication.","examples":"Télécharger le projet d’exemple","note":"À retenir","search":"Que souhaitez-vous faire ?","popular":"Commencez par une tâche courante","all":"Tous les tutoriels","support":"Contacter l’assistance","observe":"Vérifiez le résultat"}} requirement={"Standard / Pro"} shotLocale="English" aliases={[]} />
+
+## Ce que vous allez faire
+
+Retrouvez les sorties à l’endroit où le code s’exécute et manipulez les résultats interactifs pris en charge.
+
+## Avant de commencer
+
+- Un abonnement Standard ou Pro actif, ou une période d’essai éligible.
+
+[Télécharger le projet d’exemple](/vibeit/help/downloads/vibeit-tutorials.zip)
+
+## Point de départ
+
+<div className="entry-path">Notebook → run a result-producing cell</div>
+
+
+## Suivez les étapes
+
+<TutorialSteps id="notebooks-results" locale="fr" labels={{"copy":"Copier le code","copied":"Copié","tap":"Touchez","longPress":"Maintenez le doigt","swipe":"Balayez","input":"Saisissez ici","verified":"Contenu vérifié le","siteTitle":"Centre d’aide Vibeit","intro":"Apprenez une tâche à la fois grâce à des captures réelles de l’app et à des étapes claires.","version":"Version de l’app","screenshotLanguage":"Langue des captures","device":"Appareil","goal":"Ce que vous allez faire","before":"Avant de commencer","entry":"Point de départ","steps":"Suivez les étapes","expected":"Vérifiez le résultat","troubleshooting":"En cas de problème","next":"Pour continuer","references":"Documentation associée","enlarge":"Agrandir la capture","detail":"Voir la commande de plus près","previousStep":"Précédent","nextStep":"Suivant","close":"Fermer","capturePending":"Les captures de cette page sont encore en préparation. Cet aperçu n’est pas validé pour publication.","examples":"Télécharger le projet d’exemple","note":"À retenir","search":"Que souhaitez-vous faire ?","popular":"Commencez par une tâche courante","all":"Tous les tutoriels","support":"Contacter l’assistance","observe":"Vérifiez le résultat"}} steps={[{"shot":"S10-table","target":"primary","title":"Commencer par un tableau ou un graphique simple","body":"Exécutez les cellules de lecture du CSV et de graphique du notebook d’exemple. Chaque résultat apparaît sous la cellule qui l’a produit.","action":"observe"},{"shot":"S10","target":"primary","title":"Manipuler un résultat interactif","body":"Utilisez les commandes du résultat interactif. Une vue moléculaire permet de faire tourner la structure par glissement et de zoomer par pincement."},{"shot":"S10","target":"output","title":"Vérifier le lieu d’exécution","body":"Une sortie locale provient du noyau local ; un notebook distant utilise le serveur sélectionné. Les bibliothèques et le matériel disponibles peuvent différer."},{"shot":"S06","target":"primary","title":"Conserver un résultat","body":"Exportez le notebook ou créez un fichier de sortie depuis Python, puis vérifiez sa présence dans le projet."}]} />
+
+## Vérifiez le résultat
+
+Exportez le notebook ou créez un fichier de sortie depuis Python, puis vérifiez sa présence dans le projet.
+
+## En cas de problème
+
+- Pour une erreur NameError, exécutez la cellule qui définit le nom manquant.
+- Pour FileNotFoundError, vérifiez le dossier de travail et la position du dossier data par rapport au notebook.
+- Pour ModuleNotFoundError, vérifiez la disponibilité de la bibliothèque : télécharger un fichier n’installe pas sa bibliothèque Python.
+
+## Pour continuer
+
+- [Importer, organiser et exporter des fichiers](/vibeit/help/fr/getting-started/files/)
+- [Trouver et installer des bibliothèques Python compatibles](/vibeit/help/fr/models/packages/)
+
+
+[Contacter l’assistance](https://www.mecury.co.uk/vibeit/contact.html)

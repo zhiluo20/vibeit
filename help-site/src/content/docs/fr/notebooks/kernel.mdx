@@ -1,0 +1,51 @@
+---
+title: "Exécuter, interrompre et redémarrer le noyau"
+description: "Comprenez l’ordre d’exécution, arrêtez une tâche longue et repartez d’un état Python neuf."
+sidebar:
+  order: 2
+---
+
+import ArticleMeta from '../../../../components/ArticleMeta.astro';
+import TutorialSteps from '../../../../components/TutorialSteps.astro';
+
+<ArticleMeta labels={{"copy":"Copier le code","copied":"Copié","tap":"Touchez","longPress":"Maintenez le doigt","swipe":"Balayez","input":"Saisissez ici","verified":"Contenu vérifié le","siteTitle":"Centre d’aide Vibeit","intro":"Apprenez une tâche à la fois grâce à des captures réelles de l’app et à des étapes claires.","version":"Version de l’app","screenshotLanguage":"Langue des captures","device":"Appareil","goal":"Ce que vous allez faire","before":"Avant de commencer","entry":"Point de départ","steps":"Suivez les étapes","expected":"Vérifiez le résultat","troubleshooting":"En cas de problème","next":"Pour continuer","references":"Documentation associée","enlarge":"Agrandir la capture","detail":"Voir la commande de plus près","previousStep":"Précédent","nextStep":"Suivant","close":"Fermer","capturePending":"Les captures de cette page sont encore en préparation. Cet aperçu n’est pas validé pour publication.","examples":"Télécharger le projet d’exemple","note":"À retenir","search":"Que souhaitez-vous faire ?","popular":"Commencez par une tâche courante","all":"Tous les tutoriels","support":"Contacter l’assistance","observe":"Vérifiez le résultat"}} requirement={"Standard / Pro"} shotLocale="English" aliases={[]} />
+
+## Ce que vous allez faire
+
+Comprenez l’ordre d’exécution, arrêtez une tâche longue et repartez d’un état Python neuf.
+
+## Avant de commencer
+
+- Un abonnement Standard ou Pro actif, ou une période d’essai éligible.
+
+[Télécharger le projet d’exemple](/vibeit/help/downloads/vibeit-tutorials.zip)
+
+## Point de départ
+
+<div className="entry-path">Open a notebook → execution controls</div>
+
+:::note[À retenir]
+Sous iOS/iPadOS 1.0.1, fermez complètement Vibeit puis rouvrez l’app après avoir modifié Environment. Restart Kernel réinitialise la session Python sans recharger ces réglages enregistrés.
+:::
+
+## Suivez les étapes
+
+<TutorialSteps id="notebooks-kernel" locale="fr" labels={{"copy":"Copier le code","copied":"Copié","tap":"Touchez","longPress":"Maintenez le doigt","swipe":"Balayez","input":"Saisissez ici","verified":"Contenu vérifié le","siteTitle":"Centre d’aide Vibeit","intro":"Apprenez une tâche à la fois grâce à des captures réelles de l’app et à des étapes claires.","version":"Version de l’app","screenshotLanguage":"Langue des captures","device":"Appareil","goal":"Ce que vous allez faire","before":"Avant de commencer","entry":"Point de départ","steps":"Suivez les étapes","expected":"Vérifiez le résultat","troubleshooting":"En cas de problème","next":"Pour continuer","references":"Documentation associée","enlarge":"Agrandir la capture","detail":"Voir la commande de plus près","previousStep":"Précédent","nextStep":"Suivant","close":"Fermer","capturePending":"Les captures de cette page sont encore en préparation. Cet aperçu n’est pas validé pour publication.","examples":"Télécharger le projet d’exemple","note":"À retenir","search":"Que souhaitez-vous faire ?","popular":"Commencez par une tâche courante","all":"Tous les tutoriels","support":"Contacter l’assistance","observe":"Vérifiez le résultat"}} steps={[{"shot":"S03","target":"primary","title":"Exécuter la cellule courante","body":"Exécutez la cellule lorsqu’elle est prête. Si elle utilise des variables définies plus haut, exécutez d’abord les cellules qui les créent."},{"shot":"S09","target":"interrupt","title":"Interrompre une tâche longue","body":"Utilisez Stop ou Interrupt pendant l’exécution. Attendez que le noyau soit de nouveau inactif avant de lancer une autre tâche.","iphoneBody":"Sur iPhone, ouvrez le menu à points de suspension du notebook. Interrupt arrête la tâche courante. Restart Kernel redémarre le noyau en conservant les sorties ; Restart and Clear Outputs efface aussi les sorties affichées."},{"shot":"S09","target":"primary","title":"Redémarrer avec un état neuf","body":"Redémarrez le noyau pour effacer les variables en mémoire. Le code enregistré et les sorties déjà affichées sont conservés. Rouvrez l’app pour appliquer des changements dans Environment.","iphoneBody":"Sur iPhone, ouvrez le menu à points de suspension et choisissez Restart Kernel pour conserver les sorties. Restart and Clear Outputs efface aussi les sorties affichées."},{"shot":"S04","target":"primary","title":"Relancer depuis le début","body":"Après le redémarrage, recréez les variables en exécutant le notebook dans l’ordre. Une erreur NameError signifie souvent qu’une cellule définissant la variable n’a pas été exécutée.","action":"observe"}]} />
+
+## Vérifiez le résultat
+
+Après le redémarrage, recréez les variables en exécutant le notebook dans l’ordre. Une erreur NameError signifie souvent qu’une cellule définissant la variable n’a pas été exécutée.
+
+## En cas de problème
+
+- Pour une erreur NameError, exécutez la cellule qui définit le nom manquant.
+- Pour FileNotFoundError, vérifiez le dossier de travail et la position du dossier data par rapport au notebook.
+- Pour ModuleNotFoundError, vérifiez la disponibilité de la bibliothèque : télécharger un fichier n’installe pas sa bibliothèque Python.
+
+## Pour continuer
+
+- [Définir des variables d’environnement](/vibeit/help/fr/models/environment/)
+- [Lire les tableaux, graphiques et résultats interactifs](/vibeit/help/fr/notebooks/results/)
+
+
+[Contacter l’assistance](https://www.mecury.co.uk/vibeit/contact.html)

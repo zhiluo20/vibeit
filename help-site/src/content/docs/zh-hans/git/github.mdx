@@ -1,0 +1,49 @@
+---
+title: "登录 GitHub"
+description: "授权 Vibeit 访问账号有权使用的 GitHub 仓库。"
+sidebar:
+  order: 1
+---
+
+import ArticleMeta from '../../../../components/ArticleMeta.astro';
+import TutorialSteps from '../../../../components/TutorialSteps.astro';
+
+<ArticleMeta labels={{"observe":"查看结果","copy":"复制代码","copied":"已复制","tap":"点击","longPress":"长按并保持","swipe":"滑动","input":"在此输入","verified":"内容核对日期","siteTitle":"Vibeit 使用手册","intro":"通过真实 App 截图和清晰步骤，一次学会一个任务。","version":"适用版本","screenshotLanguage":"截图界面","device":"设备","goal":"你将完成什么","before":"开始前准备","entry":"从哪里进入","steps":"逐步操作","expected":"核对结果","troubleshooting":"如果没有成功","next":"下一步","references":"相关资料","enlarge":"放大截图","detail":"放大查看操作位置","previousStep":"上一步","nextStep":"下一步","close":"关闭","capturePending":"此预览页的截图仍在采集，尚未通过发布验收。","examples":"下载教程示例项目","note":"请留意","search":"你想完成什么？","popular":"从常见任务开始","all":"浏览全部教程","support":"联系支持"}} requirement={"Pro"} shotLocale="简体中文" aliases={["GitHub","login","登录"]} />
+
+## 你将完成什么
+
+授权 Vibeit 访问账号有权使用的 GitHub 仓库。
+
+## 开始前准备
+
+- 有效的 Pro 订阅。第三方 AI 订阅和 API 额度需要单独准备。
+- 能够连接本教程所用服务或下载资源的网络。
+
+[下载教程示例项目](/vibeit/help/downloads/vibeit-tutorials.zip)
+
+## 从哪里进入
+
+<div className="entry-path">Settings → Source Control → GitHub</div>
+
+
+## 逐步操作
+
+<TutorialSteps id="git-github" locale="zh-hans" labels={{"observe":"查看结果","copy":"复制代码","copied":"已复制","tap":"点击","longPress":"长按并保持","swipe":"滑动","input":"在此输入","verified":"内容核对日期","siteTitle":"Vibeit 使用手册","intro":"通过真实 App 截图和清晰步骤，一次学会一个任务。","version":"适用版本","screenshotLanguage":"截图界面","device":"设备","goal":"你将完成什么","before":"开始前准备","entry":"从哪里进入","steps":"逐步操作","expected":"核对结果","troubleshooting":"如果没有成功","next":"下一步","references":"相关资料","enlarge":"放大截图","detail":"放大查看操作位置","previousStep":"上一步","nextStep":"下一步","close":"关闭","capturePending":"此预览页的截图仍在采集，尚未通过发布验收。","examples":"下载教程示例项目","note":"请留意","search":"你想完成什么？","popular":"从常见任务开始","all":"浏览全部教程","support":"联系支持"}} steps={[{"shot":"S28","target":"primary","title":"打开 GitHub 登录","body":"进入“设置 → 源代码管理”，选择 Sign in with GitHub。"},{"shot":"S29","target":"primary","title":"打开验证页面","body":"点击验证按钮，打开 GitHub 官方设备授权页面。"},{"shot":"S29","target":"code","title":"授权当前设备","body":"在 GitHub 中填写当前设备验证码，检查访问权限；组织仓库可能还需要组织授权。"},{"shot":"S28-connected","target":"primary","title":"返回并核对账号","body":"返回 Vibeit，确认 GitHub 显示的是你打算使用的已登录账号。"}]} />
+
+## 核对结果
+
+返回 Vibeit，确认 GitHub 显示的是你打算使用的已登录账号。
+
+## 如果没有成功
+
+- Commit 记录本地历史，Push 才会发送到远程。先确认失败的是哪一步。
+- 推送被拒绝时，检查远程改动和账号权限，不要把强制推送当作常规修复方式。
+- 发生冲突时，先保留副本并检查相关文件，再决定如何处理改动。
+
+## 下一步
+
+- [克隆并打开仓库](/vibeit/help/zh-hans/git/clone/)
+- [查看差异、暂存与提交](/vibeit/help/zh-hans/git/commit/)
+
+
+[联系支持](https://www.mecury.co.uk/vibeit/contact.html)

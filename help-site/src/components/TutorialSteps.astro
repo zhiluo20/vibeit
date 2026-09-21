@@ -1,0 +1,85 @@
+---
+import manifest from '../data/screenshots.json';
+const {steps,labels,locale='en',id='tutorial'}=Astro.props;
+const screenshotLocale=['zh-hans','zh-hant'].includes(locale)?'zh-Hans':'en';
+const assets=manifest.assets as Record<string,any>;
+const enriched=steps.map((step:any)=>({...step,images:{ipad:assets[`${step.shot}.ipad.${screenshotLocale}`]??null,iphone:assets[`${step.iphoneShot??step.shot}.iphone.${screenshotLocale}`]??null}}));
+const payload={steps:enriched,labels,id,base:import.meta.env.BASE_URL.replace(/\/$/,'')+'/'};
+---
+<vibeit-tutorial data-tutorial-id={id}>
+  <noscript><style>.tutorial-step-list,.tutorial-figure-area{display:none!important}.print-steps{display:block!important}</style></noscript>
+  <script type="application/json" data-tutorial-data set:html={JSON.stringify(payload).replace(/</g,'\\u003c')}></script>
+  <ol class="tutorial-step-list">
+    {enriched.map((step:any,index:number)=><li id={`${id}-step-${index+1}`}><button class:list={['step-button',{'is-active':index===0}]} data-step={index} aria-current={index===0?'step':undefined}><span class="step-number" aria-hidden="true">{index+1}</span><span><strong>{step.title}</strong><span class="step-detail">{step.body}</span></span></button>{step.code&&<div class="code-example"><button type="button" class="copy-code" data-copy={index}>{labels.copy}</button><pre class="step-code"><code>{step.code}</code></pre></div>}</li>)}
+  </ol>
+  <div class="tutorial-figure-area" aria-live="polite">
+    <div class="figure-toolbar"><span><span data-figure-caption></span> · <span data-action-label></span></span><button type="button" data-open-image>{labels.enlarge}</button></div>
+    <figure class="step-figure"><div class="screenshot-wrap"><img data-step-image alt="" decoding="async"/><div class="hotspot" data-hotspot aria-hidden="true"><span data-hotspot-number>1</span></div><svg class="swipe-overlay" data-swipe viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><defs><marker id={`${id}-arrow`} viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z"/></marker></defs><path data-swipe-path marker-end={`url(#${id}-arrow)`}/></svg></div><figcaption data-figure-description></figcaption></figure>
+    <div class="capture-pending" data-capture-pending hidden>{labels.capturePending}</div>
+    <details class="detail-zoom" data-detail-zoom><summary>{labels.detail}</summary><div class="zoom-viewport"><img data-zoom-image alt=""/></div></details>
+    <div class="step-navigation"><button type="button" data-previous>{labels.previousStep}</button><span data-step-progress></span><button type="button" data-next>{labels.nextStep}</button></div>
+  </div>
+  <dialog class="image-dialog" aria-label={labels.enlarge}><button type="button" data-close-image>{labels.close}</button><figure class="step-figure"><div class="screenshot-wrap"><img data-dialog-image alt=""/><div class="hotspot" data-dialog-hotspot aria-hidden="true"><span data-dialog-number></span></div></div></figure></dialog>
+  <div class="print-steps" data-pagefind-ignore>{enriched.map((step:any,index:number)=>{
+    const asset=step.images.ipad,target=asset?.targets?.[step.target];
+    return <figure><figcaption>{index+1}. {step.title} — {step.body}</figcaption>{step.code&&<pre><code>{step.code}</code></pre>}{asset&&<div class="screenshot-wrap"><img src={payload.base+asset.file} alt={step.title}/>{target&&<div class="hotspot" data-action={step.action||'tap'} style={`left:${target.x*100}%;top:${target.y*100}%;width:${target.w*100}%;height:${target.h*100}%`}><span>{index+1}</span></div>}</div>}</figure>
+  })}</div>
+</vibeit-tutorial>
+<script>
+class VibeitTutorial extends HTMLElement {
+  data:any; index=0; device='ipad';onDevice:(e:Event)=>void;onHash:()=>void;
+  connectedCallback(){
+    if(this.dataset.bound)return;this.dataset.bound='true';
+    this.data=JSON.parse(this.querySelector('[data-tutorial-data]')!.textContent!);
+    try{this.device=localStorage.getItem('vibeit-help-device')==='iphone'?'iphone':'ipad';}catch{this.device='ipad';}
+    this.onHash=()=>{const match=location.hash.match(new RegExp(`${this.data.id}-step-(\\d+)$`));if(match)this.select(Number(match[1])-1,false);};
+    window.addEventListener('hashchange',this.onHash);
+    this.onHash();
+    this.querySelectorAll<HTMLButtonElement>('[data-step]').forEach(button=>button.addEventListener('click',()=>this.select(Number(button.dataset.step),true)));
+    this.querySelector('[data-previous]')!.addEventListener('click',()=>this.select(this.index-1,true));
+    this.querySelector('[data-next]')!.addEventListener('click',()=>this.select(this.index+1,true));
+    this.addEventListener('keydown',(event:KeyboardEvent)=>{if(event.target instanceof HTMLButtonElement&&event.target.matches('[data-step]')){if(event.key==='ArrowDown'||event.key==='ArrowUp'){event.preventDefault();this.select(this.index+(event.key==='ArrowDown'?1:-1),true);this.querySelector<HTMLButtonElement>(`[data-step="${this.index}"]`)?.focus();}}});
+    this.querySelectorAll<HTMLButtonElement>('[data-copy]').forEach(button=>button.addEventListener('click',async()=>{try{await navigator.clipboard.writeText(this.data.steps[Number(button.dataset.copy)].code);button.textContent=this.data.labels.copied;setTimeout(()=>button.textContent=this.data.labels.copy,1500);}catch{const code=button.parentElement?.querySelector('code');if(code){const range=document.createRange();range.selectNodeContents(code);getSelection()?.removeAllRanges();getSelection()?.addRange(range);}}}));
+    const dialog=this.querySelector<HTMLDialogElement>('dialog')!;
+    this.querySelector('[data-open-image]')!.addEventListener('click',()=>dialog.showModal());
+    this.querySelector('[data-close-image]')!.addEventListener('click',()=>dialog.close());
+    dialog.addEventListener('click',e=>{if(e.target===dialog)dialog.close();});
+    this.onDevice=(e:any)=>{this.device=e.detail;this.select(this.index,false);};
+    document.addEventListener('vibeit-help-device',this.onDevice);
+    this.select(this.index,false);
+  }
+  disconnectedCallback(){document.removeEventListener('vibeit-help-device',this.onDevice);window.removeEventListener('hashchange',this.onHash);}
+  select(index:number,updateHash:boolean){
+    this.index=Math.max(0,Math.min(index,this.data.steps.length-1));
+    const step=this.data.steps[this.index],asset=step.images[this.device]||step.images.ipad;
+    this.querySelector('[data-action-label]')!.textContent=this.data.labels[step.action||'tap'];
+    this.querySelectorAll<HTMLButtonElement>('[data-step]').forEach((button,i)=>{button.classList.toggle('is-active',i===this.index);if(i===this.index)button.setAttribute('aria-current','step');else button.removeAttribute('aria-current');});
+    (this.querySelector('[data-previous]') as HTMLButtonElement).disabled=this.index===0;
+    (this.querySelector('[data-next]') as HTMLButtonElement).disabled=this.index===this.data.steps.length-1;
+    this.querySelector('[data-step-progress]')!.textContent=`${this.index+1} / ${this.data.steps.length}`;
+    (this.querySelector('[data-capture-pending]') as HTMLElement).hidden=!!asset;
+    (this.querySelector('.step-figure') as HTMLElement).hidden=!asset;
+    (this.querySelector('[data-open-image]') as HTMLButtonElement).disabled=!asset;
+    (this.querySelector('[data-detail-zoom]') as HTMLElement).hidden=!asset;
+    if(asset){
+      const src=this.data.base+asset.file;
+      this.querySelectorAll<HTMLImageElement>('[data-step-image],[data-dialog-image],[data-zoom-image]').forEach(image=>{image.src=src;image.alt=step.title;image.width=asset.width;image.height=asset.height;});
+      const target=asset.targets?.[step.target];
+      this.querySelectorAll<HTMLElement>('[data-hotspot],[data-dialog-hotspot],[data-detail-zoom]').forEach(el=>el.hidden=!target);
+      if(target){
+      this.querySelectorAll<HTMLElement>('[data-hotspot],[data-dialog-hotspot]').forEach(el=>{el.style.left=`${target.x*100}%`;el.style.top=`${target.y*100}%`;el.style.width=`${target.w*100}%`;el.style.height=`${target.h*100}%`;el.dataset.action=step.action||'tap';});
+      this.querySelectorAll('[data-hotspot-number],[data-dialog-number]').forEach(el=>el.textContent=String(this.index+1));
+      const zoom=this.querySelector<HTMLImageElement>('[data-zoom-image]')!;
+      const scale=Math.min(5,Math.max(1.6,.8/target.w));
+      zoom.style.width=`${scale*100}%`;zoom.style.maxWidth='none';zoom.style.transform=`translate(${-(target.x+target.w/2)*100}%, ${-(target.y+target.h/2)*100}%)`;
+      }
+      this.querySelector('[data-figure-caption]')!.textContent=`${asset.device==='iphone'?'iPhone':'iPad'} · ${asset.appVersion} · ${asset.locale==='en'?'English':'简体中文'}`;
+      this.querySelector('[data-figure-description]')!.textContent=step.iphoneBody&&this.device==='iphone'?step.iphoneBody:step.body;
+      const svg=this.querySelector<SVGElement>('[data-swipe]')!;svg.style.display=step.action==='swipe'&&target?'block':'none';
+      if(step.action==='swipe'&&target){const start=step.start??{x:target.x+target.w*.2,y:target.y+target.h*.5};const end=step.end??{x:target.x+target.w*.8,y:target.y+target.h*.5};this.querySelector('[data-swipe-path]')!.setAttribute('d',`M ${start.x*100} ${start.y*100} L ${end.x*100} ${end.y*100}`);}
+    } else this.querySelector('[data-figure-caption]')!.textContent=step.shot;
+    if(updateHash)history.pushState(null,'',`#${this.data.id}-step-${this.index+1}`);
+  }
+}
+if(!customElements.get('vibeit-tutorial'))customElements.define('vibeit-tutorial',VibeitTutorial);
+</script>

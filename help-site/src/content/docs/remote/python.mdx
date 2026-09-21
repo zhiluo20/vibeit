@@ -1,0 +1,50 @@
+---
+title: "Choose a remote Python environment"
+description: "Select a server interpreter and verify where a script runs."
+sidebar:
+  order: 4
+---
+
+import ArticleMeta from '../../../components/ArticleMeta.astro';
+import TutorialSteps from '../../../components/TutorialSteps.astro';
+
+<ArticleMeta labels={{"observe":"Check the result","copy":"Copy code","copied":"Copied","tap":"Tap","longPress":"Touch and hold","swipe":"Swipe","input":"Type here","verified":"Content checked","siteTitle":"Vibeit Help Center","intro":"Learn one task at a time, with real app screenshots and clear steps.","version":"App version","screenshotLanguage":"Screenshot UI","device":"Device","goal":"What you will do","before":"Before you start","entry":"Where to start","steps":"Follow the steps","expected":"Check the result","troubleshooting":"If it does not work","next":"Next steps","references":"Related reference","enlarge":"Enlarge screenshot","detail":"See the control up close","previousStep":"Previous","nextStep":"Next","close":"Close","capturePending":"Screenshot capture is in progress for this preview. This page is not approved for publication.","examples":"Download the tutorial workspace","note":"Keep in mind","search":"What would you like to do?","popular":"Start with a common task","all":"Browse all tutorials","support":"Contact support"}} requirement={"Pro"} shotLocale="English" aliases={[]} />
+
+## What you will do
+
+Select a server interpreter and verify where a script runs.
+
+## Before you start
+
+- An active Pro subscription. Third-party AI subscriptions and API credits are separate.
+- A working internet connection for the service or download used in this tutorial.
+- A reachable SSH server, its hostname/port, a username, and the authentication method you are authorized to use.
+
+[Download the tutorial workspace](/vibeit/help/downloads/vibeit-tutorials.zip)
+
+## Where to start
+
+<div className="entry-path">Connected host → Packages → Environment</div>
+
+
+## Follow the steps
+
+<TutorialSteps id="remote-python" locale="en" labels={{"observe":"Check the result","copy":"Copy code","copied":"Copied","tap":"Tap","longPress":"Touch and hold","swipe":"Swipe","input":"Type here","verified":"Content checked","siteTitle":"Vibeit Help Center","intro":"Learn one task at a time, with real app screenshots and clear steps.","version":"App version","screenshotLanguage":"Screenshot UI","device":"Device","goal":"What you will do","before":"Before you start","entry":"Where to start","steps":"Follow the steps","expected":"Check the result","troubleshooting":"If it does not work","next":"Next steps","references":"Related reference","enlarge":"Enlarge screenshot","detail":"See the control up close","previousStep":"Previous","nextStep":"Next","close":"Close","capturePending":"Screenshot capture is in progress for this preview. This page is not approved for publication.","examples":"Download the tutorial workspace","note":"Keep in mind","search":"What would you like to do?","popular":"Start with a common task","all":"Browse all tutorials","support":"Contact support"}} steps={[{"shot":"S40","target":"discover","title":"Discover server environments","body":"Open the remote Packages panel and refresh environment discovery. Python and the required packages must be installed on the server."},{"shot":"S40","target":"primary","title":"Select the interpreter","body":"Choose the Python environment and check its path. Use the intended virtual environment instead of assuming every python3 is identical."},{"shot":"S40","target":"packages","title":"Check its packages","body":"The installed-package list belongs to the selected interpreter. Install missing packages there when you have permission."},{"shot":"S39","target":"primary","title":"Run a small verification","body":"Run the example remotely and check the interpreter path and operating system. A remote result uses server hardware, not the iPad GPU.","code":"import sys, platform\nprint(sys.executable)\nprint(platform.system())"}]} />
+
+## Check the result
+
+Run the example remotely and check the interpreter path and operating system. A remote result uses server hardware, not the iPad GPU.
+
+## If it does not work
+
+- For a timeout, check the host, port, network route and server availability.
+- For authentication failures, check the username and matching password or private key.
+- If the host fingerprint changes, verify it through a trusted channel before replacing the saved fingerprint.
+
+## Next steps
+
+- [Manage remote files with SFTP](/vibeit/help/remote/files/)
+- [Find and install compatible Python packages](/vibeit/help/models/packages/)
+
+
+[Contact support](https://www.mecury.co.uk/vibeit/contact.html)

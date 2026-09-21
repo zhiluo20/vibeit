@@ -1,0 +1,53 @@
+---
+title: "使用 SSH 私鑰連接"
+description: "配置與伺服器已授權公鑰對應的私鑰。"
+sidebar:
+  order: 2
+---
+
+import ArticleMeta from '../../../../components/ArticleMeta.astro';
+import TutorialSteps from '../../../../components/TutorialSteps.astro';
+
+<ArticleMeta labels={{"observe":"查看結果","copy":"複製代碼","copied":"已複製","tap":"點擊","longPress":"長按並保持","swipe":"滑動","input":"在此輸入","verified":"內容核對日期","siteTitle":"Vibeit 使用手冊","intro":"通過真實 App 截圖和清晰步驟，一次學會一個任務。","version":"適用版本","screenshotLanguage":"截圖界面","device":"設備","goal":"你將完成什麼","before":"開始前準備","entry":"從哪裡進入","steps":"逐步操作","expected":"核對結果","troubleshooting":"如果沒有成功","next":"下一步","references":"相關資料","enlarge":"放大截圖","detail":"放大查看操作位置","previousStep":"上一步","nextStep":"下一步","close":"關閉","capturePending":"此預覽頁的截圖仍在採集，尚未通過發佈驗收。","examples":"下載教程示例項目","note":"請留意","search":"你想完成什麼？","popular":"從常見任務開始","all":"瀏覽全部教程","support":"聯繫支持"}} requirement={"Pro"} shotLocale="简体中文" aliases={[]} />
+
+## 你將完成什麼
+
+配置與伺服器已授權公鑰對應的私鑰。
+
+## 開始前準備
+
+- 有效的 Pro 訂閱。第三方 AI 訂閱和 API 額度需要單獨準備。
+- 能夠連接本教程所用服務或下載資源的網絡。
+- 可訪問的 SSH 伺服器、主機地址與端口、用戶名，以及你有權使用的認證方式。
+
+[下載教程示例項目](/vibeit/help/downloads/vibeit-tutorials.zip)
+
+## 從哪裡進入
+
+<div className="entry-path">Add or Edit Remote Host → Authentication</div>
+
+:::note[請留意]
+私鑰檔案應放在獨立且不共享的本地資料夾中，避免進入 Git 倉庫或共享導出。使用 Vibeit 支持的 Ed25519 或 RSA 私鑰格式。
+:::
+
+## 逐步操作
+
+<TutorialSteps id="remote-keys" locale="zh-hant" labels={{"observe":"查看結果","copy":"複製代碼","copied":"已複製","tap":"點擊","longPress":"長按並保持","swipe":"滑動","input":"在此輸入","verified":"內容核對日期","siteTitle":"Vibeit 使用手冊","intro":"通過真實 App 截圖和清晰步驟，一次學會一個任務。","version":"適用版本","screenshotLanguage":"截圖界面","device":"設備","goal":"你將完成什麼","before":"開始前準備","entry":"從哪裡進入","steps":"逐步操作","expected":"核對結果","troubleshooting":"如果沒有成功","next":"下一步","references":"相關資料","enlarge":"放大截圖","detail":"放大查看操作位置","previousStep":"上一步","nextStep":"下一步","close":"關閉","capturePending":"此預覽頁的截圖仍在採集，尚未通過發佈驗收。","examples":"下載教程示例項目","note":"請留意","search":"你想完成什麼？","popular":"從常見任務開始","all":"瀏覽全部教程","support":"聯繫支持"}} steps={[{"shot":"S36","target":"primary","title":"選擇 SSH Key","body":"添加或編輯主機時選擇 SSH Key。伺服器需要已為該用戶授權對應公鑰。"},{"shot":"S36","target":"key","title":"填寫本地私鑰檔案路徑","body":"把私鑰檔案導入本地工作區。在“設置 → 工作區”複製工作區資料夾路徑，追加私鑰檔案名，再填入 Private key path。這裡填寫檔案路徑，不是密鑰正文，也不是伺服器上的路徑。","action":"input"},{"shot":"S36","target":"passphrase","title":"按需填寫私鑰口令","body":"加密私鑰需要填寫對應口令；它不一定等於伺服器帳號密碼，然後保存配置。","action":"input"},{"shot":"S37","target":"primary","title":"核驗後連接","body":"核驗主機指紋後連接並打開遠程目錄。若被拒絕，檢查用戶名和伺服器上授權的公鑰是否匹配。"}]} />
+
+## 核對結果
+
+核驗主機指紋後連接並打開遠程目錄。若被拒絕，檢查用戶名和伺服器上授權的公鑰是否匹配。
+
+## 如果沒有成功
+
+- 連接超時時，檢查地址、端口、網絡路徑和伺服器狀態。
+- 認證失敗時，檢查用戶名及匹配的密碼或私鑰。
+- 主機指紋變化時，通過可信渠道核實後再更新保存的指紋。
+
+## 下一步
+
+- [使用密碼連接 SSH 伺服器](/vibeit/help/zh-hant/remote/ssh/)
+- [通過 SFTP 管理遠程檔案](/vibeit/help/zh-hant/remote/files/)
+
+
+[聯繫支持](https://www.mecury.co.uk/vibeit/contact.html)

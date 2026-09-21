@@ -1,0 +1,50 @@
+---
+title: "拉取与推送仓库改动"
+description: "把远程提交取回工作副本，并把自己的提交发送到远程。"
+sidebar:
+  order: 4
+---
+
+import ArticleMeta from '../../../../components/ArticleMeta.astro';
+import TutorialSteps from '../../../../components/TutorialSteps.astro';
+
+<ArticleMeta labels={{"observe":"查看结果","copy":"复制代码","copied":"已复制","tap":"点击","longPress":"长按并保持","swipe":"滑动","input":"在此输入","verified":"内容核对日期","siteTitle":"Vibeit 使用手册","intro":"通过真实 App 截图和清晰步骤，一次学会一个任务。","version":"适用版本","screenshotLanguage":"截图界面","device":"设备","goal":"你将完成什么","before":"开始前准备","entry":"从哪里进入","steps":"逐步操作","expected":"核对结果","troubleshooting":"如果没有成功","next":"下一步","references":"相关资料","enlarge":"放大截图","detail":"放大查看操作位置","previousStep":"上一步","nextStep":"下一步","close":"关闭","capturePending":"此预览页的截图仍在采集，尚未通过发布验收。","examples":"下载教程示例项目","note":"请留意","search":"你想完成什么？","popular":"从常见任务开始","all":"浏览全部教程","support":"联系支持"}} requirement={"Pro"} shotLocale="简体中文" aliases={["push","pull","推送","拉取"]} />
+
+## 你将完成什么
+
+把远程提交取回工作副本，并把自己的提交发送到远程。
+
+## 开始前准备
+
+- 有效的 Pro 订阅。第三方 AI 订阅和 API 额度需要单独准备。
+- 能够连接本教程所用服务或下载资源的网络。
+- 一个已经存在的 Git 仓库。练习时使用独立的教程仓库。
+
+[下载教程示例项目](/vibeit/help/downloads/vibeit-tutorials.zip)
+
+## 从哪里进入
+
+<div className="entry-path">Source Control → Pull / Push</div>
+
+
+## 逐步操作
+
+<TutorialSteps id="git-sync" locale="zh-hans" labels={{"observe":"查看结果","copy":"复制代码","copied":"已复制","tap":"点击","longPress":"长按并保持","swipe":"滑动","input":"在此输入","verified":"内容核对日期","siteTitle":"Vibeit 使用手册","intro":"通过真实 App 截图和清晰步骤，一次学会一个任务。","version":"适用版本","screenshotLanguage":"截图界面","device":"设备","goal":"你将完成什么","before":"开始前准备","entry":"从哪里进入","steps":"逐步操作","expected":"核对结果","troubleshooting":"如果没有成功","next":"下一步","references":"相关资料","enlarge":"放大截图","detail":"放大查看操作位置","previousStep":"上一步","nextStep":"下一步","close":"关闭","capturePending":"此预览页的截图仍在采集，尚未通过发布验收。","examples":"下载教程示例项目","note":"请留意","search":"你想完成什么？","popular":"从常见任务开始","all":"浏览全部教程","support":"联系支持"}} steps={[{"shot":"S32","target":"primary","title":"检查仓库与账号","body":"确认项目有 origin 远程地址，且 GitHub 账号具有访问权限。新建本地仓库需要先配置远程地址才能同步。"},{"shot":"S32","target":"pull","title":"继续工作前拉取","body":"先保存并检查当前改动，再点击 Pull。若被拒绝，先阅读原因，再继续修改。"},{"shot":"S32","target":"push","title":"推送已经完成的提交","body":"本地 Commit 后点击 Push。只保存文件，还没有形成可以推送的提交。"},{"shot":"S32","target":"status","title":"在 GitHub 核对","body":"打开 GitHub 对应分支，检查新提交说明和文件内容。远程工作区的 Git 在服务器上运行，使用服务器的 Git 凭据。"}]} />
+
+## 核对结果
+
+打开 GitHub 对应分支，检查新提交说明和文件内容。远程工作区的 Git 在服务器上运行，使用服务器的 Git 凭据。
+
+## 如果没有成功
+
+- Commit 记录本地历史，Push 才会发送到远程。先确认失败的是哪一步。
+- 推送被拒绝时，检查远程改动和账号权限，不要把强制推送当作常规修复方式。
+- 发生冲突时，先保留副本并检查相关文件，再决定如何处理改动。
+
+## 下一步
+
+- [创建 PR 并处理同步问题](/vibeit/help/zh-hans/git/pull-requests/)
+- [通过 SFTP 管理远程文件](/vibeit/help/zh-hans/remote/files/)
+
+
+[联系支持](https://www.mecury.co.uk/vibeit/contact.html)

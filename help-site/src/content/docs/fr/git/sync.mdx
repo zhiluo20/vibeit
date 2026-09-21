@@ -1,0 +1,50 @@
+---
+title: "Récupérer et envoyer les commits"
+description: "Récupérez les commits distants dans la copie de travail, puis envoyez vos propres commits."
+sidebar:
+  order: 4
+---
+
+import ArticleMeta from '../../../../components/ArticleMeta.astro';
+import TutorialSteps from '../../../../components/TutorialSteps.astro';
+
+<ArticleMeta labels={{"copy":"Copier le code","copied":"Copié","tap":"Touchez","longPress":"Maintenez le doigt","swipe":"Balayez","input":"Saisissez ici","verified":"Contenu vérifié le","siteTitle":"Centre d’aide Vibeit","intro":"Apprenez une tâche à la fois grâce à des captures réelles de l’app et à des étapes claires.","version":"Version de l’app","screenshotLanguage":"Langue des captures","device":"Appareil","goal":"Ce que vous allez faire","before":"Avant de commencer","entry":"Point de départ","steps":"Suivez les étapes","expected":"Vérifiez le résultat","troubleshooting":"En cas de problème","next":"Pour continuer","references":"Documentation associée","enlarge":"Agrandir la capture","detail":"Voir la commande de plus près","previousStep":"Précédent","nextStep":"Suivant","close":"Fermer","capturePending":"Les captures de cette page sont encore en préparation. Cet aperçu n’est pas validé pour publication.","examples":"Télécharger le projet d’exemple","note":"À retenir","search":"Que souhaitez-vous faire ?","popular":"Commencez par une tâche courante","all":"Tous les tutoriels","support":"Contacter l’assistance","observe":"Vérifiez le résultat"}} requirement={"Pro"} shotLocale="English" aliases={["push","pull","推送","拉取"]} />
+
+## Ce que vous allez faire
+
+Récupérez les commits distants dans la copie de travail, puis envoyez vos propres commits.
+
+## Avant de commencer
+
+- Un abonnement Pro actif. Les abonnements aux services d’IA et les crédits API sont distincts.
+- Une connexion permettant d’accéder au service ou au téléchargement utilisé dans ce tutoriel.
+- Un dépôt Git existant. Utilisez le dépôt d’exemple séparé pour vous entraîner.
+
+[Télécharger le projet d’exemple](/vibeit/help/downloads/vibeit-tutorials.zip)
+
+## Point de départ
+
+<div className="entry-path">Source Control → Pull / Push</div>
+
+
+## Suivez les étapes
+
+<TutorialSteps id="git-sync" locale="fr" labels={{"copy":"Copier le code","copied":"Copié","tap":"Touchez","longPress":"Maintenez le doigt","swipe":"Balayez","input":"Saisissez ici","verified":"Contenu vérifié le","siteTitle":"Centre d’aide Vibeit","intro":"Apprenez une tâche à la fois grâce à des captures réelles de l’app et à des étapes claires.","version":"Version de l’app","screenshotLanguage":"Langue des captures","device":"Appareil","goal":"Ce que vous allez faire","before":"Avant de commencer","entry":"Point de départ","steps":"Suivez les étapes","expected":"Vérifiez le résultat","troubleshooting":"En cas de problème","next":"Pour continuer","references":"Documentation associée","enlarge":"Agrandir la capture","detail":"Voir la commande de plus près","previousStep":"Précédent","nextStep":"Suivant","close":"Fermer","capturePending":"Les captures de cette page sont encore en préparation. Cet aperçu n’est pas validé pour publication.","examples":"Télécharger le projet d’exemple","note":"À retenir","search":"Que souhaitez-vous faire ?","popular":"Commencez par une tâche courante","all":"Tous les tutoriels","support":"Contacter l’assistance","observe":"Vérifiez le résultat"}} steps={[{"shot":"S32","target":"primary","title":"Vérifier le dépôt et le compte","body":"Vérifiez que le projet possède un dépôt distant origin et que votre compte GitHub peut y accéder. Un nouveau dépôt local a besoin d’une adresse distante avant de pouvoir se synchroniser."},{"shot":"S32","target":"pull","title":"Récupérer avant de continuer","body":"Enregistrez et examinez vos modifications, puis touchez Pull. En cas de refus, lisez la raison avant de continuer à modifier les fichiers."},{"shot":"S32","target":"push","title":"Envoyer les commits terminés","body":"Après un commit local, touchez Push. Enregistrer les fichiers sans commit ne crée pas de commit à envoyer."},{"shot":"S32","target":"status","title":"Vérifier sur GitHub","body":"Ouvrez la branche correspondante sur GitHub et contrôlez le message du commit et le contenu des fichiers. Dans un espace de travail distant, Git s’exécute sur le serveur avec les identifiants Git de ce serveur."}]} />
+
+## Vérifiez le résultat
+
+Ouvrez la branche correspondante sur GitHub et contrôlez le message du commit et le contenu des fichiers. Dans un espace de travail distant, Git s’exécute sur le serveur avec les identifiants Git de ce serveur.
+
+## En cas de problème
+
+- Commit enregistre l’historique local ; Push envoie les commits au dépôt distant. Identifiez l’opération qui a échoué.
+- Si un envoi est refusé, examinez les modifications distantes et vos droits. N’utilisez pas systématiquement un envoi forcé.
+- En cas de conflit, conservez une copie et examinez les fichiers concernés avant d’abandonner des modifications.
+
+## Pour continuer
+
+- [Ouvrir une pull request et résoudre les problèmes de synchronisation](/vibeit/help/fr/git/pull-requests/)
+- [Gérer les fichiers distants avec SFTP](/vibeit/help/fr/remote/files/)
+
+
+[Contacter l’assistance](https://www.mecury.co.uk/vibeit/contact.html)

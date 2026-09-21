@@ -1,0 +1,48 @@
+---
+title: "Utiliser les cellules de code, Markdown et HTML"
+description: "Choisissez le bon type de cellule et passez de la lecture à la modification du contenu enrichi."
+sidebar:
+  order: 1
+---
+
+import ArticleMeta from '../../../../components/ArticleMeta.astro';
+import TutorialSteps from '../../../../components/TutorialSteps.astro';
+
+<ArticleMeta labels={{"copy":"Copier le code","copied":"Copié","tap":"Touchez","longPress":"Maintenez le doigt","swipe":"Balayez","input":"Saisissez ici","verified":"Contenu vérifié le","siteTitle":"Centre d’aide Vibeit","intro":"Apprenez une tâche à la fois grâce à des captures réelles de l’app et à des étapes claires.","version":"Version de l’app","screenshotLanguage":"Langue des captures","device":"Appareil","goal":"Ce que vous allez faire","before":"Avant de commencer","entry":"Point de départ","steps":"Suivez les étapes","expected":"Vérifiez le résultat","troubleshooting":"En cas de problème","next":"Pour continuer","references":"Documentation associée","enlarge":"Agrandir la capture","detail":"Voir la commande de plus près","previousStep":"Précédent","nextStep":"Suivant","close":"Fermer","capturePending":"Les captures de cette page sont encore en préparation. Cet aperçu n’est pas validé pour publication.","examples":"Télécharger le projet d’exemple","note":"À retenir","search":"Que souhaitez-vous faire ?","popular":"Commencez par une tâche courante","all":"Tous les tutoriels","support":"Contacter l’assistance","observe":"Vérifiez le résultat"}} requirement={"Standard / Pro"} shotLocale="English" aliases={[]} />
+
+## Ce que vous allez faire
+
+Choisissez le bon type de cellule et passez de la lecture à la modification du contenu enrichi.
+
+## Avant de commencer
+
+- Un abonnement Standard ou Pro actif, ou une période d’essai éligible.
+
+[Télécharger le projet d’exemple](/vibeit/help/downloads/vibeit-tutorials.zip)
+
+## Point de départ
+
+<div className="entry-path">Open a notebook → cell controls</div>
+
+
+## Suivez les étapes
+
+<TutorialSteps id="notebooks-cells" locale="fr" labels={{"copy":"Copier le code","copied":"Copié","tap":"Touchez","longPress":"Maintenez le doigt","swipe":"Balayez","input":"Saisissez ici","verified":"Contenu vérifié le","siteTitle":"Centre d’aide Vibeit","intro":"Apprenez une tâche à la fois grâce à des captures réelles de l’app et à des étapes claires.","version":"Version de l’app","screenshotLanguage":"Langue des captures","device":"Appareil","goal":"Ce que vous allez faire","before":"Avant de commencer","entry":"Point de départ","steps":"Suivez les étapes","expected":"Vérifiez le résultat","troubleshooting":"En cas de problème","next":"Pour continuer","references":"Documentation associée","enlarge":"Agrandir la capture","detail":"Voir la commande de plus près","previousStep":"Précédent","nextStep":"Suivant","close":"Fermer","capturePending":"Les captures de cette page sont encore en préparation. Cet aperçu n’est pas validé pour publication.","examples":"Télécharger le projet d’exemple","note":"À retenir","search":"Que souhaitez-vous faire ?","popular":"Commencez par une tâche courante","all":"Tous les tutoriels","support":"Contacter l’assistance","observe":"Vérifiez le résultat"}} steps={[{"shot":"S07","target":"primary","title":"Choisir le type de cellule","body":"Utilisez une cellule de code pour Python, Markdown pour les explications et une cellule HTML pour le contenu HTML."},{"shot":"S03","target":"editor","title":"Modifier le code Python","body":"Touchez la zone de code et saisissez votre programme. Les cellules de code sont exécutées par le noyau Python du notebook.","action":"input"},{"shot":"S07","target":"edit","title":"Modifier le contenu enrichi","body":"Les cellules Markdown et HTML non vides s’ouvrent sous leur forme rendue. Touchez leur commande de modification pour afficher la source."},{"shot":"S07-editing","target":"primary","title":"Terminer la modification","body":"Utilisez la commande de fin de modification pour retrouver le rendu. La source reste accessible lorsque vous modifiez de nouveau la cellule."}]} />
+
+## Vérifiez le résultat
+
+Utilisez la commande de fin de modification pour retrouver le rendu. La source reste accessible lorsque vous modifiez de nouveau la cellule.
+
+## En cas de problème
+
+- Pour une erreur NameError, exécutez la cellule qui définit le nom manquant.
+- Pour FileNotFoundError, vérifiez le dossier de travail et la position du dossier data par rapport au notebook.
+- Pour ModuleNotFoundError, vérifiez la disponibilité de la bibliothèque : télécharger un fichier n’installe pas sa bibliothèque Python.
+
+## Pour continuer
+
+- [Lire les tableaux, graphiques et résultats interactifs](/vibeit/help/fr/notebooks/results/)
+- [Exécuter, interrompre et redémarrer le noyau](/vibeit/help/fr/notebooks/kernel/)
+
+
+[Contacter l’assistance](https://www.mecury.co.uk/vibeit/contact.html)

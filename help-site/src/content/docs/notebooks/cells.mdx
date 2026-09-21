@@ -1,0 +1,48 @@
+---
+title: "Use code, Markdown and HTML cells"
+description: "Choose the right cell type and switch between reading and editing rich content."
+sidebar:
+  order: 1
+---
+
+import ArticleMeta from '../../../components/ArticleMeta.astro';
+import TutorialSteps from '../../../components/TutorialSteps.astro';
+
+<ArticleMeta labels={{"observe":"Check the result","copy":"Copy code","copied":"Copied","tap":"Tap","longPress":"Touch and hold","swipe":"Swipe","input":"Type here","verified":"Content checked","siteTitle":"Vibeit Help Center","intro":"Learn one task at a time, with real app screenshots and clear steps.","version":"App version","screenshotLanguage":"Screenshot UI","device":"Device","goal":"What you will do","before":"Before you start","entry":"Where to start","steps":"Follow the steps","expected":"Check the result","troubleshooting":"If it does not work","next":"Next steps","references":"Related reference","enlarge":"Enlarge screenshot","detail":"See the control up close","previousStep":"Previous","nextStep":"Next","close":"Close","capturePending":"Screenshot capture is in progress for this preview. This page is not approved for publication.","examples":"Download the tutorial workspace","note":"Keep in mind","search":"What would you like to do?","popular":"Start with a common task","all":"Browse all tutorials","support":"Contact support"}} requirement={"Standard / Pro"} shotLocale="English" aliases={[]} />
+
+## What you will do
+
+Choose the right cell type and switch between reading and editing rich content.
+
+## Before you start
+
+- An active Standard or Pro subscription, or an eligible trial.
+
+[Download the tutorial workspace](/vibeit/help/downloads/vibeit-tutorials.zip)
+
+## Where to start
+
+<div className="entry-path">Open a notebook → cell controls</div>
+
+
+## Follow the steps
+
+<TutorialSteps id="notebooks-cells" locale="en" labels={{"observe":"Check the result","copy":"Copy code","copied":"Copied","tap":"Tap","longPress":"Touch and hold","swipe":"Swipe","input":"Type here","verified":"Content checked","siteTitle":"Vibeit Help Center","intro":"Learn one task at a time, with real app screenshots and clear steps.","version":"App version","screenshotLanguage":"Screenshot UI","device":"Device","goal":"What you will do","before":"Before you start","entry":"Where to start","steps":"Follow the steps","expected":"Check the result","troubleshooting":"If it does not work","next":"Next steps","references":"Related reference","enlarge":"Enlarge screenshot","detail":"See the control up close","previousStep":"Previous","nextStep":"Next","close":"Close","capturePending":"Screenshot capture is in progress for this preview. This page is not approved for publication.","examples":"Download the tutorial workspace","note":"Keep in mind","search":"What would you like to do?","popular":"Start with a common task","all":"Browse all tutorials","support":"Contact support"}} steps={[{"shot":"S07","target":"primary","title":"Choose the cell type","body":"Use a code cell for Python, Markdown for explanations, and an HTML cell for HTML content."},{"shot":"S03","target":"editor","title":"Edit Python in a code cell","body":"Tap the source area and enter code. Code cells run through the notebook’s Python kernel.","action":"input"},{"shot":"S07","target":"edit","title":"Edit rich content","body":"Non-empty Markdown and HTML cells open in rendered form. Tap the cell’s edit control to reveal its source."},{"shot":"S07-editing","target":"primary","title":"Finish editing","body":"Use the finish-editing control to return to the rendered result. Your source remains available whenever you edit again."}]} />
+
+## Check the result
+
+Use the finish-editing control to return to the rendered result. Your source remains available whenever you edit again.
+
+## If it does not work
+
+- For NameError, run the cell that defines the missing name.
+- For FileNotFoundError, check the working folder and keep the data directory beside the notebook.
+- For ModuleNotFoundError, check package availability; downloading a file does not install its Python package.
+
+## Next steps
+
+- [Read tables, plots and interactive results](/vibeit/help/notebooks/results/)
+- [Run, interrupt and restart the kernel](/vibeit/help/notebooks/kernel/)
+
+
+[Contact support](https://www.mecury.co.uk/vibeit/contact.html)

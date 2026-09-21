@@ -1,0 +1,23 @@
+---
+const { labels, requirement, devices='iPad · iPhone',shotLocale='English',version='1.0.1',checkedAt='2026-09-21',aliases=[] }=Astro.props;
+---
+<div class="article-meta" data-pagefind-index-attrs="data-search-aliases" data-search-aliases={aliases.join(' ')}>
+  <div class="meta-facts"><span>{labels.version}: <b>{version}</b></span><span>{devices}</span><span>{labels.verified}: <time datetime={checkedAt}>{checkedAt}</time></span><span>{labels.screenshotLanguage}: {shotLocale}</span>{requirement&&<span class="requirement">{requirement}</span>}</div>
+  <label class="device-control">{labels.device}<select data-device-select aria-label={labels.device}><option value="ipad">iPad</option><option value="iphone">iPhone</option></select></label>
+</div>
+<script>
+function initializeDevices(){
+  let initial='ipad';try{initial=localStorage.getItem('vibeit-help-device')==='iphone'?'iphone':'ipad';}catch{}
+  document.querySelectorAll<HTMLSelectElement>('[data-device-select]').forEach(select=>{
+    select.value=initial;
+    if(select.dataset.bound)return;
+    select.dataset.bound='true';
+    select.addEventListener('change',()=>{
+      try{localStorage.setItem('vibeit-help-device',select.value);}catch{}
+      document.querySelectorAll<HTMLSelectElement>('[data-device-select]').forEach(other=>other.value=select.value);
+      document.dispatchEvent(new CustomEvent('vibeit-help-device',{detail:select.value}));
+    });
+  });
+}
+initializeDevices(); document.addEventListener('astro:page-load',initializeDevices);
+</script>

@@ -1,0 +1,48 @@
+{
+  "verifiedAt": "2026-09-21T09:45:45.546035+00:00",
+  "appVersion": "1.0.1",
+  "build": "7",
+  "device": "dedicated iPad Simulator",
+  "checks": {
+    "tokenAvailableAfterKernelRestart": true,
+    "huggingFaceWhoamiAccepted": true,
+    "forcedConfigDownloadParsedAsBert": true
+  },
+  "scope": "Token authorization and a small public model configuration download; not gated-model access or model inference.",
+  "publicScreenshots": [
+    {
+      "id": "S24.ipad.en",
+      "sha256": "9c1f3537d43d004a8ca8407422e091316ca2727ec93c2293dc9a4f1cb433f39e"
+    },
+    {
+      "id": "S24.ipad.zh-Hans",
+      "sha256": "6ced988a0ad472f53150f69d5af3b3f86a0930fa44156f521d9b5da3000db575"
+    },
+    {
+      "id": "S09.ipad.en",
+      "sha256": "7ffbf0d38c76599a657348520201ea62c2c7bcfa8e2de0fff2335e3ce1b52e8e"
+    },
+    {
+      "id": "S09.ipad.zh-Hans",
+      "sha256": "ccc8693d7eb214e172ce6e1a228a1e9b189241da7513c7d55ba642b73df4c0c7"
+    },
+    {
+      "id": "S25.ipad.en",
+      "sha256": "af8ea6080607bbd961c5bfad2f441fad1af6661309bef5bea334a9ff695abb5d"
+    },
+    {
+      "id": "S25.ipad.zh-Hans",
+      "sha256": "b572a6784ed5c9a3c79342caecc2106942f30cf2606ab9c0828a69be55fbae2b"
+    },
+    {
+      "id": "S26.ipad.en",
+      "sha256": "5b4a98ac2bb693601030173517f05ae73b5a71a4a6a4643a00aa28c715bf7333"
+    },
+    {
+      "id": "S26.ipad.zh-Hans",
+      "sha256": "1c48b301e76c824a0268fa9b8305fff0ff620fc06a3da892cca9ed1c75f1f44d"
+    }
+  ],
+  "sampleCommit": "15e765a",
+  "websitePublished": false
+}

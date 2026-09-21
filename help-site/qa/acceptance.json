@@ -1,0 +1,56 @@
+{
+  "appVersion": "1.0.1",
+  "build": "7",
+  "checks": {
+    "appStoreVersionAvailable": {
+      "status": "pending",
+      "observedVersion": "1.0"
+    },
+    "codexRealAccountAndModels": {
+      "status": "passed",
+      "evidence": "Native Refresh Models completed using the existing authorized Codex account on both dedicated devices. Real catalog and Loaded model status captured in English and Chinese; no bundled or injected model list. See fill-gaps-en/zh-Hans and fill-phone-en/zh-Hans capture results; these bundles also contain unrelated capture failures."
+    },
+    "huggingFaceAuthorizedDownload": {
+      "status": "passed",
+      "evidence": "Dedicated iPad: after completely reopening Vibeit, the real Python kernel received HF_TOKEN; HfApi.whoami accepted the token, and force_download of google-bert/bert-base-uncased config.json parsed as model_type=bert. hf-complete-en/zh capture tests passed. No token or account details printed. In-process Restart Kernel alone does not reload saved Environment settings; see environment-restart-issue.md."
+    },
+    "gitCloneCommitPush": {
+      "status": "partial",
+      "evidence": "Native authenticated GitHub clone passed on dedicated iPhone and iPad. Commit/push verification is still running; clone alone is not sync acceptance."
+    },
+    "sshPasswordAndKey": {
+      "status": "pending"
+    },
+    "remotePython": {
+      "status": "pending"
+    },
+    "appNotebookExamples": {
+      "status": "partial",
+      "evidence": "Real first Python cell, pandas table, package import, HTML Add one interaction and HF authorization/download passed. Each reviewed screenshot is separately recorded in the manifest. Full clean-environment notebook and hardware-dependent examples remain."
+    },
+    "hostNotebookExamples": {
+      "status": "passed",
+      "evidence": "Both notebooks executed using pandas and matplotlib in isolated Python 3.12 container."
+    },
+    "screenshotsPrivacyAndVersion": {
+      "status": "pending"
+    },
+    "translationsAllLocales": {
+      "status": "pending"
+    },
+    "mobileDesktopRTLKeyboardPrint": {
+      "status": "partial",
+      "evidence": "390px no horizontal overflow; iPhone image overlay checked visually; keyboard step changes and stable hash confirmed; language switching retained article; RTL layout confirmed; full print and all locales remain."
+    },
+    "searchAndAliases": {
+      "status": "partial",
+      "evidence": "Pagefind returned the HF article for hugginface in the built preview. Other locale/alias checks remain."
+    },
+    "supportCompatibility": {
+      "status": "pending"
+    },
+    "ios26Compatibility": {
+      "status": "pending"
+    }
+  }
+}

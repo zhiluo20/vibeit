@@ -1616,6 +1616,7 @@ html{overflow-x:clip}#aivibe{margin:0!important;display:block!important;backgrou
           <a href="#capabilities" data-i18n="nav.features">Features</a>
           <a href="#showcase" data-i18n="nav.lessons">Lessons</a>
           <a href="#pricing" data-i18n="nav.pricing">Pricing</a>
+          <a href="help/" data-help-link>Help Center</a>
         </div>
         <div class="nav-right">
           <div class="lang-wrap">
@@ -2411,7 +2412,7 @@ speech = <span class="fn">tts</span>(<span class="st">"Hello World"</span>)
         <div class="foot-links">
           <a href="privacy.html" data-i18n="footer.privacy">Privacy</a>
           <a href="terms.html" data-i18n="footer.terms">Terms</a>
-          <a href="support.html" data-i18n="footer.support">Support</a>
+          <a href="help/" data-help-link>Help Center</a>
           <a href="contact.html" data-i18n="footer.contact">Contact</a>
         </div>
       </div>
@@ -4241,6 +4242,9 @@ speech = <span class="fn">tts</span>(<span class="st">"Hello World"</span>)
       document.documentElement.dir=RTL[lang]?"rtl":"ltr";
       document.getElementById("langLabel").textContent=(LANGS.find(l=>l.code===lang)||LANGS[0]).label;
       document.querySelectorAll("#langMenu button").forEach(b=>b.setAttribute("aria-current",String(b.dataset.code===lang)));
+      const helpLocale={zh:'zh-hans','zh-Hans':'zh-hans','zh-Hant':'zh-hant'}[lang]||lang;
+      const helpLabels={en:'Help Center',zh:'使用手册','zh-Hans':'使用手册','zh-Hant':'使用手冊',fr:"Centre d’aide",de:'Hilfe',th:'ศูนย์ช่วยเหลือ',ja:'ヘルプセンター',ko:'도움말 센터',es:'Centro de ayuda',ar:'مركز المساعدة',it:'Centro assistenza'};
+      document.querySelectorAll('[data-help-link]').forEach(link=>{link.textContent=helpLabels[lang]||helpLabels.en;link.href='help/'+(helpLocale==='en'?'':helpLocale+'/');});
       if(persist){try{localStorage.setItem("vibeit_lang",lang)}catch(e){}}
       try{window.dispatchEvent(new Event("vibeit:lang"))}catch(e){}
     }

@@ -1,0 +1,48 @@
+---
+title: "使用上下文、工具、记忆与技能"
+description: "向助手提供合适的上下文，并检查它提出的操作。"
+sidebar:
+  order: 7
+---
+
+import ArticleMeta from '../../../../components/ArticleMeta.astro';
+import TutorialSteps from '../../../../components/TutorialSteps.astro';
+
+<ArticleMeta labels={{"observe":"查看结果","copy":"复制代码","copied":"已复制","tap":"点击","longPress":"长按并保持","swipe":"滑动","input":"在此输入","verified":"内容核对日期","siteTitle":"Vibeit 使用手册","intro":"通过真实 App 截图和清晰步骤，一次学会一个任务。","version":"适用版本","screenshotLanguage":"截图界面","device":"设备","goal":"你将完成什么","before":"开始前准备","entry":"从哪里进入","steps":"逐步操作","expected":"核对结果","troubleshooting":"如果没有成功","next":"下一步","references":"相关资料","enlarge":"放大截图","detail":"放大查看操作位置","previousStep":"上一步","nextStep":"下一步","close":"关闭","capturePending":"此预览页的截图仍在采集，尚未通过发布验收。","examples":"下载教程示例项目","note":"请留意","search":"你想完成什么？","popular":"从常见任务开始","all":"浏览全部教程","support":"联系支持"}} requirement={"Standard / Pro"} shotLocale="简体中文" aliases={[]} />
+
+## 你将完成什么
+
+向助手提供合适的上下文，并检查它提出的操作。
+
+## 开始前准备
+
+- 有效的 Standard、Pro 订阅，或符合条件的试用。
+
+[下载教程示例项目](/vibeit/help/downloads/vibeit-tutorials.zip)
+
+## 从哪里进入
+
+<div className="entry-path">File browser → … → Coding Agent</div>
+
+
+## 逐步操作
+
+<TutorialSteps id="ai-agent" locale="zh-hans" labels={{"observe":"查看结果","copy":"复制代码","copied":"已复制","tap":"点击","longPress":"长按并保持","swipe":"滑动","input":"在此输入","verified":"内容核对日期","siteTitle":"Vibeit 使用手册","intro":"通过真实 App 截图和清晰步骤，一次学会一个任务。","version":"适用版本","screenshotLanguage":"截图界面","device":"设备","goal":"你将完成什么","before":"开始前准备","entry":"从哪里进入","steps":"逐步操作","expected":"核对结果","troubleshooting":"如果没有成功","next":"下一步","references":"相关资料","enlarge":"放大截图","detail":"放大查看操作位置","previousStep":"上一步","nextStep":"下一步","close":"关闭","capturePending":"此预览页的截图仍在采集，尚未通过发布验收。","examples":"下载教程示例项目","note":"请留意","search":"你想完成什么？","popular":"从常见任务开始","all":"浏览全部教程","support":"联系支持"}} steps={[{"shot":"S19","target":"primary","title":"从具体任务开始","body":"围绕打开的示例文件提出一个小而明确的问题，例如解释读取 CSV 的代码。","action":"input"},{"shot":"S21","target":"primary","title":"控制文件上下文","body":"在“设置 → AI”中查看 Attach Open File to Model，决定是否把当前文件作为上下文提供给正在使用的服务。"},{"shot":"S19-approval","target":"primary","title":"检查建议的操作","body":"应用或运行前检查代码改动和确认请求。助手给出建议，并不等于代码已经成功运行。","action":"observe"},{"shot":"S22","target":"primary","title":"查看记忆","body":"在“设置 → AI”的 Manage Memory 中查看、固定、停用或删除记忆。"},{"shot":"S23","target":"primary","title":"按需启用技能","body":"打开 Manage Skills，只启用你希望提供给助手的可复用指令。"}]} />
+
+## 核对结果
+
+打开 Manage Skills，只启用你希望提供给助手的可复用指令。
+
+## 如果没有成功
+
+- 配置后没有使用该服务时，选择 Use This Provider，并检查当前启用标记。
+- 出现登录或密钥错误时，先修复服务配置，再用简短请求重试。
+- 服务选项可能受 App Store 地区、订阅及服务商账号权限影响。
+
+## 下一步
+
+- [选择模型与推理强度](/vibeit/help/zh-hans/ai/reasoning/)
+- [排查并报告问题](/vibeit/help/zh-hans/support/troubleshooting/)
+
+
+[联系支持](https://www.mecury.co.uk/vibeit/contact.html)

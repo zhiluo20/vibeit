@@ -1,0 +1,50 @@
+---
+title: "使用密码连接 SSH 服务器"
+description: "保存服务器配置、核验主机密钥并打开远程文件。"
+sidebar:
+  order: 1
+---
+
+import ArticleMeta from '../../../../components/ArticleMeta.astro';
+import TutorialSteps from '../../../../components/TutorialSteps.astro';
+
+<ArticleMeta labels={{"observe":"查看结果","copy":"复制代码","copied":"已复制","tap":"点击","longPress":"长按并保持","swipe":"滑动","input":"在此输入","verified":"内容核对日期","siteTitle":"Vibeit 使用手册","intro":"通过真实 App 截图和清晰步骤，一次学会一个任务。","version":"适用版本","screenshotLanguage":"截图界面","device":"设备","goal":"你将完成什么","before":"开始前准备","entry":"从哪里进入","steps":"逐步操作","expected":"核对结果","troubleshooting":"如果没有成功","next":"下一步","references":"相关资料","enlarge":"放大截图","detail":"放大查看操作位置","previousStep":"上一步","nextStep":"下一步","close":"关闭","capturePending":"此预览页的截图仍在采集，尚未通过发布验收。","examples":"下载教程示例项目","note":"请留意","search":"你想完成什么？","popular":"从常见任务开始","all":"浏览全部教程","support":"联系支持"}} requirement={"Pro"} shotLocale="简体中文" aliases={["SSH","password","host","远程连接","服务器"]} />
+
+## 你将完成什么
+
+保存服务器配置、核验主机密钥并打开远程文件。
+
+## 开始前准备
+
+- 有效的 Pro 订阅。第三方 AI 订阅和 API 额度需要单独准备。
+- 能够连接本教程所用服务或下载资源的网络。
+- 可访问的 SSH 服务器、主机地址与端口、用户名，以及你有权使用的认证方式。
+
+[下载教程示例项目](/vibeit/help/downloads/vibeit-tutorials.zip)
+
+## 从哪里进入
+
+<div className="entry-path">Locations → + → Add Remote Host</div>
+
+
+## 逐步操作
+
+<TutorialSteps id="remote-ssh" locale="zh-hans" labels={{"observe":"查看结果","copy":"复制代码","copied":"已复制","tap":"点击","longPress":"长按并保持","swipe":"滑动","input":"在此输入","verified":"内容核对日期","siteTitle":"Vibeit 使用手册","intro":"通过真实 App 截图和清晰步骤，一次学会一个任务。","version":"适用版本","screenshotLanguage":"截图界面","device":"设备","goal":"你将完成什么","before":"开始前准备","entry":"从哪里进入","steps":"逐步操作","expected":"核对结果","troubleshooting":"如果没有成功","next":"下一步","references":"相关资料","enlarge":"放大截图","detail":"放大查看操作位置","previousStep":"上一步","nextStep":"下一步","close":"关闭","capturePending":"此预览页的截图仍在采集，尚未通过发布验收。","examples":"下载教程示例项目","note":"请留意","search":"你想完成什么？","popular":"从常见任务开始","all":"浏览全部教程","support":"联系支持"}} steps={[{"shot":"S34","target":"primary","title":"添加远程主机","body":"从 Locations 添加远程主机，准备好服务器地址和 SSH 用户名。"},{"shot":"S35","target":"host","title":"填写连接信息","body":"选择 Direct（TCP），填写主机地址、端口和用户名。端口以服务器配置为准，SSH 常用默认端口为 22。","action":"input"},{"shot":"S35","target":"password","title":"选择密码认证","body":"选择 Password 并输入 SSH 密码，然后保存配置。保存成功不代表服务器已经连接成功。","action":"input"},{"shot":"S37","target":"primary","title":"核验主机密钥","body":"选择 Verify Host Key，将显示的指纹与管理员或可信渠道提供的指纹核对，确认后再信任。"},{"shot":"S38","target":"primary","title":"打开远程目录","body":"连接已保存主机，确认远程文件列表加载，并打开一个小文件验证读取权限。"}]} />
+
+## 核对结果
+
+连接已保存主机，确认远程文件列表加载，并打开一个小文件验证读取权限。
+
+## 如果没有成功
+
+- 连接超时时，检查地址、端口、网络路径和服务器状态。
+- 认证失败时，检查用户名及匹配的密码或私钥。
+- 主机指纹变化时，通过可信渠道核实后再更新保存的指纹。
+
+## 下一步
+
+- [使用 SSH 私钥连接](/vibeit/help/zh-hans/remote/keys/)
+- [通过 SFTP 管理远程文件](/vibeit/help/zh-hans/remote/files/)
+
+
+[联系支持](https://www.mecury.co.uk/vibeit/contact.html)

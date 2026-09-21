@@ -1,0 +1,51 @@
+---
+title: "Run, interrupt and restart the kernel"
+description: "Understand execution order, stop a long task, and start with a fresh Python state."
+sidebar:
+  order: 2
+---
+
+import ArticleMeta from '../../../components/ArticleMeta.astro';
+import TutorialSteps from '../../../components/TutorialSteps.astro';
+
+<ArticleMeta labels={{"observe":"Check the result","copy":"Copy code","copied":"Copied","tap":"Tap","longPress":"Touch and hold","swipe":"Swipe","input":"Type here","verified":"Content checked","siteTitle":"Vibeit Help Center","intro":"Learn one task at a time, with real app screenshots and clear steps.","version":"App version","screenshotLanguage":"Screenshot UI","device":"Device","goal":"What you will do","before":"Before you start","entry":"Where to start","steps":"Follow the steps","expected":"Check the result","troubleshooting":"If it does not work","next":"Next steps","references":"Related reference","enlarge":"Enlarge screenshot","detail":"See the control up close","previousStep":"Previous","nextStep":"Next","close":"Close","capturePending":"Screenshot capture is in progress for this preview. This page is not approved for publication.","examples":"Download the tutorial workspace","note":"Keep in mind","search":"What would you like to do?","popular":"Start with a common task","all":"Browse all tutorials","support":"Contact support"}} requirement={"Standard / Pro"} shotLocale="English" aliases={[]} />
+
+## What you will do
+
+Understand execution order, stop a long task, and start with a fresh Python state.
+
+## Before you start
+
+- An active Standard or Pro subscription, or an eligible trial.
+
+[Download the tutorial workspace](/vibeit/help/downloads/vibeit-tutorials.zip)
+
+## Where to start
+
+<div className="entry-path">Open a notebook → execution controls</div>
+
+:::note[Keep in mind]
+On iOS/iPadOS 1.0.1, completely close and reopen Vibeit after changing Environment settings. Restart Kernel clears the Python session but does not reload these saved settings.
+:::
+
+## Follow the steps
+
+<TutorialSteps id="notebooks-kernel" locale="en" labels={{"observe":"Check the result","copy":"Copy code","copied":"Copied","tap":"Tap","longPress":"Touch and hold","swipe":"Swipe","input":"Type here","verified":"Content checked","siteTitle":"Vibeit Help Center","intro":"Learn one task at a time, with real app screenshots and clear steps.","version":"App version","screenshotLanguage":"Screenshot UI","device":"Device","goal":"What you will do","before":"Before you start","entry":"Where to start","steps":"Follow the steps","expected":"Check the result","troubleshooting":"If it does not work","next":"Next steps","references":"Related reference","enlarge":"Enlarge screenshot","detail":"See the control up close","previousStep":"Previous","nextStep":"Next","close":"Close","capturePending":"Screenshot capture is in progress for this preview. This page is not approved for publication.","examples":"Download the tutorial workspace","note":"Keep in mind","search":"What would you like to do?","popular":"Start with a common task","all":"Browse all tutorials","support":"Contact support"}} steps={[{"shot":"S03","target":"primary","title":"Run the current cell","body":"Run a cell when it is ready. If it depends on variables from earlier cells, run those cells first."},{"shot":"S09","target":"interrupt","title":"Interrupt a long-running task","body":"Use Stop/Interrupt while a task is running. Wait for the kernel to return to an idle state before starting another run.","iphoneBody":"On iPhone, open the notebook’s ellipsis menu. Choose Restart Kernel to retain existing outputs, or Interrupt to stop the current task. Restart and Clear Outputs also removes the displayed outputs."},{"shot":"S09","target":"primary","title":"Restart when you need a fresh state","body":"Restart the kernel to clear in-memory variables. Saved source and existing rendered outputs are retained. Reopen the app when you need changed Environment settings to take effect.","iphoneBody":"On iPhone, open the notebook’s ellipsis menu. Choose Restart Kernel to retain existing outputs, or Interrupt to stop the current task. Restart and Clear Outputs also removes the displayed outputs."},{"shot":"S04","target":"primary","title":"Run the notebook again from the top","body":"After a restart, recreate variables by running the notebook in order. A NameError often means an earlier defining cell has not run.","action":"observe"}]} />
+
+## Check the result
+
+After a restart, recreate variables by running the notebook in order. A NameError often means an earlier defining cell has not run.
+
+## If it does not work
+
+- For NameError, run the cell that defines the missing name.
+- For FileNotFoundError, check the working folder and keep the data directory beside the notebook.
+- For ModuleNotFoundError, check package availability; downloading a file does not install its Python package.
+
+## Next steps
+
+- [Set environment variables](/vibeit/help/models/environment/)
+- [Read tables, plots and interactive results](/vibeit/help/notebooks/results/)
+
+
+[Contact support](https://www.mecury.co.uk/vibeit/contact.html)

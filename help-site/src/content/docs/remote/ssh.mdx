@@ -1,0 +1,50 @@
+---
+title: "Connect to an SSH server with a password"
+description: "Save a server profile, verify its host key and open its remote files."
+sidebar:
+  order: 1
+---
+
+import ArticleMeta from '../../../components/ArticleMeta.astro';
+import TutorialSteps from '../../../components/TutorialSteps.astro';
+
+<ArticleMeta labels={{"observe":"Check the result","copy":"Copy code","copied":"Copied","tap":"Tap","longPress":"Touch and hold","swipe":"Swipe","input":"Type here","verified":"Content checked","siteTitle":"Vibeit Help Center","intro":"Learn one task at a time, with real app screenshots and clear steps.","version":"App version","screenshotLanguage":"Screenshot UI","device":"Device","goal":"What you will do","before":"Before you start","entry":"Where to start","steps":"Follow the steps","expected":"Check the result","troubleshooting":"If it does not work","next":"Next steps","references":"Related reference","enlarge":"Enlarge screenshot","detail":"See the control up close","previousStep":"Previous","nextStep":"Next","close":"Close","capturePending":"Screenshot capture is in progress for this preview. This page is not approved for publication.","examples":"Download the tutorial workspace","note":"Keep in mind","search":"What would you like to do?","popular":"Start with a common task","all":"Browse all tutorials","support":"Contact support"}} requirement={"Pro"} shotLocale="English" aliases={["SSH","password","host","远程连接","服务器"]} />
+
+## What you will do
+
+Save a server profile, verify its host key and open its remote files.
+
+## Before you start
+
+- An active Pro subscription. Third-party AI subscriptions and API credits are separate.
+- A working internet connection for the service or download used in this tutorial.
+- A reachable SSH server, its hostname/port, a username, and the authentication method you are authorized to use.
+
+[Download the tutorial workspace](/vibeit/help/downloads/vibeit-tutorials.zip)
+
+## Where to start
+
+<div className="entry-path">Locations → + → Add Remote Host</div>
+
+
+## Follow the steps
+
+<TutorialSteps id="remote-ssh" locale="en" labels={{"observe":"Check the result","copy":"Copy code","copied":"Copied","tap":"Tap","longPress":"Touch and hold","swipe":"Swipe","input":"Type here","verified":"Content checked","siteTitle":"Vibeit Help Center","intro":"Learn one task at a time, with real app screenshots and clear steps.","version":"App version","screenshotLanguage":"Screenshot UI","device":"Device","goal":"What you will do","before":"Before you start","entry":"Where to start","steps":"Follow the steps","expected":"Check the result","troubleshooting":"If it does not work","next":"Next steps","references":"Related reference","enlarge":"Enlarge screenshot","detail":"See the control up close","previousStep":"Previous","nextStep":"Next","close":"Close","capturePending":"Screenshot capture is in progress for this preview. This page is not approved for publication.","examples":"Download the tutorial workspace","note":"Keep in mind","search":"What would you like to do?","popular":"Start with a common task","all":"Browse all tutorials","support":"Contact support"}} steps={[{"shot":"S34","target":"primary","title":"Add a remote host","body":"Choose Add Remote Host from Locations. Keep the server address and SSH username ready."},{"shot":"S35","target":"host","title":"Enter the connection details","body":"Choose Direct (TCP), then enter the host, port and username. Use the actual server port; 22 is the usual SSH default.","action":"input"},{"shot":"S35","target":"password","title":"Select password authentication","body":"Choose Password and enter the SSH password. Save the profile. Saving the form does not prove that the server is reachable.","action":"input"},{"shot":"S37","target":"primary","title":"Verify the host key","body":"Choose Verify Host Key. Compare the displayed fingerprint with one obtained from the server administrator or another trusted channel before trusting it."},{"shot":"S38","target":"primary","title":"Open the remote directory","body":"Connect to the saved host and confirm that the remote file list loads. Open a small file to verify read access."}]} />
+
+## Check the result
+
+Connect to the saved host and confirm that the remote file list loads. Open a small file to verify read access.
+
+## If it does not work
+
+- For a timeout, check the host, port, network route and server availability.
+- For authentication failures, check the username and matching password or private key.
+- If the host fingerprint changes, verify it through a trusted channel before replacing the saved fingerprint.
+
+## Next steps
+
+- [Connect with an SSH private key](/vibeit/help/remote/keys/)
+- [Manage remote files with SFTP](/vibeit/help/remote/files/)
+
+
+[Contact support](https://www.mecury.co.uk/vibeit/contact.html)

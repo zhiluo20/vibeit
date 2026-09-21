@@ -1,0 +1,53 @@
+---
+title: "创建 PR 并处理同步问题"
+description: "从已推送的分支发起改动提案，并识别常见同步失败原因。"
+sidebar:
+  order: 5
+---
+
+import ArticleMeta from '../../../../components/ArticleMeta.astro';
+import TutorialSteps from '../../../../components/TutorialSteps.astro';
+
+<ArticleMeta labels={{"observe":"查看结果","copy":"复制代码","copied":"已复制","tap":"点击","longPress":"长按并保持","swipe":"滑动","input":"在此输入","verified":"内容核对日期","siteTitle":"Vibeit 使用手册","intro":"通过真实 App 截图和清晰步骤，一次学会一个任务。","version":"适用版本","screenshotLanguage":"截图界面","device":"设备","goal":"你将完成什么","before":"开始前准备","entry":"从哪里进入","steps":"逐步操作","expected":"核对结果","troubleshooting":"如果没有成功","next":"下一步","references":"相关资料","enlarge":"放大截图","detail":"放大查看操作位置","previousStep":"上一步","nextStep":"下一步","close":"关闭","capturePending":"此预览页的截图仍在采集，尚未通过发布验收。","examples":"下载教程示例项目","note":"请留意","search":"你想完成什么？","popular":"从常见任务开始","all":"浏览全部教程","support":"联系支持"}} requirement={"Pro"} shotLocale="简体中文" aliases={[]} />
+
+## 你将完成什么
+
+从已推送的分支发起改动提案，并识别常见同步失败原因。
+
+## 开始前准备
+
+- 有效的 Pro 订阅。第三方 AI 订阅和 API 额度需要单独准备。
+- 能够连接本教程所用服务或下载资源的网络。
+- 一个已经存在的 Git 仓库。练习时使用独立的教程仓库。
+
+[下载教程示例项目](/vibeit/help/downloads/vibeit-tutorials.zip)
+
+## 从哪里进入
+
+<div className="entry-path">Source Control → Create Pull Request</div>
+
+:::note[请留意]
+本版本没有专门的合并冲突编辑器。不要为了清除错误而直接丢弃文件或强制推送。
+:::
+
+## 逐步操作
+
+<TutorialSteps id="git-pull-requests" locale="zh-hans" labels={{"observe":"查看结果","copy":"复制代码","copied":"已复制","tap":"点击","longPress":"长按并保持","swipe":"滑动","input":"在此输入","verified":"内容核对日期","siteTitle":"Vibeit 使用手册","intro":"通过真实 App 截图和清晰步骤，一次学会一个任务。","version":"适用版本","screenshotLanguage":"截图界面","device":"设备","goal":"你将完成什么","before":"开始前准备","entry":"从哪里进入","steps":"逐步操作","expected":"核对结果","troubleshooting":"如果没有成功","next":"下一步","references":"相关资料","enlarge":"放大截图","detail":"放大查看操作位置","previousStep":"上一步","nextStep":"下一步","close":"关闭","capturePending":"此预览页的截图仍在采集，尚未通过发布验收。","examples":"下载教程示例项目","note":"请留意","search":"你想完成什么？","popular":"从常见任务开始","all":"浏览全部教程","support":"联系支持"}} steps={[{"shot":"S32","target":"primary","title":"准备独立分支","body":"使用 Git 工具或远程终端准备工作分支并推送。当前 App 面板显示分支，但没有创建分支按钮。"},{"shot":"S33","target":"primary","title":"打开创建 PR","body":"origin 指向 GitHub 时使用创建 PR 控件。确认当前分支与希望合入的目标分支不同。"},{"shot":"S33","target":"title","title":"填写并提交提案","body":"填写标题、说明和目标分支；检查目标后提交。","action":"input"},{"shot":"S33-result","target":"primary","title":"打开返回的 GitHub 链接","body":"进入生成的 PR 检查改动。同步被拒绝或历史分叉时，先用合适的 Git 工具或服务器终端处理，再重试。","action":"observe"}]} />
+
+## 核对结果
+
+进入生成的 PR 检查改动。同步被拒绝或历史分叉时，先用合适的 Git 工具或服务器终端处理，再重试。
+
+## 如果没有成功
+
+- Commit 记录本地历史，Push 才会发送到远程。先确认失败的是哪一步。
+- 推送被拒绝时，检查远程改动和账号权限，不要把强制推送当作常规修复方式。
+- 发生冲突时，先保留副本并检查相关文件，再决定如何处理改动。
+
+## 下一步
+
+- [拉取与推送仓库改动](/vibeit/help/zh-hans/git/sync/)
+- [在终端中输入、复制与粘贴](/vibeit/help/zh-hans/terminal/basics/)
+
+
+[联系支持](https://www.mecury.co.uk/vibeit/contact.html)

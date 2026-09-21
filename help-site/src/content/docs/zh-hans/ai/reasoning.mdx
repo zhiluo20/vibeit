@@ -1,0 +1,51 @@
+---
+title: "选择模型与推理强度"
+description: "根据任务选择推理强度，并理解它与界面主题无关。"
+sidebar:
+  order: 6
+---
+
+import ArticleMeta from '../../../../components/ArticleMeta.astro';
+import TutorialSteps from '../../../../components/TutorialSteps.astro';
+
+<ArticleMeta labels={{"observe":"查看结果","copy":"复制代码","copied":"已复制","tap":"点击","longPress":"长按并保持","swipe":"滑动","input":"在此输入","verified":"内容核对日期","siteTitle":"Vibeit 使用手册","intro":"通过真实 App 截图和清晰步骤，一次学会一个任务。","version":"适用版本","screenshotLanguage":"截图界面","device":"设备","goal":"你将完成什么","before":"开始前准备","entry":"从哪里进入","steps":"逐步操作","expected":"核对结果","troubleshooting":"如果没有成功","next":"下一步","references":"相关资料","enlarge":"放大截图","detail":"放大查看操作位置","previousStep":"上一步","nextStep":"下一步","close":"关闭","capturePending":"此预览页的截图仍在采集，尚未通过发布验收。","examples":"下载教程示例项目","note":"请留意","search":"你想完成什么？","popular":"从常见任务开始","all":"浏览全部教程","support":"联系支持"}} requirement={"Standard / Pro"} shotLocale="简体中文" aliases={["Reasoning","思考强度","推理强度","Light","Medium","High","Extra High"]} />
+
+## 你将完成什么
+
+根据任务选择推理强度，并理解它与界面主题无关。
+
+## 开始前准备
+
+- 有效的 Standard、Pro 订阅，或符合条件的试用。
+
+[下载教程示例项目](/vibeit/help/downloads/vibeit-tutorials.zip)
+
+## 从哪里进入
+
+<div className="entry-path">Agent panel → bottom model and reasoning controls</div>
+
+:::note[请留意]
+当前中文词条中 Light 可能显示为“浅色”，因为该词与主题共用了翻译。这里表示轻量推理，不是颜色设置。
+:::
+
+## 逐步操作
+
+<TutorialSteps id="ai-reasoning" locale="zh-hans" labels={{"observe":"查看结果","copy":"复制代码","copied":"已复制","tap":"点击","longPress":"长按并保持","swipe":"滑动","input":"在此输入","verified":"内容核对日期","siteTitle":"Vibeit 使用手册","intro":"通过真实 App 截图和清晰步骤，一次学会一个任务。","version":"适用版本","screenshotLanguage":"截图界面","device":"设备","goal":"你将完成什么","before":"开始前准备","entry":"从哪里进入","steps":"逐步操作","expected":"核对结果","troubleshooting":"如果没有成功","next":"下一步","references":"相关资料","enlarge":"放大截图","detail":"放大查看操作位置","previousStep":"上一步","nextStep":"下一步","close":"关闭","capturePending":"此预览页的截图仍在采集，尚未通过发布验收。","examples":"下载教程示例项目","note":"请留意","search":"你想完成什么？","popular":"从常见任务开始","all":"浏览全部教程","support":"联系支持"}} steps={[{"shot":"S19","target":"primary","title":"打开当前任务的助手","body":"打开笔记本或脚本，再打开 Coding Agent，确认当前服务和要处理的文件。"},{"shot":"S20","target":"primary","title":"打开推理强度菜单","body":"点击面板底部的强度控件，菜单提供 Light、Medium、High 和 Extra High。"},{"shot":"S20","target":"medium","title":"先从 Medium 开始","body":"日常任务可从 Medium 开始。Light 偏向更快、更聚焦的处理；High 和 Extra High 要求更多检查与验证。"},{"shot":"S20","target":"high","title":"结合实际服务理解选项","body":"Codex 会按模型支持的强度进行映射，必要时回退到受支持的默认值；其他服务不一定提供同样的原生参数。"}]} />
+
+## 核对结果
+
+Codex 会按模型支持的强度进行映射，必要时回退到受支持的默认值；其他服务不一定提供同样的原生参数。
+
+## 如果没有成功
+
+- 配置后没有使用该服务时，选择 Use This Provider，并检查当前启用标记。
+- 出现登录或密钥错误时，先修复服务配置，再用简短请求重试。
+- 服务选项可能受 App Store 地区、订阅及服务商账号权限影响。
+
+## 下一步
+
+- [登录 Codex 并加载模型](/vibeit/help/zh-hans/ai/codex/)
+- [使用上下文、工具、记忆与技能](/vibeit/help/zh-hans/ai/agent/)
+
+
+[联系支持](https://www.mecury.co.uk/vibeit/contact.html)

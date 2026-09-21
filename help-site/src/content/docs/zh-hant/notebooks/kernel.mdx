@@ -1,0 +1,51 @@
+---
+title: "運行、停止與重啟核心"
+description: "理解執行順序、停止耗時任務，並重建乾淨的 Python 狀態。"
+sidebar:
+  order: 2
+---
+
+import ArticleMeta from '../../../../components/ArticleMeta.astro';
+import TutorialSteps from '../../../../components/TutorialSteps.astro';
+
+<ArticleMeta labels={{"observe":"查看結果","copy":"複製代碼","copied":"已複製","tap":"點擊","longPress":"長按並保持","swipe":"滑動","input":"在此輸入","verified":"內容核對日期","siteTitle":"Vibeit 使用手冊","intro":"通過真實 App 截圖和清晰步驟，一次學會一個任務。","version":"適用版本","screenshotLanguage":"截圖界面","device":"設備","goal":"你將完成什麼","before":"開始前準備","entry":"從哪裡進入","steps":"逐步操作","expected":"核對結果","troubleshooting":"如果沒有成功","next":"下一步","references":"相關資料","enlarge":"放大截圖","detail":"放大查看操作位置","previousStep":"上一步","nextStep":"下一步","close":"關閉","capturePending":"此預覽頁的截圖仍在採集，尚未通過發佈驗收。","examples":"下載教程示例項目","note":"請留意","search":"你想完成什麼？","popular":"從常見任務開始","all":"瀏覽全部教程","support":"聯繫支持"}} requirement={"Standard / Pro"} shotLocale="简体中文" aliases={[]} />
+
+## 你將完成什麼
+
+理解執行順序、停止耗時任務，並重建乾淨的 Python 狀態。
+
+## 開始前準備
+
+- 有效的 Standard、Pro 訂閱，或符合條件的試用。
+
+[下載教程示例項目](/vibeit/help/downloads/vibeit-tutorials.zip)
+
+## 從哪裡進入
+
+<div className="entry-path">Open a notebook → execution controls</div>
+
+:::note[請留意]
+在 iOS/iPadOS 1.0.1 中，更改“環境”設置後，需要完全關閉並重新打開 Vibeit。Restart Kernel 會重置 Python 會話，但不會重新加載這些設置。
+:::
+
+## 逐步操作
+
+<TutorialSteps id="notebooks-kernel" locale="zh-hant" labels={{"observe":"查看結果","copy":"複製代碼","copied":"已複製","tap":"點擊","longPress":"長按並保持","swipe":"滑動","input":"在此輸入","verified":"內容核對日期","siteTitle":"Vibeit 使用手冊","intro":"通過真實 App 截圖和清晰步驟，一次學會一個任務。","version":"適用版本","screenshotLanguage":"截圖界面","device":"設備","goal":"你將完成什麼","before":"開始前準備","entry":"從哪裡進入","steps":"逐步操作","expected":"核對結果","troubleshooting":"如果沒有成功","next":"下一步","references":"相關資料","enlarge":"放大截圖","detail":"放大查看操作位置","previousStep":"上一步","nextStep":"下一步","close":"關閉","capturePending":"此預覽頁的截圖仍在採集，尚未通過發佈驗收。","examples":"下載教程示例項目","note":"請留意","search":"你想完成什麼？","popular":"從常見任務開始","all":"瀏覽全部教程","support":"聯繫支持"}} steps={[{"shot":"S03","target":"primary","title":"運行當前單元","body":"代碼準備好後運行當前單元。若依賴前面的變量，先運行創建這些變量的單元。"},{"shot":"S09","target":"interrupt","title":"中斷耗時任務","body":"任務運行時使用停止或中斷按鈕，等待核心回到空閒狀態後再開始下一次運行。","iphoneBody":"iPhone 上先打開筆記本的省略號菜單。選擇 Restart Kernel（重啟核心）可保留已有輸出；Interrupt 用於中斷當前任務。Restart and Clear Outputs 還會清除已顯示的輸出。"},{"shot":"S09","target":"primary","title":"需要乾淨狀態時重啟","body":"重啟核心會清除內存變量，並保留已保存的源碼和已有輸出。修改“環境”設置後，則需要重新打開 App 才會生效。","iphoneBody":"iPhone 上先打開筆記本的省略號菜單。選擇 Restart Kernel（重啟核心）可保留已有輸出；Interrupt 用於中斷當前任務。Restart and Clear Outputs 還會清除已顯示的輸出。"},{"shot":"S04","target":"primary","title":"從頭重新運行","body":"重啟後按順序運行筆記本以重建變量。NameError 往往表示定義變量的前置單元尚未運行。","action":"observe"}]} />
+
+## 核對結果
+
+重啟後按順序運行筆記本以重建變量。NameError 往往表示定義變量的前置單元尚未運行。
+
+## 如果沒有成功
+
+- 出現 NameError 時，先運行定義該名稱的單元。
+- 出現 FileNotFoundError 時，檢查工作目錄，並把 data 資料夾與筆記本放在正確的相對位置。
+- 出現 ModuleNotFoundError 時，檢查包是否可用；下載檔案並不等於安裝了 Python 包。
+
+## 下一步
+
+- [設置環境變量](/vibeit/help/zh-hant/models/environment/)
+- [查看錶格、圖表與交互結果](/vibeit/help/zh-hant/notebooks/results/)
+
+
+[聯繫支持](https://www.mecury.co.uk/vibeit/contact.html)

@@ -1,0 +1,49 @@
+---
+title: "添加 OpenAI 兼容服务"
+description: "为兼容服务设置接口地址、模型 ID 和 API Key。"
+sidebar:
+  order: 5
+---
+
+import ArticleMeta from '../../../../components/ArticleMeta.astro';
+import TutorialSteps from '../../../../components/TutorialSteps.astro';
+
+<ArticleMeta labels={{"observe":"查看结果","copy":"复制代码","copied":"已复制","tap":"点击","longPress":"长按并保持","swipe":"滑动","input":"在此输入","verified":"内容核对日期","siteTitle":"Vibeit 使用手册","intro":"通过真实 App 截图和清晰步骤，一次学会一个任务。","version":"适用版本","screenshotLanguage":"截图界面","device":"设备","goal":"你将完成什么","before":"开始前准备","entry":"从哪里进入","steps":"逐步操作","expected":"核对结果","troubleshooting":"如果没有成功","next":"下一步","references":"相关资料","enlarge":"放大截图","detail":"放大查看操作位置","previousStep":"上一步","nextStep":"下一步","close":"关闭","capturePending":"此预览页的截图仍在采集，尚未通过发布验收。","examples":"下载教程示例项目","note":"请留意","search":"你想完成什么？","popular":"从常见任务开始","all":"浏览全部教程","support":"联系支持"}} requirement={"Pro"} shotLocale="简体中文" aliases={[]} />
+
+## 你将完成什么
+
+为兼容服务设置接口地址、模型 ID 和 API Key。
+
+## 开始前准备
+
+- 有效的 Pro 订阅。第三方 AI 订阅和 API 额度需要单独准备。
+- 能够连接本教程所用服务或下载资源的网络。
+
+[下载教程示例项目](/vibeit/help/downloads/vibeit-tutorials.zip)
+
+## 从哪里进入
+
+<div className="entry-path">Settings → AI → Add a Model Provider</div>
+
+
+## 逐步操作
+
+<TutorialSteps id="ai-custom-provider" locale="zh-hans" labels={{"observe":"查看结果","copy":"复制代码","copied":"已复制","tap":"点击","longPress":"长按并保持","swipe":"滑动","input":"在此输入","verified":"内容核对日期","siteTitle":"Vibeit 使用手册","intro":"通过真实 App 截图和清晰步骤，一次学会一个任务。","version":"适用版本","screenshotLanguage":"截图界面","device":"设备","goal":"你将完成什么","before":"开始前准备","entry":"从哪里进入","steps":"逐步操作","expected":"核对结果","troubleshooting":"如果没有成功","next":"下一步","references":"相关资料","enlarge":"放大截图","detail":"放大查看操作位置","previousStep":"上一步","nextStep":"下一步","close":"关闭","capturePending":"此预览页的截图仍在采集，尚未通过发布验收。","examples":"下载教程示例项目","note":"请留意","search":"你想完成什么？","popular":"从常见任务开始","all":"浏览全部教程","support":"联系支持"}} steps={[{"shot":"S18","target":"primary","title":"添加模型服务","body":"选择 Add a Model Provider，使用合适的模板或自定义兼容服务选项。"},{"shot":"S18","target":"endpoint","title":"填写服务商提供的接口地址","body":"输入服务商要求的完整接口地址。网站首页地址不一定是 API 接口地址。","action":"input"},{"shot":"S18","target":"model","title":"填写准确模型 ID 与密钥","body":"使用服务商文档中的模型 ID，并把 API Key 填入安全字段。","action":"input"},{"shot":"S18","target":"save","title":"保存、启用并测试","body":"保存并启用服务，再发一条简短请求。助手工具还要求接口支持相应的工具调用协议。"}]} />
+
+## 核对结果
+
+保存并启用服务，再发一条简短请求。助手工具还要求接口支持相应的工具调用协议。
+
+## 如果没有成功
+
+- 配置后没有使用该服务时，选择 Use This Provider，并检查当前启用标记。
+- 出现登录或密钥错误时，先修复服务配置，再用简短请求重试。
+- 服务选项可能受 App Store 地区、订阅及服务商账号权限影响。
+
+## 下一步
+
+- [选择 AI 服务](/vibeit/help/zh-hans/ai/choose-provider/)
+- [选择模型与推理强度](/vibeit/help/zh-hans/ai/reasoning/)
+
+
+[联系支持](https://www.mecury.co.uk/vibeit/contact.html)

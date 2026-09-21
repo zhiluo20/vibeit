@@ -1,0 +1,54 @@
+---
+title: "设置环境变量"
+description: "把项目配置传入新启动的 Python 内核和终端。"
+sidebar:
+  order: 3
+---
+
+import ArticleMeta from '../../../../components/ArticleMeta.astro';
+import TutorialSteps from '../../../../components/TutorialSteps.astro';
+
+<ArticleMeta labels={{"observe":"查看结果","copy":"复制代码","copied":"已复制","tap":"点击","longPress":"长按并保持","swipe":"滑动","input":"在此输入","verified":"内容核对日期","siteTitle":"Vibeit 使用手册","intro":"通过真实 App 截图和清晰步骤，一次学会一个任务。","version":"适用版本","screenshotLanguage":"截图界面","device":"设备","goal":"你将完成什么","before":"开始前准备","entry":"从哪里进入","steps":"逐步操作","expected":"核对结果","troubleshooting":"如果没有成功","next":"下一步","references":"相关资料","enlarge":"放大截图","detail":"放大查看操作位置","previousStep":"上一步","nextStep":"下一步","close":"关闭","capturePending":"此预览页的截图仍在采集，尚未通过发布验收。","examples":"下载教程示例项目","note":"请留意","search":"你想完成什么？","popular":"从常见任务开始","all":"浏览全部教程","support":"联系支持"}} requirement={"Standard / Pro"} shotLocale="简体中文" aliases={[]} />
+
+## 你将完成什么
+
+把项目配置传入新启动的 Python 内核和终端。
+
+## 开始前准备
+
+- 有效的 Standard、Pro 订阅，或符合条件的试用。
+
+[下载教程示例项目](/vibeit/help/downloads/vibeit-tutorials.zip)
+
+## 从哪里进入
+
+<div className="entry-path">Settings → Environment → Environment Variables</div>
+
+:::note[请留意]
+在 iOS/iPadOS 1.0.1 中，更改“环境”设置后，需要完全关闭并重新打开 Vibeit。Restart Kernel 会重置 Python 会话，但不会重新加载这些设置。
+:::
+
+## 逐步操作
+
+<TutorialSteps id="models-environment" locale="zh-hans" labels={{"observe":"查看结果","copy":"复制代码","copied":"已复制","tap":"点击","longPress":"长按并保持","swipe":"滑动","input":"在此输入","verified":"内容核对日期","siteTitle":"Vibeit 使用手册","intro":"通过真实 App 截图和清晰步骤，一次学会一个任务。","version":"适用版本","screenshotLanguage":"截图界面","device":"设备","goal":"你将完成什么","before":"开始前准备","entry":"从哪里进入","steps":"逐步操作","expected":"核对结果","troubleshooting":"如果没有成功","next":"下一步","references":"相关资料","enlarge":"放大截图","detail":"放大查看操作位置","previousStep":"上一步","nextStep":"下一步","close":"关闭","capturePending":"此预览页的截图仍在采集，尚未通过发布验收。","examples":"下载教程示例项目","note":"请留意","search":"你想完成什么？","popular":"从常见任务开始","all":"浏览全部教程","support":"联系支持"}} steps={[{"shot":"S24","target":"newKey","title":"填写名称和值","body":"用一个无敏感信息的例子：名称填 VIBEIT_DEMO，值填 tutorial。变量名称区分大小写。","action":"input"},{"shot":"S24","target":"add","title":"添加变量","body":"点击 Add Variable，确认名称出现在列表中。包含 TOKEN、KEY、SECRET 或 PASSWORD 的名称会使用安全存储。"},{"shot":"S09-relaunch","target":"primary","title":"完全关闭并重新打开 Vibeit","body":"先保存文件。打开系统多任务视图，上划 Vibeit 的卡片关闭 App，再点击 Vibeit 图标重新打开。仅返回主屏幕不会重新启动 App。","action":"tap"},{"shot":"S25-environment","target":"primary","title":"核对演示值","body":"运行示例，预期得到 tutorial。检查秘密变量时只检查是否存在，不输出实际内容。","code":"import os\nprint(os.environ.get(\"VIBEIT_DEMO\"))","action":"observe"}]} />
+
+## 核对结果
+
+新内核输出 tutorial。
+
+## 如果没有成功
+
+- 新保存的 Token 或环境变量未生效时，重启内核。
+- 遇到 401/403 时，检查 Token 和资源的账号访问权限。
+- 下载成功但不能加载时，检查格式、所需依赖和可用内存。
+
+## 下一步
+
+- [配置 Hugging Face Token](/vibeit/help/zh-hans/models/hugging-face/)
+- [在终端中输入、复制与粘贴](/vibeit/help/zh-hans/terminal/basics/)
+
+## 相关资料
+
+- [Apple: quit and reopen an app](https://support.apple.com/en-ae/guide/ipad/ipad79518d15/ipados)
+
+[联系支持](https://www.mecury.co.uk/vibeit/contact.html)

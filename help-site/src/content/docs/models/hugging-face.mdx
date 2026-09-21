@@ -1,0 +1,57 @@
+---
+title: "Configure a Hugging Face token"
+description: "Store a Hugging Face token and apply it to a newly started Python kernel."
+sidebar:
+  order: 1
+---
+
+import ArticleMeta from '../../../components/ArticleMeta.astro';
+import TutorialSteps from '../../../components/TutorialSteps.astro';
+
+<ArticleMeta labels={{"observe":"Check the result","copy":"Copy code","copied":"Copied","tap":"Tap","longPress":"Touch and hold","swipe":"Swipe","input":"Type here","verified":"Content checked","siteTitle":"Vibeit Help Center","intro":"Learn one task at a time, with real app screenshots and clear steps.","version":"App version","screenshotLanguage":"Screenshot UI","device":"Device","goal":"What you will do","before":"Before you start","entry":"Where to start","steps":"Follow the steps","expected":"Check the result","troubleshooting":"If it does not work","next":"Next steps","references":"Related reference","enlarge":"Enlarge screenshot","detail":"See the control up close","previousStep":"Previous","nextStep":"Next","close":"Close","capturePending":"Screenshot capture is in progress for this preview. This page is not approved for publication.","examples":"Download the tutorial workspace","note":"Keep in mind","search":"What would you like to do?","popular":"Start with a common task","all":"Browse all tutorials","support":"Contact support"}} requirement={"Standard / Pro"} shotLocale="English" aliases={["HF","HF_TOKEN","Hugging Face","huggingface","hugginface","抱抱脸"]} />
+
+## What you will do
+
+Store a Hugging Face token and apply it to a newly started Python kernel.
+
+## Before you start
+
+- An active Standard or Pro subscription, or an eligible trial.
+- A working internet connection for the service or download used in this tutorial.
+- A Hugging Face account and a token with the required resource permissions, if the resource requires authentication.
+
+[Download the tutorial workspace](/vibeit/help/downloads/vibeit-tutorials.zip)
+
+## Where to start
+
+<div className="entry-path">Settings → Environment → Hugging Face Token</div>
+
+:::note[Keep in mind]
+On iOS/iPadOS 1.0.1, completely close and reopen Vibeit after changing Environment settings. Restart Kernel clears the Python session but does not reload these saved settings.
+:::
+
+## Follow the steps
+
+<TutorialSteps id="models-hugging-face" locale="en" labels={{"observe":"Check the result","copy":"Copy code","copied":"Copied","tap":"Tap","longPress":"Touch and hold","swipe":"Swipe","input":"Type here","verified":"Content checked","siteTitle":"Vibeit Help Center","intro":"Learn one task at a time, with real app screenshots and clear steps.","version":"App version","screenshotLanguage":"Screenshot UI","device":"Device","goal":"What you will do","before":"Before you start","entry":"Where to start","steps":"Follow the steps","expected":"Check the result","troubleshooting":"If it does not work","next":"Next steps","references":"Related reference","enlarge":"Enlarge screenshot","detail":"See the control up close","previousStep":"Previous","nextStep":"Next","close":"Close","capturePending":"Screenshot capture is in progress for this preview. This page is not approved for publication.","examples":"Download the tutorial workspace","note":"Keep in mind","search":"What would you like to do?","popular":"Start with a common task","all":"Browse all tutorials","support":"Contact support"}} steps={[{"shot":"S24","target":"primary","title":"Open the Environment page","body":"Open Settings → Environment. The Hugging Face field is here, not in the AI provider list."},{"shot":"S24","target":"primary","title":"Enter your access token","body":"Use a token with access to the resources you need. Restricted models may also require approval of their access conditions on Hugging Face.","action":"input"},{"shot":"S09-relaunch","target":"primary","title":"Close and reopen Vibeit","body":"Save your work. Open the system app switcher, swipe Vibeit’s card upward to close it, then tap the Vibeit icon to open it again. Returning to the Home Screen alone does not restart the app.","action":"tap"},{"shot":"S25","target":"primary","title":"Check presence and authorization","body":"Run the example. HF_TOKEN present: True confirms the kernel has the token; Hugging Face authorization: OK confirms the service accepts it. Approval for a gated model remains a separate requirement.","code":"import os\nprint(\"HF_TOKEN present:\", bool(os.environ.get(\"HF_TOKEN\")))\ntry:\n    from huggingface_hub import HfApi\n    HfApi().whoami(token=True)\n    print(\"Hugging Face authorization: OK\")\nexcept Exception as error:\n    status = getattr(getattr(error, \"response\", None), \"status_code\", None)\n    print(\"Authorization error:\", type(error).__name__, \"HTTP:\", status)\n","action":"observe"}]} />
+
+## Check the result
+
+Run the example. HF_TOKEN present: True confirms the kernel has the token; Hugging Face authorization: OK confirms the service accepts it. Approval for a gated model remains a separate requirement.
+
+## If it does not work
+
+- If a newly saved token or environment value is not visible to Python, restart the kernel.
+- For 401/403 responses, check the token and the resource’s account permissions.
+- If a file downloads but does not load, check its format, required packages and available memory.
+
+## Next steps
+
+- [Download and manage model files](/vibeit/help/models/downloads/)
+- [Set environment variables](/vibeit/help/models/environment/)
+
+## Related reference
+
+- [Hugging Face access tokens](https://huggingface.co/docs/hub/security-tokens)
+- [Apple: quit and reopen an app](https://support.apple.com/en-ae/guide/ipad/ipad79518d15/ipados)
+
+[Contact support](https://www.mecury.co.uk/vibeit/contact.html)

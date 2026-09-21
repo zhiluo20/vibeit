@@ -1,0 +1,818 @@
+{
+  "ui": {
+    "copy": "Copier le code",
+    "copied": "Copié",
+    "tap": "Touchez",
+    "longPress": "Maintenez le doigt",
+    "swipe": "Balayez",
+    "input": "Saisissez ici",
+    "verified": "Contenu vérifié le",
+    "siteTitle": "Centre d’aide Vibeit",
+    "intro": "Apprenez une tâche à la fois grâce à des captures réelles de l’app et à des étapes claires.",
+    "version": "Version de l’app",
+    "screenshotLanguage": "Langue des captures",
+    "device": "Appareil",
+    "goal": "Ce que vous allez faire",
+    "before": "Avant de commencer",
+    "entry": "Point de départ",
+    "steps": "Suivez les étapes",
+    "expected": "Vérifiez le résultat",
+    "troubleshooting": "En cas de problème",
+    "next": "Pour continuer",
+    "references": "Documentation associée",
+    "enlarge": "Agrandir la capture",
+    "detail": "Voir la commande de plus près",
+    "previousStep": "Précédent",
+    "nextStep": "Suivant",
+    "close": "Fermer",
+    "capturePending": "Les captures de cette page sont encore en préparation. Cet aperçu n’est pas validé pour publication.",
+    "examples": "Télécharger le projet d’exemple",
+    "note": "À retenir",
+    "search": "Que souhaitez-vous faire ?",
+    "popular": "Commencez par une tâche courante",
+    "all": "Tous les tutoriels",
+    "support": "Contacter l’assistance",
+    "observe": "Vérifiez le résultat"
+  },
+  "prerequisites": {
+    "subscription": "Un abonnement Standard ou Pro actif, ou une période d’essai éligible.",
+    "pro": "Un abonnement Pro actif. Les abonnements aux services d’IA et les crédits API sont distincts.",
+    "network": "Une connexion permettant d’accéder au service ou au téléchargement utilisé dans ce tutoriel.",
+    "codex": "Un compte OpenAI disposant d’un accès compatible avec Codex.",
+    "claude": "Une clé API Anthropic et un accès API ou des crédits disponibles.",
+    "huggingface": "Si la ressource exige une authentification, un compte Hugging Face et un jeton disposant des autorisations nécessaires.",
+    "appleIntelligence": "Un appareil physique compatible sous iOS/iPadOS 26 ou ultérieur, avec Apple Intelligence activé et son modèle prêt.",
+    "ssh": "Un serveur SSH accessible, son adresse et son port, un nom d’utilisateur et une méthode d’authentification que vous êtes autorisé à utiliser.",
+    "git": "Un dépôt Git existant. Utilisez le dépôt d’exemple séparé pour vous entraîner."
+  },
+  "troubleshooting": {
+    "getting-started": [
+      "Si un fichier manque, revenez au navigateur de fichiers et vérifiez l’espace de travail ou le dossier actif.",
+      "Si l’exécution échoue, lisez la première erreur et vérifiez les cellules précédentes ainsi que les bibliothèques requises."
+    ],
+    "notebooks": [
+      "Pour une erreur NameError, exécutez la cellule qui définit le nom manquant.",
+      "Pour FileNotFoundError, vérifiez le dossier de travail et la position du dossier data par rapport au notebook.",
+      "Pour ModuleNotFoundError, vérifiez la disponibilité de la bibliothèque : télécharger un fichier n’installe pas sa bibliothèque Python."
+    ],
+    "ai": [
+      "Si le service est configuré mais pas utilisé, choisissez Use This Provider et vérifiez l’indicateur de service actif.",
+      "En cas d’erreur de connexion ou de clé, corrigez la configuration avant de réessayer une courte demande.",
+      "Les services proposés peuvent dépendre de la région App Store, de votre abonnement et des droits de votre compte chez le fournisseur."
+    ],
+    "models": [
+      "Si un nouveau jeton ou une nouvelle variable n’est pas visible dans Python, redémarrez le noyau.",
+      "Pour une réponse 401 ou 403, vérifiez le jeton et les autorisations du compte sur la ressource.",
+      "Si le téléchargement réussit mais pas le chargement, vérifiez le format, les bibliothèques requises et la mémoire disponible."
+    ],
+    "git": [
+      "Commit enregistre l’historique local ; Push envoie les commits au dépôt distant. Identifiez l’opération qui a échoué.",
+      "Si un envoi est refusé, examinez les modifications distantes et vos droits. N’utilisez pas systématiquement un envoi forcé.",
+      "En cas de conflit, conservez une copie et examinez les fichiers concernés avant d’abandonner des modifications."
+    ],
+    "remote": [
+      "En cas de délai dépassé, vérifiez l’adresse, le port, le réseau et la disponibilité du serveur.",
+      "En cas d’échec d’authentification, vérifiez le nom d’utilisateur et le mot de passe ou la clé privée correspondante.",
+      "Si l’empreinte du serveur change, vérifiez-la par un canal fiable avant de remplacer l’empreinte enregistrée."
+    ],
+    "terminal": [
+      "Touchez la surface du terminal pour lui donner le focus. Un appui prolongé ouvre le menu système de sélection.",
+      "Le terminal local de l’iPad et celui d’un serveur distant n’offrent pas les mêmes commandes ou bibliothèques. Vérifiez lequel est actif."
+    ],
+    "support": [
+      "La restauration utilise le compte Apple de l’achat. Une restauration sans abonnement actif ne crée pas de nouvel abonnement.",
+      "Pour signaler un problème, indiquez la version, l’appareil, les étapes et l’erreur exacte, sans inclure de secrets."
+    ]
+  },
+  "topics": {
+    "getting-started/workspace": {
+      "title": "Se repérer dans Vibeit",
+      "goal": "Repérez le navigateur de fichiers, l’éditeur, les résultats, les réglages et l’assistant IA.",
+      "steps": [
+        {
+          "title": "Ouvrir le menu de l’espace de travail",
+          "body": "Touchez les points de suspension du navigateur de fichiers. Ce menu contient Settings, Example Gallery, Coding Agent et les autres outils de l’espace de travail."
+        },
+        {
+          "title": "Trouver le menu de création et d’importation",
+          "body": "Touchez + pour créer un notebook ou un script, importer des fichiers ou ouvrir un dossier comme projet."
+        },
+        {
+          "title": "Choisir un fichier",
+          "body": "Sélectionnez un notebook ou un script Python pour ouvrir son éditeur. Sur iPhone, revenez au navigateur de fichiers avant d’en choisir un autre."
+        },
+        {
+          "title": "Trouver les réglages utiles",
+          "body": "Ouvrez Settings : AI contient les fournisseurs d’IA, Environment contient HF_TOKEN, Source Control concerne GitHub et Remote les serveurs."
+        }
+      ]
+    },
+    "getting-started/first-run": {
+      "title": "Exécuter votre premier code Python",
+      "goal": "Exécutez une cellule de notebook et un script Python, puis retrouvez leur sortie.",
+      "expected": "Les deux lignes apparaissent dans la zone de résultats, sans trace d’erreur.",
+      "steps": [
+        {
+          "title": "Créer un notebook",
+          "body": "Dans le menu +, choisissez Notebook. Le nouveau notebook s’ouvre dans l’éditeur."
+        },
+        {
+          "title": "Saisir un petit programme",
+          "body": "Touchez la cellule de code et saisissez l’exemple. Conservez les guillemets autour du texte."
+        },
+        {
+          "title": "Exécuter la cellule",
+          "body": "Touchez la commande Run de la cellule. Avec un clavier physique, Commande–Retour exécute la cellule courante."
+        },
+        {
+          "title": "Vérifier le résultat",
+          "body": "La sortie doit contenir Hello, Vibeit! et 2 + 3 = 5. Vous pouvez aussi choisir Script dans le menu + pour exécuter le même code dans un fichier .py."
+        }
+      ]
+    },
+    "getting-started/files": {
+      "title": "Importer, organiser et exporter des fichiers",
+      "goal": "Gardez le notebook et ses données ensemble, puis enregistrez des copies en dehors de Vibeit.",
+      "steps": [
+        {
+          "title": "Importer un fichier ou un dossier",
+          "body": "Choisissez Import from Files pour des fichiers individuels, ou Open Folder as Project pour un dossier de projet. Autorisez l’accès à l’emplacement choisi."
+        },
+        {
+          "title": "Conserver les chemins relatifs",
+          "body": "Placez quickstart.ipynb à côté du dossier data. Si vous déplacez samples.csv hors de ce dossier, modifiez aussi le chemin dans le code."
+        },
+        {
+          "title": "Ouvrir les actions du fichier",
+          "body": "Maintenez le doigt sur un fichier pour afficher ses actions. Vérifiez le fichier et sa destination avant de confirmer un déplacement ou une suppression."
+        },
+        {
+          "title": "Exporter une copie",
+          "body": "Utilisez la commande de partage ou d’exportation du notebook, puis choisissez le format et la destination dans la feuille système. Rouvrez le fichier exporté pour le vérifier."
+        }
+      ]
+    },
+    "getting-started/gallery": {
+      "title": "Découvrir la galerie d’exemples",
+      "goal": "Ouvrez un exemple guidé dans un notebook utilisable et exécutez-le dans l’ordre.",
+      "steps": [
+        {
+          "title": "Ouvrir Example Gallery",
+          "body": "Dans le menu de l’espace de travail, choisissez Example Gallery, puis un exemple correspondant à ce que vous souhaitez apprendre."
+        },
+        {
+          "title": "Vérifier les prérequis",
+          "body": "Lisez les indications concernant le réseau et les bibliothèques avant de l’ouvrir. Certains exemples téléchargent des données ou des modèles lors de la première exécution."
+        },
+        {
+          "title": "Exécuter les cellules dans l’ordre",
+          "body": "Commencez par la première cellule de code. Les cellules suivantes peuvent dépendre de variables ou de fichiers créés précédemment."
+        },
+        {
+          "title": "Essayer une petite modification",
+          "body": "Modifiez une valeur, relancez les cellules concernées et comparez le résultat. Gardez une copie avant d’effectuer des changements plus importants."
+        }
+      ]
+    },
+    "notebooks/cells": {
+      "title": "Utiliser les cellules de code, Markdown et HTML",
+      "goal": "Choisissez le bon type de cellule et passez de la lecture à la modification du contenu enrichi.",
+      "steps": [
+        {
+          "title": "Choisir le type de cellule",
+          "body": "Utilisez une cellule de code pour Python, Markdown pour les explications et une cellule HTML pour le contenu HTML."
+        },
+        {
+          "title": "Modifier le code Python",
+          "body": "Touchez la zone de code et saisissez votre programme. Les cellules de code sont exécutées par le noyau Python du notebook."
+        },
+        {
+          "title": "Modifier le contenu enrichi",
+          "body": "Les cellules Markdown et HTML non vides s’ouvrent sous leur forme rendue. Touchez leur commande de modification pour afficher la source."
+        },
+        {
+          "title": "Terminer la modification",
+          "body": "Utilisez la commande de fin de modification pour retrouver le rendu. La source reste accessible lorsque vous modifiez de nouveau la cellule."
+        }
+      ]
+    },
+    "notebooks/kernel": {
+      "title": "Exécuter, interrompre et redémarrer le noyau",
+      "goal": "Comprenez l’ordre d’exécution, arrêtez une tâche longue et repartez d’un état Python neuf.",
+      "steps": [
+        {
+          "title": "Exécuter la cellule courante",
+          "body": "Exécutez la cellule lorsqu’elle est prête. Si elle utilise des variables définies plus haut, exécutez d’abord les cellules qui les créent."
+        },
+        {
+          "title": "Interrompre une tâche longue",
+          "body": "Utilisez Stop ou Interrupt pendant l’exécution. Attendez que le noyau soit de nouveau inactif avant de lancer une autre tâche.",
+          "iphoneBody": "Sur iPhone, ouvrez le menu à points de suspension du notebook. Interrupt arrête la tâche courante. Restart Kernel redémarre le noyau en conservant les sorties ; Restart and Clear Outputs efface aussi les sorties affichées."
+        },
+        {
+          "title": "Redémarrer avec un état neuf",
+          "body": "Redémarrez le noyau pour effacer les variables en mémoire. Le code enregistré et les sorties déjà affichées sont conservés. Rouvrez l’app pour appliquer des changements dans Environment.",
+          "iphoneBody": "Sur iPhone, ouvrez le menu à points de suspension et choisissez Restart Kernel pour conserver les sorties. Restart and Clear Outputs efface aussi les sorties affichées."
+        },
+        {
+          "title": "Relancer depuis le début",
+          "body": "Après le redémarrage, recréez les variables en exécutant le notebook dans l’ordre. Une erreur NameError signifie souvent qu’une cellule définissant la variable n’a pas été exécutée."
+        }
+      ],
+      "note": "Sous iOS/iPadOS 1.0.1, fermez complètement Vibeit puis rouvrez l’app après avoir modifié Environment. Restart Kernel réinitialise la session Python sans recharger ces réglages enregistrés."
+    },
+    "notebooks/results": {
+      "title": "Lire les tableaux, graphiques et résultats interactifs",
+      "goal": "Retrouvez les sorties à l’endroit où le code s’exécute et manipulez les résultats interactifs pris en charge.",
+      "steps": [
+        {
+          "title": "Commencer par un tableau ou un graphique simple",
+          "body": "Exécutez les cellules de lecture du CSV et de graphique du notebook d’exemple. Chaque résultat apparaît sous la cellule qui l’a produit."
+        },
+        {
+          "title": "Manipuler un résultat interactif",
+          "body": "Utilisez les commandes du résultat interactif. Une vue moléculaire permet de faire tourner la structure par glissement et de zoomer par pincement."
+        },
+        {
+          "title": "Vérifier le lieu d’exécution",
+          "body": "Une sortie locale provient du noyau local ; un notebook distant utilise le serveur sélectionné. Les bibliothèques et le matériel disponibles peuvent différer."
+        },
+        {
+          "title": "Conserver un résultat",
+          "body": "Exportez le notebook ou créez un fichier de sortie depuis Python, puis vérifiez sa présence dans le projet."
+        }
+      ]
+    },
+    "ai/choose-provider": {
+      "title": "Choisir un fournisseur d’IA",
+      "goal": "Choisissez Apple Intelligence ou un service connecté, puis activez le fournisseur que vous avez configuré.",
+      "steps": [
+        {
+          "title": "Ouvrir Model Providers",
+          "body": "Ouvrez Settings → AI. La liste indique les services configurés et le fournisseur actuellement actif."
+        },
+        {
+          "title": "Vérifier les conditions d’Apple Intelligence",
+          "body": "Apple Intelligence exige un appareil compatible et un modèle système prêt. Il n’utilise pas votre compte Claude ou Codex."
+        },
+        {
+          "title": "Choisir un service en ligne si nécessaire",
+          "body": "Les services cloud nécessitent Pro, une connexion réseau et un compte ou un accès API chez le fournisseur. Les choix proposés peuvent dépendre de votre région App Store."
+        },
+        {
+          "title": "Activer le fournisseur configuré",
+          "body": "Ouvrez sa fiche, terminez la configuration et choisissez Use This Provider. Enregistrer les réglages et activer le fournisseur sont deux actions distinctes."
+        }
+      ]
+    },
+    "ai/apple-intelligence": {
+      "title": "Configurer Apple Intelligence",
+      "goal": "Vérifiez la disponibilité du modèle système et activez Apple Intelligence lorsque votre appareil le permet.",
+      "steps": [
+        {
+          "title": "Ouvrir Apple Intelligence",
+          "body": "Dans Settings → AI, ouvrez le fournisseur Apple Intelligence. Aucune clé API tierce n’est nécessaire pour ce modèle système."
+        },
+        {
+          "title": "Préparer le modèle système",
+          "body": "Sur un appareil physique compatible, activez Apple Intelligence dans les réglages système et attendez que son modèle soit prêt."
+        },
+        {
+          "title": "Activer ce fournisseur",
+          "body": "Choisissez Use This Provider pour que l’assistant utilise Apple Intelligence. Vérifiez le fournisseur actif avant d’envoyer une demande."
+        },
+        {
+          "title": "Comprendre un état indisponible",
+          "body": "Si le service est indisponible, vérifiez la compatibilité de l’appareil, la version du système, la langue et la disponibilité du modèle système. L’état du simulateur ne prouve pas la disponibilité sur votre appareil physique."
+        }
+      ]
+    },
+    "ai/codex": {
+      "title": "Se connecter à Codex et charger les modèles",
+      "goal": "Connectez votre compte Codex et choisissez parmi les modèles réellement disponibles pour ce compte.",
+      "steps": [
+        {
+          "title": "Lancer la connexion officielle",
+          "body": "Ouvrez le fournisseur Codex et touchez Sign in with OpenAI Codex. Terminez la connexion et l’autorisation dans le navigateur qui s’ouvre."
+        },
+        {
+          "title": "Revenir dans Vibeit",
+          "body": "Après l’autorisation, revenez dans l’app. Vérifiez qu’un compte connecté est indiqué et attendez la fin du chargement des modèles."
+        },
+        {
+          "title": "Choisir Automatic ou un modèle disponible",
+          "body": "Automatic utilise le catalogue disponible. Un choix explicite conserve votre modèle préféré tant qu’il reste accessible. La liste peut évoluer avec le service et les droits du compte."
+        },
+        {
+          "title": "Actualiser et activer",
+          "body": "Utilisez Refresh Models pour actualiser la liste. Enregistrez les réglages, puis choisissez Use This Provider lorsque vous souhaitez utiliser Codex pour l’assistant."
+        }
+      ]
+    },
+    "ai/claude": {
+      "title": "Configurer Claude avec une clé API",
+      "goal": "Enregistrez une clé API Anthropic et choisissez un modèle Claude.",
+      "steps": [
+        {
+          "title": "Préparer le bon type de clé",
+          "body": "Utilisez une clé API Anthropic issue de la console du fournisseur. Un abonnement à l’app Claude ou un jeton OAuth de Claude Code ne remplace pas cette clé."
+        },
+        {
+          "title": "Saisir la clé dans le champ sécurisé",
+          "body": "Collez la clé dans Anthropic API Key. Ne collez pas vos clés dans les cellules du notebook ou dans les messages de conversation."
+        },
+        {
+          "title": "Actualiser la liste des modèles",
+          "body": "Touchez Refresh Claude Models et choisissez un modèle disponible pour votre compte API."
+        },
+        {
+          "title": "Enregistrer et activer",
+          "body": "Enregistrez la configuration et choisissez Use This Provider. Si un test indique Invalid key, remplacez la clé puis réessayez."
+        }
+      ]
+    },
+    "ai/custom-provider": {
+      "title": "Ajouter un service compatible OpenAI",
+      "goal": "Configurez l’adresse d’API, l’identifiant de modèle et la clé d’un service compatible pris en charge.",
+      "steps": [
+        {
+          "title": "Ajouter un fournisseur",
+          "body": "Choisissez Add a Model Provider, puis le modèle de configuration approprié ou l’option de service compatible personnalisé."
+        },
+        {
+          "title": "Utiliser l’adresse fournie par le service",
+          "body": "Saisissez l’adresse complète d’API attendue par le fournisseur. L’adresse de son site web n’est pas forcément celle de son API."
+        },
+        {
+          "title": "Saisir le modèle exact et la clé",
+          "body": "Utilisez l’identifiant de modèle indiqué dans la documentation du fournisseur et saisissez sa clé API dans le champ sécurisé."
+        },
+        {
+          "title": "Enregistrer, activer et essayer",
+          "body": "Enregistrez et activez le service, puis envoyez une courte demande. Les outils de l’assistant exigent aussi que l’API prenne en charge le protocole d’appel d’outils."
+        }
+      ]
+    },
+    "ai/reasoning": {
+      "title": "Choisir un modèle et un effort de raisonnement",
+      "goal": "Choisissez un niveau d’effort adapté à la tâche sans le confondre avec le thème de l’app.",
+      "note": "Dans l’interface chinoise actuelle, Light peut apparaître sous le libellé 浅色, partagé avec le thème. Ici, il désigne un raisonnement léger et non une couleur.",
+      "steps": [
+        {
+          "title": "Ouvrir l’assistant pour la tâche",
+          "body": "Ouvrez un notebook ou un script, puis Coding Agent. Vérifiez le fournisseur actif et le fichier sur lequel l’assistant doit travailler."
+        },
+        {
+          "title": "Ouvrir le menu de raisonnement",
+          "body": "Touchez la commande d’effort en bas du panneau. Le menu propose Light, Medium, High et Extra High."
+        },
+        {
+          "title": "Commencer par Medium",
+          "body": "Medium convient aux tâches courantes. Light privilégie un traitement plus rapide et ciblé ; High et Extra High demandent davantage d’investigation et de vérification."
+        },
+        {
+          "title": "Tenir compte du fournisseur réel",
+          "body": "Codex adapte le choix aux efforts pris en charge par le modèle et peut revenir à une valeur par défaut compatible. Les autres fournisseurs n’exposent pas nécessairement le même paramètre natif."
+        }
+      ]
+    },
+    "ai/agent": {
+      "title": "Utiliser le contexte, les outils, la mémoire et les compétences",
+      "goal": "Donnez à l’assistant un contexte utile et examinez les actions qu’il propose.",
+      "steps": [
+        {
+          "title": "Commencer par une tâche précise",
+          "body": "Posez une question courte et concrète sur le fichier d’exemple ouvert, par exemple demander une explication du code de lecture du CSV."
+        },
+        {
+          "title": "Contrôler le contexte du fichier",
+          "body": "Dans Settings → AI, examinez Attach Open File to Model. Cette option détermine si le fichier ouvert est envoyé comme contexte au fournisseur actif."
+        },
+        {
+          "title": "Examiner les actions proposées",
+          "body": "Vérifiez les modifications de code et les demandes de confirmation avant de les appliquer ou de les exécuter. Une suggestion ne prouve pas que le code a été exécuté avec succès."
+        },
+        {
+          "title": "Examiner la mémoire",
+          "body": "Ouvrez Manage Memory dans Settings → AI pour consulter, épingler, désactiver ou supprimer les souvenirs enregistrés."
+        },
+        {
+          "title": "Activer les compétences utiles",
+          "body": "Dans Manage Skills, activez uniquement les instructions réutilisables que vous souhaitez proposer à l’assistant."
+        }
+      ]
+    },
+    "models/hugging-face": {
+      "title": "Configurer un jeton Hugging Face",
+      "goal": "Enregistrez un jeton Hugging Face et appliquez-le à un noyau Python nouvellement démarré.",
+      "steps": [
+        {
+          "title": "Ouvrir Environment",
+          "body": "Ouvrez Settings → Environment. Le champ Hugging Face se trouve ici, et non dans la liste des fournisseurs d’IA."
+        },
+        {
+          "title": "Saisir le jeton d’accès",
+          "body": "Utilisez un jeton autorisé à accéder aux ressources nécessaires. Pour un modèle soumis à autorisation, vous devrez aussi obtenir l’accès sur Hugging Face."
+        },
+        {
+          "title": "Fermer et rouvrir Vibeit",
+          "body": "Enregistrez votre travail. Ouvrez le sélecteur d’apps du système, balayez la carte de Vibeit vers le haut pour la fermer, puis touchez son icône pour rouvrir l’app. Revenir seulement à l’écran d’accueil ne redémarre pas l’app."
+        },
+        {
+          "title": "Vérifier la présence et l’autorisation",
+          "body": "Exécutez l’exemple. HF_TOKEN present: True confirme que le noyau dispose du jeton ; Hugging Face authorization: OK confirme que le service l’accepte. L’accès à un modèle soumis à autorisation reste une condition distincte."
+        }
+      ],
+      "note": "Sous iOS/iPadOS 1.0.1, fermez complètement Vibeit puis rouvrez l’app après avoir modifié Environment. Restart Kernel réinitialise la session Python sans recharger ces réglages enregistrés."
+    },
+    "models/downloads": {
+      "title": "Télécharger et gérer les fichiers de modèles",
+      "goal": "Vérifiez le téléchargement d’un petit fichier Hugging Face avant d’essayer un modèle volumineux.",
+      "expected": "Configuration downloaded: True confirme le téléchargement et l’analyse du petit fichier de configuration. Cela ne valide ni l’inférence du modèle ni l’accès à d’autres modèles.",
+      "steps": [
+        {
+          "title": "Vérifier les droits d’accès",
+          "body": "Cet exercice utilise votre jeton enregistré pour vérifier un téléchargement authentifié. Certaines ressources publiques acceptent aussi un accès anonyme ; les ressources privées ou soumises à autorisation exigent les droits du compte en plus d’un jeton valide."
+        },
+        {
+          "title": "Télécharger une petite configuration",
+          "body": "Commencez par le fichier de configuration plutôt que par les poids complets du modèle. Exécutez l’exemple dans une cellule de notebook."
+        },
+        {
+          "title": "Retrouver le cache et les fichiers",
+          "body": "Par défaut, Vibeit place le cache Hugging Face dans le dossier Models. Une variable d’environnement HF_HOME personnalisée peut modifier cet emplacement."
+        },
+        {
+          "title": "Vérifier la compatibilité avant le chargement",
+          "body": "Un téléchargement réussi ne garantit pas que le modèle puisse s’exécuter. Vérifiez la bibliothèque requise, le format, la mémoire disponible et le moteur d’exécution de l’appareil."
+        }
+      ]
+    },
+    "models/environment": {
+      "title": "Définir des variables d’environnement",
+      "goal": "Transmettez la configuration du projet à un nouveau noyau Python et à un nouveau terminal.",
+      "expected": "Le nouveau noyau affiche tutorial.",
+      "steps": [
+        {
+          "title": "Saisir un nom et une valeur",
+          "body": "Pour un exemple sans donnée sensible, saisissez VIBEIT_DEMO comme nom et tutorial comme valeur. Les noms distinguent les majuscules et les minuscules."
+        },
+        {
+          "title": "Ajouter la variable",
+          "body": "Touchez Add Variable et vérifiez que le nom apparaît dans la liste. Les noms contenant TOKEN, KEY, SECRET ou PASSWORD utilisent le stockage sécurisé."
+        },
+        {
+          "title": "Fermer et rouvrir Vibeit",
+          "body": "Enregistrez votre travail. Ouvrez le sélecteur d’apps du système, balayez la carte de Vibeit vers le haut pour la fermer, puis touchez son icône pour rouvrir l’app. Revenir seulement à l’écran d’accueil ne redémarre pas l’app."
+        },
+        {
+          "title": "Vérifier la valeur de démonstration",
+          "body": "Exécutez l’exemple et vérifiez que tutorial s’affiche. Pour un secret, vérifiez seulement sa présence au lieu d’afficher sa valeur."
+        }
+      ],
+      "note": "Sous iOS/iPadOS 1.0.1, fermez complètement Vibeit puis rouvrez l’app après avoir modifié Environment. Restart Kernel réinitialise la session Python sans recharger ces réglages enregistrés."
+    },
+    "models/packages": {
+      "title": "Trouver et installer des bibliothèques Python compatibles",
+      "goal": "Repérez les bibliothèques incluses et installez une bibliothèque supplémentaire compatible.",
+      "steps": [
+        {
+          "title": "Ouvrir le catalogue",
+          "body": "Parcourez les bibliothèques installées et disponibles, ou recherchez leur nom. Les bibliothèques natives fournies sont déjà intégrées à Vibeit."
+        },
+        {
+          "title": "Consulter les détails",
+          "body": "Lisez les versions proposées et le résultat de compatibilité. L’environnement iPad ne peut pas installer toutes les extensions natives d’un ordinateur."
+        },
+        {
+          "title": "Installer une version compatible",
+          "body": "Choisissez une version installable, vérifiez ses dépendances et touchez Install. Attendez la fin avant d’importer la bibliothèque."
+        },
+        {
+          "title": "Tester l’importation",
+          "body": "Effectuez un petit import dans l’environnement où vous avez installé la bibliothèque. Les bibliothèques distantes appartiennent à l’interpréteur sélectionné sur le serveur."
+        }
+      ]
+    },
+    "git/github": {
+      "title": "Se connecter à GitHub",
+      "goal": "Autorisez Vibeit à accéder aux dépôts GitHub permis par votre compte.",
+      "steps": [
+        {
+          "title": "Ouvrir la connexion GitHub",
+          "body": "Dans Settings → Source Control, choisissez Sign in with GitHub."
+        },
+        {
+          "title": "Ouvrir la page de vérification",
+          "body": "Utilisez le bouton de vérification pour ouvrir la page officielle d’autorisation des appareils sur GitHub."
+        },
+        {
+          "title": "Autoriser cet appareil",
+          "body": "Saisissez le code actuel sur GitHub et examinez les droits demandés. Terminez aussi l’autorisation de votre organisation si le dépôt l’exige."
+        },
+        {
+          "title": "Revenir et vérifier la connexion",
+          "body": "Revenez dans Vibeit et vérifiez que GitHub indique une connexion au compte prévu."
+        }
+      ]
+    },
+    "git/clone": {
+      "title": "Cloner et ouvrir un dépôt",
+      "goal": "Créez une copie de travail locale d’un dépôt GitHub.",
+      "steps": [
+        {
+          "title": "Commencer le clonage",
+          "body": "Dans le menu + du navigateur de fichiers, choisissez Clone from GitHub. Connectez-vous d’abord si le dépôt l’exige."
+        },
+        {
+          "title": "Saisir l’adresse du dépôt",
+          "body": "Saisissez owner/repo ou une URL HTTPS GitHub complète. Pour vous entraîner à modifier les fichiers, créez un fork du dépôt d’exemple dans votre compte et saisissez son adresse."
+        },
+        {
+          "title": "Attendre la fin du clonage",
+          "body": "Gardez la connexion disponible jusqu’à la fin du clonage, puis ouvrez le dossier de projet obtenu."
+        },
+        {
+          "title": "Vérifier la copie de travail",
+          "body": "Ouvrez Source Control dans la section Files. Vérifiez la branche et l’historique du dépôt avant de modifier un fichier."
+        }
+      ]
+    },
+    "git/commit": {
+      "title": "Examiner, indexer et valider les modifications",
+      "goal": "Enregistrez une modification vérifiée dans l’historique local du dépôt.",
+      "steps": [
+        {
+          "title": "Examiner le fichier modifié",
+          "body": "Modifiez et enregistrez hello.py, puis ouvrez Source Control. Touchez le fichier modifié pour consulter ses différences."
+        },
+        {
+          "title": "Indexer les changements voulus",
+          "body": "Balayez une ligne de modification pour afficher Stage, ou utilisez Stage All après avoir vérifié tous les fichiers. Unstage retire le fichier du prochain commit sans supprimer ses modifications."
+        },
+        {
+          "title": "Décrire le changement",
+          "body": "Saisissez un message court, par exemple Explain the greeting example. Pour activer Commit, il faut un message et au moins un fichier indexé."
+        },
+        {
+          "title": "Valider et vérifier History",
+          "body": "Touchez Commit et vérifiez que le nouveau message apparaît dans History. L’historique local est enregistré ; le commit n’a pas encore été envoyé sur GitHub."
+        }
+      ]
+    },
+    "git/sync": {
+      "title": "Récupérer et envoyer les commits",
+      "goal": "Récupérez les commits distants dans la copie de travail, puis envoyez vos propres commits.",
+      "steps": [
+        {
+          "title": "Vérifier le dépôt et le compte",
+          "body": "Vérifiez que le projet possède un dépôt distant origin et que votre compte GitHub peut y accéder. Un nouveau dépôt local a besoin d’une adresse distante avant de pouvoir se synchroniser."
+        },
+        {
+          "title": "Récupérer avant de continuer",
+          "body": "Enregistrez et examinez vos modifications, puis touchez Pull. En cas de refus, lisez la raison avant de continuer à modifier les fichiers."
+        },
+        {
+          "title": "Envoyer les commits terminés",
+          "body": "Après un commit local, touchez Push. Enregistrer les fichiers sans commit ne crée pas de commit à envoyer."
+        },
+        {
+          "title": "Vérifier sur GitHub",
+          "body": "Ouvrez la branche correspondante sur GitHub et contrôlez le message du commit et le contenu des fichiers. Dans un espace de travail distant, Git s’exécute sur le serveur avec les identifiants Git de ce serveur."
+        }
+      ]
+    },
+    "git/pull-requests": {
+      "title": "Ouvrir une pull request et résoudre les problèmes de synchronisation",
+      "goal": "Proposez les changements d’une branche déjà envoyée et identifiez les échecs courants de synchronisation.",
+      "note": "Cette version ne possède pas d’éditeur spécialisé pour les conflits de fusion. N’abandonnez pas des fichiers et ne forcez pas un envoi uniquement pour faire disparaître une erreur.",
+      "steps": [
+        {
+          "title": "Préparer une branche distincte",
+          "body": "Préparez la branche de travail avec un outil Git ou un terminal distant, puis envoyez-la. Le panneau actuel affiche la branche mais ne propose pas de bouton pour en créer une."
+        },
+        {
+          "title": "Ouvrir Create Pull Request",
+          "body": "Utilisez la commande de pull request lorsque origin pointe vers GitHub. Vérifiez que la branche source diffère de la branche dans laquelle vous souhaitez intégrer les changements."
+        },
+        {
+          "title": "Décrire et envoyer la proposition",
+          "body": "Saisissez le titre, l’explication et la branche de destination. Vérifiez cette destination avant d’envoyer la proposition."
+        },
+        {
+          "title": "Suivre le lien GitHub obtenu",
+          "body": "Ouvrez la PR créée pour examiner ses changements. Si la synchronisation est refusée ou si les historiques divergent, résolvez le problème avec un outil Git adapté ou le terminal du serveur avant de réessayer."
+        }
+      ]
+    },
+    "remote/ssh": {
+      "title": "Se connecter en SSH avec un mot de passe",
+      "goal": "Enregistrez un profil de serveur, vérifiez son empreinte et ouvrez ses fichiers distants.",
+      "steps": [
+        {
+          "title": "Ajouter un serveur distant",
+          "body": "Dans Locations, choisissez Add Remote Host. Préparez l’adresse du serveur et le nom d’utilisateur SSH."
+        },
+        {
+          "title": "Saisir la connexion",
+          "body": "Choisissez Direct (TCP), puis saisissez l’adresse, le port et le nom d’utilisateur. Utilisez le port réellement configuré ; 22 est le port SSH habituel."
+        },
+        {
+          "title": "Choisir le mot de passe",
+          "body": "Choisissez Password, saisissez le mot de passe SSH et enregistrez le profil. L’enregistrement du formulaire ne prouve pas que le serveur est accessible."
+        },
+        {
+          "title": "Vérifier la clé du serveur",
+          "body": "Choisissez Verify Host Key. Comparez l’empreinte affichée à celle obtenue auprès de l’administrateur ou par un autre canal fiable avant de lui faire confiance."
+        },
+        {
+          "title": "Ouvrir le dossier distant",
+          "body": "Connectez-vous au profil enregistré et vérifiez que la liste des fichiers distants se charge. Ouvrez un petit fichier pour vérifier le droit de lecture."
+        }
+      ]
+    },
+    "remote/keys": {
+      "title": "Se connecter avec une clé privée SSH",
+      "goal": "Configurez une clé privée correspondant à une clé publique autorisée sur le serveur.",
+      "note": "Gardez les clés privées hors des dépôts Git et des exports partagés. Utilisez un dossier local séparé et non partagé ainsi qu’un format de clé pris en charge, Ed25519 ou RSA.",
+      "steps": [
+        {
+          "title": "Choisir SSH Key",
+          "body": "Ajoutez ou modifiez un serveur et choisissez SSH Key. Le serveur doit déjà autoriser la clé publique correspondante pour cet utilisateur."
+        },
+        {
+          "title": "Saisir le chemin local de la clé privée",
+          "body": "Importez le fichier de clé privée dans l’espace de travail local. Copiez le chemin du dossier depuis Settings → Workspace, ajoutez le nom du fichier et saisissez le chemin complet dans Private key path. Ce champ attend un chemin de fichier, ni le contenu de la clé ni un chemin sur le serveur."
+        },
+        {
+          "title": "Saisir la phrase secrète si nécessaire",
+          "body": "Pour une clé chiffrée, saisissez sa phrase secrète. Elle n’est pas nécessairement identique au mot de passe du compte serveur. Enregistrez le profil."
+        },
+        {
+          "title": "Vérifier puis se connecter",
+          "body": "Vérifiez l’empreinte du serveur, puis connectez-vous et ouvrez son dossier. En cas de refus, vérifiez le nom d’utilisateur et la clé publique autorisée correspondante."
+        }
+      ]
+    },
+    "remote/files": {
+      "title": "Gérer les fichiers distants avec SFTP",
+      "goal": "Parcourez et modifiez les fichiers du dossier sélectionné sur le serveur.",
+      "steps": [
+        {
+          "title": "Choisir le serveur connecté",
+          "body": "Sélectionnez le serveur vérifié et attendez sa liste de fichiers. Vérifiez le chemin distant avant toute modification."
+        },
+        {
+          "title": "Ouvrir le dossier du projet",
+          "body": "Entrez dans le dossier et sélectionnez un notebook ou un script. Le travail distant utilise les chemins et les permissions du serveur."
+        },
+        {
+          "title": "Modifier et enregistrer un petit fichier",
+          "body": "Effectuez une petite modification et utilisez la commande d’enregistrement de l’éditeur. Attendez la fin de l’envoi avant de fermer la connexion."
+        },
+        {
+          "title": "Rouvrir pour vérifier",
+          "body": "Actualisez ou rouvrez le fichier pour confirmer que le serveur contient la nouvelle version. Examinez tout avertissement de modification externe avant d’écraser un autre changement."
+        }
+      ]
+    },
+    "remote/python": {
+      "title": "Choisir un environnement Python distant",
+      "goal": "Sélectionnez l’interpréteur du serveur et vérifiez où le script s’exécute.",
+      "steps": [
+        {
+          "title": "Rechercher les environnements",
+          "body": "Ouvrez le panneau Packages distant et actualisez la recherche des environnements. Python et les bibliothèques nécessaires doivent être installés sur le serveur."
+        },
+        {
+          "title": "Sélectionner l’interpréteur",
+          "body": "Choisissez l’environnement Python et vérifiez son chemin. Sélectionnez le bon environnement virtuel au lieu de supposer que toutes les commandes python3 sont identiques."
+        },
+        {
+          "title": "Vérifier ses bibliothèques",
+          "body": "La liste des bibliothèques installées concerne l’interpréteur sélectionné. Installez les dépendances manquantes à cet endroit si vous en avez le droit."
+        },
+        {
+          "title": "Effectuer un petit test",
+          "body": "Exécutez l’exemple à distance et vérifiez le chemin de l’interpréteur ainsi que le système d’exploitation. Un résultat distant utilise le matériel du serveur, pas le GPU de l’iPad."
+        }
+      ]
+    },
+    "remote/cloudflare": {
+      "title": "Configurer Cloudflare Access",
+      "goal": "Connectez Vibeit à une application SSH Cloudflare Access déjà configurée.",
+      "note": "L’autorisation Access et l’authentification SSH sont deux vérifications distinctes. Renouvelez la connexion Access lorsque sa session expire.",
+      "steps": [
+        {
+          "title": "Vérifier la configuration du serveur",
+          "body": "Demandez à l’administrateur le nom d’hôte Access, le domaine d’équipe et l’utilisateur SSH. Le tunnel et la politique Access doivent déjà être configurés."
+        },
+        {
+          "title": "Choisir Cloudflare Access",
+          "body": "Sélectionnez Cloudflare Access et saisissez le nom d’hôte et le domaine d’équipe. Ce mode utilise le nom d’hôte Access plutôt qu’un port SSH direct."
+        },
+        {
+          "title": "Terminer la connexion Access",
+          "body": "Touchez Sign in with Cloudflare Access et terminez la connexion auprès du fournisseur d’identité. Configurez séparément le mot de passe ou la clé SSH."
+        },
+        {
+          "title": "Enregistrer, vérifier et se connecter",
+          "body": "Conservez le nombre de connexions simultanées par défaut, sauf si votre configuration en permet davantage. Enregistrez le profil, vérifiez la clé du serveur et confirmez une connexion réelle aux fichiers."
+        }
+      ]
+    },
+    "terminal/basics": {
+      "title": "Saisir, copier et coller dans le terminal",
+      "goal": "Utilisez directement le terminal et distinguez les commandes locales des commandes distantes.",
+      "steps": [
+        {
+          "title": "Donner le focus au terminal",
+          "body": "Ouvrez le terminal et touchez sa surface. Saisissez les commandes au niveau du curseur clignotant ; ce terminal reçoit directement les frappes du clavier."
+        },
+        {
+          "title": "Exécuter une commande sans risque",
+          "body": "Saisissez pwd et appuyez sur Retour pour afficher le dossier courant. Vérifiez l’emplacement actif avant d’exécuter d’autres commandes."
+        },
+        {
+          "title": "Utiliser le menu système",
+          "body": "Maintenez le doigt sur le texte pour le sélectionner, ajustez les poignées et choisissez Copier. Donnez le focus au terminal et maintenez le doigt pour utiliser Coller lorsque le menu système le propose."
+        },
+        {
+          "title": "Utiliser les raccourcis appropriés",
+          "body": "Avec un clavier physique et une sélection active, utilisez Commande–C et Commande–V pour copier et coller. Contrôle–C interrompt la commande au premier plan ; ce n’est pas le raccourci de copie."
+        },
+        {
+          "title": "Comprendre le terminal distant",
+          "body": "Un terminal distant envoie les commandes au serveur. Le terminal local de l’iPad n’offre pas exactement les mêmes commandes et bibliothèques qu’un ordinateur ou un shell Linux."
+        }
+      ]
+    },
+    "support/plans": {
+      "title": "Comprendre Standard, Pro et les essais",
+      "goal": "Retrouvez vos droits actuels et les abonnements disponibles.",
+      "note": "Les comptes des services d’IA, l’utilisation des API et les coûts des serveurs sont distincts de l’abonnement Vibeit.",
+      "steps": [
+        {
+          "title": "Ouvrir la page du compte",
+          "body": "Dans Settings → Account, consultez l’état de l’abonnement. Les offres et l’éligibilité à l’essai sont celles affichées par l’App Store."
+        },
+        {
+          "title": "Comparer les formules",
+          "body": "Standard couvre le développement local. Pro ajoute les fonctions cloud d’IA et de travail distant prises en charge. Lisez la liste actuelle des fonctions sur l’écran d’achat avant de choisir."
+        },
+        {
+          "title": "Choisir et vérifier la confirmation Apple",
+          "body": "Sélectionnez l’abonnement proposé et vérifiez le prix, la période de facturation et les conditions de renouvellement dans la confirmation d’achat Apple."
+        },
+        {
+          "title": "Vérifier les droits actualisés",
+          "body": "Après un achat réussi, revenez dans l’app et vérifiez la formule active. À la fin d’un essai, choisissez une formule disponible ou restaurez un ancien achat encore valide."
+        }
+      ]
+    },
+    "support/restore": {
+      "title": "Restaurer un achat précédent",
+      "goal": "Demandez à l’App Store d’actualiser les droits d’un abonnement existant.",
+      "steps": [
+        {
+          "title": "Utiliser le compte de l’achat",
+          "body": "Vérifiez que le compte Apple utilisé pour Contenu multimédia et achats est celui qui a acheté Vibeit."
+        },
+        {
+          "title": "Restaurer les achats",
+          "body": "Touchez Restore Purchases et terminez toute demande d’authentification Apple. Attendez le résultat."
+        },
+        {
+          "title": "Lire le résultat",
+          "body": "La restauration d’un abonnement valide doit actualiser la formule active. Un abonnement expiré ou absent ne crée pas de nouveaux droits."
+        },
+        {
+          "title": "Choisir la suite",
+          "body": "Si aucun achat actif n’est trouvé, consultez les formules proposées. Si Apple indique un abonnement actif que Vibeit ne reconnaît pas, envoyez un signalement avec la version et le message d’erreur."
+        }
+      ]
+    },
+    "support/troubleshooting": {
+      "title": "Résoudre et signaler un problème",
+      "goal": "Recueillez les informations utiles et envoyez un signalement depuis les réglages.",
+      "steps": [
+        {
+          "title": "Identifier la fonction concernée",
+          "body": "Notez si le problème concerne Python local, un fournisseur d’IA, Git, un serveur distant ou un achat. Conservez la première erreur et décrivez le résultat attendu."
+        },
+        {
+          "title": "Ouvrir Report an Issue",
+          "body": "Dans Settings, choisissez Report an Issue et donnez au signalement un titre précis."
+        },
+        {
+          "title": "Décrire un exemple reproductible",
+          "body": "Décrivez le problème, les étapes de reproduction, la version et l’appareil. Retirez les jetons, mots de passe, adresses de serveurs privés et données personnelles sans rapport."
+        },
+        {
+          "title": "Envoyer et vérifier le résultat",
+          "body": "Remplissez les champs obligatoires et effectuez la vérification humaine demandée, puis utilisez Submit Report. Vérifiez le résultat ; si l’envoi échoue, utilisez le lien de contact ci-dessous."
+        }
+      ]
+    }
+  }
+}

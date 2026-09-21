@@ -1,0 +1,49 @@
+---
+title: "Examiner, indexer et valider les modifications"
+description: "Enregistrez une modification vérifiée dans l’historique local du dépôt."
+sidebar:
+  order: 3
+---
+
+import ArticleMeta from '../../../../components/ArticleMeta.astro';
+import TutorialSteps from '../../../../components/TutorialSteps.astro';
+
+<ArticleMeta labels={{"copy":"Copier le code","copied":"Copié","tap":"Touchez","longPress":"Maintenez le doigt","swipe":"Balayez","input":"Saisissez ici","verified":"Contenu vérifié le","siteTitle":"Centre d’aide Vibeit","intro":"Apprenez une tâche à la fois grâce à des captures réelles de l’app et à des étapes claires.","version":"Version de l’app","screenshotLanguage":"Langue des captures","device":"Appareil","goal":"Ce que vous allez faire","before":"Avant de commencer","entry":"Point de départ","steps":"Suivez les étapes","expected":"Vérifiez le résultat","troubleshooting":"En cas de problème","next":"Pour continuer","references":"Documentation associée","enlarge":"Agrandir la capture","detail":"Voir la commande de plus près","previousStep":"Précédent","nextStep":"Suivant","close":"Fermer","capturePending":"Les captures de cette page sont encore en préparation. Cet aperçu n’est pas validé pour publication.","examples":"Télécharger le projet d’exemple","note":"À retenir","search":"Que souhaitez-vous faire ?","popular":"Commencez par une tâche courante","all":"Tous les tutoriels","support":"Contacter l’assistance","observe":"Vérifiez le résultat"}} requirement={"Pro"} shotLocale="English" aliases={["commit","stage","diff","提交","暂存","差异"]} />
+
+## Ce que vous allez faire
+
+Enregistrez une modification vérifiée dans l’historique local du dépôt.
+
+## Avant de commencer
+
+- Un abonnement Pro actif. Les abonnements aux services d’IA et les crédits API sont distincts.
+- Un dépôt Git existant. Utilisez le dépôt d’exemple séparé pour vous entraîner.
+
+[Télécharger le projet d’exemple](/vibeit/help/downloads/vibeit-tutorials.zip)
+
+## Point de départ
+
+<div className="entry-path">File browser → Files → Source Control</div>
+
+
+## Suivez les étapes
+
+<TutorialSteps id="git-commit" locale="fr" labels={{"copy":"Copier le code","copied":"Copié","tap":"Touchez","longPress":"Maintenez le doigt","swipe":"Balayez","input":"Saisissez ici","verified":"Contenu vérifié le","siteTitle":"Centre d’aide Vibeit","intro":"Apprenez une tâche à la fois grâce à des captures réelles de l’app et à des étapes claires.","version":"Version de l’app","screenshotLanguage":"Langue des captures","device":"Appareil","goal":"Ce que vous allez faire","before":"Avant de commencer","entry":"Point de départ","steps":"Suivez les étapes","expected":"Vérifiez le résultat","troubleshooting":"En cas de problème","next":"Pour continuer","references":"Documentation associée","enlarge":"Agrandir la capture","detail":"Voir la commande de plus près","previousStep":"Précédent","nextStep":"Suivant","close":"Fermer","capturePending":"Les captures de cette page sont encore en préparation. Cet aperçu n’est pas validé pour publication.","examples":"Télécharger le projet d’exemple","note":"À retenir","search":"Que souhaitez-vous faire ?","popular":"Commencez par une tâche courante","all":"Tous les tutoriels","support":"Contacter l’assistance","observe":"Vérifiez le résultat"}} steps={[{"shot":"S31","target":"primary","title":"Examiner le fichier modifié","body":"Modifiez et enregistrez hello.py, puis ouvrez Source Control. Touchez le fichier modifié pour consulter ses différences."},{"shot":"S31","target":"stage","title":"Indexer les changements voulus","body":"Balayez une ligne de modification pour afficher Stage, ou utilisez Stage All après avoir vérifié tous les fichiers. Unstage retire le fichier du prochain commit sans supprimer ses modifications.","action":"swipe"},{"shot":"S32","target":"message","title":"Décrire le changement","body":"Saisissez un message court, par exemple Explain the greeting example. Pour activer Commit, il faut un message et au moins un fichier indexé.","action":"input"},{"shot":"S32","target":"commit","title":"Valider et vérifier History","body":"Touchez Commit et vérifiez que le nouveau message apparaît dans History. L’historique local est enregistré ; le commit n’a pas encore été envoyé sur GitHub."}]} />
+
+## Vérifiez le résultat
+
+Touchez Commit et vérifiez que le nouveau message apparaît dans History. L’historique local est enregistré ; le commit n’a pas encore été envoyé sur GitHub.
+
+## En cas de problème
+
+- Commit enregistre l’historique local ; Push envoie les commits au dépôt distant. Identifiez l’opération qui a échoué.
+- Si un envoi est refusé, examinez les modifications distantes et vos droits. N’utilisez pas systématiquement un envoi forcé.
+- En cas de conflit, conservez une copie et examinez les fichiers concernés avant d’abandonner des modifications.
+
+## Pour continuer
+
+- [Récupérer et envoyer les commits](/vibeit/help/fr/git/sync/)
+- [Ouvrir une pull request et résoudre les problèmes de synchronisation](/vibeit/help/fr/git/pull-requests/)
+
+
+[Contacter l’assistance](https://www.mecury.co.uk/vibeit/contact.html)

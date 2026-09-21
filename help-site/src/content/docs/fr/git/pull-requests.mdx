@@ -1,0 +1,53 @@
+---
+title: "Ouvrir une pull request et résoudre les problèmes de synchronisation"
+description: "Proposez les changements d’une branche déjà envoyée et identifiez les échecs courants de synchronisation."
+sidebar:
+  order: 5
+---
+
+import ArticleMeta from '../../../../components/ArticleMeta.astro';
+import TutorialSteps from '../../../../components/TutorialSteps.astro';
+
+<ArticleMeta labels={{"copy":"Copier le code","copied":"Copié","tap":"Touchez","longPress":"Maintenez le doigt","swipe":"Balayez","input":"Saisissez ici","verified":"Contenu vérifié le","siteTitle":"Centre d’aide Vibeit","intro":"Apprenez une tâche à la fois grâce à des captures réelles de l’app et à des étapes claires.","version":"Version de l’app","screenshotLanguage":"Langue des captures","device":"Appareil","goal":"Ce que vous allez faire","before":"Avant de commencer","entry":"Point de départ","steps":"Suivez les étapes","expected":"Vérifiez le résultat","troubleshooting":"En cas de problème","next":"Pour continuer","references":"Documentation associée","enlarge":"Agrandir la capture","detail":"Voir la commande de plus près","previousStep":"Précédent","nextStep":"Suivant","close":"Fermer","capturePending":"Les captures de cette page sont encore en préparation. Cet aperçu n’est pas validé pour publication.","examples":"Télécharger le projet d’exemple","note":"À retenir","search":"Que souhaitez-vous faire ?","popular":"Commencez par une tâche courante","all":"Tous les tutoriels","support":"Contacter l’assistance","observe":"Vérifiez le résultat"}} requirement={"Pro"} shotLocale="English" aliases={[]} />
+
+## Ce que vous allez faire
+
+Proposez les changements d’une branche déjà envoyée et identifiez les échecs courants de synchronisation.
+
+## Avant de commencer
+
+- Un abonnement Pro actif. Les abonnements aux services d’IA et les crédits API sont distincts.
+- Une connexion permettant d’accéder au service ou au téléchargement utilisé dans ce tutoriel.
+- Un dépôt Git existant. Utilisez le dépôt d’exemple séparé pour vous entraîner.
+
+[Télécharger le projet d’exemple](/vibeit/help/downloads/vibeit-tutorials.zip)
+
+## Point de départ
+
+<div className="entry-path">Source Control → Create Pull Request</div>
+
+:::note[À retenir]
+Cette version ne possède pas d’éditeur spécialisé pour les conflits de fusion. N’abandonnez pas des fichiers et ne forcez pas un envoi uniquement pour faire disparaître une erreur.
+:::
+
+## Suivez les étapes
+
+<TutorialSteps id="git-pull-requests" locale="fr" labels={{"copy":"Copier le code","copied":"Copié","tap":"Touchez","longPress":"Maintenez le doigt","swipe":"Balayez","input":"Saisissez ici","verified":"Contenu vérifié le","siteTitle":"Centre d’aide Vibeit","intro":"Apprenez une tâche à la fois grâce à des captures réelles de l’app et à des étapes claires.","version":"Version de l’app","screenshotLanguage":"Langue des captures","device":"Appareil","goal":"Ce que vous allez faire","before":"Avant de commencer","entry":"Point de départ","steps":"Suivez les étapes","expected":"Vérifiez le résultat","troubleshooting":"En cas de problème","next":"Pour continuer","references":"Documentation associée","enlarge":"Agrandir la capture","detail":"Voir la commande de plus près","previousStep":"Précédent","nextStep":"Suivant","close":"Fermer","capturePending":"Les captures de cette page sont encore en préparation. Cet aperçu n’est pas validé pour publication.","examples":"Télécharger le projet d’exemple","note":"À retenir","search":"Que souhaitez-vous faire ?","popular":"Commencez par une tâche courante","all":"Tous les tutoriels","support":"Contacter l’assistance","observe":"Vérifiez le résultat"}} steps={[{"shot":"S32","target":"primary","title":"Préparer une branche distincte","body":"Préparez la branche de travail avec un outil Git ou un terminal distant, puis envoyez-la. Le panneau actuel affiche la branche mais ne propose pas de bouton pour en créer une."},{"shot":"S33","target":"primary","title":"Ouvrir Create Pull Request","body":"Utilisez la commande de pull request lorsque origin pointe vers GitHub. Vérifiez que la branche source diffère de la branche dans laquelle vous souhaitez intégrer les changements."},{"shot":"S33","target":"title","title":"Décrire et envoyer la proposition","body":"Saisissez le titre, l’explication et la branche de destination. Vérifiez cette destination avant d’envoyer la proposition.","action":"input"},{"shot":"S33-result","target":"primary","title":"Suivre le lien GitHub obtenu","body":"Ouvrez la PR créée pour examiner ses changements. Si la synchronisation est refusée ou si les historiques divergent, résolvez le problème avec un outil Git adapté ou le terminal du serveur avant de réessayer.","action":"observe"}]} />
+
+## Vérifiez le résultat
+
+Ouvrez la PR créée pour examiner ses changements. Si la synchronisation est refusée ou si les historiques divergent, résolvez le problème avec un outil Git adapté ou le terminal du serveur avant de réessayer.
+
+## En cas de problème
+
+- Commit enregistre l’historique local ; Push envoie les commits au dépôt distant. Identifiez l’opération qui a échoué.
+- Si un envoi est refusé, examinez les modifications distantes et vos droits. N’utilisez pas systématiquement un envoi forcé.
+- En cas de conflit, conservez une copie et examinez les fichiers concernés avant d’abandonner des modifications.
+
+## Pour continuer
+
+- [Récupérer et envoyer les commits](/vibeit/help/fr/git/sync/)
+- [Saisir, copier et coller dans le terminal](/vibeit/help/fr/terminal/basics/)
+
+
+[Contacter l’assistance](https://www.mecury.co.uk/vibeit/contact.html)

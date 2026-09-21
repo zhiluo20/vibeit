@@ -1,0 +1,50 @@
+---
+title: "Manage remote files with SFTP"
+description: "Browse and edit files in the selected server directory."
+sidebar:
+  order: 3
+---
+
+import ArticleMeta from '../../../components/ArticleMeta.astro';
+import TutorialSteps from '../../../components/TutorialSteps.astro';
+
+<ArticleMeta labels={{"observe":"Check the result","copy":"Copy code","copied":"Copied","tap":"Tap","longPress":"Touch and hold","swipe":"Swipe","input":"Type here","verified":"Content checked","siteTitle":"Vibeit Help Center","intro":"Learn one task at a time, with real app screenshots and clear steps.","version":"App version","screenshotLanguage":"Screenshot UI","device":"Device","goal":"What you will do","before":"Before you start","entry":"Where to start","steps":"Follow the steps","expected":"Check the result","troubleshooting":"If it does not work","next":"Next steps","references":"Related reference","enlarge":"Enlarge screenshot","detail":"See the control up close","previousStep":"Previous","nextStep":"Next","close":"Close","capturePending":"Screenshot capture is in progress for this preview. This page is not approved for publication.","examples":"Download the tutorial workspace","note":"Keep in mind","search":"What would you like to do?","popular":"Start with a common task","all":"Browse all tutorials","support":"Contact support"}} requirement={"Pro"} shotLocale="English" aliases={[]} />
+
+## What you will do
+
+Browse and edit files in the selected server directory.
+
+## Before you start
+
+- An active Pro subscription. Third-party AI subscriptions and API credits are separate.
+- A working internet connection for the service or download used in this tutorial.
+- A reachable SSH server, its hostname/port, a username, and the authentication method you are authorized to use.
+
+[Download the tutorial workspace](/vibeit/help/downloads/vibeit-tutorials.zip)
+
+## Where to start
+
+<div className="entry-path">Locations → saved host → remote file browser</div>
+
+
+## Follow the steps
+
+<TutorialSteps id="remote-files" locale="en" labels={{"observe":"Check the result","copy":"Copy code","copied":"Copied","tap":"Tap","longPress":"Touch and hold","swipe":"Swipe","input":"Type here","verified":"Content checked","siteTitle":"Vibeit Help Center","intro":"Learn one task at a time, with real app screenshots and clear steps.","version":"App version","screenshotLanguage":"Screenshot UI","device":"Device","goal":"What you will do","before":"Before you start","entry":"Where to start","steps":"Follow the steps","expected":"Check the result","troubleshooting":"If it does not work","next":"Next steps","references":"Related reference","enlarge":"Enlarge screenshot","detail":"See the control up close","previousStep":"Previous","nextStep":"Next","close":"Close","capturePending":"Screenshot capture is in progress for this preview. This page is not approved for publication.","examples":"Download the tutorial workspace","note":"Keep in mind","search":"What would you like to do?","popular":"Start with a common task","all":"Browse all tutorials","support":"Contact support"}} steps={[{"shot":"S38","target":"primary","title":"Choose the connected host","body":"Select the verified host and wait for its file list. Confirm the remote path before editing."},{"shot":"S38","target":"folder","title":"Open the project directory","body":"Enter the project folder and select a notebook or script. Remote work uses server paths and permissions."},{"shot":"S38","target":"file","title":"Edit and save a small file","body":"Make a small change and use the editor’s save action. Wait for the upload to finish before closing the connection."},{"shot":"S38","target":"status","title":"Reopen to verify the saved content","body":"Refresh or reopen the file to confirm the server has the saved version. Resolve any external-change warning before overwriting another edit."}]} />
+
+## Check the result
+
+Refresh or reopen the file to confirm the server has the saved version. Resolve any external-change warning before overwriting another edit.
+
+## If it does not work
+
+- For a timeout, check the host, port, network route and server availability.
+- For authentication failures, check the username and matching password or private key.
+- If the host fingerprint changes, verify it through a trusted channel before replacing the saved fingerprint.
+
+## Next steps
+
+- [Choose a remote Python environment](/vibeit/help/remote/python/)
+- [Pull and push repository changes](/vibeit/help/git/sync/)
+
+
+[Contact support](https://www.mecury.co.uk/vibeit/contact.html)

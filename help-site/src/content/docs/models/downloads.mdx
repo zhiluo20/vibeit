@@ -1,0 +1,50 @@
+---
+title: "Download and manage model files"
+description: "Verify a small Hugging Face download before trying a large model."
+sidebar:
+  order: 2
+---
+
+import ArticleMeta from '../../../components/ArticleMeta.astro';
+import TutorialSteps from '../../../components/TutorialSteps.astro';
+
+<ArticleMeta labels={{"observe":"Check the result","copy":"Copy code","copied":"Copied","tap":"Tap","longPress":"Touch and hold","swipe":"Swipe","input":"Type here","verified":"Content checked","siteTitle":"Vibeit Help Center","intro":"Learn one task at a time, with real app screenshots and clear steps.","version":"App version","screenshotLanguage":"Screenshot UI","device":"Device","goal":"What you will do","before":"Before you start","entry":"Where to start","steps":"Follow the steps","expected":"Check the result","troubleshooting":"If it does not work","next":"Next steps","references":"Related reference","enlarge":"Enlarge screenshot","detail":"See the control up close","previousStep":"Previous","nextStep":"Next","close":"Close","capturePending":"Screenshot capture is in progress for this preview. This page is not approved for publication.","examples":"Download the tutorial workspace","note":"Keep in mind","search":"What would you like to do?","popular":"Start with a common task","all":"Browse all tutorials","support":"Contact support"}} requirement={"Standard / Pro"} shotLocale="English" aliases={[]} />
+
+## What you will do
+
+Verify a small Hugging Face download before trying a large model.
+
+## Before you start
+
+- An active Standard or Pro subscription, or an eligible trial.
+- A working internet connection for the service or download used in this tutorial.
+- A Hugging Face account and a token with the required resource permissions, if the resource requires authentication.
+
+[Download the tutorial workspace](/vibeit/help/downloads/vibeit-tutorials.zip)
+
+## Where to start
+
+<div className="entry-path">Notebook → huggingface_hub</div>
+
+
+## Follow the steps
+
+<TutorialSteps id="models-downloads" locale="en" labels={{"observe":"Check the result","copy":"Copy code","copied":"Copied","tap":"Tap","longPress":"Touch and hold","swipe":"Swipe","input":"Type here","verified":"Content checked","siteTitle":"Vibeit Help Center","intro":"Learn one task at a time, with real app screenshots and clear steps.","version":"App version","screenshotLanguage":"Screenshot UI","device":"Device","goal":"What you will do","before":"Before you start","entry":"Where to start","steps":"Follow the steps","expected":"Check the result","troubleshooting":"If it does not work","next":"Next steps","references":"Related reference","enlarge":"Enlarge screenshot","detail":"See the control up close","previousStep":"Previous","nextStep":"Next","close":"Close","capturePending":"Screenshot capture is in progress for this preview. This page is not approved for publication.","examples":"Download the tutorial workspace","note":"Keep in mind","search":"What would you like to do?","popular":"Start with a common task","all":"Browse all tutorials","support":"Contact support"}} steps={[{"shot":"S24","target":"primary","title":"Check access requirements first","body":"This exercise uses your saved token to verify an authenticated download. Public resources may also allow anonymous access; private or gated resources need account permissions as well as a valid token."},{"shot":"S26","target":"primary","title":"Download a small configuration file","body":"Start with a configuration file instead of full weights. Run the example in a notebook cell.","code":"import json\ntry:\n    from huggingface_hub import hf_hub_download\n    path = hf_hub_download(\"google-bert/bert-base-uncased\", \"config.json\",\n                           token=True, force_download=True)\n    with open(path) as config_file:\n        config = json.load(config_file)\n    print(\"Configuration downloaded:\", config.get(\"model_type\") == \"bert\")\nexcept Exception as error:\n    status = getattr(getattr(error, \"response\", None), \"status_code\", None)\n    print(\"Download error:\", type(error).__name__, \"HTTP:\", status)\n","action":"observe"},{"shot":"S26","target":"files","title":"Find the cache and downloaded files","body":"Vibeit places its default Hugging Face cache in the Models directory. A custom HF_HOME environment value can change that location."},{"shot":"S27","target":"primary","title":"Check compatibility before loading weights","body":"A successful download does not guarantee the model can run. Check the required package, model format, available memory and device backend."}]} />
+
+## Check the result
+
+Configuration downloaded: True confirms that the small configuration file was downloaded and parsed. It does not verify model inference or access to other models.
+
+## If it does not work
+
+- If a newly saved token or environment value is not visible to Python, restart the kernel.
+- For 401/403 responses, check the token and the resource’s account permissions.
+- If a file downloads but does not load, check its format, required packages and available memory.
+
+## Next steps
+
+- [Configure a Hugging Face token](/vibeit/help/models/hugging-face/)
+- [Find and install compatible Python packages](/vibeit/help/models/packages/)
+
+
+[Contact support](https://www.mecury.co.uk/vibeit/contact.html)

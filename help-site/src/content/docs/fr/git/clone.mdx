@@ -1,0 +1,52 @@
+---
+title: "Cloner et ouvrir un dépôt"
+description: "Créez une copie de travail locale d’un dépôt GitHub."
+sidebar:
+  order: 2
+---
+
+import ArticleMeta from '../../../../components/ArticleMeta.astro';
+import TutorialSteps from '../../../../components/TutorialSteps.astro';
+
+<ArticleMeta labels={{"copy":"Copier le code","copied":"Copié","tap":"Touchez","longPress":"Maintenez le doigt","swipe":"Balayez","input":"Saisissez ici","verified":"Contenu vérifié le","siteTitle":"Centre d’aide Vibeit","intro":"Apprenez une tâche à la fois grâce à des captures réelles de l’app et à des étapes claires.","version":"Version de l’app","screenshotLanguage":"Langue des captures","device":"Appareil","goal":"Ce que vous allez faire","before":"Avant de commencer","entry":"Point de départ","steps":"Suivez les étapes","expected":"Vérifiez le résultat","troubleshooting":"En cas de problème","next":"Pour continuer","references":"Documentation associée","enlarge":"Agrandir la capture","detail":"Voir la commande de plus près","previousStep":"Précédent","nextStep":"Suivant","close":"Fermer","capturePending":"Les captures de cette page sont encore en préparation. Cet aperçu n’est pas validé pour publication.","examples":"Télécharger le projet d’exemple","note":"À retenir","search":"Que souhaitez-vous faire ?","popular":"Commencez par une tâche courante","all":"Tous les tutoriels","support":"Contacter l’assistance","observe":"Vérifiez le résultat"}} requirement={"Pro"} shotLocale="English" aliases={[]} />
+
+## Ce que vous allez faire
+
+Créez une copie de travail locale d’un dépôt GitHub.
+
+## Avant de commencer
+
+- Un abonnement Pro actif. Les abonnements aux services d’IA et les crédits API sont distincts.
+- Une connexion permettant d’accéder au service ou au téléchargement utilisé dans ce tutoriel.
+
+[Télécharger le projet d’exemple](/vibeit/help/downloads/vibeit-tutorials.zip)
+
+## Point de départ
+
+<div className="entry-path">File browser → + → Clone from GitHub</div>
+
+
+## Suivez les étapes
+
+<TutorialSteps id="git-clone" locale="fr" labels={{"copy":"Copier le code","copied":"Copié","tap":"Touchez","longPress":"Maintenez le doigt","swipe":"Balayez","input":"Saisissez ici","verified":"Contenu vérifié le","siteTitle":"Centre d’aide Vibeit","intro":"Apprenez une tâche à la fois grâce à des captures réelles de l’app et à des étapes claires.","version":"Version de l’app","screenshotLanguage":"Langue des captures","device":"Appareil","goal":"Ce que vous allez faire","before":"Avant de commencer","entry":"Point de départ","steps":"Suivez les étapes","expected":"Vérifiez le résultat","troubleshooting":"En cas de problème","next":"Pour continuer","references":"Documentation associée","enlarge":"Agrandir la capture","detail":"Voir la commande de plus près","previousStep":"Précédent","nextStep":"Suivant","close":"Fermer","capturePending":"Les captures de cette page sont encore en préparation. Cet aperçu n’est pas validé pour publication.","examples":"Télécharger le projet d’exemple","note":"À retenir","search":"Que souhaitez-vous faire ?","popular":"Commencez par une tâche courante","all":"Tous les tutoriels","support":"Contacter l’assistance","observe":"Vérifiez le résultat"}} steps={[{"shot":"S30","target":"primary","title":"Commencer le clonage","body":"Dans le menu + du navigateur de fichiers, choisissez Clone from GitHub. Connectez-vous d’abord si le dépôt l’exige."},{"shot":"S30","target":"repository","title":"Saisir l’adresse du dépôt","body":"Saisissez owner/repo ou une URL HTTPS GitHub complète. Pour vous entraîner à modifier les fichiers, créez un fork du dépôt d’exemple dans votre compte et saisissez son adresse."},{"shot":"S30","target":"clone","title":"Attendre la fin du clonage","body":"Gardez la connexion disponible jusqu’à la fin du clonage, puis ouvrez le dossier de projet obtenu."},{"shot":"S31-clean","target":"primary","title":"Vérifier la copie de travail","body":"Ouvrez Source Control dans la section Files. Vérifiez la branche et l’historique du dépôt avant de modifier un fichier."}]} />
+
+## Vérifiez le résultat
+
+Ouvrez Source Control dans la section Files. Vérifiez la branche et l’historique du dépôt avant de modifier un fichier.
+
+## En cas de problème
+
+- Commit enregistre l’historique local ; Push envoie les commits au dépôt distant. Identifiez l’opération qui a échoué.
+- Si un envoi est refusé, examinez les modifications distantes et vos droits. N’utilisez pas systématiquement un envoi forcé.
+- En cas de conflit, conservez une copie et examinez les fichiers concernés avant d’abandonner des modifications.
+
+## Pour continuer
+
+- [Examiner, indexer et valider les modifications](/vibeit/help/fr/git/commit/)
+- [Récupérer et envoyer les commits](/vibeit/help/fr/git/sync/)
+
+## Documentation associée
+
+- [Tutorial repository](https://github.com/zhiluo20/vibeit-tutorials)
+
+[Contacter l’assistance](https://www.mecury.co.uk/vibeit/contact.html)

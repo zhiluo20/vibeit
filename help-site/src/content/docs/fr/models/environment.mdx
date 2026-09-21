@@ -1,0 +1,54 @@
+---
+title: "Définir des variables d’environnement"
+description: "Transmettez la configuration du projet à un nouveau noyau Python et à un nouveau terminal."
+sidebar:
+  order: 3
+---
+
+import ArticleMeta from '../../../../components/ArticleMeta.astro';
+import TutorialSteps from '../../../../components/TutorialSteps.astro';
+
+<ArticleMeta labels={{"copy":"Copier le code","copied":"Copié","tap":"Touchez","longPress":"Maintenez le doigt","swipe":"Balayez","input":"Saisissez ici","verified":"Contenu vérifié le","siteTitle":"Centre d’aide Vibeit","intro":"Apprenez une tâche à la fois grâce à des captures réelles de l’app et à des étapes claires.","version":"Version de l’app","screenshotLanguage":"Langue des captures","device":"Appareil","goal":"Ce que vous allez faire","before":"Avant de commencer","entry":"Point de départ","steps":"Suivez les étapes","expected":"Vérifiez le résultat","troubleshooting":"En cas de problème","next":"Pour continuer","references":"Documentation associée","enlarge":"Agrandir la capture","detail":"Voir la commande de plus près","previousStep":"Précédent","nextStep":"Suivant","close":"Fermer","capturePending":"Les captures de cette page sont encore en préparation. Cet aperçu n’est pas validé pour publication.","examples":"Télécharger le projet d’exemple","note":"À retenir","search":"Que souhaitez-vous faire ?","popular":"Commencez par une tâche courante","all":"Tous les tutoriels","support":"Contacter l’assistance","observe":"Vérifiez le résultat"}} requirement={"Standard / Pro"} shotLocale="English" aliases={[]} />
+
+## Ce que vous allez faire
+
+Transmettez la configuration du projet à un nouveau noyau Python et à un nouveau terminal.
+
+## Avant de commencer
+
+- Un abonnement Standard ou Pro actif, ou une période d’essai éligible.
+
+[Télécharger le projet d’exemple](/vibeit/help/downloads/vibeit-tutorials.zip)
+
+## Point de départ
+
+<div className="entry-path">Settings → Environment → Environment Variables</div>
+
+:::note[À retenir]
+Sous iOS/iPadOS 1.0.1, fermez complètement Vibeit puis rouvrez l’app après avoir modifié Environment. Restart Kernel réinitialise la session Python sans recharger ces réglages enregistrés.
+:::
+
+## Suivez les étapes
+
+<TutorialSteps id="models-environment" locale="fr" labels={{"copy":"Copier le code","copied":"Copié","tap":"Touchez","longPress":"Maintenez le doigt","swipe":"Balayez","input":"Saisissez ici","verified":"Contenu vérifié le","siteTitle":"Centre d’aide Vibeit","intro":"Apprenez une tâche à la fois grâce à des captures réelles de l’app et à des étapes claires.","version":"Version de l’app","screenshotLanguage":"Langue des captures","device":"Appareil","goal":"Ce que vous allez faire","before":"Avant de commencer","entry":"Point de départ","steps":"Suivez les étapes","expected":"Vérifiez le résultat","troubleshooting":"En cas de problème","next":"Pour continuer","references":"Documentation associée","enlarge":"Agrandir la capture","detail":"Voir la commande de plus près","previousStep":"Précédent","nextStep":"Suivant","close":"Fermer","capturePending":"Les captures de cette page sont encore en préparation. Cet aperçu n’est pas validé pour publication.","examples":"Télécharger le projet d’exemple","note":"À retenir","search":"Que souhaitez-vous faire ?","popular":"Commencez par une tâche courante","all":"Tous les tutoriels","support":"Contacter l’assistance","observe":"Vérifiez le résultat"}} steps={[{"shot":"S24","target":"newKey","title":"Saisir un nom et une valeur","body":"Pour un exemple sans donnée sensible, saisissez VIBEIT_DEMO comme nom et tutorial comme valeur. Les noms distinguent les majuscules et les minuscules.","action":"input"},{"shot":"S24","target":"add","title":"Ajouter la variable","body":"Touchez Add Variable et vérifiez que le nom apparaît dans la liste. Les noms contenant TOKEN, KEY, SECRET ou PASSWORD utilisent le stockage sécurisé."},{"shot":"S09-relaunch","target":"primary","title":"Fermer et rouvrir Vibeit","body":"Enregistrez votre travail. Ouvrez le sélecteur d’apps du système, balayez la carte de Vibeit vers le haut pour la fermer, puis touchez son icône pour rouvrir l’app. Revenir seulement à l’écran d’accueil ne redémarre pas l’app.","action":"tap"},{"shot":"S25-environment","target":"primary","title":"Vérifier la valeur de démonstration","body":"Exécutez l’exemple et vérifiez que tutorial s’affiche. Pour un secret, vérifiez seulement sa présence au lieu d’afficher sa valeur.","code":"import os\nprint(os.environ.get(\"VIBEIT_DEMO\"))","action":"observe"}]} />
+
+## Vérifiez le résultat
+
+Le nouveau noyau affiche tutorial.
+
+## En cas de problème
+
+- Si un nouveau jeton ou une nouvelle variable n’est pas visible dans Python, redémarrez le noyau.
+- Pour une réponse 401 ou 403, vérifiez le jeton et les autorisations du compte sur la ressource.
+- Si le téléchargement réussit mais pas le chargement, vérifiez le format, les bibliothèques requises et la mémoire disponible.
+
+## Pour continuer
+
+- [Configurer un jeton Hugging Face](/vibeit/help/fr/models/hugging-face/)
+- [Saisir, copier et coller dans le terminal](/vibeit/help/fr/terminal/basics/)
+
+## Documentation associée
+
+- [Apple: quit and reopen an app](https://support.apple.com/en-ae/guide/ipad/ipad79518d15/ipados)
+
+[Contacter l’assistance](https://www.mecury.co.uk/vibeit/contact.html)

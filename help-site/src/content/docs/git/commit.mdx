@@ -1,0 +1,49 @@
+---
+title: "Review, stage and commit changes"
+description: "Save a reviewed change in your repository’s local history."
+sidebar:
+  order: 3
+---
+
+import ArticleMeta from '../../../components/ArticleMeta.astro';
+import TutorialSteps from '../../../components/TutorialSteps.astro';
+
+<ArticleMeta labels={{"observe":"Check the result","copy":"Copy code","copied":"Copied","tap":"Tap","longPress":"Touch and hold","swipe":"Swipe","input":"Type here","verified":"Content checked","siteTitle":"Vibeit Help Center","intro":"Learn one task at a time, with real app screenshots and clear steps.","version":"App version","screenshotLanguage":"Screenshot UI","device":"Device","goal":"What you will do","before":"Before you start","entry":"Where to start","steps":"Follow the steps","expected":"Check the result","troubleshooting":"If it does not work","next":"Next steps","references":"Related reference","enlarge":"Enlarge screenshot","detail":"See the control up close","previousStep":"Previous","nextStep":"Next","close":"Close","capturePending":"Screenshot capture is in progress for this preview. This page is not approved for publication.","examples":"Download the tutorial workspace","note":"Keep in mind","search":"What would you like to do?","popular":"Start with a common task","all":"Browse all tutorials","support":"Contact support"}} requirement={"Pro"} shotLocale="English" aliases={["commit","stage","diff","提交","暂存","差异"]} />
+
+## What you will do
+
+Save a reviewed change in your repository’s local history.
+
+## Before you start
+
+- An active Pro subscription. Third-party AI subscriptions and API credits are separate.
+- An existing Git repository. Use the separate tutorial repository for practice.
+
+[Download the tutorial workspace](/vibeit/help/downloads/vibeit-tutorials.zip)
+
+## Where to start
+
+<div className="entry-path">File browser → Files → Source Control</div>
+
+
+## Follow the steps
+
+<TutorialSteps id="git-commit" locale="en" labels={{"observe":"Check the result","copy":"Copy code","copied":"Copied","tap":"Tap","longPress":"Touch and hold","swipe":"Swipe","input":"Type here","verified":"Content checked","siteTitle":"Vibeit Help Center","intro":"Learn one task at a time, with real app screenshots and clear steps.","version":"App version","screenshotLanguage":"Screenshot UI","device":"Device","goal":"What you will do","before":"Before you start","entry":"Where to start","steps":"Follow the steps","expected":"Check the result","troubleshooting":"If it does not work","next":"Next steps","references":"Related reference","enlarge":"Enlarge screenshot","detail":"See the control up close","previousStep":"Previous","nextStep":"Next","close":"Close","capturePending":"Screenshot capture is in progress for this preview. This page is not approved for publication.","examples":"Download the tutorial workspace","note":"Keep in mind","search":"What would you like to do?","popular":"Start with a common task","all":"Browse all tutorials","support":"Contact support"}} steps={[{"shot":"S31","target":"primary","title":"Review the changed file","body":"Edit and save hello.py, then open Source Control. Tap the changed file to read its diff."},{"shot":"S31","target":"stage","title":"Stage only the intended changes","body":"Swipe a change row to reveal Stage, or use Stage All after reviewing every file. Unstage removes a file from the next commit without deleting the edit.","action":"swipe"},{"shot":"S32","target":"message","title":"Describe the change","body":"Enter a short message such as Explain the greeting example. The commit button needs a message and at least one staged file.","action":"input"},{"shot":"S32","target":"commit","title":"Commit and check History","body":"Tap Commit. Confirm the new message appears in History. This records local history; it has not yet sent the commit to GitHub."}]} />
+
+## Check the result
+
+Tap Commit. Confirm the new message appears in History. This records local history; it has not yet sent the commit to GitHub.
+
+## If it does not work
+
+- Commit records local history; Push sends commits to the remote. Check which operation failed.
+- For rejected pushes, inspect the remote changes and your permissions. Do not use a force push as a routine fix.
+- If changes conflict, keep a copy and review the affected files before discarding anything.
+
+## Next steps
+
+- [Pull and push repository changes](/vibeit/help/git/sync/)
+- [Open a pull request and resolve sync problems](/vibeit/help/git/pull-requests/)
+
+
+[Contact support](https://www.mecury.co.uk/vibeit/contact.html)

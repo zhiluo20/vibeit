@@ -1,0 +1,50 @@
+---
+title: "拉取與推送倉庫改動"
+description: "把遠程提交取回工作副本，並把自己的提交發送到遠程。"
+sidebar:
+  order: 4
+---
+
+import ArticleMeta from '../../../../components/ArticleMeta.astro';
+import TutorialSteps from '../../../../components/TutorialSteps.astro';
+
+<ArticleMeta labels={{"observe":"查看結果","copy":"複製代碼","copied":"已複製","tap":"點擊","longPress":"長按並保持","swipe":"滑動","input":"在此輸入","verified":"內容核對日期","siteTitle":"Vibeit 使用手冊","intro":"通過真實 App 截圖和清晰步驟，一次學會一個任務。","version":"適用版本","screenshotLanguage":"截圖界面","device":"設備","goal":"你將完成什麼","before":"開始前準備","entry":"從哪裡進入","steps":"逐步操作","expected":"核對結果","troubleshooting":"如果沒有成功","next":"下一步","references":"相關資料","enlarge":"放大截圖","detail":"放大查看操作位置","previousStep":"上一步","nextStep":"下一步","close":"關閉","capturePending":"此預覽頁的截圖仍在採集，尚未通過發佈驗收。","examples":"下載教程示例項目","note":"請留意","search":"你想完成什麼？","popular":"從常見任務開始","all":"瀏覽全部教程","support":"聯繫支持"}} requirement={"Pro"} shotLocale="简体中文" aliases={["push","pull","推送","拉取"]} />
+
+## 你將完成什麼
+
+把遠程提交取回工作副本，並把自己的提交發送到遠程。
+
+## 開始前準備
+
+- 有效的 Pro 訂閱。第三方 AI 訂閱和 API 額度需要單獨準備。
+- 能夠連接本教程所用服務或下載資源的網絡。
+- 一個已經存在的 Git 倉庫。練習時使用獨立的教程倉庫。
+
+[下載教程示例項目](/vibeit/help/downloads/vibeit-tutorials.zip)
+
+## 從哪裡進入
+
+<div className="entry-path">Source Control → Pull / Push</div>
+
+
+## 逐步操作
+
+<TutorialSteps id="git-sync" locale="zh-hant" labels={{"observe":"查看結果","copy":"複製代碼","copied":"已複製","tap":"點擊","longPress":"長按並保持","swipe":"滑動","input":"在此輸入","verified":"內容核對日期","siteTitle":"Vibeit 使用手冊","intro":"通過真實 App 截圖和清晰步驟，一次學會一個任務。","version":"適用版本","screenshotLanguage":"截圖界面","device":"設備","goal":"你將完成什麼","before":"開始前準備","entry":"從哪裡進入","steps":"逐步操作","expected":"核對結果","troubleshooting":"如果沒有成功","next":"下一步","references":"相關資料","enlarge":"放大截圖","detail":"放大查看操作位置","previousStep":"上一步","nextStep":"下一步","close":"關閉","capturePending":"此預覽頁的截圖仍在採集，尚未通過發佈驗收。","examples":"下載教程示例項目","note":"請留意","search":"你想完成什麼？","popular":"從常見任務開始","all":"瀏覽全部教程","support":"聯繫支持"}} steps={[{"shot":"S32","target":"primary","title":"檢查倉庫與帳號","body":"確認項目有 origin 遠程地址，且 GitHub 帳號具有訪問權限。新建本地倉庫需要先配置遠程地址才能同步。"},{"shot":"S32","target":"pull","title":"繼續工作前拉取","body":"先保存並檢查當前改動，再點擊 Pull。若被拒絕，先閱讀原因，再繼續修改。"},{"shot":"S32","target":"push","title":"推送已經完成的提交","body":"本地 Commit 後點擊 Push。只保存檔案，還沒有形成可以推送的提交。"},{"shot":"S32","target":"status","title":"在 GitHub 核對","body":"打開 GitHub 對應分支，檢查新提交說明和檔案內容。遠程工作區的 Git 在伺服器上運行，使用伺服器的 Git 憑據。"}]} />
+
+## 核對結果
+
+打開 GitHub 對應分支，檢查新提交說明和檔案內容。遠程工作區的 Git 在伺服器上運行，使用伺服器的 Git 憑據。
+
+## 如果沒有成功
+
+- Commit 記錄本地歷史，Push 才會發送到遠程。先確認失敗的是哪一步。
+- 推送被拒絕時，檢查遠程改動和帳號權限，不要把強制推送當作常規修復方式。
+- 發生衝突時，先保留副本並檢查相關檔案，再決定如何處理改動。
+
+## 下一步
+
+- [創建 PR 並處理同步問題](/vibeit/help/zh-hant/git/pull-requests/)
+- [通過 SFTP 管理遠程檔案](/vibeit/help/zh-hant/remote/files/)
+
+
+[聯繫支持](https://www.mecury.co.uk/vibeit/contact.html)

@@ -1,0 +1,47 @@
+---
+title: "Saisir, copier et coller dans le terminal"
+description: "Utilisez directement le terminal et distinguez les commandes locales des commandes distantes."
+sidebar:
+  order: 1
+---
+
+import ArticleMeta from '../../../../components/ArticleMeta.astro';
+import TutorialSteps from '../../../../components/TutorialSteps.astro';
+
+<ArticleMeta labels={{"copy":"Copier le code","copied":"Copié","tap":"Touchez","longPress":"Maintenez le doigt","swipe":"Balayez","input":"Saisissez ici","verified":"Contenu vérifié le","siteTitle":"Centre d’aide Vibeit","intro":"Apprenez une tâche à la fois grâce à des captures réelles de l’app et à des étapes claires.","version":"Version de l’app","screenshotLanguage":"Langue des captures","device":"Appareil","goal":"Ce que vous allez faire","before":"Avant de commencer","entry":"Point de départ","steps":"Suivez les étapes","expected":"Vérifiez le résultat","troubleshooting":"En cas de problème","next":"Pour continuer","references":"Documentation associée","enlarge":"Agrandir la capture","detail":"Voir la commande de plus près","previousStep":"Précédent","nextStep":"Suivant","close":"Fermer","capturePending":"Les captures de cette page sont encore en préparation. Cet aperçu n’est pas validé pour publication.","examples":"Télécharger le projet d’exemple","note":"À retenir","search":"Que souhaitez-vous faire ?","popular":"Commencez par une tâche courante","all":"Tous les tutoriels","support":"Contacter l’assistance","observe":"Vérifiez le résultat"}} requirement={"Standard / Pro"} shotLocale="English" aliases={[]} />
+
+## Ce que vous allez faire
+
+Utilisez directement le terminal et distinguez les commandes locales des commandes distantes.
+
+## Avant de commencer
+
+- Un abonnement Standard ou Pro actif, ou une période d’essai éligible.
+
+[Télécharger le projet d’exemple](/vibeit/help/downloads/vibeit-tutorials.zip)
+
+## Point de départ
+
+<div className="entry-path">Editor → bottom panel → Terminal / Shell</div>
+
+
+## Suivez les étapes
+
+<TutorialSteps id="terminal-basics" locale="fr" labels={{"copy":"Copier le code","copied":"Copié","tap":"Touchez","longPress":"Maintenez le doigt","swipe":"Balayez","input":"Saisissez ici","verified":"Contenu vérifié le","siteTitle":"Centre d’aide Vibeit","intro":"Apprenez une tâche à la fois grâce à des captures réelles de l’app et à des étapes claires.","version":"Version de l’app","screenshotLanguage":"Langue des captures","device":"Appareil","goal":"Ce que vous allez faire","before":"Avant de commencer","entry":"Point de départ","steps":"Suivez les étapes","expected":"Vérifiez le résultat","troubleshooting":"En cas de problème","next":"Pour continuer","references":"Documentation associée","enlarge":"Agrandir la capture","detail":"Voir la commande de plus près","previousStep":"Précédent","nextStep":"Suivant","close":"Fermer","capturePending":"Les captures de cette page sont encore en préparation. Cet aperçu n’est pas validé pour publication.","examples":"Télécharger le projet d’exemple","note":"À retenir","search":"Que souhaitez-vous faire ?","popular":"Commencez par une tâche courante","all":"Tous les tutoriels","support":"Contacter l’assistance","observe":"Vérifiez le résultat"}} steps={[{"shot":"S11","target":"primary","title":"Donner le focus au terminal","body":"Ouvrez le terminal et touchez sa surface. Saisissez les commandes au niveau du curseur clignotant ; ce terminal reçoit directement les frappes du clavier.","action":"input"},{"shot":"S11","target":"cursor","title":"Exécuter une commande sans risque","body":"Saisissez pwd et appuyez sur Retour pour afficher le dossier courant. Vérifiez l’emplacement actif avant d’exécuter d’autres commandes.","action":"input","code":"pwd"},{"shot":"S12","target":"primary","title":"Utiliser le menu système","body":"Maintenez le doigt sur le texte pour le sélectionner, ajustez les poignées et choisissez Copier. Donnez le focus au terminal et maintenez le doigt pour utiliser Coller lorsque le menu système le propose.","action":"longPress"},{"shot":"S11","target":"keys","title":"Utiliser les raccourcis appropriés","body":"Avec un clavier physique et une sélection active, utilisez Commande–C et Commande–V pour copier et coller. Contrôle–C interrompt la commande au premier plan ; ce n’est pas le raccourci de copie."},{"shot":"S39","target":"primary","title":"Comprendre le terminal distant","body":"Un terminal distant envoie les commandes au serveur. Le terminal local de l’iPad n’offre pas exactement les mêmes commandes et bibliothèques qu’un ordinateur ou un shell Linux."}]} />
+
+## Vérifiez le résultat
+
+Un terminal distant envoie les commandes au serveur. Le terminal local de l’iPad n’offre pas exactement les mêmes commandes et bibliothèques qu’un ordinateur ou un shell Linux.
+
+## En cas de problème
+
+- Touchez la surface du terminal pour lui donner le focus. Un appui prolongé ouvre le menu système de sélection.
+- Le terminal local de l’iPad et celui d’un serveur distant n’offrent pas les mêmes commandes ou bibliothèques. Vérifiez lequel est actif.
+
+## Pour continuer
+
+- [Définir des variables d’environnement](/vibeit/help/fr/models/environment/)
+- [Se connecter en SSH avec un mot de passe](/vibeit/help/fr/remote/ssh/)
+
+
+[Contacter l’assistance](https://www.mecury.co.uk/vibeit/contact.html)

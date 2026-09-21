@@ -1,0 +1,49 @@
+---
+title: "Trouver et installer des bibliothèques Python compatibles"
+description: "Repérez les bibliothèques incluses et installez une bibliothèque supplémentaire compatible."
+sidebar:
+  order: 4
+---
+
+import ArticleMeta from '../../../../components/ArticleMeta.astro';
+import TutorialSteps from '../../../../components/TutorialSteps.astro';
+
+<ArticleMeta labels={{"copy":"Copier le code","copied":"Copié","tap":"Touchez","longPress":"Maintenez le doigt","swipe":"Balayez","input":"Saisissez ici","verified":"Contenu vérifié le","siteTitle":"Centre d’aide Vibeit","intro":"Apprenez une tâche à la fois grâce à des captures réelles de l’app et à des étapes claires.","version":"Version de l’app","screenshotLanguage":"Langue des captures","device":"Appareil","goal":"Ce que vous allez faire","before":"Avant de commencer","entry":"Point de départ","steps":"Suivez les étapes","expected":"Vérifiez le résultat","troubleshooting":"En cas de problème","next":"Pour continuer","references":"Documentation associée","enlarge":"Agrandir la capture","detail":"Voir la commande de plus près","previousStep":"Précédent","nextStep":"Suivant","close":"Fermer","capturePending":"Les captures de cette page sont encore en préparation. Cet aperçu n’est pas validé pour publication.","examples":"Télécharger le projet d’exemple","note":"À retenir","search":"Que souhaitez-vous faire ?","popular":"Commencez par une tâche courante","all":"Tous les tutoriels","support":"Contacter l’assistance","observe":"Vérifiez le résultat"}} requirement={"Standard / Pro"} shotLocale="English" aliases={[]} />
+
+## Ce que vous allez faire
+
+Repérez les bibliothèques incluses et installez une bibliothèque supplémentaire compatible.
+
+## Avant de commencer
+
+- Un abonnement Standard ou Pro actif, ou une période d’essai éligible.
+- Une connexion permettant d’accéder au service ou au téléchargement utilisé dans ce tutoriel.
+
+[Télécharger le projet d’exemple](/vibeit/help/downloads/vibeit-tutorials.zip)
+
+## Point de départ
+
+<div className="entry-path">File browser → … → Packages</div>
+
+
+## Suivez les étapes
+
+<TutorialSteps id="models-packages" locale="fr" labels={{"copy":"Copier le code","copied":"Copié","tap":"Touchez","longPress":"Maintenez le doigt","swipe":"Balayez","input":"Saisissez ici","verified":"Contenu vérifié le","siteTitle":"Centre d’aide Vibeit","intro":"Apprenez une tâche à la fois grâce à des captures réelles de l’app et à des étapes claires.","version":"Version de l’app","screenshotLanguage":"Langue des captures","device":"Appareil","goal":"Ce que vous allez faire","before":"Avant de commencer","entry":"Point de départ","steps":"Suivez les étapes","expected":"Vérifiez le résultat","troubleshooting":"En cas de problème","next":"Pour continuer","references":"Documentation associée","enlarge":"Agrandir la capture","detail":"Voir la commande de plus près","previousStep":"Précédent","nextStep":"Suivant","close":"Fermer","capturePending":"Les captures de cette page sont encore en préparation. Cet aperçu n’est pas validé pour publication.","examples":"Télécharger le projet d’exemple","note":"À retenir","search":"Que souhaitez-vous faire ?","popular":"Commencez par une tâche courante","all":"Tous les tutoriels","support":"Contacter l’assistance","observe":"Vérifiez le résultat"}} steps={[{"shot":"S27","target":"primary","title":"Ouvrir le catalogue","body":"Parcourez les bibliothèques installées et disponibles, ou recherchez leur nom. Les bibliothèques natives fournies sont déjà intégrées à Vibeit."},{"shot":"S27","target":"search","title":"Consulter les détails","body":"Lisez les versions proposées et le résultat de compatibilité. L’environnement iPad ne peut pas installer toutes les extensions natives d’un ordinateur."},{"shot":"S27-install","target":"primary","title":"Installer une version compatible","body":"Choisissez une version installable, vérifiez ses dépendances et touchez Install. Attendez la fin avant d’importer la bibliothèque."},{"shot":"S27-import","target":"primary","title":"Tester l’importation","body":"Effectuez un petit import dans l’environnement où vous avez installé la bibliothèque. Les bibliothèques distantes appartiennent à l’interpréteur sélectionné sur le serveur.","code":"import pandas\nprint(\"pandas available:\", pandas.__version__ is not None)","action":"observe"}]} />
+
+## Vérifiez le résultat
+
+Effectuez un petit import dans l’environnement où vous avez installé la bibliothèque. Les bibliothèques distantes appartiennent à l’interpréteur sélectionné sur le serveur.
+
+## En cas de problème
+
+- Si un nouveau jeton ou une nouvelle variable n’est pas visible dans Python, redémarrez le noyau.
+- Pour une réponse 401 ou 403, vérifiez le jeton et les autorisations du compte sur la ressource.
+- Si le téléchargement réussit mais pas le chargement, vérifiez le format, les bibliothèques requises et la mémoire disponible.
+
+## Pour continuer
+
+- [Télécharger et gérer les fichiers de modèles](/vibeit/help/fr/models/downloads/)
+- [Choisir un environnement Python distant](/vibeit/help/fr/remote/python/)
+
+
+[Contacter l’assistance](https://www.mecury.co.uk/vibeit/contact.html)

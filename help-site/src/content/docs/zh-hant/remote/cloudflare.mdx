@@ -1,0 +1,53 @@
+---
+title: "配置 Cloudflare Access"
+description: "在 Vibeit 中連接已經配置好的 Cloudflare Access SSH 應用。"
+sidebar:
+  order: 5
+---
+
+import ArticleMeta from '../../../../components/ArticleMeta.astro';
+import TutorialSteps from '../../../../components/TutorialSteps.astro';
+
+<ArticleMeta labels={{"observe":"查看結果","copy":"複製代碼","copied":"已複製","tap":"點擊","longPress":"長按並保持","swipe":"滑動","input":"在此輸入","verified":"內容核對日期","siteTitle":"Vibeit 使用手冊","intro":"通過真實 App 截圖和清晰步驟，一次學會一個任務。","version":"適用版本","screenshotLanguage":"截圖界面","device":"設備","goal":"你將完成什麼","before":"開始前準備","entry":"從哪裡進入","steps":"逐步操作","expected":"核對結果","troubleshooting":"如果沒有成功","next":"下一步","references":"相關資料","enlarge":"放大截圖","detail":"放大查看操作位置","previousStep":"上一步","nextStep":"下一步","close":"關閉","capturePending":"此預覽頁的截圖仍在採集，尚未通過發佈驗收。","examples":"下載教程示例項目","note":"請留意","search":"你想完成什麼？","popular":"從常見任務開始","all":"瀏覽全部教程","support":"聯繫支持"}} requirement={"Pro"} shotLocale="简体中文" aliases={[]} />
+
+## 你將完成什麼
+
+在 Vibeit 中連接已經配置好的 Cloudflare Access SSH 應用。
+
+## 開始前準備
+
+- 有效的 Pro 訂閱。第三方 AI 訂閱和 API 額度需要單獨準備。
+- 能夠連接本教程所用服務或下載資源的網絡。
+- 可訪問的 SSH 伺服器、主機地址與端口、用戶名，以及你有權使用的認證方式。
+
+[下載教程示例項目](/vibeit/help/downloads/vibeit-tutorials.zip)
+
+## 從哪裡進入
+
+<div className="entry-path">Add Remote Host → Connection → Cloudflare Access</div>
+
+:::note[請留意]
+Access 授權與 SSH 認證是兩項獨立檢查。Access 會話過期後需要重新登錄。
+:::
+
+## 逐步操作
+
+<TutorialSteps id="remote-cloudflare" locale="zh-hant" labels={{"observe":"查看結果","copy":"複製代碼","copied":"已複製","tap":"點擊","longPress":"長按並保持","swipe":"滑動","input":"在此輸入","verified":"內容核對日期","siteTitle":"Vibeit 使用手冊","intro":"通過真實 App 截圖和清晰步驟，一次學會一個任務。","version":"適用版本","screenshotLanguage":"截圖界面","device":"設備","goal":"你將完成什麼","before":"開始前準備","entry":"從哪裡進入","steps":"逐步操作","expected":"核對結果","troubleshooting":"如果沒有成功","next":"下一步","references":"相關資料","enlarge":"放大截圖","detail":"放大查看操作位置","previousStep":"上一步","nextStep":"下一步","close":"關閉","capturePending":"此預覽頁的截圖仍在採集，尚未通過發佈驗收。","examples":"下載教程示例項目","note":"請留意","search":"你想完成什麼？","popular":"從常見任務開始","all":"瀏覽全部教程","support":"聯繫支持"}} steps={[{"shot":"S41","target":"primary","title":"確認伺服器端準備","body":"向管理員取得 Access 主機域名、團隊域名和 SSH 用戶名。隧道和 Access 策略需要已配置。"},{"shot":"S41","target":"host","title":"選擇 Cloudflare Access","body":"選擇該連接方式，填寫主機域名和團隊域名。它使用 Access 主機域名，不填寫直連 SSH 端口。","action":"input"},{"shot":"S41","target":"login","title":"完成 Access 登錄","body":"點擊 Sign in with Cloudflare Access，完成身份提供商認證。SSH 密碼或私鑰仍需單獨配置。"},{"shot":"S37","target":"primary","title":"保存、核驗並連接","body":"除非服務配置支持更多併發，否則保留默認併發數。保存、核驗主機密鑰，並實際連接檔案目錄。"}]} />
+
+## 核對結果
+
+除非服務配置支持更多併發，否則保留默認併發數。保存、核驗主機密鑰，並實際連接檔案目錄。
+
+## 如果沒有成功
+
+- 連接超時時，檢查地址、端口、網絡路徑和伺服器狀態。
+- 認證失敗時，檢查用戶名及匹配的密碼或私鑰。
+- 主機指紋變化時，通過可信渠道核實後再更新保存的指紋。
+
+## 下一步
+
+- [使用密碼連接 SSH 伺服器](/vibeit/help/zh-hant/remote/ssh/)
+- [選擇遠程 Python 環境](/vibeit/help/zh-hant/remote/python/)
+
+
+[聯繫支持](https://www.mecury.co.uk/vibeit/contact.html)

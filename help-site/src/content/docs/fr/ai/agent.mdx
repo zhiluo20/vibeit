@@ -1,0 +1,48 @@
+---
+title: "Utiliser le contexte, les outils, la mémoire et les compétences"
+description: "Donnez à l’assistant un contexte utile et examinez les actions qu’il propose."
+sidebar:
+  order: 7
+---
+
+import ArticleMeta from '../../../../components/ArticleMeta.astro';
+import TutorialSteps from '../../../../components/TutorialSteps.astro';
+
+<ArticleMeta labels={{"copy":"Copier le code","copied":"Copié","tap":"Touchez","longPress":"Maintenez le doigt","swipe":"Balayez","input":"Saisissez ici","verified":"Contenu vérifié le","siteTitle":"Centre d’aide Vibeit","intro":"Apprenez une tâche à la fois grâce à des captures réelles de l’app et à des étapes claires.","version":"Version de l’app","screenshotLanguage":"Langue des captures","device":"Appareil","goal":"Ce que vous allez faire","before":"Avant de commencer","entry":"Point de départ","steps":"Suivez les étapes","expected":"Vérifiez le résultat","troubleshooting":"En cas de problème","next":"Pour continuer","references":"Documentation associée","enlarge":"Agrandir la capture","detail":"Voir la commande de plus près","previousStep":"Précédent","nextStep":"Suivant","close":"Fermer","capturePending":"Les captures de cette page sont encore en préparation. Cet aperçu n’est pas validé pour publication.","examples":"Télécharger le projet d’exemple","note":"À retenir","search":"Que souhaitez-vous faire ?","popular":"Commencez par une tâche courante","all":"Tous les tutoriels","support":"Contacter l’assistance","observe":"Vérifiez le résultat"}} requirement={"Standard / Pro"} shotLocale="English" aliases={[]} />
+
+## Ce que vous allez faire
+
+Donnez à l’assistant un contexte utile et examinez les actions qu’il propose.
+
+## Avant de commencer
+
+- Un abonnement Standard ou Pro actif, ou une période d’essai éligible.
+
+[Télécharger le projet d’exemple](/vibeit/help/downloads/vibeit-tutorials.zip)
+
+## Point de départ
+
+<div className="entry-path">File browser → … → Coding Agent</div>
+
+
+## Suivez les étapes
+
+<TutorialSteps id="ai-agent" locale="fr" labels={{"copy":"Copier le code","copied":"Copié","tap":"Touchez","longPress":"Maintenez le doigt","swipe":"Balayez","input":"Saisissez ici","verified":"Contenu vérifié le","siteTitle":"Centre d’aide Vibeit","intro":"Apprenez une tâche à la fois grâce à des captures réelles de l’app et à des étapes claires.","version":"Version de l’app","screenshotLanguage":"Langue des captures","device":"Appareil","goal":"Ce que vous allez faire","before":"Avant de commencer","entry":"Point de départ","steps":"Suivez les étapes","expected":"Vérifiez le résultat","troubleshooting":"En cas de problème","next":"Pour continuer","references":"Documentation associée","enlarge":"Agrandir la capture","detail":"Voir la commande de plus près","previousStep":"Précédent","nextStep":"Suivant","close":"Fermer","capturePending":"Les captures de cette page sont encore en préparation. Cet aperçu n’est pas validé pour publication.","examples":"Télécharger le projet d’exemple","note":"À retenir","search":"Que souhaitez-vous faire ?","popular":"Commencez par une tâche courante","all":"Tous les tutoriels","support":"Contacter l’assistance","observe":"Vérifiez le résultat"}} steps={[{"shot":"S19","target":"primary","title":"Commencer par une tâche précise","body":"Posez une question courte et concrète sur le fichier d’exemple ouvert, par exemple demander une explication du code de lecture du CSV.","action":"input"},{"shot":"S21","target":"primary","title":"Contrôler le contexte du fichier","body":"Dans Settings → AI, examinez Attach Open File to Model. Cette option détermine si le fichier ouvert est envoyé comme contexte au fournisseur actif."},{"shot":"S19-approval","target":"primary","title":"Examiner les actions proposées","body":"Vérifiez les modifications de code et les demandes de confirmation avant de les appliquer ou de les exécuter. Une suggestion ne prouve pas que le code a été exécuté avec succès.","action":"observe"},{"shot":"S22","target":"primary","title":"Examiner la mémoire","body":"Ouvrez Manage Memory dans Settings → AI pour consulter, épingler, désactiver ou supprimer les souvenirs enregistrés."},{"shot":"S23","target":"primary","title":"Activer les compétences utiles","body":"Dans Manage Skills, activez uniquement les instructions réutilisables que vous souhaitez proposer à l’assistant."}]} />
+
+## Vérifiez le résultat
+
+Dans Manage Skills, activez uniquement les instructions réutilisables que vous souhaitez proposer à l’assistant.
+
+## En cas de problème
+
+- Si le service est configuré mais pas utilisé, choisissez Use This Provider et vérifiez l’indicateur de service actif.
+- En cas d’erreur de connexion ou de clé, corrigez la configuration avant de réessayer une courte demande.
+- Les services proposés peuvent dépendre de la région App Store, de votre abonnement et des droits de votre compte chez le fournisseur.
+
+## Pour continuer
+
+- [Choisir un modèle et un effort de raisonnement](/vibeit/help/fr/ai/reasoning/)
+- [Résoudre et signaler un problème](/vibeit/help/fr/support/troubleshooting/)
+
+
+[Contacter l’assistance](https://www.mecury.co.uk/vibeit/contact.html)

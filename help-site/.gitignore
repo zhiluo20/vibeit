@@ -1,0 +1,7 @@
+node_modules/
+.astro/
+.DS_Store
+*.log
+*.xcresult/
+.env
+.env.*

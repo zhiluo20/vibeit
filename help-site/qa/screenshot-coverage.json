@@ -1,0 +1,1635 @@
+[
+  {
+    "id": "getting-started/workspace",
+    "title": "Find your way around Vibeit",
+    "steps": [
+      {
+        "number": 1,
+        "shot": "S01",
+        "target": "primary",
+        "captures": {
+          "ipad.en": "reviewed",
+          "ipad.zh-Hans": "reviewed",
+          "iphone.en": "reviewed",
+          "iphone.zh-Hans": "reviewed"
+        }
+      },
+      {
+        "number": 2,
+        "shot": "S02",
+        "target": "primary",
+        "captures": {
+          "ipad.en": "reviewed",
+          "ipad.zh-Hans": "reviewed",
+          "iphone.en": "reviewed",
+          "iphone.zh-Hans": "reviewed"
+        }
+      },
+      {
+        "number": 3,
+        "shot": "S01",
+        "target": "file",
+        "captures": {
+          "ipad.en": "reviewed",
+          "ipad.zh-Hans": "reviewed",
+          "iphone.en": "reviewed",
+          "iphone.zh-Hans": "missing"
+        }
+      },
+      {
+        "number": 4,
+        "shot": "S13",
+        "target": "section",
+        "captures": {
+          "ipad.en": "reviewed",
+          "ipad.zh-Hans": "reviewed",
+          "iphone.en": "missing",
+          "iphone.zh-Hans": "missing"
+        }
+      }
+    ]
+  },
+  {
+    "id": "getting-started/first-run",
+    "title": "Run your first Python code",
+    "steps": [
+      {
+        "number": 1,
+        "shot": "S02",
+        "target": "primary",
+        "captures": {
+          "ipad.en": "reviewed",
+          "ipad.zh-Hans": "reviewed",
+          "iphone.en": "reviewed",
+          "iphone.zh-Hans": "reviewed"
+        }
+      },
+      {
+        "number": 2,
+        "shot": "S03",
+        "target": "editor",
+        "captures": {
+          "ipad.en": "reviewed",
+          "ipad.zh-Hans": "reviewed",
+          "iphone.en": "reviewed",
+          "iphone.zh-Hans": "missing"
+        }
+      },
+      {
+        "number": 3,
+        "shot": "S03",
+        "target": "primary",
+        "captures": {
+          "ipad.en": "reviewed",
+          "ipad.zh-Hans": "reviewed",
+          "iphone.en": "reviewed",
+          "iphone.zh-Hans": "missing"
+        }
+      },
+      {
+        "number": 4,
+        "shot": "S04",
+        "target": "primary",
+        "captures": {
+          "ipad.en": "reviewed",
+          "ipad.zh-Hans": "reviewed",
+          "iphone.en": "reviewed",
+          "iphone.zh-Hans": "missing"
+        }
+      }
+    ]
+  },
+  {
+    "id": "getting-started/files",
+    "title": "Import, organize and export files",
+    "steps": [
+      {
+        "number": 1,
+        "shot": "S02",
+        "target": "import",
+        "captures": {
+          "ipad.en": "reviewed",
+          "ipad.zh-Hans": "reviewed",
+          "iphone.en": "reviewed",
+          "iphone.zh-Hans": "reviewed"
+        }
+      },
+      {
+        "number": 2,
+        "shot": "S01",
+        "target": "file",
+        "captures": {
+          "ipad.en": "reviewed",
+          "ipad.zh-Hans": "reviewed",
+          "iphone.en": "reviewed",
+          "iphone.zh-Hans": "missing"
+        }
+      },
+      {
+        "number": 3,
+        "shot": "S01",
+        "target": "file",
+        "captures": {
+          "ipad.en": "reviewed",
+          "ipad.zh-Hans": "reviewed",
+          "iphone.en": "reviewed",
+          "iphone.zh-Hans": "missing"
+        }
+      },
+      {
+        "number": 4,
+        "shot": "S06",
+        "target": "primary",
+        "captures": {
+          "ipad.en": "reviewed",
+          "ipad.zh-Hans": "reviewed",
+          "iphone.en": "missing",
+          "iphone.zh-Hans": "missing"
+        }
+      }
+    ]
+  },
+  {
+    "id": "getting-started/gallery",
+    "title": "Learn with the example gallery",
+    "steps": [
+      {
+        "number": 1,
+        "shot": "S05",
+        "target": "primary",
+        "captures": {
+          "ipad.en": "reviewed",
+          "ipad.zh-Hans": "reviewed",
+          "iphone.en": "missing",
+          "iphone.zh-Hans": "missing"
+        }
+      },
+      {
+        "number": 2,
+        "shot": "S05",
+        "target": "example",
+        "captures": {
+          "ipad.en": "reviewed",
+          "ipad.zh-Hans": "reviewed",
+          "iphone.en": "missing",
+          "iphone.zh-Hans": "missing"
+        }
+      },
+      {
+        "number": 3,
+        "shot": "S03",
+        "target": "primary",
+        "captures": {
+          "ipad.en": "reviewed",
+          "ipad.zh-Hans": "reviewed",
+          "iphone.en": "reviewed",
+          "iphone.zh-Hans": "missing"
+        }
+      },
+      {
+        "number": 4,
+        "shot": "S04",
+        "target": "primary",
+        "captures": {
+          "ipad.en": "reviewed",
+          "ipad.zh-Hans": "reviewed",
+          "iphone.en": "reviewed",
+          "iphone.zh-Hans": "missing"
+        }
+      }
+    ]
+  },
+  {
+    "id": "notebooks/cells",
+    "title": "Use code, Markdown and HTML cells",
+    "steps": [
+      {
+        "number": 1,
+        "shot": "S07",
+        "target": "primary",
+        "captures": {
+          "ipad.en": "reviewed",
+          "ipad.zh-Hans": "reviewed",
+          "iphone.en": "reviewed",
+          "iphone.zh-Hans": "missing"
+        }
+      },
+      {
+        "number": 2,
+        "shot": "S03",
+        "target": "editor",
+        "captures": {
+          "ipad.en": "reviewed",
+          "ipad.zh-Hans": "reviewed",
+          "iphone.en": "reviewed",
+          "iphone.zh-Hans": "missing"
+        }
+      },
+      {
+        "number": 3,
+        "shot": "S07",
+        "target": "edit",
+        "captures": {
+          "ipad.en": "reviewed",
+          "ipad.zh-Hans": "reviewed",
+          "iphone.en": "reviewed",
+          "iphone.zh-Hans": "missing"
+        }
+      },
+      {
+        "number": 4,
+        "shot": "S07-editing",
+        "target": "primary",
+        "captures": {
+          "ipad.en": "reviewed",
+          "ipad.zh-Hans": "reviewed",
+          "iphone.en": "reviewed",
+          "iphone.zh-Hans": "missing"
+        }
+      }
+    ]
+  },
+  {
+    "id": "notebooks/kernel",
+    "title": "Run, interrupt and restart the kernel",
+    "steps": [
+      {
+        "number": 1,
+        "shot": "S03",
+        "target": "primary",
+        "captures": {
+          "ipad.en": "reviewed",
+          "ipad.zh-Hans": "reviewed",
+          "iphone.en": "reviewed",
+          "iphone.zh-Hans": "missing"
+        }
+      },
+      {
+        "number": 2,
+        "shot": "S09",
+        "target": "interrupt",
+        "captures": {
+          "ipad.en": "reviewed",
+          "ipad.zh-Hans": "reviewed",
+          "iphone.en": "reviewed",
+          "iphone.zh-Hans": "reviewed"
+        }
+      },
+      {
+        "number": 3,
+        "shot": "S09",
+        "target": "primary",
+        "captures": {
+          "ipad.en": "reviewed",
+          "ipad.zh-Hans": "reviewed",
+          "iphone.en": "reviewed",
+          "iphone.zh-Hans": "reviewed"
+        }
+      },
+      {
+        "number": 4,
+        "shot": "S04",
+        "target": "primary",
+        "captures": {
+          "ipad.en": "reviewed",
+          "ipad.zh-Hans": "reviewed",
+          "iphone.en": "reviewed",
+          "iphone.zh-Hans": "missing"
+        }
+      }
+    ]
+  },
+  {
+    "id": "notebooks/results",
+    "title": "Read tables, plots and interactive results",
+    "steps": [
+      {
+        "number": 1,
+        "shot": "S10-table",
+        "target": "primary",
+        "captures": {
+          "ipad.en": "reviewed",
+          "ipad.zh-Hans": "reviewed",
+          "iphone.en": "missing",
+          "iphone.zh-Hans": "missing"
+        }
+      },
+      {
+        "number": 2,
+        "shot": "S10",
+        "target": "primary",
+        "captures": {
+          "ipad.en": "reviewed",
+          "ipad.zh-Hans": "reviewed",
+          "iphone.en": "reviewed",
+          "iphone.zh-Hans": "reviewed"
+        }
+      },
+      {
+        "number": 3,
+        "shot": "S10",
+        "target": "output",
+        "captures": {
+          "ipad.en": "reviewed",
+          "ipad.zh-Hans": "reviewed",
+          "iphone.en": "reviewed",
+          "iphone.zh-Hans": "reviewed"
+        }
+      },
+      {
+        "number": 4,
+        "shot": "S06",
+        "target": "primary",
+        "captures": {
+          "ipad.en": "reviewed",
+          "ipad.zh-Hans": "reviewed",
+          "iphone.en": "missing",
+          "iphone.zh-Hans": "missing"
+        }
+      }
+    ]
+  },
+  {
+    "id": "ai/choose-provider",
+    "title": "Choose an AI provider",
+    "steps": [
+      {
+        "number": 1,
+        "shot": "S13",
+        "target": "primary",
+        "captures": {
+          "ipad.en": "reviewed",
+          "ipad.zh-Hans": "reviewed",
+          "iphone.en": "reviewed",
+          "iphone.zh-Hans": "reviewed"
+        }
+      },
+      {
+        "number": 2,
+        "shot": "S14",
+        "target": "primary",
+        "captures": {
+          "ipad.en": "reviewed",
+          "ipad.zh-Hans": "reviewed",
+          "iphone.en": "reviewed",
+          "iphone.zh-Hans": "missing"
+        }
+      },
+      {
+        "number": 3,
+        "shot": "S13",
+        "target": "codex",
+        "captures": {
+          "ipad.en": "reviewed",
+          "ipad.zh-Hans": "reviewed",
+          "iphone.en": "reviewed",
+          "iphone.zh-Hans": "reviewed"
+        }
+      },
+      {
+        "number": 4,
+        "shot": "S14",
+        "target": "activate",
+        "captures": {
+          "ipad.en": "reviewed",
+          "ipad.zh-Hans": "reviewed",
+          "iphone.en": "target-missing",
+          "iphone.zh-Hans": "missing"
+        }
+      }
+    ]
+  },
+  {
+    "id": "ai/apple-intelligence",
+    "title": "Set up Apple Intelligence",
+    "steps": [
+      {
+        "number": 1,
+        "shot": "S14",
+        "target": "primary",
+        "captures": {
+          "ipad.en": "reviewed",
+          "ipad.zh-Hans": "reviewed",
+          "iphone.en": "reviewed",
+          "iphone.zh-Hans": "missing"
+        }
+      },
+      {
+        "number": 2,
+        "shot": "S13",
+        "target": "apple",
+        "captures": {
+          "ipad.en": "reviewed",
+          "ipad.zh-Hans": "reviewed",
+          "iphone.en": "reviewed",
+          "iphone.zh-Hans": "reviewed"
+        }
+      },
+      {
+        "number": 3,
+        "shot": "S14",
+        "target": "status",
+        "captures": {
+          "ipad.en": "reviewed",
+          "ipad.zh-Hans": "reviewed",
+          "iphone.en": "target-missing",
+          "iphone.zh-Hans": "missing"
+        }
+      },
+      {
+        "number": 4,
+        "shot": "S14",
+        "target": "activate",
+        "captures": {
+          "ipad.en": "reviewed",
+          "ipad.zh-Hans": "reviewed",
+          "iphone.en": "target-missing",
+          "iphone.zh-Hans": "missing"
+        }
+      }
+    ]
+  },
+  {
+    "id": "ai/codex",
+    "title": "Sign in to Codex and load models",
+    "steps": [
+      {
+        "number": 1,
+        "shot": "S15",
+        "target": "primary",
+        "captures": {
+          "ipad.en": "reviewed",
+          "ipad.zh-Hans": "reviewed",
+          "iphone.en": "missing",
+          "iphone.zh-Hans": "missing"
+        }
+      },
+      {
+        "number": 2,
+        "shot": "S16",
+        "target": "status",
+        "captures": {
+          "ipad.en": "reviewed",
+          "ipad.zh-Hans": "reviewed",
+          "iphone.en": "reviewed",
+          "iphone.zh-Hans": "reviewed"
+        }
+      },
+      {
+        "number": 3,
+        "shot": "S16-models",
+        "target": "primary",
+        "captures": {
+          "ipad.en": "reviewed",
+          "ipad.zh-Hans": "missing",
+          "iphone.en": "reviewed",
+          "iphone.zh-Hans": "missing"
+        }
+      },
+      {
+        "number": 4,
+        "shot": "S16",
+        "target": "refresh",
+        "captures": {
+          "ipad.en": "reviewed",
+          "ipad.zh-Hans": "reviewed",
+          "iphone.en": "reviewed",
+          "iphone.zh-Hans": "reviewed"
+        }
+      }
+    ]
+  },
+  {
+    "id": "ai/claude",
+    "title": "Configure Claude with an API key",
+    "steps": [
+      {
+        "number": 1,
+        "shot": "S17",
+        "target": "primary",
+        "captures": {
+          "ipad.en": "reviewed",
+          "ipad.zh-Hans": "reviewed",
+          "iphone.en": "reviewed",
+          "iphone.zh-Hans": "missing"
+        }
+      },
+      {
+        "number": 2,
+        "shot": "S17",
+        "target": "key",
+        "captures": {
+          "ipad.en": "reviewed",
+          "ipad.zh-Hans": "reviewed",
+          "iphone.en": "reviewed",
+          "iphone.zh-Hans": "missing"
+        }
+      },
+      {
+        "number": 3,
+        "shot": "S17",
+        "target": "models",
+        "captures": {
+          "ipad.en": "reviewed",
+          "ipad.zh-Hans": "reviewed",
+          "iphone.en": "reviewed",
+          "iphone.zh-Hans": "missing"
+        }
+      },
+      {
+        "number": 4,
+        "shot": "S17-activate",
+        "target": "primary",
+        "captures": {
+          "ipad.en": "reviewed",
+          "ipad.zh-Hans": "reviewed",
+          "iphone.en": "missing",
+          "iphone.zh-Hans": "missing"
+        }
+      }
+    ]
+  },
+  {
+    "id": "ai/custom-provider",
+    "title": "Add an OpenAI-compatible provider",
+    "steps": [
+      {
+        "number": 1,
+        "shot": "S18",
+        "target": "primary",
+        "captures": {
+          "ipad.en": "reviewed",
+          "ipad.zh-Hans": "reviewed",
+          "iphone.en": "reviewed",
+          "iphone.zh-Hans": "missing"
+        }
+      },
+      {
+        "number": 2,
+        "shot": "S18",
+        "target": "endpoint",
+        "captures": {
+          "ipad.en": "reviewed",
+          "ipad.zh-Hans": "reviewed",
+          "iphone.en": "reviewed",
+          "iphone.zh-Hans": "missing"
+        }
+      },
+      {
+        "number": 3,
+        "shot": "S18",
+        "target": "model",
+        "captures": {
+          "ipad.en": "reviewed",
+          "ipad.zh-Hans": "reviewed",
+          "iphone.en": "reviewed",
+          "iphone.zh-Hans": "missing"
+        }
+      },
+      {
+        "number": 4,
+        "shot": "S18",
+        "target": "save",
+        "captures": {
+          "ipad.en": "reviewed",
+          "ipad.zh-Hans": "reviewed",
+          "iphone.en": "reviewed",
+          "iphone.zh-Hans": "missing"
+        }
+      }
+    ]
+  },
+  {
+    "id": "ai/reasoning",
+    "title": "Choose a model and reasoning effort",
+    "steps": [
+      {
+        "number": 1,
+        "shot": "S19",
+        "target": "primary",
+        "captures": {
+          "ipad.en": "reviewed",
+          "ipad.zh-Hans": "reviewed",
+          "iphone.en": "reviewed",
+          "iphone.zh-Hans": "missing"
+        }
+      },
+      {
+        "number": 2,
+        "shot": "S20",
+        "target": "primary",
+        "captures": {
+          "ipad.en": "reviewed",
+          "ipad.zh-Hans": "reviewed",
+          "iphone.en": "reviewed",
+          "iphone.zh-Hans": "missing"
+        }
+      },
+      {
+        "number": 3,
+        "shot": "S20",
+        "target": "medium",
+        "captures": {
+          "ipad.en": "reviewed",
+          "ipad.zh-Hans": "reviewed",
+          "iphone.en": "reviewed",
+          "iphone.zh-Hans": "missing"
+        }
+      },
+      {
+        "number": 4,
+        "shot": "S20",
+        "target": "high",
+        "captures": {
+          "ipad.en": "reviewed",
+          "ipad.zh-Hans": "reviewed",
+          "iphone.en": "reviewed",
+          "iphone.zh-Hans": "missing"
+        }
+      }
+    ]
+  },
+  {
+    "id": "ai/agent",
+    "title": "Work with context, tools, memory and skills",
+    "steps": [
+      {
+        "number": 1,
+        "shot": "S19",
+        "target": "primary",
+        "captures": {
+          "ipad.en": "reviewed",
+          "ipad.zh-Hans": "reviewed",
+          "iphone.en": "reviewed",
+          "iphone.zh-Hans": "missing"
+        }
+      },
+      {
+        "number": 2,
+        "shot": "S21",
+        "target": "primary",
+        "captures": {
+          "ipad.en": "reviewed",
+          "ipad.zh-Hans": "reviewed",
+          "iphone.en": "missing",
+          "iphone.zh-Hans": "missing"
+        }
+      },
+      {
+        "number": 3,
+        "shot": "S19-approval",
+        "target": "primary",
+        "captures": {
+          "ipad.en": "missing",
+          "ipad.zh-Hans": "missing",
+          "iphone.en": "missing",
+          "iphone.zh-Hans": "missing"
+        }
+      },
+      {
+        "number": 4,
+        "shot": "S22",
+        "target": "primary",
+        "captures": {
+          "ipad.en": "reviewed",
+          "ipad.zh-Hans": "reviewed",
+          "iphone.en": "missing",
+          "iphone.zh-Hans": "missing"
+        }
+      },
+      {
+        "number": 5,
+        "shot": "S23",
+        "target": "primary",
+        "captures": {
+          "ipad.en": "reviewed",
+          "ipad.zh-Hans": "reviewed",
+          "iphone.en": "missing",
+          "iphone.zh-Hans": "missing"
+        }
+      }
+    ]
+  },
+  {
+    "id": "models/hugging-face",
+    "title": "Configure a Hugging Face token",
+    "steps": [
+      {
+        "number": 1,
+        "shot": "S24",
+        "target": "primary",
+        "captures": {
+          "ipad.en": "reviewed",
+          "ipad.zh-Hans": "reviewed",
+          "iphone.en": "reviewed",
+          "iphone.zh-Hans": "reviewed"
+        }
+      },
+      {
+        "number": 2,
+        "shot": "S24",
+        "target": "primary",
+        "captures": {
+          "ipad.en": "reviewed",
+          "ipad.zh-Hans": "reviewed",
+          "iphone.en": "reviewed",
+          "iphone.zh-Hans": "reviewed"
+        }
+      },
+      {
+        "number": 3,
+        "shot": "S09-relaunch",
+        "target": "primary",
+        "captures": {
+          "ipad.en": "reviewed",
+          "ipad.zh-Hans": "reviewed",
+          "iphone.en": "missing",
+          "iphone.zh-Hans": "missing"
+        }
+      },
+      {
+        "number": 4,
+        "shot": "S25",
+        "target": "primary",
+        "captures": {
+          "ipad.en": "reviewed",
+          "ipad.zh-Hans": "reviewed",
+          "iphone.en": "missing",
+          "iphone.zh-Hans": "missing"
+        }
+      }
+    ]
+  },
+  {
+    "id": "models/downloads",
+    "title": "Download and manage model files",
+    "steps": [
+      {
+        "number": 1,
+        "shot": "S24",
+        "target": "primary",
+        "captures": {
+          "ipad.en": "reviewed",
+          "ipad.zh-Hans": "reviewed",
+          "iphone.en": "reviewed",
+          "iphone.zh-Hans": "reviewed"
+        }
+      },
+      {
+        "number": 2,
+        "shot": "S26",
+        "target": "primary",
+        "captures": {
+          "ipad.en": "reviewed",
+          "ipad.zh-Hans": "reviewed",
+          "iphone.en": "missing",
+          "iphone.zh-Hans": "missing"
+        }
+      },
+      {
+        "number": 3,
+        "shot": "S26",
+        "target": "files",
+        "captures": {
+          "ipad.en": "reviewed",
+          "ipad.zh-Hans": "target-missing",
+          "iphone.en": "missing",
+          "iphone.zh-Hans": "missing"
+        }
+      },
+      {
+        "number": 4,
+        "shot": "S27",
+        "target": "primary",
+        "captures": {
+          "ipad.en": "reviewed",
+          "ipad.zh-Hans": "reviewed",
+          "iphone.en": "missing",
+          "iphone.zh-Hans": "missing"
+        }
+      }
+    ]
+  },
+  {
+    "id": "models/environment",
+    "title": "Set environment variables",
+    "steps": [
+      {
+        "number": 1,
+        "shot": "S24",
+        "target": "newKey",
+        "captures": {
+          "ipad.en": "reviewed",
+          "ipad.zh-Hans": "reviewed",
+          "iphone.en": "reviewed",
+          "iphone.zh-Hans": "reviewed"
+        }
+      },
+      {
+        "number": 2,
+        "shot": "S24",
+        "target": "add",
+        "captures": {
+          "ipad.en": "reviewed",
+          "ipad.zh-Hans": "reviewed",
+          "iphone.en": "reviewed",
+          "iphone.zh-Hans": "reviewed"
+        }
+      },
+      {
+        "number": 3,
+        "shot": "S09-relaunch",
+        "target": "primary",
+        "captures": {
+          "ipad.en": "reviewed",
+          "ipad.zh-Hans": "reviewed",
+          "iphone.en": "missing",
+          "iphone.zh-Hans": "missing"
+        }
+      },
+      {
+        "number": 4,
+        "shot": "S25-environment",
+        "target": "primary",
+        "captures": {
+          "ipad.en": "reviewed",
+          "ipad.zh-Hans": "reviewed",
+          "iphone.en": "missing",
+          "iphone.zh-Hans": "missing"
+        }
+      }
+    ]
+  },
+  {
+    "id": "models/packages",
+    "title": "Find and install compatible Python packages",
+    "steps": [
+      {
+        "number": 1,
+        "shot": "S27",
+        "target": "primary",
+        "captures": {
+          "ipad.en": "reviewed",
+          "ipad.zh-Hans": "reviewed",
+          "iphone.en": "missing",
+          "iphone.zh-Hans": "missing"
+        }
+      },
+      {
+        "number": 2,
+        "shot": "S27",
+        "target": "search",
+        "captures": {
+          "ipad.en": "reviewed",
+          "ipad.zh-Hans": "reviewed",
+          "iphone.en": "missing",
+          "iphone.zh-Hans": "missing"
+        }
+      },
+      {
+        "number": 3,
+        "shot": "S27-install",
+        "target": "primary",
+        "captures": {
+          "ipad.en": "reviewed",
+          "ipad.zh-Hans": "missing",
+          "iphone.en": "missing",
+          "iphone.zh-Hans": "missing"
+        }
+      },
+      {
+        "number": 4,
+        "shot": "S27-import",
+        "target": "primary",
+        "captures": {
+          "ipad.en": "reviewed",
+          "ipad.zh-Hans": "reviewed",
+          "iphone.en": "missing",
+          "iphone.zh-Hans": "missing"
+        }
+      }
+    ]
+  },
+  {
+    "id": "git/github",
+    "title": "Sign in to GitHub",
+    "steps": [
+      {
+        "number": 1,
+        "shot": "S28",
+        "target": "primary",
+        "captures": {
+          "ipad.en": "reviewed",
+          "ipad.zh-Hans": "reviewed",
+          "iphone.en": "missing",
+          "iphone.zh-Hans": "missing"
+        }
+      },
+      {
+        "number": 2,
+        "shot": "S29",
+        "target": "primary",
+        "captures": {
+          "ipad.en": "reviewed",
+          "ipad.zh-Hans": "reviewed",
+          "iphone.en": "missing",
+          "iphone.zh-Hans": "missing"
+        }
+      },
+      {
+        "number": 3,
+        "shot": "S29",
+        "target": "code",
+        "captures": {
+          "ipad.en": "reviewed",
+          "ipad.zh-Hans": "reviewed",
+          "iphone.en": "missing",
+          "iphone.zh-Hans": "missing"
+        }
+      },
+      {
+        "number": 4,
+        "shot": "S28-connected",
+        "target": "primary",
+        "captures": {
+          "ipad.en": "reviewed",
+          "ipad.zh-Hans": "missing",
+          "iphone.en": "missing",
+          "iphone.zh-Hans": "missing"
+        }
+      }
+    ]
+  },
+  {
+    "id": "git/clone",
+    "title": "Clone and open a repository",
+    "steps": [
+      {
+        "number": 1,
+        "shot": "S30",
+        "target": "primary",
+        "captures": {
+          "ipad.en": "reviewed",
+          "ipad.zh-Hans": "reviewed",
+          "iphone.en": "reviewed",
+          "iphone.zh-Hans": "reviewed"
+        }
+      },
+      {
+        "number": 2,
+        "shot": "S30",
+        "target": "repository",
+        "captures": {
+          "ipad.en": "reviewed",
+          "ipad.zh-Hans": "reviewed",
+          "iphone.en": "reviewed",
+          "iphone.zh-Hans": "reviewed"
+        }
+      },
+      {
+        "number": 3,
+        "shot": "S30",
+        "target": "clone",
+        "captures": {
+          "ipad.en": "reviewed",
+          "ipad.zh-Hans": "reviewed",
+          "iphone.en": "reviewed",
+          "iphone.zh-Hans": "reviewed"
+        }
+      },
+      {
+        "number": 4,
+        "shot": "S31-clean",
+        "target": "primary",
+        "captures": {
+          "ipad.en": "reviewed",
+          "ipad.zh-Hans": "missing",
+          "iphone.en": "reviewed",
+          "iphone.zh-Hans": "missing"
+        }
+      }
+    ]
+  },
+  {
+    "id": "git/commit",
+    "title": "Review, stage and commit changes",
+    "steps": [
+      {
+        "number": 1,
+        "shot": "S31",
+        "target": "primary",
+        "captures": {
+          "ipad.en": "reviewed",
+          "ipad.zh-Hans": "missing",
+          "iphone.en": "reviewed",
+          "iphone.zh-Hans": "missing"
+        }
+      },
+      {
+        "number": 2,
+        "shot": "S31",
+        "target": "stage",
+        "captures": {
+          "ipad.en": "reviewed",
+          "ipad.zh-Hans": "missing",
+          "iphone.en": "reviewed",
+          "iphone.zh-Hans": "missing"
+        }
+      },
+      {
+        "number": 3,
+        "shot": "S32",
+        "target": "message",
+        "captures": {
+          "ipad.en": "reviewed",
+          "ipad.zh-Hans": "missing",
+          "iphone.en": "reviewed",
+          "iphone.zh-Hans": "missing"
+        }
+      },
+      {
+        "number": 4,
+        "shot": "S32",
+        "target": "commit",
+        "captures": {
+          "ipad.en": "reviewed",
+          "ipad.zh-Hans": "missing",
+          "iphone.en": "reviewed",
+          "iphone.zh-Hans": "missing"
+        }
+      }
+    ]
+  },
+  {
+    "id": "git/sync",
+    "title": "Pull and push repository changes",
+    "steps": [
+      {
+        "number": 1,
+        "shot": "S32",
+        "target": "primary",
+        "captures": {
+          "ipad.en": "reviewed",
+          "ipad.zh-Hans": "missing",
+          "iphone.en": "reviewed",
+          "iphone.zh-Hans": "missing"
+        }
+      },
+      {
+        "number": 2,
+        "shot": "S32",
+        "target": "pull",
+        "captures": {
+          "ipad.en": "reviewed",
+          "ipad.zh-Hans": "missing",
+          "iphone.en": "reviewed",
+          "iphone.zh-Hans": "missing"
+        }
+      },
+      {
+        "number": 3,
+        "shot": "S32",
+        "target": "push",
+        "captures": {
+          "ipad.en": "reviewed",
+          "ipad.zh-Hans": "missing",
+          "iphone.en": "reviewed",
+          "iphone.zh-Hans": "missing"
+        }
+      },
+      {
+        "number": 4,
+        "shot": "S32",
+        "target": "status",
+        "captures": {
+          "ipad.en": "reviewed",
+          "ipad.zh-Hans": "missing",
+          "iphone.en": "reviewed",
+          "iphone.zh-Hans": "missing"
+        }
+      }
+    ]
+  },
+  {
+    "id": "git/pull-requests",
+    "title": "Open a pull request and resolve sync problems",
+    "steps": [
+      {
+        "number": 1,
+        "shot": "S32",
+        "target": "primary",
+        "captures": {
+          "ipad.en": "reviewed",
+          "ipad.zh-Hans": "missing",
+          "iphone.en": "reviewed",
+          "iphone.zh-Hans": "missing"
+        }
+      },
+      {
+        "number": 2,
+        "shot": "S33",
+        "target": "primary",
+        "captures": {
+          "ipad.en": "missing",
+          "ipad.zh-Hans": "missing",
+          "iphone.en": "missing",
+          "iphone.zh-Hans": "missing"
+        }
+      },
+      {
+        "number": 3,
+        "shot": "S33",
+        "target": "title",
+        "captures": {
+          "ipad.en": "missing",
+          "ipad.zh-Hans": "missing",
+          "iphone.en": "missing",
+          "iphone.zh-Hans": "missing"
+        }
+      },
+      {
+        "number": 4,
+        "shot": "S33-result",
+        "target": "primary",
+        "captures": {
+          "ipad.en": "missing",
+          "ipad.zh-Hans": "missing",
+          "iphone.en": "missing",
+          "iphone.zh-Hans": "missing"
+        }
+      }
+    ]
+  },
+  {
+    "id": "remote/ssh",
+    "title": "Connect to an SSH server with a password",
+    "steps": [
+      {
+        "number": 1,
+        "shot": "S34",
+        "target": "primary",
+        "captures": {
+          "ipad.en": "reviewed",
+          "ipad.zh-Hans": "reviewed",
+          "iphone.en": "reviewed",
+          "iphone.zh-Hans": "reviewed"
+        }
+      },
+      {
+        "number": 2,
+        "shot": "S35",
+        "target": "host",
+        "captures": {
+          "ipad.en": "reviewed",
+          "ipad.zh-Hans": "missing",
+          "iphone.en": "reviewed",
+          "iphone.zh-Hans": "reviewed"
+        }
+      },
+      {
+        "number": 3,
+        "shot": "S35",
+        "target": "password",
+        "captures": {
+          "ipad.en": "reviewed",
+          "ipad.zh-Hans": "missing",
+          "iphone.en": "reviewed",
+          "iphone.zh-Hans": "reviewed"
+        }
+      },
+      {
+        "number": 4,
+        "shot": "S37",
+        "target": "primary",
+        "captures": {
+          "ipad.en": "reviewed",
+          "ipad.zh-Hans": "missing",
+          "iphone.en": "missing",
+          "iphone.zh-Hans": "missing"
+        }
+      },
+      {
+        "number": 5,
+        "shot": "S38",
+        "target": "primary",
+        "captures": {
+          "ipad.en": "reviewed",
+          "ipad.zh-Hans": "missing",
+          "iphone.en": "missing",
+          "iphone.zh-Hans": "missing"
+        }
+      }
+    ]
+  },
+  {
+    "id": "remote/keys",
+    "title": "Connect with an SSH private key",
+    "steps": [
+      {
+        "number": 1,
+        "shot": "S36",
+        "target": "primary",
+        "captures": {
+          "ipad.en": "reviewed",
+          "ipad.zh-Hans": "missing",
+          "iphone.en": "reviewed",
+          "iphone.zh-Hans": "reviewed"
+        }
+      },
+      {
+        "number": 2,
+        "shot": "S36",
+        "target": "key",
+        "captures": {
+          "ipad.en": "reviewed",
+          "ipad.zh-Hans": "missing",
+          "iphone.en": "reviewed",
+          "iphone.zh-Hans": "reviewed"
+        }
+      },
+      {
+        "number": 3,
+        "shot": "S36",
+        "target": "passphrase",
+        "captures": {
+          "ipad.en": "reviewed",
+          "ipad.zh-Hans": "missing",
+          "iphone.en": "reviewed",
+          "iphone.zh-Hans": "reviewed"
+        }
+      },
+      {
+        "number": 4,
+        "shot": "S37",
+        "target": "primary",
+        "captures": {
+          "ipad.en": "reviewed",
+          "ipad.zh-Hans": "missing",
+          "iphone.en": "missing",
+          "iphone.zh-Hans": "missing"
+        }
+      }
+    ]
+  },
+  {
+    "id": "remote/files",
+    "title": "Manage remote files with SFTP",
+    "steps": [
+      {
+        "number": 1,
+        "shot": "S38",
+        "target": "primary",
+        "captures": {
+          "ipad.en": "reviewed",
+          "ipad.zh-Hans": "missing",
+          "iphone.en": "missing",
+          "iphone.zh-Hans": "missing"
+        }
+      },
+      {
+        "number": 2,
+        "shot": "S38",
+        "target": "folder",
+        "captures": {
+          "ipad.en": "reviewed",
+          "ipad.zh-Hans": "missing",
+          "iphone.en": "missing",
+          "iphone.zh-Hans": "missing"
+        }
+      },
+      {
+        "number": 3,
+        "shot": "S38",
+        "target": "file",
+        "captures": {
+          "ipad.en": "reviewed",
+          "ipad.zh-Hans": "missing",
+          "iphone.en": "missing",
+          "iphone.zh-Hans": "missing"
+        }
+      },
+      {
+        "number": 4,
+        "shot": "S38",
+        "target": "status",
+        "captures": {
+          "ipad.en": "reviewed",
+          "ipad.zh-Hans": "missing",
+          "iphone.en": "missing",
+          "iphone.zh-Hans": "missing"
+        }
+      }
+    ]
+  },
+  {
+    "id": "remote/python",
+    "title": "Choose a remote Python environment",
+    "steps": [
+      {
+        "number": 1,
+        "shot": "S40",
+        "target": "discover",
+        "captures": {
+          "ipad.en": "reviewed",
+          "ipad.zh-Hans": "missing",
+          "iphone.en": "missing",
+          "iphone.zh-Hans": "missing"
+        }
+      },
+      {
+        "number": 2,
+        "shot": "S40",
+        "target": "primary",
+        "captures": {
+          "ipad.en": "reviewed",
+          "ipad.zh-Hans": "missing",
+          "iphone.en": "missing",
+          "iphone.zh-Hans": "missing"
+        }
+      },
+      {
+        "number": 3,
+        "shot": "S40",
+        "target": "packages",
+        "captures": {
+          "ipad.en": "reviewed",
+          "ipad.zh-Hans": "missing",
+          "iphone.en": "missing",
+          "iphone.zh-Hans": "missing"
+        }
+      },
+      {
+        "number": 4,
+        "shot": "S39",
+        "target": "primary",
+        "captures": {
+          "ipad.en": "missing",
+          "ipad.zh-Hans": "missing",
+          "iphone.en": "missing",
+          "iphone.zh-Hans": "missing"
+        }
+      }
+    ]
+  },
+  {
+    "id": "remote/cloudflare",
+    "title": "Configure Cloudflare Access",
+    "steps": [
+      {
+        "number": 1,
+        "shot": "S41",
+        "target": "primary",
+        "captures": {
+          "ipad.en": "missing",
+          "ipad.zh-Hans": "missing",
+          "iphone.en": "reviewed",
+          "iphone.zh-Hans": "reviewed"
+        }
+      },
+      {
+        "number": 2,
+        "shot": "S41",
+        "target": "host",
+        "captures": {
+          "ipad.en": "missing",
+          "ipad.zh-Hans": "missing",
+          "iphone.en": "reviewed",
+          "iphone.zh-Hans": "reviewed"
+        }
+      },
+      {
+        "number": 3,
+        "shot": "S41",
+        "target": "login",
+        "captures": {
+          "ipad.en": "missing",
+          "ipad.zh-Hans": "missing",
+          "iphone.en": "reviewed",
+          "iphone.zh-Hans": "reviewed"
+        }
+      },
+      {
+        "number": 4,
+        "shot": "S37",
+        "target": "primary",
+        "captures": {
+          "ipad.en": "reviewed",
+          "ipad.zh-Hans": "missing",
+          "iphone.en": "missing",
+          "iphone.zh-Hans": "missing"
+        }
+      }
+    ]
+  },
+  {
+    "id": "terminal/basics",
+    "title": "Type, copy and paste in the terminal",
+    "steps": [
+      {
+        "number": 1,
+        "shot": "S11",
+        "target": "primary",
+        "captures": {
+          "ipad.en": "reviewed",
+          "ipad.zh-Hans": "reviewed",
+          "iphone.en": "reviewed",
+          "iphone.zh-Hans": "reviewed"
+        }
+      },
+      {
+        "number": 2,
+        "shot": "S11",
+        "target": "cursor",
+        "captures": {
+          "ipad.en": "reviewed",
+          "ipad.zh-Hans": "reviewed",
+          "iphone.en": "reviewed",
+          "iphone.zh-Hans": "reviewed"
+        }
+      },
+      {
+        "number": 3,
+        "shot": "S12",
+        "target": "primary",
+        "captures": {
+          "ipad.en": "reviewed",
+          "ipad.zh-Hans": "missing",
+          "iphone.en": "reviewed",
+          "iphone.zh-Hans": "reviewed"
+        }
+      },
+      {
+        "number": 4,
+        "shot": "S11",
+        "target": "keys",
+        "captures": {
+          "ipad.en": "reviewed",
+          "ipad.zh-Hans": "reviewed",
+          "iphone.en": "reviewed",
+          "iphone.zh-Hans": "reviewed"
+        }
+      },
+      {
+        "number": 5,
+        "shot": "S39",
+        "target": "primary",
+        "captures": {
+          "ipad.en": "missing",
+          "ipad.zh-Hans": "missing",
+          "iphone.en": "missing",
+          "iphone.zh-Hans": "missing"
+        }
+      }
+    ]
+  },
+  {
+    "id": "support/plans",
+    "title": "Understand Standard, Pro and trials",
+    "steps": [
+      {
+        "number": 1,
+        "shot": "S42",
+        "target": "primary",
+        "captures": {
+          "ipad.en": "reviewed",
+          "ipad.zh-Hans": "reviewed",
+          "iphone.en": "reviewed",
+          "iphone.zh-Hans": "reviewed"
+        }
+      },
+      {
+        "number": 2,
+        "shot": "S42-plans",
+        "target": "primary",
+        "captures": {
+          "ipad.en": "reviewed",
+          "ipad.zh-Hans": "reviewed",
+          "iphone.en": "reviewed",
+          "iphone.zh-Hans": "reviewed"
+        }
+      },
+      {
+        "number": 3,
+        "shot": "S42-purchase",
+        "target": "primary",
+        "captures": {
+          "ipad.en": "reviewed",
+          "ipad.zh-Hans": "reviewed",
+          "iphone.en": "reviewed",
+          "iphone.zh-Hans": "reviewed"
+        }
+      },
+      {
+        "number": 4,
+        "shot": "S42",
+        "target": "status",
+        "captures": {
+          "ipad.en": "reviewed",
+          "ipad.zh-Hans": "reviewed",
+          "iphone.en": "reviewed",
+          "iphone.zh-Hans": "reviewed"
+        }
+      }
+    ]
+  },
+  {
+    "id": "support/restore",
+    "title": "Restore a previous purchase",
+    "steps": [
+      {
+        "number": 1,
+        "shot": "S42",
+        "target": "restore",
+        "captures": {
+          "ipad.en": "reviewed",
+          "ipad.zh-Hans": "reviewed",
+          "iphone.en": "reviewed",
+          "iphone.zh-Hans": "reviewed"
+        }
+      },
+      {
+        "number": 2,
+        "shot": "S42",
+        "target": "restore",
+        "captures": {
+          "ipad.en": "reviewed",
+          "ipad.zh-Hans": "reviewed",
+          "iphone.en": "reviewed",
+          "iphone.zh-Hans": "reviewed"
+        }
+      },
+      {
+        "number": 3,
+        "shot": "S43",
+        "target": "primary",
+        "captures": {
+          "ipad.en": "reviewed",
+          "ipad.zh-Hans": "reviewed",
+          "iphone.en": "reviewed",
+          "iphone.zh-Hans": "reviewed"
+        }
+      },
+      {
+        "number": 4,
+        "shot": "S42",
+        "target": "plans",
+        "captures": {
+          "ipad.en": "reviewed",
+          "ipad.zh-Hans": "reviewed",
+          "iphone.en": "reviewed",
+          "iphone.zh-Hans": "reviewed"
+        }
+      }
+    ]
+  },
+  {
+    "id": "support/troubleshooting",
+    "title": "Troubleshoot and report a problem",
+    "steps": [
+      {
+        "number": 1,
+        "shot": "S01",
+        "target": "primary",
+        "captures": {
+          "ipad.en": "reviewed",
+          "ipad.zh-Hans": "reviewed",
+          "iphone.en": "reviewed",
+          "iphone.zh-Hans": "reviewed"
+        }
+      },
+      {
+        "number": 2,
+        "shot": "S44",
+        "target": "primary",
+        "captures": {
+          "ipad.en": "reviewed",
+          "ipad.zh-Hans": "reviewed",
+          "iphone.en": "missing",
+          "iphone.zh-Hans": "missing"
+        }
+      },
+      {
+        "number": 3,
+        "shot": "S44",
+        "target": "details",
+        "captures": {
+          "ipad.en": "reviewed",
+          "ipad.zh-Hans": "reviewed",
+          "iphone.en": "missing",
+          "iphone.zh-Hans": "missing"
+        }
+      },
+      {
+        "number": 4,
+        "shot": "S44-submit",
+        "target": "primary",
+        "captures": {
+          "ipad.en": "reviewed",
+          "ipad.zh-Hans": "missing",
+          "iphone.en": "missing",
+          "iphone.zh-Hans": "missing"
+        }
+      }
+    ]
+  }
+]

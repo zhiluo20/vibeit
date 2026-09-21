@@ -1,0 +1,49 @@
+---
+title: "查看和安装兼容的 Python 包"
+description: "查看内置库，并安装兼容的扩展包。"
+sidebar:
+  order: 4
+---
+
+import ArticleMeta from '../../../../components/ArticleMeta.astro';
+import TutorialSteps from '../../../../components/TutorialSteps.astro';
+
+<ArticleMeta labels={{"observe":"查看结果","copy":"复制代码","copied":"已复制","tap":"点击","longPress":"长按并保持","swipe":"滑动","input":"在此输入","verified":"内容核对日期","siteTitle":"Vibeit 使用手册","intro":"通过真实 App 截图和清晰步骤，一次学会一个任务。","version":"适用版本","screenshotLanguage":"截图界面","device":"设备","goal":"你将完成什么","before":"开始前准备","entry":"从哪里进入","steps":"逐步操作","expected":"核对结果","troubleshooting":"如果没有成功","next":"下一步","references":"相关资料","enlarge":"放大截图","detail":"放大查看操作位置","previousStep":"上一步","nextStep":"下一步","close":"关闭","capturePending":"此预览页的截图仍在采集，尚未通过发布验收。","examples":"下载教程示例项目","note":"请留意","search":"你想完成什么？","popular":"从常见任务开始","all":"浏览全部教程","support":"联系支持"}} requirement={"Standard / Pro"} shotLocale="简体中文" aliases={[]} />
+
+## 你将完成什么
+
+查看内置库，并安装兼容的扩展包。
+
+## 开始前准备
+
+- 有效的 Standard、Pro 订阅，或符合条件的试用。
+- 能够连接本教程所用服务或下载资源的网络。
+
+[下载教程示例项目](/vibeit/help/downloads/vibeit-tutorials.zip)
+
+## 从哪里进入
+
+<div className="entry-path">File browser → … → Packages</div>
+
+
+## 逐步操作
+
+<TutorialSteps id="models-packages" locale="zh-hans" labels={{"observe":"查看结果","copy":"复制代码","copied":"已复制","tap":"点击","longPress":"长按并保持","swipe":"滑动","input":"在此输入","verified":"内容核对日期","siteTitle":"Vibeit 使用手册","intro":"通过真实 App 截图和清晰步骤，一次学会一个任务。","version":"适用版本","screenshotLanguage":"截图界面","device":"设备","goal":"你将完成什么","before":"开始前准备","entry":"从哪里进入","steps":"逐步操作","expected":"核对结果","troubleshooting":"如果没有成功","next":"下一步","references":"相关资料","enlarge":"放大截图","detail":"放大查看操作位置","previousStep":"上一步","nextStep":"下一步","close":"关闭","capturePending":"此预览页的截图仍在采集，尚未通过发布验收。","examples":"下载教程示例项目","note":"请留意","search":"你想完成什么？","popular":"从常见任务开始","all":"浏览全部教程","support":"联系支持"}} steps={[{"shot":"S27","target":"primary","title":"打开包目录","body":"浏览已安装和可用的包，或按名称搜索。内置原生库已经随 Vibeit 提供。"},{"shot":"S27","target":"search","title":"查看包详情","body":"检查可选版本和兼容性结果。iPad 运行时不能安装所有桌面原生扩展。"},{"shot":"S27-install","target":"primary","title":"安装兼容版本","body":"选择可安装版本，检查依赖并点击 Install。等待安装完成后再导入。"},{"shot":"S27-import","target":"primary","title":"测试导入","body":"在安装该包的同一个运行环境中测试导入。远程包属于所选服务器解释器。","code":"import pandas\nprint(\"pandas available:\", pandas.__version__ is not None)","action":"observe"}]} />
+
+## 核对结果
+
+在安装该包的同一个运行环境中测试导入。远程包属于所选服务器解释器。
+
+## 如果没有成功
+
+- 新保存的 Token 或环境变量未生效时，重启内核。
+- 遇到 401/403 时，检查 Token 和资源的账号访问权限。
+- 下载成功但不能加载时，检查格式、所需依赖和可用内存。
+
+## 下一步
+
+- [下载与管理模型文件](/vibeit/help/zh-hans/models/downloads/)
+- [选择远程 Python 环境](/vibeit/help/zh-hans/remote/python/)
+
+
+[联系支持](https://www.mecury.co.uk/vibeit/contact.html)

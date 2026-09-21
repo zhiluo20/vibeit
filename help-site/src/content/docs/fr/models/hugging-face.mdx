@@ -1,0 +1,57 @@
+---
+title: "Configurer un jeton Hugging Face"
+description: "Enregistrez un jeton Hugging Face et appliquez-le à un noyau Python nouvellement démarré."
+sidebar:
+  order: 1
+---
+
+import ArticleMeta from '../../../../components/ArticleMeta.astro';
+import TutorialSteps from '../../../../components/TutorialSteps.astro';
+
+<ArticleMeta labels={{"copy":"Copier le code","copied":"Copié","tap":"Touchez","longPress":"Maintenez le doigt","swipe":"Balayez","input":"Saisissez ici","verified":"Contenu vérifié le","siteTitle":"Centre d’aide Vibeit","intro":"Apprenez une tâche à la fois grâce à des captures réelles de l’app et à des étapes claires.","version":"Version de l’app","screenshotLanguage":"Langue des captures","device":"Appareil","goal":"Ce que vous allez faire","before":"Avant de commencer","entry":"Point de départ","steps":"Suivez les étapes","expected":"Vérifiez le résultat","troubleshooting":"En cas de problème","next":"Pour continuer","references":"Documentation associée","enlarge":"Agrandir la capture","detail":"Voir la commande de plus près","previousStep":"Précédent","nextStep":"Suivant","close":"Fermer","capturePending":"Les captures de cette page sont encore en préparation. Cet aperçu n’est pas validé pour publication.","examples":"Télécharger le projet d’exemple","note":"À retenir","search":"Que souhaitez-vous faire ?","popular":"Commencez par une tâche courante","all":"Tous les tutoriels","support":"Contacter l’assistance","observe":"Vérifiez le résultat"}} requirement={"Standard / Pro"} shotLocale="English" aliases={["HF","HF_TOKEN","Hugging Face","huggingface","hugginface","抱抱脸"]} />
+
+## Ce que vous allez faire
+
+Enregistrez un jeton Hugging Face et appliquez-le à un noyau Python nouvellement démarré.
+
+## Avant de commencer
+
+- Un abonnement Standard ou Pro actif, ou une période d’essai éligible.
+- Une connexion permettant d’accéder au service ou au téléchargement utilisé dans ce tutoriel.
+- Si la ressource exige une authentification, un compte Hugging Face et un jeton disposant des autorisations nécessaires.
+
+[Télécharger le projet d’exemple](/vibeit/help/downloads/vibeit-tutorials.zip)
+
+## Point de départ
+
+<div className="entry-path">Settings → Environment → Hugging Face Token</div>
+
+:::note[À retenir]
+Sous iOS/iPadOS 1.0.1, fermez complètement Vibeit puis rouvrez l’app après avoir modifié Environment. Restart Kernel réinitialise la session Python sans recharger ces réglages enregistrés.
+:::
+
+## Suivez les étapes
+
+<TutorialSteps id="models-hugging-face" locale="fr" labels={{"copy":"Copier le code","copied":"Copié","tap":"Touchez","longPress":"Maintenez le doigt","swipe":"Balayez","input":"Saisissez ici","verified":"Contenu vérifié le","siteTitle":"Centre d’aide Vibeit","intro":"Apprenez une tâche à la fois grâce à des captures réelles de l’app et à des étapes claires.","version":"Version de l’app","screenshotLanguage":"Langue des captures","device":"Appareil","goal":"Ce que vous allez faire","before":"Avant de commencer","entry":"Point de départ","steps":"Suivez les étapes","expected":"Vérifiez le résultat","troubleshooting":"En cas de problème","next":"Pour continuer","references":"Documentation associée","enlarge":"Agrandir la capture","detail":"Voir la commande de plus près","previousStep":"Précédent","nextStep":"Suivant","close":"Fermer","capturePending":"Les captures de cette page sont encore en préparation. Cet aperçu n’est pas validé pour publication.","examples":"Télécharger le projet d’exemple","note":"À retenir","search":"Que souhaitez-vous faire ?","popular":"Commencez par une tâche courante","all":"Tous les tutoriels","support":"Contacter l’assistance","observe":"Vérifiez le résultat"}} steps={[{"shot":"S24","target":"primary","title":"Ouvrir Environment","body":"Ouvrez Settings → Environment. Le champ Hugging Face se trouve ici, et non dans la liste des fournisseurs d’IA."},{"shot":"S24","target":"primary","title":"Saisir le jeton d’accès","body":"Utilisez un jeton autorisé à accéder aux ressources nécessaires. Pour un modèle soumis à autorisation, vous devrez aussi obtenir l’accès sur Hugging Face.","action":"input"},{"shot":"S09-relaunch","target":"primary","title":"Fermer et rouvrir Vibeit","body":"Enregistrez votre travail. Ouvrez le sélecteur d’apps du système, balayez la carte de Vibeit vers le haut pour la fermer, puis touchez son icône pour rouvrir l’app. Revenir seulement à l’écran d’accueil ne redémarre pas l’app.","action":"tap"},{"shot":"S25","target":"primary","title":"Vérifier la présence et l’autorisation","body":"Exécutez l’exemple. HF_TOKEN present: True confirme que le noyau dispose du jeton ; Hugging Face authorization: OK confirme que le service l’accepte. L’accès à un modèle soumis à autorisation reste une condition distincte.","code":"import os\nprint(\"HF_TOKEN present:\", bool(os.environ.get(\"HF_TOKEN\")))\ntry:\n    from huggingface_hub import HfApi\n    HfApi().whoami(token=True)\n    print(\"Hugging Face authorization: OK\")\nexcept Exception as error:\n    status = getattr(getattr(error, \"response\", None), \"status_code\", None)\n    print(\"Authorization error:\", type(error).__name__, \"HTTP:\", status)\n","action":"observe"}]} />
+
+## Vérifiez le résultat
+
+Exécutez l’exemple. HF_TOKEN present: True confirme que le noyau dispose du jeton ; Hugging Face authorization: OK confirme que le service l’accepte. L’accès à un modèle soumis à autorisation reste une condition distincte.
+
+## En cas de problème
+
+- Si un nouveau jeton ou une nouvelle variable n’est pas visible dans Python, redémarrez le noyau.
+- Pour une réponse 401 ou 403, vérifiez le jeton et les autorisations du compte sur la ressource.
+- Si le téléchargement réussit mais pas le chargement, vérifiez le format, les bibliothèques requises et la mémoire disponible.
+
+## Pour continuer
+
+- [Télécharger et gérer les fichiers de modèles](/vibeit/help/fr/models/downloads/)
+- [Définir des variables d’environnement](/vibeit/help/fr/models/environment/)
+
+## Documentation associée
+
+- [Hugging Face access tokens](https://huggingface.co/docs/hub/security-tokens)
+- [Apple: quit and reopen an app](https://support.apple.com/en-ae/guide/ipad/ipad79518d15/ipados)
+
+[Contacter l’assistance](https://www.mecury.co.uk/vibeit/contact.html)

@@ -1,0 +1,48 @@
+---
+title: "Work with context, tools, memory and skills"
+description: "Give the agent useful context and review the actions it proposes."
+sidebar:
+  order: 7
+---
+
+import ArticleMeta from '../../../components/ArticleMeta.astro';
+import TutorialSteps from '../../../components/TutorialSteps.astro';
+
+<ArticleMeta labels={{"observe":"Check the result","copy":"Copy code","copied":"Copied","tap":"Tap","longPress":"Touch and hold","swipe":"Swipe","input":"Type here","verified":"Content checked","siteTitle":"Vibeit Help Center","intro":"Learn one task at a time, with real app screenshots and clear steps.","version":"App version","screenshotLanguage":"Screenshot UI","device":"Device","goal":"What you will do","before":"Before you start","entry":"Where to start","steps":"Follow the steps","expected":"Check the result","troubleshooting":"If it does not work","next":"Next steps","references":"Related reference","enlarge":"Enlarge screenshot","detail":"See the control up close","previousStep":"Previous","nextStep":"Next","close":"Close","capturePending":"Screenshot capture is in progress for this preview. This page is not approved for publication.","examples":"Download the tutorial workspace","note":"Keep in mind","search":"What would you like to do?","popular":"Start with a common task","all":"Browse all tutorials","support":"Contact support"}} requirement={"Standard / Pro"} shotLocale="English" aliases={[]} />
+
+## What you will do
+
+Give the agent useful context and review the actions it proposes.
+
+## Before you start
+
+- An active Standard or Pro subscription, or an eligible trial.
+
+[Download the tutorial workspace](/vibeit/help/downloads/vibeit-tutorials.zip)
+
+## Where to start
+
+<div className="entry-path">File browser → … → Coding Agent</div>
+
+
+## Follow the steps
+
+<TutorialSteps id="ai-agent" locale="en" labels={{"observe":"Check the result","copy":"Copy code","copied":"Copied","tap":"Tap","longPress":"Touch and hold","swipe":"Swipe","input":"Type here","verified":"Content checked","siteTitle":"Vibeit Help Center","intro":"Learn one task at a time, with real app screenshots and clear steps.","version":"App version","screenshotLanguage":"Screenshot UI","device":"Device","goal":"What you will do","before":"Before you start","entry":"Where to start","steps":"Follow the steps","expected":"Check the result","troubleshooting":"If it does not work","next":"Next steps","references":"Related reference","enlarge":"Enlarge screenshot","detail":"See the control up close","previousStep":"Previous","nextStep":"Next","close":"Close","capturePending":"Screenshot capture is in progress for this preview. This page is not approved for publication.","examples":"Download the tutorial workspace","note":"Keep in mind","search":"What would you like to do?","popular":"Start with a common task","all":"Browse all tutorials","support":"Contact support"}} steps={[{"shot":"S19","target":"primary","title":"Start with a specific task","body":"Ask a small, concrete question about the open tutorial file, such as explaining its CSV-reading code.","action":"input"},{"shot":"S21","target":"primary","title":"Control file context","body":"Review Attach Open File to Model in Settings → AI. It controls whether the current file is supplied to the active provider as context."},{"shot":"S19-approval","target":"primary","title":"Read proposed actions","body":"Check code changes and any confirmation request before applying or running them. A suggestion is not proof that code has executed successfully.","action":"observe"},{"shot":"S22","target":"primary","title":"Review memory","body":"Open Manage Memory in Settings → AI to review, pin, disable or delete stored memories."},{"shot":"S23","target":"primary","title":"Enable skills intentionally","body":"Open Manage Skills and enable only the reusable instructions you want offered to the agent."}]} />
+
+## Check the result
+
+Open Manage Skills and enable only the reusable instructions you want offered to the agent.
+
+## If it does not work
+
+- If the provider is configured but not used, select Use This Provider and check the active badge.
+- For sign-in or key errors, repair the provider configuration before retrying a short request.
+- Provider choices can depend on your App Store region, subscription and the provider account.
+
+## Next steps
+
+- [Choose a model and reasoning effort](/vibeit/help/ai/reasoning/)
+- [Troubleshoot and report a problem](/vibeit/help/support/troubleshooting/)
+
+
+[Contact support](https://www.mecury.co.uk/vibeit/contact.html)

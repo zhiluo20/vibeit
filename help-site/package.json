@@ -1,0 +1,25 @@
+{
+  "name": "vibeit-help-center",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "scripts": {
+    "dev": "astro dev --host 127.0.0.1 --port 8760",
+    "build": "astro build",
+    "preview": "astro preview",
+    "content": "node scripts/generate-content.mjs",
+    "validate": "node scripts/validate.mjs",
+    "release:check": "node scripts/validate.mjs --release",
+    "release:build": "npm run content && npm run release:check && HELP_RELEASE=1 astro build",
+    "capture:import": "node scripts/import-captures.mjs"
+  },
+  "dependencies": {
+    "@astrojs/mdx": "8.0.1",
+    "@astrojs/starlight": "0.42.2",
+    "astro": "7.3.3",
+    "opencc-js": "1.4.2",
+    "sharp": "0.35.4"
+  }
+}

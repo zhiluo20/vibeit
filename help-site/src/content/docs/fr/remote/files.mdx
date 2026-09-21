@@ -1,0 +1,50 @@
+---
+title: "Gérer les fichiers distants avec SFTP"
+description: "Parcourez et modifiez les fichiers du dossier sélectionné sur le serveur."
+sidebar:
+  order: 3
+---
+
+import ArticleMeta from '../../../../components/ArticleMeta.astro';
+import TutorialSteps from '../../../../components/TutorialSteps.astro';
+
+<ArticleMeta labels={{"copy":"Copier le code","copied":"Copié","tap":"Touchez","longPress":"Maintenez le doigt","swipe":"Balayez","input":"Saisissez ici","verified":"Contenu vérifié le","siteTitle":"Centre d’aide Vibeit","intro":"Apprenez une tâche à la fois grâce à des captures réelles de l’app et à des étapes claires.","version":"Version de l’app","screenshotLanguage":"Langue des captures","device":"Appareil","goal":"Ce que vous allez faire","before":"Avant de commencer","entry":"Point de départ","steps":"Suivez les étapes","expected":"Vérifiez le résultat","troubleshooting":"En cas de problème","next":"Pour continuer","references":"Documentation associée","enlarge":"Agrandir la capture","detail":"Voir la commande de plus près","previousStep":"Précédent","nextStep":"Suivant","close":"Fermer","capturePending":"Les captures de cette page sont encore en préparation. Cet aperçu n’est pas validé pour publication.","examples":"Télécharger le projet d’exemple","note":"À retenir","search":"Que souhaitez-vous faire ?","popular":"Commencez par une tâche courante","all":"Tous les tutoriels","support":"Contacter l’assistance","observe":"Vérifiez le résultat"}} requirement={"Pro"} shotLocale="English" aliases={[]} />
+
+## Ce que vous allez faire
+
+Parcourez et modifiez les fichiers du dossier sélectionné sur le serveur.
+
+## Avant de commencer
+
+- Un abonnement Pro actif. Les abonnements aux services d’IA et les crédits API sont distincts.
+- Une connexion permettant d’accéder au service ou au téléchargement utilisé dans ce tutoriel.
+- Un serveur SSH accessible, son adresse et son port, un nom d’utilisateur et une méthode d’authentification que vous êtes autorisé à utiliser.
+
+[Télécharger le projet d’exemple](/vibeit/help/downloads/vibeit-tutorials.zip)
+
+## Point de départ
+
+<div className="entry-path">Locations → saved host → remote file browser</div>
+
+
+## Suivez les étapes
+
+<TutorialSteps id="remote-files" locale="fr" labels={{"copy":"Copier le code","copied":"Copié","tap":"Touchez","longPress":"Maintenez le doigt","swipe":"Balayez","input":"Saisissez ici","verified":"Contenu vérifié le","siteTitle":"Centre d’aide Vibeit","intro":"Apprenez une tâche à la fois grâce à des captures réelles de l’app et à des étapes claires.","version":"Version de l’app","screenshotLanguage":"Langue des captures","device":"Appareil","goal":"Ce que vous allez faire","before":"Avant de commencer","entry":"Point de départ","steps":"Suivez les étapes","expected":"Vérifiez le résultat","troubleshooting":"En cas de problème","next":"Pour continuer","references":"Documentation associée","enlarge":"Agrandir la capture","detail":"Voir la commande de plus près","previousStep":"Précédent","nextStep":"Suivant","close":"Fermer","capturePending":"Les captures de cette page sont encore en préparation. Cet aperçu n’est pas validé pour publication.","examples":"Télécharger le projet d’exemple","note":"À retenir","search":"Que souhaitez-vous faire ?","popular":"Commencez par une tâche courante","all":"Tous les tutoriels","support":"Contacter l’assistance","observe":"Vérifiez le résultat"}} steps={[{"shot":"S38","target":"primary","title":"Choisir le serveur connecté","body":"Sélectionnez le serveur vérifié et attendez sa liste de fichiers. Vérifiez le chemin distant avant toute modification."},{"shot":"S38","target":"folder","title":"Ouvrir le dossier du projet","body":"Entrez dans le dossier et sélectionnez un notebook ou un script. Le travail distant utilise les chemins et les permissions du serveur."},{"shot":"S38","target":"file","title":"Modifier et enregistrer un petit fichier","body":"Effectuez une petite modification et utilisez la commande d’enregistrement de l’éditeur. Attendez la fin de l’envoi avant de fermer la connexion."},{"shot":"S38","target":"status","title":"Rouvrir pour vérifier","body":"Actualisez ou rouvrez le fichier pour confirmer que le serveur contient la nouvelle version. Examinez tout avertissement de modification externe avant d’écraser un autre changement."}]} />
+
+## Vérifiez le résultat
+
+Actualisez ou rouvrez le fichier pour confirmer que le serveur contient la nouvelle version. Examinez tout avertissement de modification externe avant d’écraser un autre changement.
+
+## En cas de problème
+
+- En cas de délai dépassé, vérifiez l’adresse, le port, le réseau et la disponibilité du serveur.
+- En cas d’échec d’authentification, vérifiez le nom d’utilisateur et le mot de passe ou la clé privée correspondante.
+- Si l’empreinte du serveur change, vérifiez-la par un canal fiable avant de remplacer l’empreinte enregistrée.
+
+## Pour continuer
+
+- [Choisir un environnement Python distant](/vibeit/help/fr/remote/python/)
+- [Récupérer et envoyer les commits](/vibeit/help/fr/git/sync/)
+
+
+[Contacter l’assistance](https://www.mecury.co.uk/vibeit/contact.html)

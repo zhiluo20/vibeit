@@ -1,0 +1,49 @@
+---
+title: "查看差异、暂存与提交"
+description: "把检查过的改动保存到仓库的本地历史中。"
+sidebar:
+  order: 3
+---
+
+import ArticleMeta from '../../../../components/ArticleMeta.astro';
+import TutorialSteps from '../../../../components/TutorialSteps.astro';
+
+<ArticleMeta labels={{"observe":"查看结果","copy":"复制代码","copied":"已复制","tap":"点击","longPress":"长按并保持","swipe":"滑动","input":"在此输入","verified":"内容核对日期","siteTitle":"Vibeit 使用手册","intro":"通过真实 App 截图和清晰步骤，一次学会一个任务。","version":"适用版本","screenshotLanguage":"截图界面","device":"设备","goal":"你将完成什么","before":"开始前准备","entry":"从哪里进入","steps":"逐步操作","expected":"核对结果","troubleshooting":"如果没有成功","next":"下一步","references":"相关资料","enlarge":"放大截图","detail":"放大查看操作位置","previousStep":"上一步","nextStep":"下一步","close":"关闭","capturePending":"此预览页的截图仍在采集，尚未通过发布验收。","examples":"下载教程示例项目","note":"请留意","search":"你想完成什么？","popular":"从常见任务开始","all":"浏览全部教程","support":"联系支持"}} requirement={"Pro"} shotLocale="简体中文" aliases={["commit","stage","diff","提交","暂存","差异"]} />
+
+## 你将完成什么
+
+把检查过的改动保存到仓库的本地历史中。
+
+## 开始前准备
+
+- 有效的 Pro 订阅。第三方 AI 订阅和 API 额度需要单独准备。
+- 一个已经存在的 Git 仓库。练习时使用独立的教程仓库。
+
+[下载教程示例项目](/vibeit/help/downloads/vibeit-tutorials.zip)
+
+## 从哪里进入
+
+<div className="entry-path">File browser → Files → Source Control</div>
+
+
+## 逐步操作
+
+<TutorialSteps id="git-commit" locale="zh-hans" labels={{"observe":"查看结果","copy":"复制代码","copied":"已复制","tap":"点击","longPress":"长按并保持","swipe":"滑动","input":"在此输入","verified":"内容核对日期","siteTitle":"Vibeit 使用手册","intro":"通过真实 App 截图和清晰步骤，一次学会一个任务。","version":"适用版本","screenshotLanguage":"截图界面","device":"设备","goal":"你将完成什么","before":"开始前准备","entry":"从哪里进入","steps":"逐步操作","expected":"核对结果","troubleshooting":"如果没有成功","next":"下一步","references":"相关资料","enlarge":"放大截图","detail":"放大查看操作位置","previousStep":"上一步","nextStep":"下一步","close":"关闭","capturePending":"此预览页的截图仍在采集，尚未通过发布验收。","examples":"下载教程示例项目","note":"请留意","search":"你想完成什么？","popular":"从常见任务开始","all":"浏览全部教程","support":"联系支持"}} steps={[{"shot":"S31","target":"primary","title":"检查改动文件","body":"编辑并保存 hello.py，再打开源代码管理。点击变更文件查看差异。"},{"shot":"S31","target":"stage","title":"暂存准备提交的改动","body":"滑动变更行显示 Stage，或检查全部文件后使用 Stage All。Unstage 只取消暂存，不会删除编辑内容。","action":"swipe"},{"shot":"S32","target":"message","title":"填写提交说明","body":"例如填写 Explain the greeting example。提交按钮需要非空说明和至少一个暂存文件。","action":"input"},{"shot":"S32","target":"commit","title":"提交并检查历史","body":"点击 Commit，确认新说明出现在 History 中。这一步记录本地历史，还没有把提交发送到 GitHub。"}]} />
+
+## 核对结果
+
+点击 Commit，确认新说明出现在 History 中。这一步记录本地历史，还没有把提交发送到 GitHub。
+
+## 如果没有成功
+
+- Commit 记录本地历史，Push 才会发送到远程。先确认失败的是哪一步。
+- 推送被拒绝时，检查远程改动和账号权限，不要把强制推送当作常规修复方式。
+- 发生冲突时，先保留副本并检查相关文件，再决定如何处理改动。
+
+## 下一步
+
+- [拉取与推送仓库改动](/vibeit/help/zh-hans/git/sync/)
+- [创建 PR 并处理同步问题](/vibeit/help/zh-hans/git/pull-requests/)
+
+
+[联系支持](https://www.mecury.co.uk/vibeit/contact.html)

@@ -1,0 +1,50 @@
+---
+title: "Se connecter en SSH avec un mot de passe"
+description: "Enregistrez un profil de serveur, vérifiez son empreinte et ouvrez ses fichiers distants."
+sidebar:
+  order: 1
+---
+
+import ArticleMeta from '../../../../components/ArticleMeta.astro';
+import TutorialSteps from '../../../../components/TutorialSteps.astro';
+
+<ArticleMeta labels={{"copy":"Copier le code","copied":"Copié","tap":"Touchez","longPress":"Maintenez le doigt","swipe":"Balayez","input":"Saisissez ici","verified":"Contenu vérifié le","siteTitle":"Centre d’aide Vibeit","intro":"Apprenez une tâche à la fois grâce à des captures réelles de l’app et à des étapes claires.","version":"Version de l’app","screenshotLanguage":"Langue des captures","device":"Appareil","goal":"Ce que vous allez faire","before":"Avant de commencer","entry":"Point de départ","steps":"Suivez les étapes","expected":"Vérifiez le résultat","troubleshooting":"En cas de problème","next":"Pour continuer","references":"Documentation associée","enlarge":"Agrandir la capture","detail":"Voir la commande de plus près","previousStep":"Précédent","nextStep":"Suivant","close":"Fermer","capturePending":"Les captures de cette page sont encore en préparation. Cet aperçu n’est pas validé pour publication.","examples":"Télécharger le projet d’exemple","note":"À retenir","search":"Que souhaitez-vous faire ?","popular":"Commencez par une tâche courante","all":"Tous les tutoriels","support":"Contacter l’assistance","observe":"Vérifiez le résultat"}} requirement={"Pro"} shotLocale="English" aliases={["SSH","password","host","远程连接","服务器"]} />
+
+## Ce que vous allez faire
+
+Enregistrez un profil de serveur, vérifiez son empreinte et ouvrez ses fichiers distants.
+
+## Avant de commencer
+
+- Un abonnement Pro actif. Les abonnements aux services d’IA et les crédits API sont distincts.
+- Une connexion permettant d’accéder au service ou au téléchargement utilisé dans ce tutoriel.
+- Un serveur SSH accessible, son adresse et son port, un nom d’utilisateur et une méthode d’authentification que vous êtes autorisé à utiliser.
+
+[Télécharger le projet d’exemple](/vibeit/help/downloads/vibeit-tutorials.zip)
+
+## Point de départ
+
+<div className="entry-path">Locations → + → Add Remote Host</div>
+
+
+## Suivez les étapes
+
+<TutorialSteps id="remote-ssh" locale="fr" labels={{"copy":"Copier le code","copied":"Copié","tap":"Touchez","longPress":"Maintenez le doigt","swipe":"Balayez","input":"Saisissez ici","verified":"Contenu vérifié le","siteTitle":"Centre d’aide Vibeit","intro":"Apprenez une tâche à la fois grâce à des captures réelles de l’app et à des étapes claires.","version":"Version de l’app","screenshotLanguage":"Langue des captures","device":"Appareil","goal":"Ce que vous allez faire","before":"Avant de commencer","entry":"Point de départ","steps":"Suivez les étapes","expected":"Vérifiez le résultat","troubleshooting":"En cas de problème","next":"Pour continuer","references":"Documentation associée","enlarge":"Agrandir la capture","detail":"Voir la commande de plus près","previousStep":"Précédent","nextStep":"Suivant","close":"Fermer","capturePending":"Les captures de cette page sont encore en préparation. Cet aperçu n’est pas validé pour publication.","examples":"Télécharger le projet d’exemple","note":"À retenir","search":"Que souhaitez-vous faire ?","popular":"Commencez par une tâche courante","all":"Tous les tutoriels","support":"Contacter l’assistance","observe":"Vérifiez le résultat"}} steps={[{"shot":"S34","target":"primary","title":"Ajouter un serveur distant","body":"Dans Locations, choisissez Add Remote Host. Préparez l’adresse du serveur et le nom d’utilisateur SSH."},{"shot":"S35","target":"host","title":"Saisir la connexion","body":"Choisissez Direct (TCP), puis saisissez l’adresse, le port et le nom d’utilisateur. Utilisez le port réellement configuré ; 22 est le port SSH habituel.","action":"input"},{"shot":"S35","target":"password","title":"Choisir le mot de passe","body":"Choisissez Password, saisissez le mot de passe SSH et enregistrez le profil. L’enregistrement du formulaire ne prouve pas que le serveur est accessible.","action":"input"},{"shot":"S37","target":"primary","title":"Vérifier la clé du serveur","body":"Choisissez Verify Host Key. Comparez l’empreinte affichée à celle obtenue auprès de l’administrateur ou par un autre canal fiable avant de lui faire confiance."},{"shot":"S38","target":"primary","title":"Ouvrir le dossier distant","body":"Connectez-vous au profil enregistré et vérifiez que la liste des fichiers distants se charge. Ouvrez un petit fichier pour vérifier le droit de lecture."}]} />
+
+## Vérifiez le résultat
+
+Connectez-vous au profil enregistré et vérifiez que la liste des fichiers distants se charge. Ouvrez un petit fichier pour vérifier le droit de lecture.
+
+## En cas de problème
+
+- En cas de délai dépassé, vérifiez l’adresse, le port, le réseau et la disponibilité du serveur.
+- En cas d’échec d’authentification, vérifiez le nom d’utilisateur et le mot de passe ou la clé privée correspondante.
+- Si l’empreinte du serveur change, vérifiez-la par un canal fiable avant de remplacer l’empreinte enregistrée.
+
+## Pour continuer
+
+- [Se connecter avec une clé privée SSH](/vibeit/help/fr/remote/keys/)
+- [Gérer les fichiers distants avec SFTP](/vibeit/help/fr/remote/files/)
+
+
+[Contacter l’assistance](https://www.mecury.co.uk/vibeit/contact.html)

@@ -1,0 +1,53 @@
+---
+title: "Configure Cloudflare Access"
+description: "Use an existing Cloudflare Access SSH application from Vibeit."
+sidebar:
+  order: 5
+---
+
+import ArticleMeta from '../../../components/ArticleMeta.astro';
+import TutorialSteps from '../../../components/TutorialSteps.astro';
+
+<ArticleMeta labels={{"observe":"Check the result","copy":"Copy code","copied":"Copied","tap":"Tap","longPress":"Touch and hold","swipe":"Swipe","input":"Type here","verified":"Content checked","siteTitle":"Vibeit Help Center","intro":"Learn one task at a time, with real app screenshots and clear steps.","version":"App version","screenshotLanguage":"Screenshot UI","device":"Device","goal":"What you will do","before":"Before you start","entry":"Where to start","steps":"Follow the steps","expected":"Check the result","troubleshooting":"If it does not work","next":"Next steps","references":"Related reference","enlarge":"Enlarge screenshot","detail":"See the control up close","previousStep":"Previous","nextStep":"Next","close":"Close","capturePending":"Screenshot capture is in progress for this preview. This page is not approved for publication.","examples":"Download the tutorial workspace","note":"Keep in mind","search":"What would you like to do?","popular":"Start with a common task","all":"Browse all tutorials","support":"Contact support"}} requirement={"Pro"} shotLocale="English" aliases={[]} />
+
+## What you will do
+
+Use an existing Cloudflare Access SSH application from Vibeit.
+
+## Before you start
+
+- An active Pro subscription. Third-party AI subscriptions and API credits are separate.
+- A working internet connection for the service or download used in this tutorial.
+- A reachable SSH server, its hostname/port, a username, and the authentication method you are authorized to use.
+
+[Download the tutorial workspace](/vibeit/help/downloads/vibeit-tutorials.zip)
+
+## Where to start
+
+<div className="entry-path">Add Remote Host → Connection → Cloudflare Access</div>
+
+:::note[Keep in mind]
+Access authorization and SSH authentication are separate checks. Renew Access sign-in when its session expires.
+:::
+
+## Follow the steps
+
+<TutorialSteps id="remote-cloudflare" locale="en" labels={{"observe":"Check the result","copy":"Copy code","copied":"Copied","tap":"Tap","longPress":"Touch and hold","swipe":"Swipe","input":"Type here","verified":"Content checked","siteTitle":"Vibeit Help Center","intro":"Learn one task at a time, with real app screenshots and clear steps.","version":"App version","screenshotLanguage":"Screenshot UI","device":"Device","goal":"What you will do","before":"Before you start","entry":"Where to start","steps":"Follow the steps","expected":"Check the result","troubleshooting":"If it does not work","next":"Next steps","references":"Related reference","enlarge":"Enlarge screenshot","detail":"See the control up close","previousStep":"Previous","nextStep":"Next","close":"Close","capturePending":"Screenshot capture is in progress for this preview. This page is not approved for publication.","examples":"Download the tutorial workspace","note":"Keep in mind","search":"What would you like to do?","popular":"Start with a common task","all":"Browse all tutorials","support":"Contact support"}} steps={[{"shot":"S41","target":"primary","title":"Confirm the server-side setup","body":"Ask the administrator for the Access hostname, team domain and SSH user. The tunnel and Access policy must already be configured."},{"shot":"S41","target":"host","title":"Select Cloudflare Access","body":"Choose Cloudflare Access and enter its hostname and team domain. This transport uses the Access hostname rather than a direct SSH port.","action":"input"},{"shot":"S41","target":"login","title":"Complete Access sign-in","body":"Tap Sign in with Cloudflare Access and complete the identity-provider flow. Configure the SSH password or key separately."},{"shot":"S37","target":"primary","title":"Save, verify and connect","body":"Keep the default connection concurrency unless your setup supports more. Save, verify the host key and confirm a real file connection."}]} />
+
+## Check the result
+
+Keep the default connection concurrency unless your setup supports more. Save, verify the host key and confirm a real file connection.
+
+## If it does not work
+
+- For a timeout, check the host, port, network route and server availability.
+- For authentication failures, check the username and matching password or private key.
+- If the host fingerprint changes, verify it through a trusted channel before replacing the saved fingerprint.
+
+## Next steps
+
+- [Connect to an SSH server with a password](/vibeit/help/remote/ssh/)
+- [Choose a remote Python environment](/vibeit/help/remote/python/)
+
+
+[Contact support](https://www.mecury.co.uk/vibeit/contact.html)

@@ -1,0 +1,50 @@
+---
+title: "Pull and push repository changes"
+description: "Bring remote commits into a working copy and send your own commits back."
+sidebar:
+  order: 4
+---
+
+import ArticleMeta from '../../../components/ArticleMeta.astro';
+import TutorialSteps from '../../../components/TutorialSteps.astro';
+
+<ArticleMeta labels={{"observe":"Check the result","copy":"Copy code","copied":"Copied","tap":"Tap","longPress":"Touch and hold","swipe":"Swipe","input":"Type here","verified":"Content checked","siteTitle":"Vibeit Help Center","intro":"Learn one task at a time, with real app screenshots and clear steps.","version":"App version","screenshotLanguage":"Screenshot UI","device":"Device","goal":"What you will do","before":"Before you start","entry":"Where to start","steps":"Follow the steps","expected":"Check the result","troubleshooting":"If it does not work","next":"Next steps","references":"Related reference","enlarge":"Enlarge screenshot","detail":"See the control up close","previousStep":"Previous","nextStep":"Next","close":"Close","capturePending":"Screenshot capture is in progress for this preview. This page is not approved for publication.","examples":"Download the tutorial workspace","note":"Keep in mind","search":"What would you like to do?","popular":"Start with a common task","all":"Browse all tutorials","support":"Contact support"}} requirement={"Pro"} shotLocale="English" aliases={["push","pull","推送","拉取"]} />
+
+## What you will do
+
+Bring remote commits into a working copy and send your own commits back.
+
+## Before you start
+
+- An active Pro subscription. Third-party AI subscriptions and API credits are separate.
+- A working internet connection for the service or download used in this tutorial.
+- An existing Git repository. Use the separate tutorial repository for practice.
+
+[Download the tutorial workspace](/vibeit/help/downloads/vibeit-tutorials.zip)
+
+## Where to start
+
+<div className="entry-path">Source Control → Pull / Push</div>
+
+
+## Follow the steps
+
+<TutorialSteps id="git-sync" locale="en" labels={{"observe":"Check the result","copy":"Copy code","copied":"Copied","tap":"Tap","longPress":"Touch and hold","swipe":"Swipe","input":"Type here","verified":"Content checked","siteTitle":"Vibeit Help Center","intro":"Learn one task at a time, with real app screenshots and clear steps.","version":"App version","screenshotLanguage":"Screenshot UI","device":"Device","goal":"What you will do","before":"Before you start","entry":"Where to start","steps":"Follow the steps","expected":"Check the result","troubleshooting":"If it does not work","next":"Next steps","references":"Related reference","enlarge":"Enlarge screenshot","detail":"See the control up close","previousStep":"Previous","nextStep":"Next","close":"Close","capturePending":"Screenshot capture is in progress for this preview. This page is not approved for publication.","examples":"Download the tutorial workspace","note":"Keep in mind","search":"What would you like to do?","popular":"Start with a common task","all":"Browse all tutorials","support":"Contact support"}} steps={[{"shot":"S32","target":"primary","title":"Check the repository and account","body":"Confirm the project has an origin remote and that your GitHub account can access it. A new local repository needs a remote configured before it can sync."},{"shot":"S32","target":"pull","title":"Pull before continuing work","body":"Save and review your current changes, then tap Pull. Read any rejection before making further edits."},{"shot":"S32","target":"push","title":"Push completed commits","body":"After committing locally, tap Push. Uploading saved files without a commit is not the same operation."},{"shot":"S32","target":"status","title":"Verify on GitHub","body":"Open the matching branch on GitHub and check the new commit message and file content. For remote workspaces, Git runs on the server and uses that server’s Git credentials."}]} />
+
+## Check the result
+
+Open the matching branch on GitHub and check the new commit message and file content. For remote workspaces, Git runs on the server and uses that server’s Git credentials.
+
+## If it does not work
+
+- Commit records local history; Push sends commits to the remote. Check which operation failed.
+- For rejected pushes, inspect the remote changes and your permissions. Do not use a force push as a routine fix.
+- If changes conflict, keep a copy and review the affected files before discarding anything.
+
+## Next steps
+
+- [Open a pull request and resolve sync problems](/vibeit/help/git/pull-requests/)
+- [Manage remote files with SFTP](/vibeit/help/remote/files/)
+
+
+[Contact support](https://www.mecury.co.uk/vibeit/contact.html)

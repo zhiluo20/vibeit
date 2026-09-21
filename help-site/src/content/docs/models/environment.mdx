@@ -1,0 +1,54 @@
+---
+title: "Set environment variables"
+description: "Pass project configuration to a fresh Python kernel and terminal."
+sidebar:
+  order: 3
+---
+
+import ArticleMeta from '../../../components/ArticleMeta.astro';
+import TutorialSteps from '../../../components/TutorialSteps.astro';
+
+<ArticleMeta labels={{"observe":"Check the result","copy":"Copy code","copied":"Copied","tap":"Tap","longPress":"Touch and hold","swipe":"Swipe","input":"Type here","verified":"Content checked","siteTitle":"Vibeit Help Center","intro":"Learn one task at a time, with real app screenshots and clear steps.","version":"App version","screenshotLanguage":"Screenshot UI","device":"Device","goal":"What you will do","before":"Before you start","entry":"Where to start","steps":"Follow the steps","expected":"Check the result","troubleshooting":"If it does not work","next":"Next steps","references":"Related reference","enlarge":"Enlarge screenshot","detail":"See the control up close","previousStep":"Previous","nextStep":"Next","close":"Close","capturePending":"Screenshot capture is in progress for this preview. This page is not approved for publication.","examples":"Download the tutorial workspace","note":"Keep in mind","search":"What would you like to do?","popular":"Start with a common task","all":"Browse all tutorials","support":"Contact support"}} requirement={"Standard / Pro"} shotLocale="English" aliases={[]} />
+
+## What you will do
+
+Pass project configuration to a fresh Python kernel and terminal.
+
+## Before you start
+
+- An active Standard or Pro subscription, or an eligible trial.
+
+[Download the tutorial workspace](/vibeit/help/downloads/vibeit-tutorials.zip)
+
+## Where to start
+
+<div className="entry-path">Settings → Environment → Environment Variables</div>
+
+:::note[Keep in mind]
+On iOS/iPadOS 1.0.1, completely close and reopen Vibeit after changing Environment settings. Restart Kernel clears the Python session but does not reload these saved settings.
+:::
+
+## Follow the steps
+
+<TutorialSteps id="models-environment" locale="en" labels={{"observe":"Check the result","copy":"Copy code","copied":"Copied","tap":"Tap","longPress":"Touch and hold","swipe":"Swipe","input":"Type here","verified":"Content checked","siteTitle":"Vibeit Help Center","intro":"Learn one task at a time, with real app screenshots and clear steps.","version":"App version","screenshotLanguage":"Screenshot UI","device":"Device","goal":"What you will do","before":"Before you start","entry":"Where to start","steps":"Follow the steps","expected":"Check the result","troubleshooting":"If it does not work","next":"Next steps","references":"Related reference","enlarge":"Enlarge screenshot","detail":"See the control up close","previousStep":"Previous","nextStep":"Next","close":"Close","capturePending":"Screenshot capture is in progress for this preview. This page is not approved for publication.","examples":"Download the tutorial workspace","note":"Keep in mind","search":"What would you like to do?","popular":"Start with a common task","all":"Browse all tutorials","support":"Contact support"}} steps={[{"shot":"S24","target":"newKey","title":"Enter a name and value","body":"For a harmless example, enter VIBEIT_DEMO as the key and tutorial as the value. Names are case-sensitive.","action":"input"},{"shot":"S24","target":"add","title":"Add the variable","body":"Tap Add Variable and check that the name appears in the list. Names containing TOKEN, KEY, SECRET or PASSWORD use secure storage."},{"shot":"S09-relaunch","target":"primary","title":"Close and reopen Vibeit","body":"Save your work. Open the system app switcher, swipe Vibeit’s card upward to close it, then tap the Vibeit icon to open it again. Returning to the Home Screen alone does not restart the app.","action":"tap"},{"shot":"S25-environment","target":"primary","title":"Check the harmless value","body":"Run the example and check for tutorial. Use presence checks instead of printing secret values.","code":"import os\nprint(os.environ.get(\"VIBEIT_DEMO\"))","action":"observe"}]} />
+
+## Check the result
+
+The new kernel prints tutorial.
+
+## If it does not work
+
+- If a newly saved token or environment value is not visible to Python, restart the kernel.
+- For 401/403 responses, check the token and the resource’s account permissions.
+- If a file downloads but does not load, check its format, required packages and available memory.
+
+## Next steps
+
+- [Configure a Hugging Face token](/vibeit/help/models/hugging-face/)
+- [Type, copy and paste in the terminal](/vibeit/help/terminal/basics/)
+
+## Related reference
+
+- [Apple: quit and reopen an app](https://support.apple.com/en-ae/guide/ipad/ipad79518d15/ipados)
+
+[Contact support](https://www.mecury.co.uk/vibeit/contact.html)

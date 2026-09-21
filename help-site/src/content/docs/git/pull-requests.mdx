@@ -1,0 +1,53 @@
+---
+title: "Open a pull request and resolve sync problems"
+description: "Propose changes from a pushed branch and identify common synchronization failures."
+sidebar:
+  order: 5
+---
+
+import ArticleMeta from '../../../components/ArticleMeta.astro';
+import TutorialSteps from '../../../components/TutorialSteps.astro';
+
+<ArticleMeta labels={{"observe":"Check the result","copy":"Copy code","copied":"Copied","tap":"Tap","longPress":"Touch and hold","swipe":"Swipe","input":"Type here","verified":"Content checked","siteTitle":"Vibeit Help Center","intro":"Learn one task at a time, with real app screenshots and clear steps.","version":"App version","screenshotLanguage":"Screenshot UI","device":"Device","goal":"What you will do","before":"Before you start","entry":"Where to start","steps":"Follow the steps","expected":"Check the result","troubleshooting":"If it does not work","next":"Next steps","references":"Related reference","enlarge":"Enlarge screenshot","detail":"See the control up close","previousStep":"Previous","nextStep":"Next","close":"Close","capturePending":"Screenshot capture is in progress for this preview. This page is not approved for publication.","examples":"Download the tutorial workspace","note":"Keep in mind","search":"What would you like to do?","popular":"Start with a common task","all":"Browse all tutorials","support":"Contact support"}} requirement={"Pro"} shotLocale="English" aliases={[]} />
+
+## What you will do
+
+Propose changes from a pushed branch and identify common synchronization failures.
+
+## Before you start
+
+- An active Pro subscription. Third-party AI subscriptions and API credits are separate.
+- A working internet connection for the service or download used in this tutorial.
+- An existing Git repository. Use the separate tutorial repository for practice.
+
+[Download the tutorial workspace](/vibeit/help/downloads/vibeit-tutorials.zip)
+
+## Where to start
+
+<div className="entry-path">Source Control → Create Pull Request</div>
+
+:::note[Keep in mind]
+There is no dedicated merge-conflict editor in this version. Do not discard files or force-push simply to clear an error.
+:::
+
+## Follow the steps
+
+<TutorialSteps id="git-pull-requests" locale="en" labels={{"observe":"Check the result","copy":"Copy code","copied":"Copied","tap":"Tap","longPress":"Touch and hold","swipe":"Swipe","input":"Type here","verified":"Content checked","siteTitle":"Vibeit Help Center","intro":"Learn one task at a time, with real app screenshots and clear steps.","version":"App version","screenshotLanguage":"Screenshot UI","device":"Device","goal":"What you will do","before":"Before you start","entry":"Where to start","steps":"Follow the steps","expected":"Check the result","troubleshooting":"If it does not work","next":"Next steps","references":"Related reference","enlarge":"Enlarge screenshot","detail":"See the control up close","previousStep":"Previous","nextStep":"Next","close":"Close","capturePending":"Screenshot capture is in progress for this preview. This page is not approved for publication.","examples":"Download the tutorial workspace","note":"Keep in mind","search":"What would you like to do?","popular":"Start with a common task","all":"Browse all tutorials","support":"Contact support"}} steps={[{"shot":"S32","target":"primary","title":"Prepare a separate branch","body":"Prepare the working branch with a Git tool or a remote terminal, then push it. The current App panel shows the branch but does not offer a branch-creation button."},{"shot":"S33","target":"primary","title":"Open Create Pull Request","body":"Use the pull-request control when origin points to GitHub. Confirm that the head branch differs from the branch you want to merge into."},{"shot":"S33","target":"title","title":"Describe and submit the proposal","body":"Enter the title, explanation and base branch. Submit after reviewing the proposed destination.","action":"input"},{"shot":"S33-result","target":"primary","title":"Follow the returned GitHub link","body":"Open the resulting PR to review its changes. If sync is rejected or histories have diverged, resolve the repository with a suitable Git tool or server terminal before retrying.","action":"observe"}]} />
+
+## Check the result
+
+Open the resulting PR to review its changes. If sync is rejected or histories have diverged, resolve the repository with a suitable Git tool or server terminal before retrying.
+
+## If it does not work
+
+- Commit records local history; Push sends commits to the remote. Check which operation failed.
+- For rejected pushes, inspect the remote changes and your permissions. Do not use a force push as a routine fix.
+- If changes conflict, keep a copy and review the affected files before discarding anything.
+
+## Next steps
+
+- [Pull and push repository changes](/vibeit/help/git/sync/)
+- [Type, copy and paste in the terminal](/vibeit/help/terminal/basics/)
+
+
+[Contact support](https://www.mecury.co.uk/vibeit/contact.html)

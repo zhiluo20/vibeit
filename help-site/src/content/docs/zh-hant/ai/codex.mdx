@@ -1,0 +1,50 @@
+---
+title: "登錄 Codex 並加載模型"
+description: "連接 Codex 帳號，並從該帳號實際可用的模型中進行選擇。"
+sidebar:
+  order: 3
+---
+
+import ArticleMeta from '../../../../components/ArticleMeta.astro';
+import TutorialSteps from '../../../../components/TutorialSteps.astro';
+
+<ArticleMeta labels={{"observe":"查看結果","copy":"複製代碼","copied":"已複製","tap":"點擊","longPress":"長按並保持","swipe":"滑動","input":"在此輸入","verified":"內容核對日期","siteTitle":"Vibeit 使用手冊","intro":"通過真實 App 截圖和清晰步驟，一次學會一個任務。","version":"適用版本","screenshotLanguage":"截圖界面","device":"設備","goal":"你將完成什麼","before":"開始前準備","entry":"從哪裡進入","steps":"逐步操作","expected":"核對結果","troubleshooting":"如果沒有成功","next":"下一步","references":"相關資料","enlarge":"放大截圖","detail":"放大查看操作位置","previousStep":"上一步","nextStep":"下一步","close":"關閉","capturePending":"此預覽頁的截圖仍在採集，尚未通過發佈驗收。","examples":"下載教程示例項目","note":"請留意","search":"你想完成什麼？","popular":"從常見任務開始","all":"瀏覽全部教程","support":"聯繫支持"}} requirement={"Pro"} shotLocale="简体中文" aliases={["Codex","ChatGPT","OpenAI","Automatic","模型列表"]} />
+
+## 你將完成什麼
+
+連接 Codex 帳號，並從該帳號實際可用的模型中進行選擇。
+
+## 開始前準備
+
+- 有效的 Pro 訂閱。第三方 AI 訂閱和 API 額度需要單獨準備。
+- 能夠連接本教程所用服務或下載資源的網絡。
+- 能夠使用 Codex 服務的 OpenAI 帳號。
+
+[下載教程示例項目](/vibeit/help/downloads/vibeit-tutorials.zip)
+
+## 從哪裡進入
+
+<div className="entry-path">Settings → AI → Codex</div>
+
+
+## 逐步操作
+
+<TutorialSteps id="ai-codex" locale="zh-hant" labels={{"observe":"查看結果","copy":"複製代碼","copied":"已複製","tap":"點擊","longPress":"長按並保持","swipe":"滑動","input":"在此輸入","verified":"內容核對日期","siteTitle":"Vibeit 使用手冊","intro":"通過真實 App 截圖和清晰步驟，一次學會一個任務。","version":"適用版本","screenshotLanguage":"截圖界面","device":"設備","goal":"你將完成什麼","before":"開始前準備","entry":"從哪裡進入","steps":"逐步操作","expected":"核對結果","troubleshooting":"如果沒有成功","next":"下一步","references":"相關資料","enlarge":"放大截圖","detail":"放大查看操作位置","previousStep":"上一步","nextStep":"下一步","close":"關閉","capturePending":"此預覽頁的截圖仍在採集，尚未通過發佈驗收。","examples":"下載教程示例項目","note":"請留意","search":"你想完成什麼？","popular":"從常見任務開始","all":"瀏覽全部教程","support":"聯繫支持"}} steps={[{"shot":"S15","target":"primary","title":"開始官方登錄流程","body":"打開 Codex 服務詳情，點擊 Sign in with OpenAI Codex，在打開的瀏覽器中完成登錄與授權。"},{"shot":"S16","target":"status","title":"返回 Vibeit","body":"授權後返回 App，確認顯示已登錄帳號，並等待可用模型加載完成。"},{"shot":"S16-models","target":"primary","title":"選擇 Automatic 或可用模型","body":"Automatic 根據當前可用列表選擇模型；也可以明確選擇偏好的型號。模型列表會隨帳號權限和服務更新而變化。"},{"shot":"S16","target":"refresh","title":"刷新並啟用","body":"需要更新列表時使用 Refresh Models。保存設置；希望由 Codex 驅動助手時，選擇 Use This Provider。"}]} />
+
+## 核對結果
+
+需要更新列表時使用 Refresh Models。保存設置；希望由 Codex 驅動助手時，選擇 Use This Provider。
+
+## 如果沒有成功
+
+- 配置後沒有使用該服務時，選擇 Use This Provider，並檢查當前啟用標記。
+- 出現登錄或密鑰錯誤時，先修復服務配置，再用簡短請求重試。
+- 服務選項可能受 App Store 地區、訂閱及服務商帳號權限影響。
+
+## 下一步
+
+- [選擇模型與推理強度](/vibeit/help/zh-hant/ai/reasoning/)
+- [使用上下文、工具、記憶與技能](/vibeit/help/zh-hant/ai/agent/)
+
+
+[聯繫支持](https://www.mecury.co.uk/vibeit/contact.html)

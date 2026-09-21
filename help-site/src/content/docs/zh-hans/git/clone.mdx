@@ -1,0 +1,52 @@
+---
+title: "克隆并打开仓库"
+description: "把 GitHub 仓库克隆为本地可编辑的工作副本。"
+sidebar:
+  order: 2
+---
+
+import ArticleMeta from '../../../../components/ArticleMeta.astro';
+import TutorialSteps from '../../../../components/TutorialSteps.astro';
+
+<ArticleMeta labels={{"observe":"查看结果","copy":"复制代码","copied":"已复制","tap":"点击","longPress":"长按并保持","swipe":"滑动","input":"在此输入","verified":"内容核对日期","siteTitle":"Vibeit 使用手册","intro":"通过真实 App 截图和清晰步骤，一次学会一个任务。","version":"适用版本","screenshotLanguage":"截图界面","device":"设备","goal":"你将完成什么","before":"开始前准备","entry":"从哪里进入","steps":"逐步操作","expected":"核对结果","troubleshooting":"如果没有成功","next":"下一步","references":"相关资料","enlarge":"放大截图","detail":"放大查看操作位置","previousStep":"上一步","nextStep":"下一步","close":"关闭","capturePending":"此预览页的截图仍在采集，尚未通过发布验收。","examples":"下载教程示例项目","note":"请留意","search":"你想完成什么？","popular":"从常见任务开始","all":"浏览全部教程","support":"联系支持"}} requirement={"Pro"} shotLocale="简体中文" aliases={[]} />
+
+## 你将完成什么
+
+把 GitHub 仓库克隆为本地可编辑的工作副本。
+
+## 开始前准备
+
+- 有效的 Pro 订阅。第三方 AI 订阅和 API 额度需要单独准备。
+- 能够连接本教程所用服务或下载资源的网络。
+
+[下载教程示例项目](/vibeit/help/downloads/vibeit-tutorials.zip)
+
+## 从哪里进入
+
+<div className="entry-path">File browser → + → Clone from GitHub</div>
+
+
+## 逐步操作
+
+<TutorialSteps id="git-clone" locale="zh-hans" labels={{"observe":"查看结果","copy":"复制代码","copied":"已复制","tap":"点击","longPress":"长按并保持","swipe":"滑动","input":"在此输入","verified":"内容核对日期","siteTitle":"Vibeit 使用手册","intro":"通过真实 App 截图和清晰步骤，一次学会一个任务。","version":"适用版本","screenshotLanguage":"截图界面","device":"设备","goal":"你将完成什么","before":"开始前准备","entry":"从哪里进入","steps":"逐步操作","expected":"核对结果","troubleshooting":"如果没有成功","next":"下一步","references":"相关资料","enlarge":"放大截图","detail":"放大查看操作位置","previousStep":"上一步","nextStep":"下一步","close":"关闭","capturePending":"此预览页的截图仍在采集，尚未通过发布验收。","examples":"下载教程示例项目","note":"请留意","search":"你想完成什么？","popular":"从常见任务开始","all":"浏览全部教程","support":"联系支持"}} steps={[{"shot":"S30","target":"primary","title":"开始克隆","body":"在文件浏览器的 + 菜单中选择 Clone from GitHub。需要认证的仓库应先登录。"},{"shot":"S30","target":"repository","title":"输入仓库地址","body":"填写 owner/repo 或完整 GitHub HTTPS 地址。练习编辑时，先将教程仓库 fork 到自己的账号，再填写你的 fork 地址。"},{"shot":"S30","target":"clone","title":"等待克隆完成","body":"保持网络连接，等待克隆结束，再打开生成的项目文件夹。"},{"shot":"S31-clean","target":"primary","title":"确认工作副本","body":"从 Files 区域打开源代码管理，检查分支和历史，再开始编辑文件。"}]} />
+
+## 核对结果
+
+从 Files 区域打开源代码管理，检查分支和历史，再开始编辑文件。
+
+## 如果没有成功
+
+- Commit 记录本地历史，Push 才会发送到远程。先确认失败的是哪一步。
+- 推送被拒绝时，检查远程改动和账号权限，不要把强制推送当作常规修复方式。
+- 发生冲突时，先保留副本并检查相关文件，再决定如何处理改动。
+
+## 下一步
+
+- [查看差异、暂存与提交](/vibeit/help/zh-hans/git/commit/)
+- [拉取与推送仓库改动](/vibeit/help/zh-hans/git/sync/)
+
+## 相关资料
+
+- [Tutorial repository](https://github.com/zhiluo20/vibeit-tutorials)
+
+[联系支持](https://www.mecury.co.uk/vibeit/contact.html)

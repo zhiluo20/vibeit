@@ -1,0 +1,48 @@
+---
+title: "使用代码、Markdown 与 HTML 单元"
+description: "选择合适的单元类型，在阅读和编辑富文本内容之间切换。"
+sidebar:
+  order: 1
+---
+
+import ArticleMeta from '../../../../components/ArticleMeta.astro';
+import TutorialSteps from '../../../../components/TutorialSteps.astro';
+
+<ArticleMeta labels={{"observe":"查看结果","copy":"复制代码","copied":"已复制","tap":"点击","longPress":"长按并保持","swipe":"滑动","input":"在此输入","verified":"内容核对日期","siteTitle":"Vibeit 使用手册","intro":"通过真实 App 截图和清晰步骤，一次学会一个任务。","version":"适用版本","screenshotLanguage":"截图界面","device":"设备","goal":"你将完成什么","before":"开始前准备","entry":"从哪里进入","steps":"逐步操作","expected":"核对结果","troubleshooting":"如果没有成功","next":"下一步","references":"相关资料","enlarge":"放大截图","detail":"放大查看操作位置","previousStep":"上一步","nextStep":"下一步","close":"关闭","capturePending":"此预览页的截图仍在采集，尚未通过发布验收。","examples":"下载教程示例项目","note":"请留意","search":"你想完成什么？","popular":"从常见任务开始","all":"浏览全部教程","support":"联系支持"}} requirement={"Standard / Pro"} shotLocale="简体中文" aliases={[]} />
+
+## 你将完成什么
+
+选择合适的单元类型，在阅读和编辑富文本内容之间切换。
+
+## 开始前准备
+
+- 有效的 Standard、Pro 订阅，或符合条件的试用。
+
+[下载教程示例项目](/vibeit/help/downloads/vibeit-tutorials.zip)
+
+## 从哪里进入
+
+<div className="entry-path">Open a notebook → cell controls</div>
+
+
+## 逐步操作
+
+<TutorialSteps id="notebooks-cells" locale="zh-hans" labels={{"observe":"查看结果","copy":"复制代码","copied":"已复制","tap":"点击","longPress":"长按并保持","swipe":"滑动","input":"在此输入","verified":"内容核对日期","siteTitle":"Vibeit 使用手册","intro":"通过真实 App 截图和清晰步骤，一次学会一个任务。","version":"适用版本","screenshotLanguage":"截图界面","device":"设备","goal":"你将完成什么","before":"开始前准备","entry":"从哪里进入","steps":"逐步操作","expected":"核对结果","troubleshooting":"如果没有成功","next":"下一步","references":"相关资料","enlarge":"放大截图","detail":"放大查看操作位置","previousStep":"上一步","nextStep":"下一步","close":"关闭","capturePending":"此预览页的截图仍在采集，尚未通过发布验收。","examples":"下载教程示例项目","note":"请留意","search":"你想完成什么？","popular":"从常见任务开始","all":"浏览全部教程","support":"联系支持"}} steps={[{"shot":"S07","target":"primary","title":"选择单元类型","body":"Python 放在代码单元中，说明文字使用 Markdown，HTML 内容使用 HTML 单元。"},{"shot":"S03","target":"editor","title":"编辑 Python 代码","body":"点击代码区域输入内容。代码单元由当前笔记本的 Python 内核运行。","action":"input"},{"shot":"S07","target":"edit","title":"编辑富文本内容","body":"非空 Markdown 和 HTML 单元默认显示渲染结果。点击单元的编辑按钮查看源码。"},{"shot":"S07-editing","target":"primary","title":"完成编辑","body":"点击完成编辑，返回渲染结果。下次进入编辑时仍能查看和修改源码。"}]} />
+
+## 核对结果
+
+点击完成编辑，返回渲染结果。下次进入编辑时仍能查看和修改源码。
+
+## 如果没有成功
+
+- 出现 NameError 时，先运行定义该名称的单元。
+- 出现 FileNotFoundError 时，检查工作目录，并把 data 文件夹与笔记本放在正确的相对位置。
+- 出现 ModuleNotFoundError 时，检查包是否可用；下载文件并不等于安装了 Python 包。
+
+## 下一步
+
+- [查看表格、图表与交互结果](/vibeit/help/zh-hans/notebooks/results/)
+- [运行、停止与重启内核](/vibeit/help/zh-hans/notebooks/kernel/)
+
+
+[联系支持](https://www.mecury.co.uk/vibeit/contact.html)

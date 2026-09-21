@@ -1,0 +1,50 @@
+---
+title: "通過 SFTP 管理遠程檔案"
+description: "瀏覽和編輯所選伺服器目錄中的檔案。"
+sidebar:
+  order: 3
+---
+
+import ArticleMeta from '../../../../components/ArticleMeta.astro';
+import TutorialSteps from '../../../../components/TutorialSteps.astro';
+
+<ArticleMeta labels={{"observe":"查看結果","copy":"複製代碼","copied":"已複製","tap":"點擊","longPress":"長按並保持","swipe":"滑動","input":"在此輸入","verified":"內容核對日期","siteTitle":"Vibeit 使用手冊","intro":"通過真實 App 截圖和清晰步驟，一次學會一個任務。","version":"適用版本","screenshotLanguage":"截圖界面","device":"設備","goal":"你將完成什麼","before":"開始前準備","entry":"從哪裡進入","steps":"逐步操作","expected":"核對結果","troubleshooting":"如果沒有成功","next":"下一步","references":"相關資料","enlarge":"放大截圖","detail":"放大查看操作位置","previousStep":"上一步","nextStep":"下一步","close":"關閉","capturePending":"此預覽頁的截圖仍在採集，尚未通過發佈驗收。","examples":"下載教程示例項目","note":"請留意","search":"你想完成什麼？","popular":"從常見任務開始","all":"瀏覽全部教程","support":"聯繫支持"}} requirement={"Pro"} shotLocale="简体中文" aliases={[]} />
+
+## 你將完成什麼
+
+瀏覽和編輯所選伺服器目錄中的檔案。
+
+## 開始前準備
+
+- 有效的 Pro 訂閱。第三方 AI 訂閱和 API 額度需要單獨準備。
+- 能夠連接本教程所用服務或下載資源的網絡。
+- 可訪問的 SSH 伺服器、主機地址與端口、用戶名，以及你有權使用的認證方式。
+
+[下載教程示例項目](/vibeit/help/downloads/vibeit-tutorials.zip)
+
+## 從哪裡進入
+
+<div className="entry-path">Locations → saved host → remote file browser</div>
+
+
+## 逐步操作
+
+<TutorialSteps id="remote-files" locale="zh-hant" labels={{"observe":"查看結果","copy":"複製代碼","copied":"已複製","tap":"點擊","longPress":"長按並保持","swipe":"滑動","input":"在此輸入","verified":"內容核對日期","siteTitle":"Vibeit 使用手冊","intro":"通過真實 App 截圖和清晰步驟，一次學會一個任務。","version":"適用版本","screenshotLanguage":"截圖界面","device":"設備","goal":"你將完成什麼","before":"開始前準備","entry":"從哪裡進入","steps":"逐步操作","expected":"核對結果","troubleshooting":"如果沒有成功","next":"下一步","references":"相關資料","enlarge":"放大截圖","detail":"放大查看操作位置","previousStep":"上一步","nextStep":"下一步","close":"關閉","capturePending":"此預覽頁的截圖仍在採集，尚未通過發佈驗收。","examples":"下載教程示例項目","note":"請留意","search":"你想完成什麼？","popular":"從常見任務開始","all":"瀏覽全部教程","support":"聯繫支持"}} steps={[{"shot":"S38","target":"primary","title":"選擇已連接主機","body":"點選已核驗主機，等待檔案列表，並在編輯前確認遠程路徑。"},{"shot":"S38","target":"folder","title":"進入項目目錄","body":"打開項目資料夾並選擇筆記本或腳本。遠程操作使用伺服器路徑和權限。"},{"shot":"S38","target":"file","title":"編輯並保存小檔案","body":"做一處小修改並保存，等待上傳完成後再關閉連接。"},{"shot":"S38","target":"status","title":"重新打開核對內容","body":"刷新或重新打開檔案，確認伺服器保存了新版本。遇到外部修改提醒時，先核對再覆蓋。"}]} />
+
+## 核對結果
+
+刷新或重新打開檔案，確認伺服器保存了新版本。遇到外部修改提醒時，先核對再覆蓋。
+
+## 如果沒有成功
+
+- 連接超時時，檢查地址、端口、網絡路徑和伺服器狀態。
+- 認證失敗時，檢查用戶名及匹配的密碼或私鑰。
+- 主機指紋變化時，通過可信渠道核實後再更新保存的指紋。
+
+## 下一步
+
+- [選擇遠程 Python 環境](/vibeit/help/zh-hant/remote/python/)
+- [拉取與推送倉庫改動](/vibeit/help/zh-hant/git/sync/)
+
+
+[聯繫支持](https://www.mecury.co.uk/vibeit/contact.html)

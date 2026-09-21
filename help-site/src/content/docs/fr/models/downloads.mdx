@@ -1,0 +1,50 @@
+---
+title: "Télécharger et gérer les fichiers de modèles"
+description: "Vérifiez le téléchargement d’un petit fichier Hugging Face avant d’essayer un modèle volumineux."
+sidebar:
+  order: 2
+---
+
+import ArticleMeta from '../../../../components/ArticleMeta.astro';
+import TutorialSteps from '../../../../components/TutorialSteps.astro';
+
+<ArticleMeta labels={{"copy":"Copier le code","copied":"Copié","tap":"Touchez","longPress":"Maintenez le doigt","swipe":"Balayez","input":"Saisissez ici","verified":"Contenu vérifié le","siteTitle":"Centre d’aide Vibeit","intro":"Apprenez une tâche à la fois grâce à des captures réelles de l’app et à des étapes claires.","version":"Version de l’app","screenshotLanguage":"Langue des captures","device":"Appareil","goal":"Ce que vous allez faire","before":"Avant de commencer","entry":"Point de départ","steps":"Suivez les étapes","expected":"Vérifiez le résultat","troubleshooting":"En cas de problème","next":"Pour continuer","references":"Documentation associée","enlarge":"Agrandir la capture","detail":"Voir la commande de plus près","previousStep":"Précédent","nextStep":"Suivant","close":"Fermer","capturePending":"Les captures de cette page sont encore en préparation. Cet aperçu n’est pas validé pour publication.","examples":"Télécharger le projet d’exemple","note":"À retenir","search":"Que souhaitez-vous faire ?","popular":"Commencez par une tâche courante","all":"Tous les tutoriels","support":"Contacter l’assistance","observe":"Vérifiez le résultat"}} requirement={"Standard / Pro"} shotLocale="English" aliases={[]} />
+
+## Ce que vous allez faire
+
+Vérifiez le téléchargement d’un petit fichier Hugging Face avant d’essayer un modèle volumineux.
+
+## Avant de commencer
+
+- Un abonnement Standard ou Pro actif, ou une période d’essai éligible.
+- Une connexion permettant d’accéder au service ou au téléchargement utilisé dans ce tutoriel.
+- Si la ressource exige une authentification, un compte Hugging Face et un jeton disposant des autorisations nécessaires.
+
+[Télécharger le projet d’exemple](/vibeit/help/downloads/vibeit-tutorials.zip)
+
+## Point de départ
+
+<div className="entry-path">Notebook → huggingface_hub</div>
+
+
+## Suivez les étapes
+
+<TutorialSteps id="models-downloads" locale="fr" labels={{"copy":"Copier le code","copied":"Copié","tap":"Touchez","longPress":"Maintenez le doigt","swipe":"Balayez","input":"Saisissez ici","verified":"Contenu vérifié le","siteTitle":"Centre d’aide Vibeit","intro":"Apprenez une tâche à la fois grâce à des captures réelles de l’app et à des étapes claires.","version":"Version de l’app","screenshotLanguage":"Langue des captures","device":"Appareil","goal":"Ce que vous allez faire","before":"Avant de commencer","entry":"Point de départ","steps":"Suivez les étapes","expected":"Vérifiez le résultat","troubleshooting":"En cas de problème","next":"Pour continuer","references":"Documentation associée","enlarge":"Agrandir la capture","detail":"Voir la commande de plus près","previousStep":"Précédent","nextStep":"Suivant","close":"Fermer","capturePending":"Les captures de cette page sont encore en préparation. Cet aperçu n’est pas validé pour publication.","examples":"Télécharger le projet d’exemple","note":"À retenir","search":"Que souhaitez-vous faire ?","popular":"Commencez par une tâche courante","all":"Tous les tutoriels","support":"Contacter l’assistance","observe":"Vérifiez le résultat"}} steps={[{"shot":"S24","target":"primary","title":"Vérifier les droits d’accès","body":"Cet exercice utilise votre jeton enregistré pour vérifier un téléchargement authentifié. Certaines ressources publiques acceptent aussi un accès anonyme ; les ressources privées ou soumises à autorisation exigent les droits du compte en plus d’un jeton valide."},{"shot":"S26","target":"primary","title":"Télécharger une petite configuration","body":"Commencez par le fichier de configuration plutôt que par les poids complets du modèle. Exécutez l’exemple dans une cellule de notebook.","code":"import json\ntry:\n    from huggingface_hub import hf_hub_download\n    path = hf_hub_download(\"google-bert/bert-base-uncased\", \"config.json\",\n                           token=True, force_download=True)\n    with open(path) as config_file:\n        config = json.load(config_file)\n    print(\"Configuration downloaded:\", config.get(\"model_type\") == \"bert\")\nexcept Exception as error:\n    status = getattr(getattr(error, \"response\", None), \"status_code\", None)\n    print(\"Download error:\", type(error).__name__, \"HTTP:\", status)\n","action":"observe"},{"shot":"S26","target":"files","title":"Retrouver le cache et les fichiers","body":"Par défaut, Vibeit place le cache Hugging Face dans le dossier Models. Une variable d’environnement HF_HOME personnalisée peut modifier cet emplacement."},{"shot":"S27","target":"primary","title":"Vérifier la compatibilité avant le chargement","body":"Un téléchargement réussi ne garantit pas que le modèle puisse s’exécuter. Vérifiez la bibliothèque requise, le format, la mémoire disponible et le moteur d’exécution de l’appareil."}]} />
+
+## Vérifiez le résultat
+
+Configuration downloaded: True confirme le téléchargement et l’analyse du petit fichier de configuration. Cela ne valide ni l’inférence du modèle ni l’accès à d’autres modèles.
+
+## En cas de problème
+
+- Si un nouveau jeton ou une nouvelle variable n’est pas visible dans Python, redémarrez le noyau.
+- Pour une réponse 401 ou 403, vérifiez le jeton et les autorisations du compte sur la ressource.
+- Si le téléchargement réussit mais pas le chargement, vérifiez le format, les bibliothèques requises et la mémoire disponible.
+
+## Pour continuer
+
+- [Configurer un jeton Hugging Face](/vibeit/help/fr/models/hugging-face/)
+- [Trouver et installer des bibliothèques Python compatibles](/vibeit/help/fr/models/packages/)
+
+
+[Contacter l’assistance](https://www.mecury.co.uk/vibeit/contact.html)

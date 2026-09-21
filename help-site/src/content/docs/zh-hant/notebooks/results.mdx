@@ -1,0 +1,48 @@
+---
+title: "查看錶格、圖表與交互結果"
+description: "在代碼運行的位置查看輸出，並操作受支持的交互結果。"
+sidebar:
+  order: 3
+---
+
+import ArticleMeta from '../../../../components/ArticleMeta.astro';
+import TutorialSteps from '../../../../components/TutorialSteps.astro';
+
+<ArticleMeta labels={{"observe":"查看結果","copy":"複製代碼","copied":"已複製","tap":"點擊","longPress":"長按並保持","swipe":"滑動","input":"在此輸入","verified":"內容核對日期","siteTitle":"Vibeit 使用手冊","intro":"通過真實 App 截圖和清晰步驟，一次學會一個任務。","version":"適用版本","screenshotLanguage":"截圖界面","device":"設備","goal":"你將完成什麼","before":"開始前準備","entry":"從哪裡進入","steps":"逐步操作","expected":"核對結果","troubleshooting":"如果沒有成功","next":"下一步","references":"相關資料","enlarge":"放大截圖","detail":"放大查看操作位置","previousStep":"上一步","nextStep":"下一步","close":"關閉","capturePending":"此預覽頁的截圖仍在採集，尚未通過發佈驗收。","examples":"下載教程示例項目","note":"請留意","search":"你想完成什麼？","popular":"從常見任務開始","all":"瀏覽全部教程","support":"聯繫支持"}} requirement={"Standard / Pro"} shotLocale="简体中文" aliases={[]} />
+
+## 你將完成什麼
+
+在代碼運行的位置查看輸出，並操作受支持的交互結果。
+
+## 開始前準備
+
+- 有效的 Standard、Pro 訂閱，或符合條件的試用。
+
+[下載教程示例項目](/vibeit/help/downloads/vibeit-tutorials.zip)
+
+## 從哪裡進入
+
+<div className="entry-path">Notebook → run a result-producing cell</div>
+
+
+## 逐步操作
+
+<TutorialSteps id="notebooks-results" locale="zh-hant" labels={{"observe":"查看結果","copy":"複製代碼","copied":"已複製","tap":"點擊","longPress":"長按並保持","swipe":"滑動","input":"在此輸入","verified":"內容核對日期","siteTitle":"Vibeit 使用手冊","intro":"通過真實 App 截圖和清晰步驟，一次學會一個任務。","version":"適用版本","screenshotLanguage":"截圖界面","device":"設備","goal":"你將完成什麼","before":"開始前準備","entry":"從哪裡進入","steps":"逐步操作","expected":"核對結果","troubleshooting":"如果沒有成功","next":"下一步","references":"相關資料","enlarge":"放大截圖","detail":"放大查看操作位置","previousStep":"上一步","nextStep":"下一步","close":"關閉","capturePending":"此預覽頁的截圖仍在採集，尚未通過發佈驗收。","examples":"下載教程示例項目","note":"請留意","search":"你想完成什麼？","popular":"從常見任務開始","all":"瀏覽全部教程","support":"聯繫支持"}} steps={[{"shot":"S10-table","target":"primary","title":"先運行簡單表格或圖表","body":"運行示例筆記本中的 CSV 和繪圖單元，結果會出現在產生它的單元下方。","action":"observe"},{"shot":"S10","target":"primary","title":"操作交互結果","body":"使用交互結果中的控件。分子視圖可以拖動旋轉、雙指縮放。"},{"shot":"S10","target":"output","title":"確認運行位置","body":"本地結果來自本地核心，遠程筆記本使用所選伺服器。兩者可用的包和硬件能力可能不同。"},{"shot":"S06","target":"primary","title":"保存需要保留的結果","body":"導出筆記本，或通過 Python 寫入結果檔案，然後確認檔案已經出現在項目中。"}]} />
+
+## 核對結果
+
+導出筆記本，或通過 Python 寫入結果檔案，然後確認檔案已經出現在項目中。
+
+## 如果沒有成功
+
+- 出現 NameError 時，先運行定義該名稱的單元。
+- 出現 FileNotFoundError 時，檢查工作目錄，並把 data 資料夾與筆記本放在正確的相對位置。
+- 出現 ModuleNotFoundError 時，檢查包是否可用；下載檔案並不等於安裝了 Python 包。
+
+## 下一步
+
+- [導入、管理與導出檔案](/vibeit/help/zh-hant/getting-started/files/)
+- [查看和安裝兼容的 Python 包](/vibeit/help/zh-hant/models/packages/)
+
+
+[聯繫支持](https://www.mecury.co.uk/vibeit/contact.html)

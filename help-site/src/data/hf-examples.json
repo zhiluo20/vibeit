@@ -1,0 +1,4 @@
+{
+  "hf-auth": "import os\nprint(\"HF_TOKEN present:\", bool(os.environ.get(\"HF_TOKEN\")))\ntry:\n    from huggingface_hub import HfApi\n    HfApi().whoami(token=True)\n    print(\"Hugging Face authorization: OK\")\nexcept Exception as error:\n    status = getattr(getattr(error, \"response\", None), \"status_code\", None)\n    print(\"Authorization error:\", type(error).__name__, \"HTTP:\", status)\n",
+  "hf-download": "import json\ntry:\n    from huggingface_hub import hf_hub_download\n    path = hf_hub_download(\"google-bert/bert-base-uncased\", \"config.json\",\n                           token=True, force_download=True)\n    with open(path) as config_file:\n        config = json.load(config_file)\n    print(\"Configuration downloaded:\", config.get(\"model_type\") == \"bert\")\nexcept Exception as error:\n    status = getattr(getattr(error, \"response\", None), \"status_code\", None)\n    print(\"Download error:\", type(error).__name__, \"HTTP:\", status)\n"
+}

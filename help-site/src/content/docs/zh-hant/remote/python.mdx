@@ -1,0 +1,50 @@
+---
+title: "選擇遠程 Python 環境"
+description: "選擇伺服器解釋器，並驗證腳本實際運行的位置。"
+sidebar:
+  order: 4
+---
+
+import ArticleMeta from '../../../../components/ArticleMeta.astro';
+import TutorialSteps from '../../../../components/TutorialSteps.astro';
+
+<ArticleMeta labels={{"observe":"查看結果","copy":"複製代碼","copied":"已複製","tap":"點擊","longPress":"長按並保持","swipe":"滑動","input":"在此輸入","verified":"內容核對日期","siteTitle":"Vibeit 使用手冊","intro":"通過真實 App 截圖和清晰步驟，一次學會一個任務。","version":"適用版本","screenshotLanguage":"截圖界面","device":"設備","goal":"你將完成什麼","before":"開始前準備","entry":"從哪裡進入","steps":"逐步操作","expected":"核對結果","troubleshooting":"如果沒有成功","next":"下一步","references":"相關資料","enlarge":"放大截圖","detail":"放大查看操作位置","previousStep":"上一步","nextStep":"下一步","close":"關閉","capturePending":"此預覽頁的截圖仍在採集，尚未通過發佈驗收。","examples":"下載教程示例項目","note":"請留意","search":"你想完成什麼？","popular":"從常見任務開始","all":"瀏覽全部教程","support":"聯繫支持"}} requirement={"Pro"} shotLocale="简体中文" aliases={[]} />
+
+## 你將完成什麼
+
+選擇伺服器解釋器，並驗證腳本實際運行的位置。
+
+## 開始前準備
+
+- 有效的 Pro 訂閱。第三方 AI 訂閱和 API 額度需要單獨準備。
+- 能夠連接本教程所用服務或下載資源的網絡。
+- 可訪問的 SSH 伺服器、主機地址與端口、用戶名，以及你有權使用的認證方式。
+
+[下載教程示例項目](/vibeit/help/downloads/vibeit-tutorials.zip)
+
+## 從哪裡進入
+
+<div className="entry-path">Connected host → Packages → Environment</div>
+
+
+## 逐步操作
+
+<TutorialSteps id="remote-python" locale="zh-hant" labels={{"observe":"查看結果","copy":"複製代碼","copied":"已複製","tap":"點擊","longPress":"長按並保持","swipe":"滑動","input":"在此輸入","verified":"內容核對日期","siteTitle":"Vibeit 使用手冊","intro":"通過真實 App 截圖和清晰步驟，一次學會一個任務。","version":"適用版本","screenshotLanguage":"截圖界面","device":"設備","goal":"你將完成什麼","before":"開始前準備","entry":"從哪裡進入","steps":"逐步操作","expected":"核對結果","troubleshooting":"如果沒有成功","next":"下一步","references":"相關資料","enlarge":"放大截圖","detail":"放大查看操作位置","previousStep":"上一步","nextStep":"下一步","close":"關閉","capturePending":"此預覽頁的截圖仍在採集，尚未通過發佈驗收。","examples":"下載教程示例項目","note":"請留意","search":"你想完成什麼？","popular":"從常見任務開始","all":"瀏覽全部教程","support":"聯繫支持"}} steps={[{"shot":"S40","target":"discover","title":"發現伺服器環境","body":"打開遠程 Packages 面板並刷新環境發現。伺服器需要已安裝 Python 和所需依賴。"},{"shot":"S40","target":"primary","title":"選擇解釋器","body":"選擇 Python 環境並檢查路徑。明確選擇所需虛擬環境，不要假定所有 python3 都相同。"},{"shot":"S40","target":"packages","title":"檢查對應依賴","body":"已安裝包列表屬於所選解釋器。有權限時，可在這裡安裝缺失依賴。"},{"shot":"S39","target":"primary","title":"運行小型驗證","body":"遠程運行示例，核對解釋器路徑和操作系統。遠程結果使用伺服器硬件，不使用 iPad GPU。","code":"import sys, platform\nprint(sys.executable)\nprint(platform.system())"}]} />
+
+## 核對結果
+
+遠程運行示例，核對解釋器路徑和操作系統。遠程結果使用伺服器硬件，不使用 iPad GPU。
+
+## 如果沒有成功
+
+- 連接超時時，檢查地址、端口、網絡路徑和伺服器狀態。
+- 認證失敗時，檢查用戶名及匹配的密碼或私鑰。
+- 主機指紋變化時，通過可信渠道核實後再更新保存的指紋。
+
+## 下一步
+
+- [通過 SFTP 管理遠程檔案](/vibeit/help/zh-hant/remote/files/)
+- [查看和安裝兼容的 Python 包](/vibeit/help/zh-hant/models/packages/)
+
+
+[聯繫支持](https://www.mecury.co.uk/vibeit/contact.html)
