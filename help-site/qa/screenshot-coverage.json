@@ -481,7 +481,7 @@
         "target": "primary",
         "captures": {
           "ipad.en": "reviewed",
-          "ipad.zh-Hans": "missing",
+          "ipad.zh-Hans": "reviewed",
           "iphone.en": "reviewed",
           "iphone.zh-Hans": "missing"
         }
@@ -892,7 +892,7 @@
         "target": "primary",
         "captures": {
           "ipad.en": "reviewed",
-          "ipad.zh-Hans": "missing",
+          "ipad.zh-Hans": "reviewed",
           "iphone.en": "missing",
           "iphone.zh-Hans": "missing"
         }
@@ -1020,7 +1020,7 @@
         "target": "primary",
         "captures": {
           "ipad.en": "reviewed",
-          "ipad.zh-Hans": "missing",
+          "ipad.zh-Hans": "reviewed",
           "iphone.en": "reviewed",
           "iphone.zh-Hans": "missing"
         }
@@ -1031,7 +1031,7 @@
         "target": "stage",
         "captures": {
           "ipad.en": "reviewed",
-          "ipad.zh-Hans": "missing",
+          "ipad.zh-Hans": "reviewed",
           "iphone.en": "reviewed",
           "iphone.zh-Hans": "missing"
         }
@@ -1042,7 +1042,7 @@
         "target": "message",
         "captures": {
           "ipad.en": "reviewed",
-          "ipad.zh-Hans": "missing",
+          "ipad.zh-Hans": "reviewed",
           "iphone.en": "reviewed",
           "iphone.zh-Hans": "missing"
         }
@@ -1053,7 +1053,7 @@
         "target": "commit",
         "captures": {
           "ipad.en": "reviewed",
-          "ipad.zh-Hans": "missing",
+          "ipad.zh-Hans": "reviewed",
           "iphone.en": "reviewed",
           "iphone.zh-Hans": "missing"
         }
@@ -1070,7 +1070,7 @@
         "target": "primary",
         "captures": {
           "ipad.en": "reviewed",
-          "ipad.zh-Hans": "missing",
+          "ipad.zh-Hans": "reviewed",
           "iphone.en": "reviewed",
           "iphone.zh-Hans": "missing"
         }
@@ -1081,7 +1081,7 @@
         "target": "pull",
         "captures": {
           "ipad.en": "reviewed",
-          "ipad.zh-Hans": "missing",
+          "ipad.zh-Hans": "reviewed",
           "iphone.en": "reviewed",
           "iphone.zh-Hans": "missing"
         }
@@ -1092,7 +1092,7 @@
         "target": "push",
         "captures": {
           "ipad.en": "reviewed",
-          "ipad.zh-Hans": "missing",
+          "ipad.zh-Hans": "reviewed",
           "iphone.en": "reviewed",
           "iphone.zh-Hans": "missing"
         }
@@ -1103,7 +1103,7 @@
         "target": "status",
         "captures": {
           "ipad.en": "reviewed",
-          "ipad.zh-Hans": "missing",
+          "ipad.zh-Hans": "reviewed",
           "iphone.en": "reviewed",
           "iphone.zh-Hans": "missing"
         }
@@ -1120,7 +1120,7 @@
         "target": "primary",
         "captures": {
           "ipad.en": "reviewed",
-          "ipad.zh-Hans": "missing",
+          "ipad.zh-Hans": "reviewed",
           "iphone.en": "reviewed",
           "iphone.zh-Hans": "missing"
         }
@@ -1181,7 +1181,7 @@
         "target": "host",
         "captures": {
           "ipad.en": "reviewed",
-          "ipad.zh-Hans": "missing",
+          "ipad.zh-Hans": "reviewed",
           "iphone.en": "reviewed",
           "iphone.zh-Hans": "reviewed"
         }
@@ -1192,7 +1192,7 @@
         "target": "password",
         "captures": {
           "ipad.en": "reviewed",
-          "ipad.zh-Hans": "missing",
+          "ipad.zh-Hans": "reviewed",
           "iphone.en": "reviewed",
           "iphone.zh-Hans": "reviewed"
         }
@@ -1203,7 +1203,7 @@
         "target": "primary",
         "captures": {
           "ipad.en": "reviewed",
-          "ipad.zh-Hans": "missing",
+          "ipad.zh-Hans": "reviewed",
           "iphone.en": "missing",
           "iphone.zh-Hans": "missing"
         }
@@ -1214,7 +1214,7 @@
         "target": "primary",
         "captures": {
           "ipad.en": "reviewed",
-          "ipad.zh-Hans": "missing",
+          "ipad.zh-Hans": "reviewed",
           "iphone.en": "missing",
           "iphone.zh-Hans": "missing"
         }
@@ -1231,7 +1231,7 @@
         "target": "primary",
         "captures": {
           "ipad.en": "reviewed",
-          "ipad.zh-Hans": "missing",
+          "ipad.zh-Hans": "reviewed",
           "iphone.en": "reviewed",
           "iphone.zh-Hans": "reviewed"
         }
@@ -1242,7 +1242,7 @@
         "target": "key",
         "captures": {
           "ipad.en": "reviewed",
-          "ipad.zh-Hans": "missing",
+          "ipad.zh-Hans": "reviewed",
           "iphone.en": "reviewed",
           "iphone.zh-Hans": "reviewed"
         }
@@ -1253,7 +1253,7 @@
         "target": "passphrase",
         "captures": {
           "ipad.en": "reviewed",
-          "ipad.zh-Hans": "missing",
+          "ipad.zh-Hans": "reviewed",
           "iphone.en": "reviewed",
           "iphone.zh-Hans": "reviewed"
         }
@@ -1264,7 +1264,7 @@
         "target": "primary",
         "captures": {
           "ipad.en": "reviewed",
-          "ipad.zh-Hans": "missing",
+          "ipad.zh-Hans": "reviewed",
           "iphone.en": "missing",
           "iphone.zh-Hans": "missing"
         }
@@ -1281,7 +1281,7 @@
         "target": "primary",
         "captures": {
           "ipad.en": "reviewed",
-          "ipad.zh-Hans": "missing",
+          "ipad.zh-Hans": "reviewed",
           "iphone.en": "missing",
           "iphone.zh-Hans": "missing"
         }
@@ -1292,7 +1292,7 @@
         "target": "folder",
         "captures": {
           "ipad.en": "reviewed",
-          "ipad.zh-Hans": "missing",
+          "ipad.zh-Hans": "reviewed",
           "iphone.en": "missing",
           "iphone.zh-Hans": "missing"
         }
@@ -1303,7 +1303,7 @@
         "target": "file",
         "captures": {
           "ipad.en": "reviewed",
-          "ipad.zh-Hans": "missing",
+          "ipad.zh-Hans": "reviewed",
           "iphone.en": "missing",
           "iphone.zh-Hans": "missing"
         }
@@ -1314,7 +1314,7 @@
         "target": "status",
         "captures": {
           "ipad.en": "reviewed",
-          "ipad.zh-Hans": "missing",
+          "ipad.zh-Hans": "reviewed",
           "iphone.en": "missing",
           "iphone.zh-Hans": "missing"
         }
@@ -1331,7 +1331,7 @@
         "target": "discover",
         "captures": {
           "ipad.en": "reviewed",
-          "ipad.zh-Hans": "missing",
+          "ipad.zh-Hans": "reviewed",
           "iphone.en": "missing",
           "iphone.zh-Hans": "missing"
         }
@@ -1342,7 +1342,7 @@
         "target": "primary",
         "captures": {
           "ipad.en": "reviewed",
-          "ipad.zh-Hans": "missing",
+          "ipad.zh-Hans": "reviewed",
           "iphone.en": "missing",
           "iphone.zh-Hans": "missing"
         }
@@ -1353,7 +1353,7 @@
         "target": "packages",
         "captures": {
           "ipad.en": "reviewed",
-          "ipad.zh-Hans": "missing",
+          "ipad.zh-Hans": "reviewed",
           "iphone.en": "missing",
           "iphone.zh-Hans": "missing"
         }
@@ -1380,8 +1380,8 @@
         "shot": "S41",
         "target": "primary",
         "captures": {
-          "ipad.en": "missing",
-          "ipad.zh-Hans": "missing",
+          "ipad.en": "reviewed",
+          "ipad.zh-Hans": "reviewed",
           "iphone.en": "reviewed",
           "iphone.zh-Hans": "reviewed"
         }
@@ -1391,8 +1391,8 @@
         "shot": "S41",
         "target": "host",
         "captures": {
-          "ipad.en": "missing",
-          "ipad.zh-Hans": "missing",
+          "ipad.en": "reviewed",
+          "ipad.zh-Hans": "reviewed",
           "iphone.en": "reviewed",
           "iphone.zh-Hans": "reviewed"
         }
@@ -1402,8 +1402,8 @@
         "shot": "S41",
         "target": "login",
         "captures": {
-          "ipad.en": "missing",
-          "ipad.zh-Hans": "missing",
+          "ipad.en": "reviewed",
+          "ipad.zh-Hans": "reviewed",
           "iphone.en": "reviewed",
           "iphone.zh-Hans": "reviewed"
         }
@@ -1414,7 +1414,7 @@
         "target": "primary",
         "captures": {
           "ipad.en": "reviewed",
-          "ipad.zh-Hans": "missing",
+          "ipad.zh-Hans": "reviewed",
           "iphone.en": "missing",
           "iphone.zh-Hans": "missing"
         }
@@ -1453,7 +1453,7 @@
         "target": "primary",
         "captures": {
           "ipad.en": "reviewed",
-          "ipad.zh-Hans": "missing",
+          "ipad.zh-Hans": "reviewed",
           "iphone.en": "reviewed",
           "iphone.zh-Hans": "reviewed"
         }
@@ -1625,7 +1625,7 @@
         "target": "primary",
         "captures": {
           "ipad.en": "reviewed",
-          "ipad.zh-Hans": "missing",
+          "ipad.zh-Hans": "reviewed",
           "iphone.en": "missing",
           "iphone.zh-Hans": "missing"
         }

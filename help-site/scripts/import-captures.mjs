@@ -35,7 +35,8 @@ for(const test of records){
   if(record.crop){
    const original={width:record.width,height:record.height};const c=record.crop;
    const left=Math.max(0,Math.floor(c.x*original.width)),top=Math.max(0,Math.floor(c.y*original.height));
-   const width=Math.min(original.width-left,Math.ceil(c.w*original.width)),height=Math.min(original.height-top,Math.ceil(c.h*original.height));
+   const width=Math.min(original.width,Math.ceil((c.x+c.w)*original.width))-left;
+   const height=Math.min(original.height,Math.ceil((c.y+c.h)*original.height))-top;
    pixels=await sharp(pixels).extract({left,top,width,height}).png().toBuffer();
    record.originalDimensions=original;record.width=width;record.height=height;
    record.targets=Object.fromEntries(Object.entries(record.targets).map(([name,r])=>[name,{x:(r.x*original.width-left)/width,y:(r.y*original.height-top)/height,w:r.w*original.width/width,h:r.h*original.height/height}]));

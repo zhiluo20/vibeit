@@ -1,7 +1,7 @@
 {
   "version": "1.0.1",
   "build": "7",
-  "capturedAt": "2026-09-21T13:44:33.861Z",
+  "capturedAt": "2026-09-22T00:41:36.982Z",
   "assets": {
     "S24.ipad.zh-Hans": {
       "appVersion": "1.0.1",
@@ -1281,7 +1281,7 @@
     "S35.ipad.en": {
       "appVersion": "1.0.1",
       "build": "7",
-      "capturedAt": "2026-09-21T12:37:02Z",
+      "capturedAt": "2026-09-22T00:30:29Z",
       "device": "ipad",
       "evidence": "configuration",
       "height": 2064,
@@ -1305,16 +1305,16 @@
       },
       "width": 2752,
       "file": "screenshots/1.0.1/ipad/en/S35.webp",
-      "sha256": "194802037b2c8cf4cd2fa764615e858cc88f98750b98efaa8e9280c2391bfad0",
+      "sha256": "05b99d6278ad82c8868a8e8fc921b5b4b237617365732ceb5a5e92566a0eeae9",
       "reviewed": true,
       "redacted": false,
-      "reviewedAt": "2026-09-21T12:44:28.250Z",
+      "reviewedAt": "2026-09-22T00:34:42.035Z",
       "source": "XCUIScreen.main.screenshot"
     },
     "S34.ipad.en": {
       "appVersion": "1.0.1",
       "build": "7",
-      "capturedAt": "2026-09-21T13:32:26Z",
+      "capturedAt": "2026-09-22T00:30:17Z",
       "device": "ipad",
       "evidence": "configuration",
       "height": 2064,
@@ -1332,10 +1332,10 @@
       },
       "width": 2752,
       "file": "screenshots/1.0.1/ipad/en/S34.webp",
-      "sha256": "7e8a63c27fe779fe1fe5dab32a55197b5a61dd97266871446f8935cfa2b56980",
+      "sha256": "dabfd10ef708036e447764622a972438775f9483af7291bb8a4e0dc7f45821bc",
       "reviewed": true,
       "redacted": false,
-      "reviewedAt": "2026-09-21T13:39:16.297Z",
+      "reviewedAt": "2026-09-22T00:34:42.239Z",
       "source": "XCUIScreen.main.screenshot"
     },
     "S42-plans.ipad.zh-Hans": {
@@ -1501,13 +1501,14 @@
     "S44.ipad.zh-Hans": {
       "appVersion": "1.0.1",
       "build": "7",
-      "capturedAt": "2026-09-21T10:31:37Z",
+      "capturedAt": "2026-09-21T16:36:29Z",
       "device": "ipad",
       "evidence": "configuration",
       "height": 2064,
       "id": "S44",
       "locale": "zh-Hans",
       "osVersion": "27.0",
+      "redactions": [],
       "targets": {
         "details": {
           "h": 0.11627906976744186,
@@ -1527,7 +1528,7 @@
       "sha256": "10453f081dfc4027c1b45b0664f856a6a419d228026497830593f656421e4bb5",
       "reviewed": true,
       "redacted": false,
-      "reviewedAt": "2026-09-21T11:04:36.869Z",
+      "reviewedAt": "2026-09-22T00:27:47.696Z",
       "source": "XCUIScreen.main.screenshot"
     },
     "S05.ipad.zh-Hans": {
@@ -1821,27 +1822,28 @@
     "S34.ipad.zh-Hans": {
       "appVersion": "1.0.1",
       "build": "7",
-      "capturedAt": "2026-09-21T10:36:15Z",
+      "capturedAt": "2026-09-22T00:31:52Z",
       "device": "ipad",
       "evidence": "configuration",
       "height": 2064,
       "id": "S34",
       "locale": "zh-Hans",
       "osVersion": "27.0",
+      "redactions": [],
       "targets": {
         "primary": {
-          "h": 0.050872093023255814,
-          "w": 0.20930232558139536,
-          "x": 0.011627906976744186,
-          "y": 0.2601744186046512
+          "h": 0.01937984496124031,
+          "w": 0.014534883720930232,
+          "x": 0.1686046511627907,
+          "y": 0.1555232558139535
         }
       },
       "width": 2752,
       "file": "screenshots/1.0.1/ipad/zh-Hans/S34.webp",
-      "sha256": "c4e9a2373a2e3832d4f32cf40b780b02c0e54bc1784dd798dd4d50aaf8260170",
+      "sha256": "c1a159ea9563ee6377f30747e4e631432176801d9f9979f7346eec072e7fe6e3",
       "reviewed": true,
       "redacted": false,
-      "reviewedAt": "2026-09-21T11:04:55.196Z",
+      "reviewedAt": "2026-09-22T00:34:47.046Z",
       "source": "XCUIScreen.main.screenshot"
     },
     "S20.ipad.en": {
@@ -2820,7 +2822,7 @@
     "S36.ipad.en": {
       "appVersion": "1.0.1",
       "build": "7",
-      "capturedAt": "2026-09-21T11:48:20Z",
+      "capturedAt": "2026-09-22T00:30:39Z",
       "device": "ipad",
       "evidence": "configuration",
       "height": 2064,
@@ -2850,10 +2852,10 @@
       },
       "width": 2752,
       "file": "screenshots/1.0.1/ipad/en/S36.webp",
-      "sha256": "d39f8a55df648fc702eb6e8481bfa5957a522c3a869b0ef95d79d9471d99044c",
+      "sha256": "1d815e2acf771992f671d0e490263970c928c5dfb2c9d7fba436fd409cf0a7b1",
       "reviewed": true,
       "redacted": false,
-      "reviewedAt": "2026-09-21T12:19:32.208Z",
+      "reviewedAt": "2026-09-22T00:34:40.568Z",
       "source": "XCUIScreen.main.screenshot"
     },
     "S37.ipad.en": {
@@ -2973,7 +2975,7 @@
     "S11.ipad.zh-Hans": {
       "appVersion": "1.0.1",
       "build": "7",
-      "capturedAt": "2026-09-21T11:59:31Z",
+      "capturedAt": "2026-09-22T00:39:45Z",
       "device": "ipad",
       "evidence": "configuration",
       "height": 2064,
@@ -3003,10 +3005,10 @@
       },
       "width": 2752,
       "file": "screenshots/1.0.1/ipad/zh-Hans/S11.webp",
-      "sha256": "57dad62a1794f260775c5dec65d6a76290bbf7805753de9c4757f93fdf7915c2",
+      "sha256": "05a84a7a5d139595bad107aac12403bc7ec2c9b0e357d38f6dd8c44c1a80c809",
       "reviewed": true,
       "redacted": false,
-      "reviewedAt": "2026-09-21T12:19:38.786Z",
+      "reviewedAt": "2026-09-22T00:41:36.982Z",
       "source": "XCUIScreen.main.screenshot"
     },
     "S42-purchase.iphone.en": {
@@ -4245,7 +4247,7 @@
     "S16.ipad.zh-Hans": {
       "appVersion": "1.0.1",
       "build": "7",
-      "capturedAt": "2026-09-21T12:43:25Z",
+      "capturedAt": "2026-09-21T16:34:06Z",
       "device": "ipad",
       "evidence": "live-account-model-discovery",
       "height": 2064,
@@ -4276,10 +4278,10 @@
       },
       "width": 2752,
       "file": "screenshots/1.0.1/ipad/zh-Hans/S16.webp",
-      "sha256": "a8565b28c7b1edc68d5f3d21a67a9b98c4966c26d54152b297e8bf79656d34c1",
+      "sha256": "f422bb55a22939132cea8c2d5c0555f7e886b35b210633cf98fc85d23e87ddd5",
       "reviewed": true,
       "redacted": true,
-      "reviewedAt": "2026-09-21T12:51:39.659Z",
+      "reviewedAt": "2026-09-22T00:27:43.367Z",
       "source": "XCUIScreen.main.screenshot"
     },
     "S16-models.iphone.en": {
@@ -4852,6 +4854,475 @@
       "reviewed": true,
       "redacted": false,
       "reviewedAt": "2026-09-21T13:44:33.763Z",
+      "source": "XCUIScreen.main.screenshot"
+    },
+    "S16-models.ipad.zh-Hans": {
+      "appVersion": "1.0.1",
+      "build": "7",
+      "capturedAt": "2026-09-21T16:34:18Z",
+      "crop": {
+        "h": 0.22674418604651161,
+        "w": 0.16715116279069767,
+        "x": 0.5225290697674418,
+        "y": 0.4680232558139535
+      },
+      "device": "ipad",
+      "evidence": "live-account-model-catalog",
+      "height": 468,
+      "id": "S16-models",
+      "locale": "zh-Hans",
+      "osVersion": "27.0",
+      "redactions": [],
+      "targets": {
+        "primary": {
+          "x": 0.013043478260870059,
+          "y": 0.01282051282051282,
+          "w": 0.973913043478261,
+          "h": 0.1623931623931624
+        }
+      },
+      "width": 460,
+      "originalDimensions": {
+        "width": 2752,
+        "height": 2064
+      },
+      "file": "screenshots/1.0.1/ipad/zh-Hans/S16-models.webp",
+      "sha256": "3c4fc6add41bfb002712d6e285c6699e633fb71f0145ead6031516dfd7fdaea7",
+      "reviewed": true,
+      "redacted": false,
+      "reviewedAt": "2026-09-22T00:27:41.796Z",
+      "source": "XCUIScreen.main.screenshot"
+    },
+    "S27-install.ipad.zh-Hans": {
+      "appVersion": "1.0.1",
+      "build": "7",
+      "capturedAt": "2026-09-21T16:35:56Z",
+      "device": "ipad",
+      "evidence": "configuration",
+      "height": 2064,
+      "id": "S27-install",
+      "locale": "zh-Hans",
+      "osVersion": "27.0",
+      "redactions": [],
+      "targets": {
+        "primary": {
+          "h": 0.050872093023255814,
+          "w": 0.7383720930232558,
+          "x": 0.24709302325581395,
+          "y": 0.32994186046511625
+        }
+      },
+      "width": 2752,
+      "file": "screenshots/1.0.1/ipad/zh-Hans/S27-install.webp",
+      "sha256": "999d96851dc4d8fac2c914790f6159ae488e5c42343d535e7c73934583b9de07",
+      "reviewed": true,
+      "redacted": false,
+      "reviewedAt": "2026-09-22T00:27:44.796Z",
+      "source": "XCUIScreen.main.screenshot"
+    },
+    "S44-submit.ipad.zh-Hans": {
+      "appVersion": "1.0.1",
+      "build": "7",
+      "capturedAt": "2026-09-21T16:36:49Z",
+      "device": "ipad",
+      "evidence": "configuration",
+      "height": 2064,
+      "id": "S44-submit",
+      "locale": "zh-Hans",
+      "osVersion": "27.0",
+      "redactions": [],
+      "targets": {
+        "primary": {
+          "h": 0.050872093023255814,
+          "w": 0.39825581395348836,
+          "x": 0.3008720930232558,
+          "y": 0.749515503875969
+        }
+      },
+      "width": 2752,
+      "file": "screenshots/1.0.1/ipad/zh-Hans/S44-submit.webp",
+      "sha256": "0c261d57302f132518b93bf29d2c7364c49034d889df639a54a90c0a77fec50a",
+      "reviewed": true,
+      "redacted": false,
+      "reviewedAt": "2026-09-22T00:27:46.245Z",
+      "source": "XCUIScreen.main.screenshot"
+    },
+    "S31.ipad.zh-Hans": {
+      "appVersion": "1.0.1",
+      "build": "7",
+      "capturedAt": "2026-09-22T00:37:58Z",
+      "device": "ipad",
+      "evidence": "native-working-copy-diff",
+      "height": 2064,
+      "id": "S31",
+      "locale": "zh-Hans",
+      "osVersion": "27.0",
+      "redactions": [],
+      "targets": {
+        "primary": {
+          "h": 0.050872093023255814,
+          "w": 0.39825581395348836,
+          "x": 0.3008720930232558,
+          "y": 0.6041666666666666
+        },
+        "stage": {
+          "h": 0.050872093023255814,
+          "w": 0.39825581395348836,
+          "x": 0.3008720930232558,
+          "y": 0.6041666666666666
+        }
+      },
+      "width": 2752,
+      "file": "screenshots/1.0.1/ipad/zh-Hans/S31.webp",
+      "sha256": "5a4a1d148dfa6da61ed60c4938ac2ab59ffb6204fbc566861ab88601b7f67d25",
+      "reviewed": true,
+      "redacted": false,
+      "reviewedAt": "2026-09-22T00:41:33.581Z",
+      "source": "XCUIScreen.main.screenshot"
+    },
+    "S40.ipad.zh-Hans": {
+      "appVersion": "1.0.1",
+      "build": "7",
+      "capturedAt": "2026-09-21T16:42:00Z",
+      "device": "ipad",
+      "evidence": "server-environment-discovery",
+      "height": 2064,
+      "id": "S40",
+      "locale": "zh-Hans",
+      "osVersion": "27.0",
+      "redactions": [],
+      "targets": {
+        "discover": {
+          "h": 0.016472868217054265,
+          "w": 0.012354651162790697,
+          "x": 0.6740552325581395,
+          "y": 0.35319767441860467
+        },
+        "packages": {
+          "h": 0.014050387596899225,
+          "w": 0.034156976744186045,
+          "x": 0.33430232558139533,
+          "y": 0.34689922480620156
+        },
+        "primary": {
+          "h": 0.03343023255813953,
+          "w": 0.375,
+          "x": 0.3125,
+          "y": 0.29021317829457366
+        }
+      },
+      "width": 2752,
+      "file": "screenshots/1.0.1/ipad/zh-Hans/S40.webp",
+      "sha256": "a624d989df9c7e4738d4d087a15cc5216dfd857af045c0f2172f4120dbd43516",
+      "reviewed": true,
+      "redacted": false,
+      "reviewedAt": "2026-09-22T00:27:50.908Z",
+      "source": "XCUIScreen.main.screenshot"
+    },
+    "S38.ipad.zh-Hans": {
+      "appVersion": "1.0.1",
+      "build": "7",
+      "capturedAt": "2026-09-21T16:41:38Z",
+      "device": "ipad",
+      "evidence": "authenticated-sftp-listing",
+      "height": 2064,
+      "id": "S38",
+      "locale": "zh-Hans",
+      "osVersion": "27.0",
+      "redactions": [],
+      "targets": {
+        "file": {
+          "h": 0.013565891472868217,
+          "w": 0.20930232558139536,
+          "x": 0.011627906976744186,
+          "y": 0.9864341085271318
+        },
+        "folder": {
+          "h": 0.07364341085271318,
+          "w": 0.20930232558139536,
+          "x": 0.011627906976744186,
+          "y": 0.7655038759689923
+        },
+        "primary": {
+          "h": 0.013565891472868217,
+          "w": 0.20930232558139536,
+          "x": 0.011627906976744186,
+          "y": 0.9864341085271318
+        },
+        "status": {
+          "h": 0.013565891472868217,
+          "w": 0.20930232558139536,
+          "x": 0.011627906976744186,
+          "y": 0.9864341085271318
+        }
+      },
+      "width": 2752,
+      "file": "screenshots/1.0.1/ipad/zh-Hans/S38.webp",
+      "sha256": "c0844e06af2d24ea6d36b3b89b773d20df54d40c2cc5dd68e3ccdd0a8eaf249c",
+      "reviewed": true,
+      "redacted": false,
+      "reviewedAt": "2026-09-22T00:27:51.092Z",
+      "source": "XCUIScreen.main.screenshot"
+    },
+    "S37.ipad.zh-Hans": {
+      "appVersion": "1.0.1",
+      "build": "7",
+      "capturedAt": "2026-09-21T16:41:28Z",
+      "device": "ipad",
+      "evidence": "verified-local-server-fingerprint",
+      "height": 2064,
+      "id": "S37",
+      "locale": "zh-Hans",
+      "osVersion": "27.0",
+      "redactions": [],
+      "targets": {
+        "primary": {
+          "h": 0.046511627906976744,
+          "w": 0.10174418604651163,
+          "x": 0.502906976744186,
+          "y": 0.5852713178294574
+        }
+      },
+      "width": 2752,
+      "file": "screenshots/1.0.1/ipad/zh-Hans/S37.webp",
+      "sha256": "5bb9af35c8f74ff489c6e1e50627604827d06f862b40f2e77ddeb0176965aee7",
+      "reviewed": true,
+      "redacted": false,
+      "reviewedAt": "2026-09-22T00:27:52.583Z",
+      "source": "XCUIScreen.main.screenshot"
+    },
+    "S41.ipad.en": {
+      "appVersion": "1.0.1",
+      "build": "7",
+      "capturedAt": "2026-09-22T00:30:47Z",
+      "device": "ipad",
+      "evidence": "configuration",
+      "height": 2064,
+      "id": "S41",
+      "locale": "en",
+      "osVersion": "27.0",
+      "redactions": [],
+      "targets": {
+        "host": {
+          "h": 0.02131782945736434,
+          "w": 0.375,
+          "x": 0.3125,
+          "y": 0.4055232558139535
+        },
+        "login": {
+          "h": 0.050387596899224806,
+          "w": 0.39825581395348836,
+          "x": 0.3008720930232558,
+          "y": 0.5983527131782945
+        },
+        "primary": {
+          "h": 0.02131782945736434,
+          "w": 0.375,
+          "x": 0.3125,
+          "y": 0.4055232558139535
+        }
+      },
+      "width": 2752,
+      "file": "screenshots/1.0.1/ipad/en/S41.webp",
+      "sha256": "e29da2c0f5bd7f4a98d6f0ebb688d4e9f798a3dc9a35b66024047d69690f5ce1",
+      "reviewed": true,
+      "redacted": false,
+      "reviewedAt": "2026-09-22T00:34:39.053Z",
+      "source": "XCUIScreen.main.screenshot"
+    },
+    "S41.ipad.zh-Hans": {
+      "appVersion": "1.0.1",
+      "build": "7",
+      "capturedAt": "2026-09-22T00:32:23Z",
+      "device": "ipad",
+      "evidence": "configuration",
+      "height": 2064,
+      "id": "S41",
+      "locale": "zh-Hans",
+      "osVersion": "27.0",
+      "redactions": [],
+      "targets": {
+        "host": {
+          "h": 0.02131782945736434,
+          "w": 0.375,
+          "x": 0.3125,
+          "y": 0.4064922480620155
+        },
+        "login": {
+          "h": 0.050872093023255814,
+          "w": 0.39825581395348836,
+          "x": 0.3008720930232558,
+          "y": 0.6002906976744186
+        },
+        "primary": {
+          "h": 0.02131782945736434,
+          "w": 0.375,
+          "x": 0.3125,
+          "y": 0.4064922480620155
+        }
+      },
+      "width": 2752,
+      "file": "screenshots/1.0.1/ipad/zh-Hans/S41.webp",
+      "sha256": "77ca91151b4389b7294bf8c61d9788673cfb6c77fad7ad1ffcd33b66206456c5",
+      "reviewed": true,
+      "redacted": false,
+      "reviewedAt": "2026-09-22T00:34:43.874Z",
+      "source": "XCUIScreen.main.screenshot"
+    },
+    "S36.ipad.zh-Hans": {
+      "appVersion": "1.0.1",
+      "build": "7",
+      "capturedAt": "2026-09-22T00:32:15Z",
+      "device": "ipad",
+      "evidence": "configuration",
+      "height": 2064,
+      "id": "S36",
+      "locale": "zh-Hans",
+      "osVersion": "27.0",
+      "redactions": [],
+      "targets": {
+        "key": {
+          "h": 0.02131782945736434,
+          "w": 0.375,
+          "x": 0.3125,
+          "y": 0.6661821705426356
+        },
+        "passphrase": {
+          "h": 0.020348837209302327,
+          "w": 0.375,
+          "x": 0.3125,
+          "y": 0.7175387596899225
+        },
+        "primary": {
+          "h": 0.02131782945736434,
+          "w": 0.375,
+          "x": 0.3125,
+          "y": 0.6661821705426356
+        }
+      },
+      "width": 2752,
+      "file": "screenshots/1.0.1/ipad/zh-Hans/S36.webp",
+      "sha256": "6d331bf5c3f3b38faf8f71633132d69e27c3ecdacda862471891b2f31cd36096",
+      "reviewed": true,
+      "redacted": false,
+      "reviewedAt": "2026-09-22T00:34:45.388Z",
+      "source": "XCUIScreen.main.screenshot"
+    },
+    "S35.ipad.zh-Hans": {
+      "appVersion": "1.0.1",
+      "build": "7",
+      "capturedAt": "2026-09-22T00:32:04Z",
+      "device": "ipad",
+      "evidence": "configuration",
+      "height": 2064,
+      "id": "S35",
+      "locale": "zh-Hans",
+      "osVersion": "27.0",
+      "redactions": [],
+      "targets": {
+        "host": {
+          "h": 0.02131782945736434,
+          "w": 0.375,
+          "x": 0.3125,
+          "y": 0.4064922480620155
+        },
+        "password": {
+          "h": 0.020348837209302327,
+          "w": 0.375,
+          "x": 0.3125,
+          "y": 0.6666666666666666
+        }
+      },
+      "width": 2752,
+      "file": "screenshots/1.0.1/ipad/zh-Hans/S35.webp",
+      "sha256": "473a5aa20af9f2f208de31c4f53f3966778d2dd298943f60ec36d97a22c9b451",
+      "reviewed": true,
+      "redacted": false,
+      "reviewedAt": "2026-09-22T00:34:46.855Z",
+      "source": "XCUIScreen.main.screenshot"
+    },
+    "S32.ipad.zh-Hans": {
+      "appVersion": "1.0.1",
+      "build": "7",
+      "capturedAt": "2026-09-22T00:38:23Z",
+      "device": "ipad",
+      "evidence": "configuration",
+      "height": 2064,
+      "id": "S32",
+      "locale": "zh-Hans",
+      "osVersion": "27.0",
+      "redactions": [],
+      "targets": {
+        "commit": {
+          "h": 0.03343023255813953,
+          "w": 0.07994186046511628,
+          "x": 0.6075581395348837,
+          "y": 0.4491279069767442
+        },
+        "message": {
+          "h": 0.022286821705426358,
+          "w": 0.375,
+          "x": 0.3125,
+          "y": 0.39777131782945735
+        },
+        "primary": {
+          "h": 0.0188953488372093,
+          "w": 0.14498546511627908,
+          "x": 0.3339389534883721,
+          "y": 0.2921511627906977
+        },
+        "pull": {
+          "h": 0.015503875968992248,
+          "w": 0.00944767441860465,
+          "x": 0.6402616279069767,
+          "y": 0.29408914728682173
+        },
+        "push": {
+          "h": 0.015503875968992248,
+          "w": 0.00944767441860465,
+          "x": 0.6598837209302325,
+          "y": 0.29408914728682173
+        },
+        "status": {
+          "h": 0.0188953488372093,
+          "w": 0.14498546511627908,
+          "x": 0.3339389534883721,
+          "y": 0.2921511627906977
+        }
+      },
+      "width": 2752,
+      "file": "screenshots/1.0.1/ipad/zh-Hans/S32.webp",
+      "sha256": "607f6f2296f7ab292d76dd6c622edeb62bd7d86ba39365a51731d208523fe21a",
+      "reviewed": true,
+      "redacted": false,
+      "reviewedAt": "2026-09-22T00:41:32.021Z",
+      "source": "XCUIScreen.main.screenshot"
+    },
+    "S12.ipad.zh-Hans": {
+      "appVersion": "1.0.1",
+      "build": "7",
+      "capturedAt": "2026-09-22T00:39:51Z",
+      "device": "ipad",
+      "evidence": "configuration",
+      "height": 2064,
+      "id": "S12",
+      "locale": "zh-Hans",
+      "osVersion": "27.0",
+      "redactions": [],
+      "targets": {
+        "primary": {
+          "h": 0.04263565891472868,
+          "w": 0.04505813953488372,
+          "x": 0.14462209302325582,
+          "y": 0.7635658914728682
+        }
+      },
+      "width": 2752,
+      "file": "screenshots/1.0.1/ipad/zh-Hans/S12.webp",
+      "sha256": "7ca2bd5395b67a3e2ecaaf8c3170f98940b2c9027ac02e579fa298afac6f8649",
+      "reviewed": true,
+      "redacted": false,
+      "reviewedAt": "2026-09-22T00:41:35.308Z",
       "source": "XCUIScreen.main.screenshot"
     }
   }

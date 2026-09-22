@@ -68,3 +68,10 @@ HF examples now use the verified code in `src/data/hf-examples.json` and the dow
 - Rejected a remote-form frame with the software keyboard covering fields. Rejected the feedback submission result because the required human-verification widget was not completed; no dummy report was submitted.
 - Website build passed (`astro build`) and Pagefind indexed 364 pages. The release validator remains intentionally blocked: 101/120 base captures, four complete source languages, and unresolved acceptance checks. The site remains preview/noindex and has not been published.
 - Remaining screenshot gaps are enumerated in `qa/readiness.json` and per-step in `qa/screenshot-coverage.json`; this status is a release gate, not a claim that missing screens are covered by a fallback image.
+
+## Follow-up completion pass — 2026-09-22
+
+- Imported 13 additional reviewed captures from the dedicated iPad runs: Simplified Chinese Codex model catalog, package installation, Git panel, terminal system selection menu, SSH forms, host-key verification, SFTP listing, remote environment, Cloudflare form, and issue report form; the corresponding English remote form variants were also reviewed.
+- Base coverage is now 111/120; supplementary state coverage is 48. The remaining missing base states are mostly alternate-language/iPhone variants and a few end-to-end Git/remote result screens that did not complete in the real service run.
+- Fixed screenshot crop normalization so crop bounds are calculated from the full normalized rectangle; this keeps cropped model menus and target rectangles inside the published image.
+- Published build remains structurally valid and builds successfully. The release validator still reports incomplete translations and end-to-end acceptance gates; these remain explicit follow-up work rather than hidden fallback content.
