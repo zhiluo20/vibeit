@@ -1,7 +1,7 @@
 {
   "version": "1.0.1",
   "build": "7",
-  "capturedAt": "2026-09-22T00:41:36.982Z",
+  "capturedAt": "2026-09-22T01:31:11.098Z",
   "assets": {
     "S24.ipad.zh-Hans": {
       "appVersion": "1.0.1",
@@ -2861,7 +2861,7 @@
     "S37.ipad.en": {
       "appVersion": "1.0.1",
       "build": "7",
-      "capturedAt": "2026-09-21T13:36:44Z",
+      "capturedAt": "2026-09-22T01:03:15Z",
       "device": "ipad",
       "evidence": "verified-local-server-fingerprint",
       "height": 2064,
@@ -2879,10 +2879,10 @@
       },
       "width": 2752,
       "file": "screenshots/1.0.1/ipad/en/S37.webp",
-      "sha256": "ac0088f88b177aeffdd40b0af2836a50a3f42cd342c63d8ee8de3e4253add227",
+      "sha256": "eae228237ed006827dc8e3df712a208dcb6ff79ee202a63a76d7a250a08f6613",
       "reviewed": true,
       "redacted": false,
-      "reviewedAt": "2026-09-21T13:39:19.482Z",
+      "reviewedAt": "2026-09-22T01:19:18.463Z",
       "source": "XCUIScreen.main.screenshot"
     },
     "S42-purchase.ipad.zh-Hans": {
@@ -4037,7 +4037,7 @@
     "S10.iphone.zh-Hans": {
       "appVersion": "1.0.1",
       "build": "7",
-      "capturedAt": "2026-09-21T12:47:27Z",
+      "capturedAt": "2026-09-22T00:58:24Z",
       "device": "iphone",
       "evidence": "inline-html-interaction",
       "height": 2622,
@@ -4049,7 +4049,7 @@
         "output": {
           "h": 0.38558352402745993,
           "w": 0.7910447761194029,
-          "x": 0.14925373134328365,
+          "x": 0.14925373134328357,
           "y": 0.2379862700228833
         },
         "primary": {
@@ -4061,10 +4061,10 @@
       },
       "width": 1206,
       "file": "screenshots/1.0.1/iphone/zh-Hans/S10.webp",
-      "sha256": "f3f21afd042ca8ba171b6c8be83c21253d94e4aaeda55eb8bac5a1b7e252fe30",
+      "sha256": "4e72413984a9c089b4fce48f9ba1c8755117a4d5f5948e8bc2cd1e7e77f42193",
       "reviewed": true,
       "redacted": false,
-      "reviewedAt": "2026-09-21T12:50:39.873Z",
+      "reviewedAt": "2026-09-22T01:04:24.608Z",
       "source": "XCUIScreen.main.screenshot"
     },
     "S12.iphone.zh-Hans": {
@@ -5067,7 +5067,7 @@
     "S37.ipad.zh-Hans": {
       "appVersion": "1.0.1",
       "build": "7",
-      "capturedAt": "2026-09-21T16:41:28Z",
+      "capturedAt": "2026-09-22T01:07:26Z",
       "device": "ipad",
       "evidence": "verified-local-server-fingerprint",
       "height": 2064,
@@ -5085,10 +5085,10 @@
       },
       "width": 2752,
       "file": "screenshots/1.0.1/ipad/zh-Hans/S37.webp",
-      "sha256": "5bb9af35c8f74ff489c6e1e50627604827d06f862b40f2e77ddeb0176965aee7",
+      "sha256": "13ed26c58f2c07f45c429721217eaca1b69f6686e5e5985f4b44f177a8a096da",
       "reviewed": true,
       "redacted": false,
-      "reviewedAt": "2026-09-22T00:27:52.583Z",
+      "reviewedAt": "2026-09-22T01:19:20.101Z",
       "source": "XCUIScreen.main.screenshot"
     },
     "S41.ipad.en": {
@@ -5323,6 +5323,261 @@
       "reviewed": true,
       "redacted": false,
       "reviewedAt": "2026-09-22T00:41:35.308Z",
+      "source": "XCUIScreen.main.screenshot"
+    },
+    "S20.iphone.zh-Hans": {
+      "appVersion": "1.0.1",
+      "build": "7",
+      "capturedAt": "2026-09-22T00:56:13Z",
+      "device": "iphone",
+      "evidence": "configuration",
+      "height": 2622,
+      "id": "S20",
+      "locale": "zh-Hans",
+      "osVersion": "27.0",
+      "redactions": [],
+      "targets": {
+        "high": {
+          "h": 0.04805491990846682,
+          "w": 0.6218905472636815,
+          "x": 0.34328358208955223,
+          "y": 0.7940503432494279
+        },
+        "medium": {
+          "h": 0.04805491990846682,
+          "w": 0.6218905472636815,
+          "x": 0.34328358208955223,
+          "y": 0.8421052631578947
+        },
+        "primary": {
+          "h": 0.04805491990846682,
+          "w": 0.6218905472636815,
+          "x": 0.34328358208955223,
+          "y": 0.8421052631578947
+        }
+      },
+      "width": 1206,
+      "file": "screenshots/1.0.1/iphone/zh-Hans/S20.webp",
+      "sha256": "2b3bffc32c0dc918ef86f820b9ccbe6346af1dfd9f42954377c624b8e003c4dd",
+      "reviewed": true,
+      "redacted": false,
+      "reviewedAt": "2026-09-22T01:04:23.492Z",
+      "source": "XCUIScreen.main.screenshot"
+    },
+    "S32.iphone.zh-Hans": {
+      "appVersion": "1.0.1",
+      "build": "7",
+      "capturedAt": "2026-09-22T00:57:08Z",
+      "device": "iphone",
+      "evidence": "configuration",
+      "height": 2622,
+      "id": "S32",
+      "locale": "zh-Hans",
+      "osVersion": "27.0",
+      "redactions": [],
+      "targets": {
+        "commit": {
+          "h": 0.039282990083905456,
+          "w": 0.27280265339966836,
+          "x": 0.6475953565505804,
+          "y": 0.39511823035850496
+        },
+        "message": {
+          "h": 0.02631578947368421,
+          "w": 0.8407960199004975,
+          "x": 0.07960199004975124,
+          "y": 0.33447749809305877
+        },
+        "primary": {
+          "h": 0.02212051868802442,
+          "w": 0.47844112769485897,
+          "x": 0.15339966832504145,
+          "y": 0.20995423340961097
+        },
+        "pull": {
+          "h": 0.018306636155606407,
+          "w": 0.03150912185213459,
+          "x": 0.7603648424543946,
+          "y": 0.2120518688024409
+        },
+        "push": {
+          "h": 0.018306636155606407,
+          "w": 0.03150912185213459,
+          "x": 0.8266998341625207,
+          "y": 0.2120518688024409
+        },
+        "status": {
+          "h": 0.02212051868802442,
+          "w": 0.47844112769485897,
+          "x": 0.15339966832504145,
+          "y": 0.20995423340961097
+        }
+      },
+      "width": 1206,
+      "file": "screenshots/1.0.1/iphone/zh-Hans/S32.webp",
+      "sha256": "1e63e3dc2e8ab3355db8b0e8f64d20b1f0df5cb2a101faa29c1662805df19f43",
+      "reviewed": true,
+      "redacted": false,
+      "reviewedAt": "2026-09-22T01:04:24.416Z",
+      "source": "XCUIScreen.main.screenshot"
+    },
+    "S31.iphone.zh-Hans": {
+      "appVersion": "1.0.1",
+      "build": "7",
+      "capturedAt": "2026-09-22T00:56:42Z",
+      "device": "iphone",
+      "evidence": "native-working-copy-diff",
+      "height": 2622,
+      "id": "S31",
+      "locale": "zh-Hans",
+      "osVersion": "27.0",
+      "redactions": [],
+      "targets": {
+        "primary": {
+          "h": 0.05987795575896267,
+          "w": 0.9203980099502488,
+          "x": 0.03980099502487562,
+          "y": 0.5175438596491228
+        },
+        "stage": {
+          "h": 0.05987795575896267,
+          "w": 0.9203980099502488,
+          "x": 0.03980099502487562,
+          "y": 0.5175438596491228
+        }
+      },
+      "width": 1206,
+      "file": "screenshots/1.0.1/iphone/zh-Hans/S31.webp",
+      "sha256": "d8e1efe1238f3e2228e8e5d3950bfe0ab8f6058ed6eaa88d8cab2c62554a36d4",
+      "reviewed": true,
+      "redacted": false,
+      "reviewedAt": "2026-09-22T01:04:24.516Z",
+      "source": "XCUIScreen.main.screenshot"
+    },
+    "S07-editing.iphone.zh-Hans": {
+      "appVersion": "1.0.1",
+      "build": "7",
+      "capturedAt": "2026-09-22T00:58:17Z",
+      "device": "iphone",
+      "evidence": "configuration",
+      "height": 2622,
+      "id": "S07-editing",
+      "locale": "zh-Hans",
+      "osVersion": "27.0",
+      "redactions": [],
+      "targets": {
+        "primary": {
+          "h": 0.016018306636155607,
+          "w": 0.03482587064676617,
+          "x": 0.06716417910447761,
+          "y": 0.2395118230358505
+        }
+      },
+      "width": 1206,
+      "file": "screenshots/1.0.1/iphone/zh-Hans/S07-editing.webp",
+      "sha256": "dd2a7bcbb70a85b22f46d84eb43398abbdd41b8c4dbd863a3fe182fb341b6a4f",
+      "reviewed": true,
+      "redacted": false,
+      "reviewedAt": "2026-09-22T01:04:24.763Z",
+      "source": "XCUIScreen.main.screenshot"
+    },
+    "S07.iphone.zh-Hans": {
+      "appVersion": "1.0.1",
+      "build": "7",
+      "capturedAt": "2026-09-22T00:58:14Z",
+      "device": "iphone",
+      "evidence": "configuration",
+      "height": 2622,
+      "id": "S07",
+      "locale": "zh-Hans",
+      "osVersion": "27.0",
+      "redactions": [],
+      "targets": {
+        "edit": {
+          "h": 0.012585812356979404,
+          "w": 0.028192373057503002,
+          "x": 0.0713101160862355,
+          "y": 0.2395118230358505
+        },
+        "primary": {
+          "h": 0.012585812356979404,
+          "w": 0.028192373057503002,
+          "x": 0.0713101160862355,
+          "y": 0.2395118230358505
+        }
+      },
+      "width": 1206,
+      "file": "screenshots/1.0.1/iphone/zh-Hans/S07.webp",
+      "sha256": "2d7751e76f99e3f28dfc4ba9440f9742d5fd19cfb9423bc8a3a60f96032ac5d1",
+      "reviewed": true,
+      "redacted": false,
+      "reviewedAt": "2026-09-22T01:04:24.856Z",
+      "source": "XCUIScreen.main.screenshot"
+    },
+    "S33.ipad.en": {
+      "appVersion": "1.0.1",
+      "build": "7",
+      "capturedAt": "2026-09-22T01:24:04Z",
+      "device": "ipad",
+      "evidence": "native-github-pull-request-form",
+      "height": 2064,
+      "id": "S33",
+      "locale": "en",
+      "osVersion": "27.0",
+      "redactions": [],
+      "targets": {
+        "primary": {
+          "h": 0.050387596899224806,
+          "w": 0.39825581395348836,
+          "x": 0.3008720930232558,
+          "y": 0.7582364341085271
+        },
+        "title": {
+          "h": 0.02131782945736434,
+          "w": 0.375,
+          "x": 0.3125,
+          "y": 0.5406976744186046
+        }
+      },
+      "width": 2752,
+      "file": "screenshots/1.0.1/ipad/en/S33.webp",
+      "sha256": "fc9fa05cb2e9451ec13e59000b94d5311a4580f3563ce2270a1abeb46268cd15",
+      "reviewed": true,
+      "redacted": false,
+      "reviewedAt": "2026-09-22T01:31:09.514Z",
+      "source": "XCUIScreen.main.screenshot"
+    },
+    "S33.ipad.zh-Hans": {
+      "appVersion": "1.0.1",
+      "build": "7",
+      "capturedAt": "2026-09-22T01:25:26Z",
+      "device": "ipad",
+      "evidence": "native-github-pull-request-form",
+      "height": 2064,
+      "id": "S33",
+      "locale": "zh-Hans",
+      "osVersion": "27.0",
+      "redactions": [],
+      "targets": {
+        "primary": {
+          "h": 0.050872093023255814,
+          "w": 0.39825581395348836,
+          "x": 0.3008720930232558,
+          "y": 0.7601744186046512
+        },
+        "title": {
+          "h": 0.02131782945736434,
+          "w": 0.375,
+          "x": 0.3125,
+          "y": 0.5426356589147286
+        }
+      },
+      "width": 2752,
+      "file": "screenshots/1.0.1/ipad/zh-Hans/S33.webp",
+      "sha256": "ea7b0a739ba22b075a7d5887fbc9d8de1a436a3fee441a0d90ff11e38d71c806",
+      "reviewed": true,
+      "redacted": false,
+      "reviewedAt": "2026-09-22T01:31:11.097Z",
       "source": "XCUIScreen.main.screenshot"
     }
   }

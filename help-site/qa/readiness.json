@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-09-22T00:42:50.871Z",
+  "checkedAt": "2026-09-22T01:37:10.835Z",
   "topics": 32,
   "requiredLocales": 11,
   "completedLocales": [
@@ -8,21 +8,16 @@
     "zh-hans",
     "zh-hant"
   ],
-  "screenshots": 159,
+  "screenshots": 166,
   "baseScreenshots": {
-    "completed": 111,
+    "completed": 116,
     "required": 120
   },
-  "supplementaryScreenshots": 48,
+  "supplementaryScreenshots": 50,
   "errors": [],
   "pending": [
-    "S33.ipad.en: required capture missing",
-    "S33.ipad.zh-Hans: required capture missing",
     "S39.ipad.en: required capture missing",
     "S39.ipad.zh-Hans: required capture missing",
-    "S07.iphone.zh-Hans: required capture missing",
-    "S20.iphone.zh-Hans: required capture missing",
-    "S31.iphone.zh-Hans: required capture missing",
     "S38.iphone.en: required capture missing",
     "S38.iphone.zh-Hans: required capture missing",
     "de: 303 missing translation fields",
@@ -39,13 +34,11 @@
     "S26.ipad.zh-Hans: missing target files",
     "S28-connected.ipad.zh-Hans: missing screenshot",
     "S31-clean.ipad.zh-Hans: missing screenshot",
-    "S33.ipad.en: missing screenshot",
-    "S33.ipad.zh-Hans: missing screenshot",
     "S33-result.ipad.en: missing screenshot",
     "S33-result.ipad.zh-Hans: missing screenshot",
     "S39.ipad.en: missing screenshot",
     "S39.ipad.zh-Hans: missing screenshot",
-    "Base screenshots: 111/120",
+    "Base screenshots: 116/120",
     "Acceptance: appStoreVersionAvailable (pending)",
     "Acceptance: gitCloneCommitPush (partial)",
     "Acceptance: sshPasswordAndKey (pending)",

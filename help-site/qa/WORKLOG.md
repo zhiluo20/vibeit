@@ -75,3 +75,10 @@ HF examples now use the verified code in `src/data/hf-examples.json` and the dow
 - Base coverage is now 111/120; supplementary state coverage is 48. The remaining missing base states are mostly alternate-language/iPhone variants and a few end-to-end Git/remote result screens that did not complete in the real service run.
 - Fixed screenshot crop normalization so crop bounds are calculated from the full normalized rectangle; this keeps cropped model menus and target rectangles inside the published image.
 - Published build remains structurally valid and builds successfully. The release validator still reports incomplete translations and end-to-end acceptance gates; these remain explicit follow-up work rather than hidden fallback content.
+
+## PR and mobile follow-up — 2026-09-22
+
+- Added reviewed English and Simplified Chinese PR form screenshots from the native GitHub flow.
+- Added reviewed Simplified Chinese iPhone screenshots for HTML editing/rendering, interactive result, Agent reasoning, and Git source control.
+- Base screenshot coverage is now 116/120. The four remaining base states are iPhone remote SFTP/Python variants; the dedicated iPhone simulator did not have a verified connected remote host, so no unrelated local screen was substituted.
+- The screenshot importer now calculates crop extents against the complete normalized crop rectangle, preventing target rectangles from falling outside cropped model-menu images.
