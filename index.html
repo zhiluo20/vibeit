@@ -143,6 +143,8 @@
       box-shadow:0 6px 24px rgba(90,169,255,.28);
     }
     .btn-primary:hover{box-shadow:0 10px 34px rgba(90,169,255,.42)}
+    .app-store-badge{display:inline-block;line-height:0;flex:none}
+    .app-store-badge img{display:block;width:auto;height:40px}
     .btn-ghost{background:var(--surface);color:var(--text);border:1px solid var(--line-2)}
     .perf-idle,.perf-idle *{animation-play-state:paused!important}
     .btn-ghost:hover{background:var(--surface-2)}
@@ -701,6 +703,7 @@
     .final{text-align:center;padding:96px 0;margin-top:20px;position:relative}
     .final h2{font-size:clamp(30px,4vw,52px);letter-spacing:-.03em;line-height:1.06;margin:0 auto 26px;max-width:26ch;font-weight:680}
     .final .btn{font-size:16px;padding:15px 30px}
+    .final .app-store-badge img{height:48px}
 
     footer{border-top:1px solid var(--line);padding:40px 0 60px;position:relative;z-index:1}
     .foot{display:flex;flex-wrap:wrap;gap:20px;align-items:center;justify-content:space-between}
@@ -801,6 +804,7 @@
       .card.c-3{grid-column:span 1}
       .foot{flex-direction:column;align-items:flex-start;gap:16px}
       .hero{padding:34px 0 14px}
+      .hero .hero-cta{flex-direction:column}
       .section{padding:44px 0}
       .desk-shot{max-width:100%;margin-top:20px}
       :lang(zh) .final h2{font-size:26px;line-height:1.12;max-width:100%}
@@ -1636,7 +1640,7 @@ html{overflow-x:clip}#aivibe{margin:0!important;display:block!important;backgrou
     <section class="hero wrap">
       <div class="hero-grid">
         <div class="reveal">
-          <span class="eyebrow"><span class="dot"></span><span data-i18n="hero.eyebrow">iPad</span></span>
+          <span class="eyebrow"><span class="dot"></span><span data-i18n="hero.eyebrow">iPhone · iPad</span></span>
           <h1><span data-i18n="hero.title_a">Real Python,</span><br><span class="grad-text" data-i18n="hero.title_b">on your iPad.</span></h1>
           <div class="hero-mark" id="heroMark" aria-hidden="true">
             <svg class="mark-fallback" viewBox="0 0 100 92" fill="none">
@@ -1647,9 +1651,9 @@ html{overflow-x:clip}#aivibe{margin:0!important;display:block!important;backgrou
               </linearGradient></defs>
             </svg>
           </div>
-          <p class="sub" data-i18n="hero.sub">A full Python IDE with Jupyter notebooks, PyTorch on the Apple GPU, and guided lessons. Runs completely offline.</p>
+          <p class="sub" data-i18n="hero.sub">A full Python IDE with Jupyter notebooks, PyTorch on the Apple GPU, and guided lessons. Run Python and notebooks offline.</p>
           <div class="hero-cta">
-            <a class="btn btn-primary" href="https://apps.apple.com/app/id6786619257" data-i18n="hero.cta">Download on the App Store</a>
+            <a class="app-store-badge" href="https://apps.apple.com/app/id6786619257" aria-label="Download on the App Store"><img src="assets/app-store-badges/en.svg" alt="Download on the App Store" data-store-badge></a>
             <a class="btn btn-ghost" href="#showcase" data-i18n="hero.cta2">See what's inside</a>
           </div>
           <div class="mps-point">
@@ -1673,12 +1677,12 @@ html{overflow-x:clip}#aivibe{margin:0!important;display:block!important;backgrou
               <aside class="vw-side">
                 <div class="vs-h">Locations</div>
                 <div class="vs-loc sel"><span class="ic f-folder"><svg><use href="#ic-folder"/></svg></span><span>Local Workspace<small>On My iPad</small></span></div>
-                <div class="vs-loc"><span class="ic f-desktop"><svg><use href="#ic-desktop"/></svg></span><span>mac<small>zhiluo@192.168.66.82</small></span></div>
+                <div class="vs-loc"><span class="ic f-desktop"><svg><use href="#ic-desktop"/></svg></span><span>mac<small>demo@192.0.2.10</small></span></div>
                 <div class="vs-h">Files</div>
                 <div class="vs-file"><span class="fi f-folder"><svg><use href="#ic-folder"/></svg></span><span>Models<small>Folder · Jul 4</small></span></div>
                 <div class="vs-file"><span class="fi f-doc"><svg><use href="#ic-doc"/></svg></span><span>Make &amp; See Sound<small>Jupyter · 730 KB</small></span></div>
                 <div class="vs-file sel"><span class="fi f-doc"><svg><use href="#ic-doc"/></svg></span><span>GPU vs CPU· race them…<small>Jupyter · 12 KB</small></span></div>
-                <div class="vs-file"><span class="fi f-globe"><svg><use href="#ic-globe"/></svg></span><span>Bangkok_Travel_Plan<small>HTML page · 55 KB</small></span></div>
+                <div class="vs-file"><span class="fi f-globe"><svg><use href="#ic-globe"/></svg></span><span>Sample_Bangkok_Plan<small>HTML page · 55 KB</small></span></div>
                 <div class="vs-file"><span class="fi f-atom"><svg><use href="#ic-atom"/></svg></span><span>1CRN<small>Molecule · 49 KB</small></span></div>
               </aside>
               <div class="vw-main">
@@ -1814,7 +1818,7 @@ html{overflow-x:clip}#aivibe{margin:0!important;display:block!important;backgrou
         </div>
         <div class="card c-2 reveal">
           <div class="ico"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2"/><path d="M12 3v18M3 12h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></div>
-          <h4 data-i18n="b4.t">Runs completely offline</h4>
+          <h4 data-i18n="b4.t">Run Python offline</h4>
           <p data-i18n="b4.b">The interpreter, the packages, and your notebooks all live on the device.</p>
         </div>
         <div class="card c-2 reveal">
@@ -1846,12 +1850,12 @@ html{overflow-x:clip}#aivibe{margin:0!important;display:block!important;backgrou
               <aside class="vw-side">
                 <div class="vs-h">Locations</div>
                 <div class="vs-loc sel"><span class="ic f-folder"><svg><use href="#ic-folder"/></svg></span><span>Local Workspace<small>On My iPad</small></span></div>
-                <div class="vs-loc"><span class="ic f-desktop"><svg><use href="#ic-desktop"/></svg></span><span>mac<small>zhiluo@192.168.66.82</small></span></div>
+                <div class="vs-loc"><span class="ic f-desktop"><svg><use href="#ic-desktop"/></svg></span><span>mac<small>demo@192.0.2.10</small></span></div>
                 <div class="vs-h">Files</div>
                 <div class="vs-file"><span class="fi f-folder"><svg><use href="#ic-folder"/></svg></span><span>Models<small>Folder · Jul 4</small></span></div>
                 <div class="vs-file sel"><span class="fi f-doc"><svg><use href="#ic-doc"/></svg></span><span>Make &amp; See Sound<small>Jupyter · 730 KB</small></span></div>
                 <div class="vs-file"><span class="fi f-doc"><svg><use href="#ic-doc"/></svg></span><span>GPU vs CPU· race them…<small>Jupyter · 12 KB</small></span></div>
-                <div class="vs-file"><span class="fi f-globe"><svg><use href="#ic-globe"/></svg></span><span>Bangkok_Travel_Plan<small>HTML page · 55 KB</small></span></div>
+                <div class="vs-file"><span class="fi f-globe"><svg><use href="#ic-globe"/></svg></span><span>Sample_Bangkok_Plan<small>HTML page · 55 KB</small></span></div>
                 <div class="vs-file"><span class="fi f-atom"><svg><use href="#ic-atom"/></svg></span><span>1CRN<small>Molecule · 49 KB</small></span></div>
               </aside>
               <div class="vw-main">
@@ -1889,23 +1893,23 @@ html{overflow-x:clip}#aivibe{margin:0!important;display:block!important;backgrou
             <div class="vw-tb">
               <span class="brand">Vibeit</span>
               <span class="vw-chip"><svg><use href="#ic-plus"/></svg></span><span class="vw-chip"><svg><use href="#ic-ellipsis"/></svg></span><span class="vw-chip"><svg><use href="#ic-sidebar"/></svg></span>
-              <span class="vw-tab"><span class="fi f-globe" style="width:auto"><svg><use href="#ic-globe"/></svg></span>Bangkok_Travel_Plan_print.html<span class="ok"><svg><use href="#ic-check"/></svg></span></span>
+              <span class="vw-tab"><span class="fi f-globe" style="width:auto"><svg><use href="#ic-globe"/></svg></span>Sample_Bangkok_Plan_print.html<span class="ok"><svg><use href="#ic-check"/></svg></span></span>
               <span class="vw-tbr"><span class="vw-ico"><svg><use href="#ic-search"/></svg></span><span class="vw-ico"><svg><use href="#ic-share"/></svg></span><span class="vw-ico"><svg><use href="#ic-terminal"/></svg></span><span class="vw-ico ai"><svg><use href="#ic-sparkle"/></svg></span></span>
             </div>
             <div class="vw-body">
               <aside class="vw-side">
                 <div class="vs-h">Locations</div>
                 <div class="vs-loc sel"><span class="ic f-folder"><svg><use href="#ic-folder"/></svg></span><span>Local Workspace<small>On My iPad</small></span></div>
-                <div class="vs-loc"><span class="ic f-desktop"><svg><use href="#ic-desktop"/></svg></span><span>mac<small>zhiluo@192.168.66.82</small></span></div>
+                <div class="vs-loc"><span class="ic f-desktop"><svg><use href="#ic-desktop"/></svg></span><span>mac<small>demo@192.0.2.10</small></span></div>
                 <div class="vs-h">Files</div>
                 <div class="vs-file"><span class="fi f-folder"><svg><use href="#ic-folder"/></svg></span><span>Models<small>Folder · Jul 4</small></span></div>
                 <div class="vs-file"><span class="fi f-doc"><svg><use href="#ic-doc"/></svg></span><span>Make &amp; See Sound<small>Jupyter · 730 KB</small></span></div>
                 <div class="vs-file"><span class="fi f-doc"><svg><use href="#ic-doc"/></svg></span><span>GPU vs CPU· race them…<small>Jupyter · 12 KB</small></span></div>
-                <div class="vs-file sel"><span class="fi f-globe"><svg><use href="#ic-globe"/></svg></span><span>Bangkok_Travel_Plan<small>HTML page · 55 KB</small></span></div>
+                <div class="vs-file sel"><span class="fi f-globe"><svg><use href="#ic-globe"/></svg></span><span>Sample_Bangkok_Plan<small>HTML page · 55 KB</small></span></div>
                 <div class="vs-file"><span class="fi f-atom"><svg><use href="#ic-atom"/></svg></span><span>1CRN<small>Molecule · 49 KB</small></span></div>
               </aside>
               <div class="vw-main html-doc">
-                <div class="doc-bar"><svg><use href="#ic-globe"/></svg> Bangkok_Travel_Plan_print.html</div>
+                <div class="doc-bar"><svg><use href="#ic-globe"/></svg> Sample_Bangkok_Plan_print.html</div>
                 <div class="doc-page">
                   <div class="doc-h"><span data-wt="bkk.h">6. Day-by-Day Itinerary</span> <span class="doc-h-en" data-wt="bkk.hs">Day-by-day · attraction photos each day</span></div>
                   <p class="doc-lead" data-wt="bkk.lead">Based on the recommended Strategy 2 route. Chatuchak Weekend Market runs only on weekends, already scheduled on suitable days.</p>
@@ -1942,7 +1946,7 @@ html{overflow-x:clip}#aivibe{margin:0!important;display:block!important;backgrou
           <div class="agent-float agent-float-bkk">
             <div class="ai-glow" aria-hidden="true"></div>
             <div class="va-chat">
-              <div class="va-chat-h"><span class="ai"><svg><use href="#ic-sparkle"/></svg></span> Bangkok_Travel_Plan_print.html <span class="va-tools"><svg><use href="#ic-trash"/></svg></span></div>
+              <div class="va-chat-h"><span class="ai"><svg><use href="#ic-sparkle"/></svg></span> Sample_Bangkok_Plan_print.html <span class="va-tools"><svg><use href="#ic-trash"/></svg></span></div>
               <div class="va-msg user" data-wt="aw.user">Help me plan a trip from Shanghai to New York like this html: search and compare real prices from trip.com. The trip runs July 7 to August 7, generate an html plan like this.</div>
               <div class="va-tool"><span class="tw"><svg><use href="#ic-gear"/></svg></span> <span data-wt="aw.t1">Used 11 tools · web_fetch x5, web_search x5, read_current_file</span></div>
               <div class="va-msg agent streaming" data-wt="aw.msg">I'll use the existing Bangkok HTML as the visual template, then create a separate Shanghai → New York file so the Bangkok plan is not overwritten. I'm checking Trip.com prices for the exact July 7 to August 7 window first.</div>
@@ -1994,13 +1998,13 @@ html{overflow-x:clip}#aivibe{margin:0!important;display:block!important;backgrou
               <aside class="vw-side">
                 <div class="vs-h">Locations</div>
                 <div class="vs-loc sel"><span class="ic f-folder"><svg><use href="#ic-folder"/></svg></span><span>Local Workspace<small>On My iPad</small></span></div>
-                <div class="vs-loc"><span class="ic f-desktop"><svg><use href="#ic-desktop"/></svg></span><span>mac<small>zhiluo@192.168.66.82</small></span></div>
+                <div class="vs-loc"><span class="ic f-desktop"><svg><use href="#ic-desktop"/></svg></span><span>mac<small>demo@192.0.2.10</small></span></div>
                 <div class="vs-h">Files</div>
                 <div class="vs-file"><span class="fi f-folder"><svg><use href="#ic-folder"/></svg></span><span>Models<small>Folder · Jul 4</small></span></div>
                 <div class="vs-file sel"><span class="fi f-doc"><svg><use href="#ic-doc"/></svg></span><span>See a Protein in 3D<small>Jupyter · 116 KB</small></span></div>
                 <div class="vs-file"><span class="fi f-atom"><svg><use href="#ic-atom"/></svg></span><span>1CRN<small>Molecule · 49 KB</small></span></div>
                 <div class="vs-file"><span class="fi f-doc"><svg><use href="#ic-doc"/></svg></span><span>Make &amp; See Sound<small>Jupyter · 730 KB</small></span></div>
-                <div class="vs-file"><span class="fi f-globe"><svg><use href="#ic-globe"/></svg></span><span>Bangkok_Travel_Plan<small>HTML page · 55 KB</small></span></div>
+                <div class="vs-file"><span class="fi f-globe"><svg><use href="#ic-globe"/></svg></span><span>Sample_Bangkok_Plan<small>HTML page · 55 KB</small></span></div>
               </aside>
               <div class="vw-main">
                 <div class="nb-card" style="background:linear-gradient(110deg,#7b5cf0,#4a7fb8 52%,#3fb0a0)">
@@ -2094,24 +2098,24 @@ html{overflow-x:clip}#aivibe{margin:0!important;display:block!important;backgrou
             <div class="vw-tb">
               <span class="brand">Vibeit</span>
               <span class="vw-chip"><svg><use href="#ic-plus"/></svg></span><span class="vw-chip"><svg><use href="#ic-ellipsis"/></svg></span><span class="vw-chip"><svg><use href="#ic-sidebar"/></svg></span>
-              <span class="vw-tab"><span class="fi f-globe" style="width:auto"><svg><use href="#ic-globe"/></svg></span>Bangkok_Travel_Plan_print.html<span class="ok"><svg><use href="#ic-check"/></svg></span></span>
+              <span class="vw-tab"><span class="fi f-globe" style="width:auto"><svg><use href="#ic-globe"/></svg></span>Sample_Bangkok_Plan_print.html<span class="ok"><svg><use href="#ic-check"/></svg></span></span>
               <span class="vw-tbr"><span class="vw-ico"><svg><use href="#ic-search"/></svg></span><span class="vw-ico"><svg><use href="#ic-share"/></svg></span><span class="vw-ico"><svg><use href="#ic-terminal"/></svg></span><span class="vw-ico ai"><svg><use href="#ic-sparkle"/></svg></span></span>
             </div>
             <div class="va2-body">
               <aside class="vw-side">
                 <div class="vs-h">Locations</div>
                 <div class="vs-loc sel"><span class="ic f-folder"><svg><use href="#ic-folder"/></svg></span><span>Local Workspace<small>On My iPad</small></span></div>
-                <div class="vs-loc"><span class="ic f-desktop"><svg><use href="#ic-desktop"/></svg></span><span>mac<small>zhiluo@192.168.66.82</small></span></div>
+                <div class="vs-loc"><span class="ic f-desktop"><svg><use href="#ic-desktop"/></svg></span><span>mac<small>demo@192.0.2.10</small></span></div>
                 <div class="vs-h">Files</div>
                 <div class="vs-file"><span class="fi f-folder"><svg><use href="#ic-folder"/></svg></span><span>Models<small>Folder · Jul 4</small></span></div>
                 <div class="vs-file"><span class="fi f-doc"><svg><use href="#ic-doc"/></svg></span><span>See a Protein in 3D<small>Jupyter · 116 KB</small></span></div>
                 <div class="vs-file"><span class="fi f-atom"><svg><use href="#ic-atom"/></svg></span><span>1CRN<small>Molecule · 49 KB</small></span></div>
-                <div class="vs-file sel"><span class="fi f-globe"><svg><use href="#ic-globe"/></svg></span><span>Bangkok_Travel_Plan<small>HTML page · 55 KB</small></span></div>
+                <div class="vs-file sel"><span class="fi f-globe"><svg><use href="#ic-globe"/></svg></span><span>Sample_Bangkok_Plan<small>HTML page · 55 KB</small></span></div>
                 <div class="vs-file"><span class="fi f-code"><svg><use href="#ic-code"/></svg></span><span>Script<small>Python · 49 bytes</small></span></div>
               </aside>
               <div class="va2-work"><div class="dot-field" aria-hidden="true"><div class="blobs"></div><div class="dots"></div></div></div>
               <div class="va2-chat">
-                <div class="va-chat-h"><span class="ai"><svg><use href="#ic-sparkle"/></svg></span> Bangkok_Travel_Plan_print.html <span class="va-tools"><svg><use href="#ic-trash"/></svg></span></div>
+                <div class="va-chat-h"><span class="ai"><svg><use href="#ic-sparkle"/></svg></span> Sample_Bangkok_Plan_print.html <span class="va-tools"><svg><use href="#ic-trash"/></svg></span></div>
                 <div class="va-msg user" data-wt="aw.user">Help me plan a trip from Shanghai to New York like this html: search and compare real prices from trip.com. The trip runs July 7 to August 7, generate an html plan like this.</div>
                 <div class="va-tool"><span class="tw"><svg><use href="#ic-gear"/></svg></span> <span data-wt="aw.t1">Used 11 tools · web_fetch x5, web_search x5, read_current_file</span></div>
                 <div class="va-msg agent" data-wt="aw.msg">I'll use the existing Bangkok HTML as the visual template, then create a separate Shanghai → New York file so the Bangkok plan is not overwritten. I'm checking Trip.com prices for the exact July 7 to August 7 window first.</div>
@@ -2187,14 +2191,14 @@ html{overflow-x:clip}#aivibe{margin:0!important;display:block!important;backgrou
             </div>
             <div class="remote">
               <span class="sf-symbol sym-display item-symbol remote-symbol"></span>
-              <span><div class="loc-title">mac</div><div class="loc-sub">zhiluo@192.168.66.82:22</div></span>
+              <span><div class="loc-title">mac</div><div class="loc-sub">demo@192.0.2.10:22</div></span>
               <span class="green-dot"></span>
             </div>
             <div class="files-head"><span data-wt="ai.files">Files</span><span class="side-icons"><span class="sf-symbol sym-turn-up-left"></span><span class="sf-symbol sym-trash"></span><span class="sf-symbol sym-branch"></span><span class="sf-symbol sym-chevron-down"></span></span></div>
             <div class="file-list">
               <div class="file"><span class="sf-symbol sym-folder item-symbol folder-pink"></span><span><div class="file-title">Models</div><div class="file-sub">Folder · Jul 4, 2026 at 11:37 AM</div></span><span class="sf-symbol sym-chevron-right chev"></span></div>
               <div class="file"><span class="sf-symbol sym-folder item-symbol folder-pink"></span><span><div class="file-title">Folder</div><div class="file-sub">Folder · Jul 4, 2026 at 1:55 AM</div></span><span class="sf-symbol sym-chevron-right chev"></span></div>
-              <div class="file"><span class="sf-symbol sym-globe item-symbol orange-symbol"></span><span><div class="file-title">Bangkok_Travel_Plan_print</div><div class="file-sub">HTML page · Jul 5, 2...6 at 2:27 PM · 55 KB</div></span><span></span></div>
+              <div class="file"><span class="sf-symbol sym-globe item-symbol orange-symbol"></span><span><div class="file-title">Sample_Bangkok_Plan_print</div><div class="file-sub">HTML page · Jul 5, 2...6 at 2:27 PM · 55 KB</div></span><span></span></div>
               <div class="file"><span class="sf-symbol sym-doc-text item-symbol notebook-symbol orange-symbol"></span><span><div class="file-title">GPU vs CPU- race them on yo...</div><div class="file-sub">Jupyter notebook · J...6 at 2:26 PM · 12 KB</div></span><span></span></div>
               <div class="file selected"><span class="sf-symbol sym-doc-text item-symbol notebook-symbol"></span><span><div class="file-title">Make &amp; See Sound</div><div class="file-sub">Jupyter notebook · J...at 2:25 PM · 730 KB</div></span><span></span></div>
               <div class="file"><span class="sf-symbol sym-code item-symbol code-symbol"></span><span><div class="file-title">Script</div><div class="file-sub">Python source · Jul...at 6:07 AM · 49 bytes</div></span><span></span></div>
@@ -2401,7 +2405,7 @@ speech = <span class="fn">tts</span>(<span class="st">"Hello World"</span>)
 
     <section class="final wrap reveal">
       <h2 data-i18n="final.title">Turn your iPad into a real dev machine.</h2>
-      <a class="btn btn-primary" href="https://apps.apple.com/app/id6786619257" data-i18n="hero.cta">Download on the App Store</a>
+      <a class="app-store-badge" href="https://apps.apple.com/app/id6786619257" aria-label="Download on the App Store"><img src="assets/app-store-badges/en.svg" alt="Download on the App Store" data-store-badge></a>
     </section>
   </main>
 
@@ -2416,7 +2420,8 @@ speech = <span class="fn">tts</span>(<span class="st">"Hello World"</span>)
           <a href="contact.html" data-i18n="footer.contact">Contact</a>
         </div>
       </div>
-      <div class="foot-legal">© 2026 Zhi Luo. <span data-i18n="footer.rights">Made for iPad.</span></div>
+      <div class="foot-legal">© 2026 Zhi Luo. <span data-i18n="footer.rights">For iPhone and iPad.</span></div>
+      <div class="foot-legal">Apple, the Apple logo, App Store, iPhone, and iPad are trademarks of Apple Inc., registered in the U.S. and other countries. Apple Intelligence is a trademark of Apple Inc.</div>
     </div>
   </footer>
 
@@ -3278,14 +3283,14 @@ speech = <span class="fn">tts</span>(<span class="st">"Hello World"</span>)
             </div>
             <div class="remote">
               <span class="sf-symbol sym-display item-symbol remote-symbol"></span>
-              <span><div class="loc-title">mac</div><div class="loc-sub">zhiluo@192.168.66.82:22</div></span>
+              <span><div class="loc-title">mac</div><div class="loc-sub">demo@192.0.2.10:22</div></span>
               <span class="green-dot"></span>
             </div>
             <div class="files-head"><span>Files</span><span class="side-icons"><span class="sf-symbol sym-turn-up-left"></span><span class="sf-symbol sym-trash"></span><span class="sf-symbol sym-branch"></span><span class="sf-symbol sym-chevron-down"></span></span></div>
             <div class="file-list">
               <div class="file"><span class="sf-symbol sym-folder item-symbol folder-pink"></span><span><div class="file-title">Models</div><div class="file-sub">Folder · Jul 4, 2026 at 11:37 AM</div></span><span class="sf-symbol sym-chevron-right chev"></span></div>
               <div class="file"><span class="sf-symbol sym-folder item-symbol folder-pink"></span><span><div class="file-title">Folder</div><div class="file-sub">Folder · Jul 4, 2026 at 1:55 AM</div></span><span class="sf-symbol sym-chevron-right chev"></span></div>
-              <div class="file"><span class="sf-symbol sym-globe item-symbol orange-symbol"></span><span><div class="file-title">Bangkok_Travel_Plan_print</div><div class="file-sub">HTML page · Jul 5, 2...6 at 2:27 PM · 55 KB</div></span><span></span></div>
+              <div class="file"><span class="sf-symbol sym-globe item-symbol orange-symbol"></span><span><div class="file-title">Sample_Bangkok_Plan_print</div><div class="file-sub">HTML page · Jul 5, 2...6 at 2:27 PM · 55 KB</div></span><span></span></div>
               <div class="file"><span class="sf-symbol sym-doc-text item-symbol notebook-symbol orange-symbol"></span><span><div class="file-title">GPU vs CPU- race them on yo...</div><div class="file-sub">Jupyter notebook · J...6 at 2:26 PM · 12 KB</div></span><span></span></div>
               <div class="file selected"><span class="sf-symbol sym-doc-text item-symbol notebook-symbol"></span><span><div class="file-title">Make &amp; See Sound</div><div class="file-sub">Jupyter notebook · J...at 2:25 PM · 730 KB</div></span><span></span></div>
               <div class="file"><span class="sf-symbol sym-code item-symbol code-symbol"></span><span><div class="file-title">Script</div><div class="file-sub">Python source · Jul...at 6:07 AM · 49 bytes</div></span><span></span></div>
@@ -3768,8 +3773,8 @@ speech = <span class="fn">tts</span>(<span class="st">"Hello World"</span>)
     const T={
       en:{
         "nav.features":"Features","nav.lessons":"Lessons","nav.pricing":"Pricing","nav.get":"Get Vibeit",
-        "hero.eyebrow":"iPad","hero.title_a":"Real Python,","hero.title_b":"on your iPad.",
-        "hero.sub":"A full Python IDE with Jupyter notebooks, PyTorch on the Apple GPU, and guided lessons. Runs completely offline.",
+        "hero.eyebrow":"iPhone · iPad","hero.title_a":"Real Python,","hero.title_b":"on your iPad.",
+        "hero.sub":"A full Python IDE with Jupyter notebooks, PyTorch on the Apple GPU, and guided lessons. Run Python and notebooks offline.",
         "hero.cta":"Download on the App Store","hero.cta2":"See what's inside",
         "strip.kicker":"The real scientific stack. Native, on device",
         "features.title":"Everything a Python machine needs. In your bag.",
@@ -3784,7 +3789,7 @@ speech = <span class="fn">tts</span>(<span class="st">"Hello World"</span>)
         "b1.t":"PyTorch on the Apple GPU","b1.b":"Train and run models with real MPS acceleration. NumPy, pandas, scikit-learn and OpenCV, all native.",
         "b2.t":"Your machines over SSH","b2.b":"Connect to your own servers over SSH and SFTP, then run code there without leaving the app.",
         "b3.t":"Git and GitHub built in","b3.b":"Clone, edit, commit, push, and open pull requests, all on device.",
-        "b4.t":"Runs completely offline","b4.b":"The interpreter, the packages, and your notebooks all live on the device.",
+        "b4.t":"Run Python offline","b4.b":"The interpreter, the packages, and your notebooks all live on the device.",
         "b5.t":"Nine languages","b5.b":"The whole app and every lesson, localized.",
         "lessons.title":"Learn by doing, not by reading.",
         "lessons.sub":"A gallery of guided lessons in nine languages: from your first plot to neural nets, physics simulations, and 3D protein structures.",
@@ -3797,12 +3802,12 @@ speech = <span class="fn">tts</span>(<span class="st">"Hello World"</span>)
         "price.monthly":"Monthly","price.quarterly":"Quarterly","price.yearly":"Yearly",
         "price.perMonth":"/month","price.perQuarter":"/quarter","price.perYear":"/year","price.save":"Save {n}%",
         "final.title":"Turn your iPad into a real dev machine.",
-        "footer.privacy":"Privacy","footer.terms":"Terms","footer.support":"Support","footer.contact":"Contact","footer.rights":"Made for iPad."
+        "footer.privacy":"Privacy","footer.terms":"Terms","footer.support":"Support","footer.contact":"Contact","footer.rights":"For iPhone and iPad."
       },
       zh:{
         "nav.features":"功能","nav.lessons":"课程","nav.pricing":"订阅","nav.get":"获取 Vibeit",
-        "hero.eyebrow":"iPad","hero.title_a":"真正的 Python，","hero.title_b":"就在你的 iPad 上",
-        "hero.sub":"一个完整的 Python IDE：Jupyter 笔记本、跑在 Apple GPU 上的 PyTorch，还有引导式课程。完全离线运行。",
+        "hero.eyebrow":"iPhone · iPad","hero.title_a":"真正的 Python，","hero.title_b":"就在你的 iPad 上",
+        "hero.sub":"完整的 Python IDE：Jupyter 笔记本、可使用 Apple GPU 的 PyTorch，以及引导式课程。本地 Python 和笔记本可离线运行。",
         "hero.cta":"在 App Store 下载","hero.cta2":"看看里面有什么",
         "strip.kicker":"真正的科学计算全家桶，原生、在设备上运行",
         "features.title":"一台 Python 机器需要的一切，都装进你的包里",
@@ -3817,7 +3822,7 @@ speech = <span class="fn">tts</span>(<span class="st">"Hello World"</span>)
         "b1.t":"跑在 Apple GPU 上的 PyTorch","b1.b":"用真正的 MPS 加速训练与推理。NumPy、pandas、scikit-learn 和 OpenCV，全部原生。",
         "b2.t":"通过 SSH 连接你的机器","b2.b":"用 SSH 和 SFTP 连接自己的服务器，直接在上面跑代码，无需离开 app。",
         "b3.t":"内置 Git 与 GitHub","b3.b":"克隆、编辑、提交、推送、开 PR，全在设备上完成。",
-        "b4.t":"完全离线运行","b4.b":"解释器、依赖包和你的笔记本，全都在设备本地。",
+        "b4.t":"离线运行 Python","b4.b":"解释器、依赖包和你的笔记本，全都在设备本地。",
         "b5.t":"九种语言","b5.b":"整个 app 和每一节课都已本地化。",
         "lessons.title":"在动手中学习，而不是只读",
         "lessons.sub":"九种语言的引导式课程画廊：从你的第一张图，到神经网络、物理仿真和 3D 蛋白质结构。",
@@ -3830,12 +3835,12 @@ speech = <span class="fn">tts</span>(<span class="st">"Hello World"</span>)
         "price.monthly":"按月","price.quarterly":"按季","price.yearly":"按年",
         "price.perMonth":"/月","price.perQuarter":"/季","price.perYear":"/年","price.save":"省 {n}%",
         "final.title":"把你的 iPad 变成真正的开发机",
-        "footer.privacy":"隐私政策","footer.terms":"条款","footer.support":"支持","footer.contact":"联系我们","footer.rights":"为 iPad 打造。"
+        "footer.privacy":"隐私政策","footer.terms":"条款","footer.support":"支持","footer.contact":"联系我们","footer.rights":"适用于 iPhone 和 iPad。"
       },
       ja:{
         "nav.features":"機能","nav.lessons":"レッスン","nav.pricing":"料金","nav.get":"Vibeit を入手",
-        "hero.eyebrow":"iPad","hero.title_a":"本物の Python を、","hero.title_b":"あなたの iPad で。",
-        "hero.sub":"Jupyter ノートブック、Apple GPU で動く PyTorch、ガイド付きレッスンを備えた本格 Python IDE。完全オフラインで動作します。",
+        "hero.eyebrow":"iPhone · iPad","hero.title_a":"本物の Python を、","hero.title_b":"あなたの iPad で。",
+        "hero.sub":"Jupyter ノートブック、Apple GPU 対応の PyTorch、ガイド付きレッスンを備えた本格的な Python IDE。Python とノートブックはオフラインで実行できます。",
         "hero.cta":"App Store でダウンロード","hero.cta2":"中身を見る",
         "strip.kicker":"本物の科学計算スタックを、ネイティブに、デバイス上で",
         "features.title":"Python マシンに必要なすべてを、カバンの中に。",
@@ -3850,7 +3855,7 @@ speech = <span class="fn">tts</span>(<span class="st">"Hello World"</span>)
         "b1.t":"Apple GPU で動く PyTorch","b1.b":"本物の MPS アクセラレーションで学習・推論。NumPy、pandas、scikit-learn、OpenCV もすべてネイティブ。",
         "b2.t":"SSH で自分のマシンへ","b2.b":"SSH と SFTP で自分のサーバーに接続し、アプリを離れずにそこでコードを実行。",
         "b3.t":"Git と GitHub を内蔵","b3.b":"クローン、編集、コミット、プッシュ、プルリクエストまで、すべてデバイス上で。",
-        "b4.t":"完全オフラインで動作","b4.b":"インタープリタもパッケージもノートブックも、すべてデバイス内に。",
+        "b4.t":"Python をオフラインで実行","b4.b":"インタープリタもパッケージもノートブックも、すべてデバイス内に。",
         "b5.t":"9 言語対応","b5.b":"アプリ全体とすべてのレッスンをローカライズ。",
         "lessons.title":"読むのではなく、手を動かして学ぶ。",
         "lessons.sub":"9 言語のガイド付きレッスン集。最初のグラフから、ニューラルネット、物理シミュレーション、3D タンパク質構造まで。",
@@ -3863,12 +3868,12 @@ speech = <span class="fn">tts</span>(<span class="st">"Hello World"</span>)
         "price.monthly":"月額","price.quarterly":"四半期","price.yearly":"年額",
         "price.perMonth":"/月","price.perQuarter":"/3か月","price.perYear":"/年","price.save":"{n}% お得",
         "final.title":"あなたの iPad を、本物の開発マシンに。",
-        "footer.privacy":"プライバシー","footer.terms":"利用規約","footer.support":"サポート","footer.contact":"お問い合わせ","footer.rights":"iPad のために。"
+        "footer.privacy":"プライバシー","footer.terms":"利用規約","footer.support":"サポート","footer.contact":"お問い合わせ","footer.rights":"iPhone と iPad に対応。"
       },
       ko:{
         "nav.features":"기능","nav.lessons":"레슨","nav.pricing":"요금제","nav.get":"Vibeit 받기",
-        "hero.eyebrow":"iPad","hero.title_a":"진짜 Python을,","hero.title_b":"당신의 iPad에서.",
-        "hero.sub":"Jupyter 노트북, Apple GPU에서 도는 PyTorch, 가이드 레슨을 갖춘 완전한 Python IDE. 완전히 오프라인으로 동작합니다.",
+        "hero.eyebrow":"iPhone · iPad","hero.title_a":"진짜 Python을,","hero.title_b":"당신의 iPad에서.",
+        "hero.sub":"Jupyter 노트북, Apple GPU를 활용하는 PyTorch, 가이드 레슨을 갖춘 완전한 Python IDE입니다. Python과 노트북은 오프라인에서 실행할 수 있습니다.",
         "hero.cta":"App Store에서 다운로드","hero.cta2":"무엇이 들었는지 보기",
         "strip.kicker":"진짜 과학 계산 스택을, 네이티브로, 기기에서",
         "features.title":"Python 머신에 필요한 모든 것을, 가방 속에.",
@@ -3883,7 +3888,7 @@ speech = <span class="fn">tts</span>(<span class="st">"Hello World"</span>)
         "b1.t":"Apple GPU에서 도는 PyTorch","b1.b":"진짜 MPS 가속으로 학습·추론. NumPy, pandas, scikit-learn, OpenCV 모두 네이티브.",
         "b2.t":"SSH로 내 머신에","b2.b":"SSH와 SFTP로 내 서버에 연결하고, 앱을 떠나지 않고 거기서 코드를 실행합니다.",
         "b3.t":"Git과 GitHub 내장","b3.b":"클론, 편집, 커밋, 푸시, PR까지 모두 기기에서.",
-        "b4.t":"완전히 오프라인 동작","b4.b":"인터프리터, 패키지, 노트북 모두 기기 안에 있습니다.",
+        "b4.t":"Python을 오프라인에서 실행","b4.b":"인터프리터, 패키지, 노트북 모두 기기 안에 있습니다.",
         "b5.t":"9개 언어","b5.b":"앱 전체와 모든 레슨을 현지화.",
         "lessons.title":"읽지 말고, 직접 해보며 배우세요.",
         "lessons.sub":"9개 언어의 가이드 레슨 갤러리: 첫 그래프부터 신경망, 물리 시뮬레이션, 3D 단백질 구조까지.",
@@ -3896,12 +3901,12 @@ speech = <span class="fn">tts</span>(<span class="st">"Hello World"</span>)
         "price.monthly":"월간","price.quarterly":"분기","price.yearly":"연간",
         "price.perMonth":"/월","price.perQuarter":"/분기","price.perYear":"/년","price.save":"{n}% 할인",
         "final.title":"당신의 iPad를 진짜 개발 머신으로.",
-        "footer.privacy":"개인정보","footer.terms":"약관","footer.support":"지원","footer.contact":"문의하기","footer.rights":"iPad을 위해 만들었습니다."
+        "footer.privacy":"개인정보","footer.terms":"약관","footer.support":"지원","footer.contact":"문의하기","footer.rights":"iPhone과 iPad 지원."
       },
       fr:{
         "nav.features":"Fonctions","nav.lessons":"Leçons","nav.pricing":"Tarifs","nav.get":"Obtenir Vibeit",
-        "hero.eyebrow":"iPad","hero.title_a":"Du vrai Python,","hero.title_b":"sur votre iPad.",
-        "hero.sub":"Un IDE Python complet avec des notebooks Jupyter, PyTorch sur le GPU Apple et des leçons guidées. Fonctionne entièrement hors ligne.",
+        "hero.eyebrow":"iPhone · iPad","hero.title_a":"Du vrai Python,","hero.title_b":"sur votre iPad.",
+        "hero.sub":"Un IDE Python complet avec des notebooks Jupyter, PyTorch sur le GPU Apple et des leçons guidées. Exécutez Python et vos notebooks hors ligne.",
         "hero.cta":"Télécharger sur l'App Store","hero.cta2":"Voir ce qu'il contient",
         "strip.kicker":"La vraie pile scientifique. Native, sur l'appareil",
         "features.title":"Tout ce qu'il faut à une machine Python. Dans votre sac.",
@@ -3916,7 +3921,7 @@ speech = <span class="fn">tts</span>(<span class="st">"Hello World"</span>)
         "b1.t":"PyTorch sur le GPU Apple","b1.b":"Entraînez et exécutez des modèles avec une vraie accélération MPS. NumPy, pandas, scikit-learn et OpenCV, tout en natif.",
         "b2.t":"Vos machines en SSH","b2.b":"Connectez-vous à vos serveurs en SSH et SFTP, puis exécutez-y du code sans quitter l'app.",
         "b3.t":"Git et GitHub intégrés","b3.b":"Cloner, modifier, valider, pousser et ouvrir des pull requests, le tout sur l'appareil.",
-        "b4.t":"Fonctionne hors ligne","b4.b":"L'interpréteur, les paquets et vos notebooks vivent tous sur l'appareil.",
+        "b4.t":"Exécutez Python hors ligne","b4.b":"L'interpréteur, les paquets et vos notebooks vivent tous sur l'appareil.",
         "b5.t":"Neuf langues","b5.b":"Toute l'app et chaque leçon, localisées.",
         "lessons.title":"Apprendre en faisant, pas en lisant.",
         "lessons.sub":"Une galerie de leçons guidées en neuf langues : de votre premier graphique aux réseaux de neurones, simulations physiques et structures 3D de protéines.",
@@ -3929,12 +3934,12 @@ speech = <span class="fn">tts</span>(<span class="st">"Hello World"</span>)
         "price.monthly":"Mensuel","price.quarterly":"Trimestriel","price.yearly":"Annuel",
         "price.perMonth":"/mois","price.perQuarter":"/trimestre","price.perYear":"/an","price.save":"-{n} %",
         "final.title":"Faites de votre iPad une vraie machine de dev.",
-        "footer.privacy":"Confidentialité","footer.terms":"Conditions","footer.support":"Assistance","footer.contact":"Contact","footer.rights":"Conçu pour iPad."
+        "footer.privacy":"Confidentialité","footer.terms":"Conditions","footer.support":"Assistance","footer.contact":"Contact","footer.rights":"Pour iPhone et iPad."
       },
       it:{
         "nav.features":"Funzioni","nav.lessons":"Lezioni","nav.pricing":"Prezzi","nav.get":"Ottieni Vibeit",
-        "hero.eyebrow":"iPad","hero.title_a":"Vero Python,","hero.title_b":"sul tuo iPad.",
-        "hero.sub":"Un IDE Python completo con notebook Jupyter, PyTorch sulla GPU Apple e lezioni guidate. Funziona completamente offline.",
+        "hero.eyebrow":"iPhone · iPad","hero.title_a":"Vero Python,","hero.title_b":"sul tuo iPad.",
+        "hero.sub":"Un IDE Python completo con notebook Jupyter, PyTorch sulla GPU Apple e lezioni guidate. Esegui Python e i notebook offline.",
         "hero.cta":"Scarica su App Store","hero.cta2":"Guarda cosa contiene",
         "strip.kicker":"Il vero stack scientifico. Nativo, sul dispositivo",
         "features.title":"Tutto ciò che serve a una macchina Python. Nella tua borsa.",
@@ -3949,7 +3954,7 @@ speech = <span class="fn">tts</span>(<span class="st">"Hello World"</span>)
         "b1.t":"PyTorch sulla GPU Apple","b1.b":"Allena ed esegui modelli con vera accelerazione MPS. NumPy, pandas, scikit-learn e OpenCV, tutto nativo.",
         "b2.t":"Le tue macchine via SSH","b2.b":"Connettiti ai tuoi server via SSH e SFTP, poi esegui il codice lì senza lasciare l'app.",
         "b3.t":"Git e GitHub integrati","b3.b":"Clona, modifica, committa, pusha e apri pull request, tutto sul dispositivo.",
-        "b4.t":"Funziona offline","b4.b":"L'interprete, i pacchetti e i tuoi notebook vivono tutti sul dispositivo.",
+        "b4.t":"Esegui Python offline","b4.b":"L'interprete, i pacchetti e i tuoi notebook vivono tutti sul dispositivo.",
         "b5.t":"Nove lingue","b5.b":"Tutta l'app e ogni lezione, localizzate.",
         "lessons.title":"Impara facendo, non leggendo.",
         "lessons.sub":"Una galleria di lezioni guidate in nove lingue: dal tuo primo grafico alle reti neurali, simulazioni fisiche e strutture 3D di proteine.",
@@ -3962,12 +3967,12 @@ speech = <span class="fn">tts</span>(<span class="st">"Hello World"</span>)
         "price.monthly":"Mensile","price.quarterly":"Trimestrale","price.yearly":"Annuale",
         "price.perMonth":"/mese","price.perQuarter":"/trimestre","price.perYear":"/anno","price.save":"-{n}%",
         "final.title":"Trasforma il tuo iPad in una vera macchina da sviluppo.",
-        "footer.privacy":"Privacy","footer.terms":"Termini","footer.support":"Assistenza","footer.contact":"Contatti","footer.rights":"Fatto per iPad."
+        "footer.privacy":"Privacy","footer.terms":"Termini","footer.support":"Assistenza","footer.contact":"Contatti","footer.rights":"Per iPhone e iPad."
       },
       de:{
         "nav.features":"Funktionen","nav.lessons":"Lektionen","nav.pricing":"Preise","nav.get":"Vibeit holen",
-        "hero.eyebrow":"iPad","hero.title_a":"Echtes Python,","hero.title_b":"auf deinem iPad.",
-        "hero.sub":"Eine vollwertige Python-IDE mit Jupyter-Notebooks, PyTorch auf der Apple-GPU und geführten Lektionen. Läuft komplett offline.",
+        "hero.eyebrow":"iPhone · iPad","hero.title_a":"Echtes Python,","hero.title_b":"auf deinem iPad.",
+        "hero.sub":"Eine vollwertige Python-IDE mit Jupyter-Notebooks, PyTorch auf der Apple-GPU und geführten Lektionen. Python und Notebooks laufen offline.",
         "hero.cta":"Im App Store laden","hero.cta2":"Sieh, was drinsteckt",
         "strip.kicker":"Der echte wissenschaftliche Stack. Nativ, auf dem Gerät",
         "features.title":"Alles, was eine Python-Maschine braucht. In deiner Tasche.",
@@ -3982,7 +3987,7 @@ speech = <span class="fn">tts</span>(<span class="st">"Hello World"</span>)
         "b1.t":"PyTorch auf der Apple-GPU","b1.b":"Modelle trainieren und ausführen mit echter MPS-Beschleunigung. NumPy, pandas, scikit-learn und OpenCV, alles nativ.",
         "b2.t":"Deine Maschinen per SSH","b2.b":"Verbinde dich per SSH und SFTP mit deinen Servern und führe Code dort aus, ohne die App zu verlassen.",
         "b3.t":"Git und GitHub eingebaut","b3.b":"Klonen, bearbeiten, committen, pushen und Pull Requests öffnen, alles auf dem Gerät.",
-        "b4.t":"Läuft komplett offline","b4.b":"Interpreter, Pakete und deine Notebooks liegen alle auf dem Gerät.",
+        "b4.t":"Python offline ausführen","b4.b":"Interpreter, Pakete und deine Notebooks liegen alle auf dem Gerät.",
         "b5.t":"Neun Sprachen","b5.b":"Die ganze App und jede Lektion, lokalisiert.",
         "lessons.title":"Lernen durch Tun, nicht durch Lesen.",
         "lessons.sub":"Eine Galerie geführter Lektionen in neun Sprachen: vom ersten Diagramm bis zu neuronalen Netzen, Physiksimulationen und 3D-Proteinstrukturen.",
@@ -3995,12 +4000,12 @@ speech = <span class="fn">tts</span>(<span class="st">"Hello World"</span>)
         "price.monthly":"Monatlich","price.quarterly":"Vierteljährlich","price.yearly":"Jährlich",
         "price.perMonth":"/Monat","price.perQuarter":"/Quartal","price.perYear":"/Jahr","price.save":"-{n} %",
         "final.title":"Mach dein iPad zu einer echten Entwicklermaschine.",
-        "footer.privacy":"Datenschutz","footer.terms":"AGB","footer.support":"Support","footer.contact":"Kontakt","footer.rights":"Für iPad gemacht."
+        "footer.privacy":"Datenschutz","footer.terms":"AGB","footer.support":"Support","footer.contact":"Kontakt","footer.rights":"Für iPhone und iPad."
       },
       ar:{
         "nav.features":"المزايا","nav.lessons":"الدروس","nav.pricing":"الأسعار","nav.get":"احصل على Vibeit",
-        "hero.eyebrow":"iPad","hero.title_a":"بايثون حقيقية،","hero.title_b":"على الـ iPad.",
-        "hero.sub":"بيئة تطوير بايثون كاملة مع دفاتر Jupyter، و PyTorch على معالج Apple الرسومي، ودروس موجَّهة. تعمل دون اتصال تمامًا.",
+        "hero.eyebrow":"iPhone · iPad","hero.title_a":"بايثون حقيقية،","hero.title_b":"على الـ iPad.",
+        "hero.sub":"بيئة تطوير Python كاملة مع دفاتر Jupyter وPyTorch على معالج Apple الرسومي ودروس موجّهة. شغّل Python ودفاتر الملاحظات دون اتصال.",
         "hero.cta":"نزّله من App Store","hero.cta2":"اطّلع على ما بالداخل",
         "strip.kicker":"المنظومة العلمية الحقيقية. أصليّة، على الجهاز",
         "features.title":"كل ما يحتاجه جهاز بايثون. في حقيبتك.",
@@ -4015,7 +4020,7 @@ speech = <span class="fn">tts</span>(<span class="st">"Hello World"</span>)
         "b1.t":"PyTorch على معالج Apple الرسومي","b1.b":"درّب النماذج وشغّلها بتسريع MPS حقيقي. NumPy و pandas و scikit-learn و OpenCV، كلها أصليّة.",
         "b2.t":"أجهزتك عبر SSH","b2.b":"اتصل بخوادمك عبر SSH و SFTP، ثم شغّل الشيفرة هناك دون مغادرة التطبيق.",
         "b3.t":"Git و GitHub مدمجان","b3.b":"استنسخ وحرّر وثبّت وادفع وافتح طلبات السحب، كل ذلك على الجهاز.",
-        "b4.t":"يعمل دون اتصال تمامًا","b4.b":"المفسّر والحزم ودفاترك، جميعها تعيش على الجهاز.",
+        "b4.t":"شغّل Python دون اتصال","b4.b":"المفسّر والحزم ودفاترك، جميعها تعيش على الجهاز.",
         "b5.t":"تسع لغات","b5.b":"التطبيق بأكمله وكل درس، مُترجَمان.",
         "lessons.title":"تعلَّم بالممارسة، لا بالقراءة.",
         "lessons.sub":"معرض دروس موجَّهة بتسع لغات: من أول مخطط لك إلى الشبكات العصبية، ومحاكاة الفيزياء، وبنى البروتين ثلاثية الأبعاد.",
@@ -4028,12 +4033,12 @@ speech = <span class="fn">tts</span>(<span class="st">"Hello World"</span>)
         "price.monthly":"شهريًا","price.quarterly":"ربع سنوي","price.yearly":"سنويًا",
         "price.perMonth":"/شهر","price.perQuarter":"/ربع سنة","price.perYear":"/سنة","price.save":"وفّر {n}%",
         "final.title":"حوّل الـ iPad إلى جهاز تطوير حقيقي.",
-        "footer.privacy":"الخصوصية","footer.terms":"الشروط","footer.support":"الدعم","footer.contact":"اتصل بنا","footer.rights":"صُنع لـ iPad."
+        "footer.privacy":"الخصوصية","footer.terms":"الشروط","footer.support":"الدعم","footer.contact":"اتصل بنا","footer.rights":"لـ iPhone وiPad."
       },
       th:{
         "nav.features":"ฟีเจอร์","nav.lessons":"บทเรียน","nav.pricing":"ราคา","nav.get":"ดาวน์โหลด Vibeit",
-        "hero.eyebrow":"iPad","hero.title_a":"Python ของจริง","hero.title_b":"บน iPad ของคุณ",
-        "hero.sub":"IDE สำหรับ Python แบบเต็มรูปแบบ พร้อมโน้ตบุ๊ก Jupyter, PyTorch บน GPU ของ Apple และบทเรียนแบบมีผู้แนะนำ ทำงานออฟไลน์ได้อย่างสมบูรณ์",
+        "hero.eyebrow":"iPhone · iPad","hero.title_a":"Python ของจริง","hero.title_b":"บน iPad ของคุณ",
+        "hero.sub":"IDE สำหรับ Python แบบเต็มรูปแบบ พร้อมโน้ตบุ๊ก Jupyter, PyTorch ที่ใช้ GPU ของ Apple และบทเรียนแนะนำ รัน Python และโน้ตบุ๊กแบบออฟไลน์ได้",
         "hero.cta":"ดาวน์โหลดบน App Store","hero.cta2":"ดูว่ามีอะไรข้างใน",
         "strip.kicker":"สแตกวิทยาศาสตร์ของจริง ทำงานบนเครื่องแบบเนทีฟ",
         "features.title":"ทุกอย่างที่เครื่อง Python ต้องมี อยู่ในกระเป๋าคุณ",
@@ -4048,7 +4053,7 @@ speech = <span class="fn">tts</span>(<span class="st">"Hello World"</span>)
         "b1.t":"PyTorch บน GPU ของ Apple","b1.b":"เทรนและรันโมเดลด้วยการเร่งความเร็ว MPS จริง NumPy, pandas, scikit-learn และ OpenCV ล้วนเป็นเนทีฟ",
         "b2.t":"เครื่องของคุณผ่าน SSH","b2.b":"เชื่อมต่อเซิร์ฟเวอร์ของคุณผ่าน SSH และ SFTP แล้วรันโค้ดที่นั่นโดยไม่ต้องออกจากแอป",
         "b3.t":"Git และ GitHub ในตัว","b3.b":"โคลน แก้ไข คอมมิต พุช และเปิด pull request ได้ครบบนเครื่อง",
-        "b4.t":"ทำงานออฟไลน์อย่างสมบูรณ์","b4.b":"ตัวแปลภาษา แพ็กเกจ และโน้ตบุ๊กของคุณ อยู่บนเครื่องทั้งหมด",
+        "b4.t":"รัน Python แบบออฟไลน์","b4.b":"ตัวแปลภาษา แพ็กเกจ และโน้ตบุ๊กของคุณ อยู่บนเครื่องทั้งหมด",
         "b5.t":"เก้าภาษา","b5.b":"ทั้งแอปและทุกบทเรียน แปลครบ",
         "lessons.title":"เรียนด้วยการลงมือทำ ไม่ใช่ด้วยการอ่าน",
         "lessons.sub":"คลังบทเรียนแบบมีผู้แนะนำในเก้าภาษา ตั้งแต่กราฟแรกของคุณ ไปจนถึงโครงข่ายประสาทเทียม การจำลองฟิสิกส์ และโครงสร้างโปรตีน 3 มิติ",
@@ -4061,7 +4066,7 @@ speech = <span class="fn">tts</span>(<span class="st">"Hello World"</span>)
         "price.monthly":"รายเดือน","price.quarterly":"รายไตรมาส","price.yearly":"รายปี",
         "price.perMonth":"/เดือน","price.perQuarter":"/ไตรมาส","price.perYear":"/ปี","price.save":"ประหยัด {n}%",
         "final.title":"เปลี่ยน iPad ของคุณให้เป็นเครื่องพัฒนาของจริง",
-        "footer.privacy":"ความเป็นส่วนตัว","footer.terms":"ข้อกำหนด","footer.support":"ฝ่ายสนับสนุน","footer.contact":"ติดต่อเรา","footer.rights":"สร้างมาเพื่อ iPad"
+        "footer.privacy":"ความเป็นส่วนตัว","footer.terms":"ข้อกำหนด","footer.support":"ฝ่ายสนับสนุน","footer.contact":"ติดต่อเรา","footer.rights":"สำหรับ iPhone และ iPad"
       }
     };
     const HTMLLANG={en:"en",zh:"zh-Hans",ja:"ja",ko:"ko",fr:"fr",it:"it",de:"de",ar:"ar",th:"th"};
@@ -4232,6 +4237,11 @@ speech = <span class="fn">tts</span>(<span class="st">"Hello World"</span>)
       document.querySelectorAll("[data-i18n]").forEach(el=>{
         const k=el.getAttribute("data-i18n");
         if(dict[k]!=null) el.textContent=dict[k];
+      });
+      document.querySelectorAll("[data-store-badge]").forEach(img=>{
+        img.src=`assets/app-store-badges/${CURRENT_LANG}.svg`;
+        img.alt=dict["hero.cta"]||T.en["hero.cta"];
+        img.closest("a").setAttribute("aria-label",img.alt);
       });
       document.querySelectorAll("[data-wt]").forEach(el=>{
         const e=WT[el.getAttribute("data-wt")]; if(!e)return;
