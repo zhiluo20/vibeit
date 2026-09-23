@@ -34,7 +34,10 @@ export default defineConfig({
     locales:langs,
     defaultLocale:'root',
     customCss:['./src/styles/help.css'],
-    head:[{tag:'meta',attrs:{name:'robots',content:process.env.HELP_RELEASE==='1'?'index,follow':'noindex,nofollow'}}],
+    head:[
+      {tag:'meta',attrs:{name:'robots',content:process.env.HELP_RELEASE==='1'?'index,follow':'noindex,nofollow'}},
+      {tag:'script',attrs:{src:'/vibeit/help/geo-language.js'}},
+    ],
     sidebar:groups.map(([label,directory,zh],i)=>({label,translations:{'zh-CN':zh,...Object.fromEntries(Object.entries(groupNames).map(([lang,names])=>[lang,names[i]]))},items:[{autogenerate:{directory}}]})),
     social:[{icon:'external',label:'Vibeit',href:'https://www.mecury.co.uk/vibeit/'}],
     editLink:{baseUrl:'https://github.com/zhiluo20/vibeit/edit/main/help-site/'},
