@@ -47,5 +47,264 @@
     "bytes": 14394,
     "compressed_bytes": 3717,
     "sha256": "e8fc0a94cd71b53bfa5736021ad877eaf68588632fb5be2c4f30040e340d11da"
+  },
+  {
+    "name": "Historical novel 1342",
+    "file": "data/raw/extension-books-historical-novel-1342.gz",
+    "bytes": 772386,
+    "compressed_bytes": 274845,
+    "sha256": "3f6bb9d6f78e0293b56acd4714dd68cb7d6d1d293402031ce9d5a216bcaf9d75"
+  },
+  {
+    "name": "Historical novel 84",
+    "file": "data/raw/extension-books-historical-novel-84.gz",
+    "bytes": 448885,
+    "compressed_bytes": 168692,
+    "sha256": "7810cd483cffcf2cc8a1d8f0d5807931e69d4f48cd14149b8c76f88af82fead3"
+  },
+  {
+    "name": "NIST CODATA physical constants",
+    "file": "data/raw/extension-constants-nist-codata-physical-constants.gz",
+    "bytes": 40801,
+    "compressed_bytes": 7841,
+    "sha256": "77fb90e66c40db3e6eb16630bc9c88e4c7c8beddbe5e71be406f2f26e3f67e67"
+  },
+  {
+    "name": "ECB SDMX euro reference exchange rates",
+    "file": "data/raw/extension-ecb-ecb-sdmx-euro-reference-exchange-rates.gz",
+    "bytes": 1342082,
+    "compressed_bytes": 36223,
+    "sha256": "5f39fc39f60606abafae26c00492d05388c7bdf29cce1922f173f99bd0273ce8"
+  },
+  {
+    "name": "GWOSC GW150914 v3 event metadata",
+    "file": "data/raw/extension-gwosc-gwosc-gw150914-v3-event-metadata.gz",
+    "bytes": 13903,
+    "compressed_bytes": 1502,
+    "sha256": "1ce014e3277cc6ef491daa48250465eefda026f2b974d2a15bb8c6ea5596e37e"
+  },
+  {
+    "name": "GWOSC H1 32 second strain",
+    "file": "data/raw/extension-gwosc-gwosc-h1-32-second-strain.gz",
+    "bytes": 1286320,
+    "compressed_bytes": 1286733,
+    "sha256": "fefe8717306109460b6c9cff74da6beb9e80ee624824b4b09bdd2c54ce9b4dfc"
+  },
+  {
+    "name": "IAPWS saturation reference release",
+    "file": "data/raw/extension-models-iapws-saturation-reference-release.gz",
+    "bytes": 285034,
+    "compressed_bytes": 265986,
+    "sha256": "a10d38d73339b0713c86cfac88f9adcba137202167ccdfa1cd58238c438361d7"
+  },
+  {
+    "name": "Authored numerical teaching model parameters",
+    "file": "data/raw/extension-models-authored-parameters.gz",
+    "bytes": 1576,
+    "compressed_bytes": 817,
+    "sha256": "4350c4305a83c772fa295a8be0ef86a247f2bfaae930a081720d3cd0c753abe0"
+  },
+  {
+    "name": "PubChem calculated molecular properties",
+    "file": "data/raw/extension-pubchem-pubchem-calculated-molecular-properties.gz",
+    "bytes": 2198,
+    "compressed_bytes": 390,
+    "sha256": "b01b092cc8872e14fdab1fdc608c783669131a081c71d9ccee77c0bb9c6ff408"
+  },
+  {
+    "name": "PubChem 2D SDF 702",
+    "file": "data/raw/extension-pubchem-pubchem-2d-sdf-702.gz",
+    "bytes": 2255,
+    "compressed_bytes": 650,
+    "sha256": "5962afc9ee8115dee9d5e63cefeef89cdc47641420b34afe156062d263c9caa7"
+  },
+  {
+    "name": "PubChem 2D SDF 176",
+    "file": "data/raw/extension-pubchem-pubchem-2d-sdf-176.gz",
+    "bytes": 2201,
+    "compressed_bytes": 661,
+    "sha256": "f51353e1db0a0be8aa3aeb7bea28b6febb1e1f8afdf88fbf298405851f7ee092"
+  },
+  {
+    "name": "PubChem 2D SDF 241",
+    "file": "data/raw/extension-pubchem-pubchem-2d-sdf-241.gz",
+    "bytes": 2642,
+    "compressed_bytes": 711,
+    "sha256": "3f4698bd6773f5e709184759048c116d106ac392e874676444b64af254e9a189"
+  },
+  {
+    "name": "PubChem 2D SDF 887",
+    "file": "data/raw/extension-pubchem-pubchem-2d-sdf-887.gz",
+    "bytes": 1974,
+    "compressed_bytes": 604,
+    "sha256": "5cf6d180935f2fe77d20772a4bf2506711d4436762f6c6801157ac748f088530"
+  },
+  {
+    "name": "PubChem 2D SDF 180",
+    "file": "data/raw/extension-pubchem-pubchem-2d-sdf-180.gz",
+    "bytes": 2372,
+    "compressed_bytes": 675,
+    "sha256": "6ecceacce326b6ecc292dedd946f589e879c999f43242395d995b59a8c8eb128"
+  },
+  {
+    "name": "PubChem 2D SDF 2519",
+    "file": "data/raw/extension-pubchem-pubchem-2d-sdf-2519.gz",
+    "bytes": 4002,
+    "compressed_bytes": 994,
+    "sha256": "47293391d630f44f2a32c3f7702d766744c8f4a4f16f6571d4ae09f04b3daaed"
+  },
+  {
+    "name": "PubChem 2D SDF 2244",
+    "file": "data/raw/extension-pubchem-pubchem-2d-sdf-2244.gz",
+    "bytes": 3630,
+    "compressed_bytes": 923,
+    "sha256": "0dfd04496745032c06410241f91f10fcec77cbc6828cdbede75f4c08da418fbb"
+  },
+  {
+    "name": "PubChem 2D SDF 750",
+    "file": "data/raw/extension-pubchem-pubchem-2d-sdf-750.gz",
+    "bytes": 2439,
+    "compressed_bytes": 716,
+    "sha256": "e1c2ddd732cea1d052a9426c9a25fef86acd1309748bb2115cf2b56481ba288f"
+  },
+  {
+    "name": "PubChem caffeine 3D conformer",
+    "file": "data/raw/extension-pubchem-pubchem-caffeine-3d-conformer.gz",
+    "bytes": 3950,
+    "compressed_bytes": 1270,
+    "sha256": "2a78d98d09d50768fe3f6e6114d7baf3dad9cf88e41835735f96abf5867f5092"
+  },
+  {
+    "name": "UCI iris",
+    "file": "data/raw/extension-uci-uci-iris.gz",
+    "bytes": 3738,
+    "compressed_bytes": 3496,
+    "sha256": "d11fe30213d36434a0879aab7cb00ce3c812eb7ba2495874438abff7b7b762e9"
+  },
+  {
+    "name": "UCI wine",
+    "file": "data/raw/extension-uci-uci-wine.gz",
+    "bytes": 6038,
+    "compressed_bytes": 5940,
+    "sha256": "2bae62c4481220623579d4c4fb36b55652b6b75e06e49fa1981b8198362dfdab"
+  },
+  {
+    "name": "UCI bike",
+    "file": "data/raw/extension-uci-uci-bike.gz",
+    "bytes": 279992,
+    "compressed_bytes": 279798,
+    "sha256": "b70182d0d0508e9abbb79306ce5c0cec34869000f8220175ac83d11dbe845401"
+  },
+  {
+    "name": "UCI energy",
+    "file": "data/raw/extension-uci-uci-energy.gz",
+    "bytes": 11979507,
+    "compressed_bytes": 1646492,
+    "sha256": "2fccf354445d886e7917620b0195db1f3e3e34d5a067a93b844694a4c561255a"
+  },
+  {
+    "name": "World Bank economy metadata",
+    "file": "data/raw/extension-worldbank-world-bank-economy-metadata.gz",
+    "bytes": 113954,
+    "compressed_bytes": 9982,
+    "sha256": "c9acf3932785191a649cbc04c3056af4cf64a236e5c3b49d49be25ddb0440bce"
+  },
+  {
+    "name": "World Bank NY.GDP.PCAP.KD",
+    "file": "data/raw/extension-worldbank-world-bank-ny-gdp-pcap-kd.gz",
+    "bytes": 970667,
+    "compressed_bytes": 59128,
+    "sha256": "59a9efaf20ab359c7832f24da45dda2282511c0eaf927d044583f47d08e02cda"
+  },
+  {
+    "name": "World Bank indicator metadata NY.GDP.PCAP.KD",
+    "file": "data/raw/extension-worldbank-world-bank-indicator-metadata-ny-gdp-pcap-kd.gz",
+    "bytes": 1100,
+    "compressed_bytes": 612,
+    "sha256": "46689488cd435920647264ede1bfb2d4b51b09800fb36f3d3b1422a0b11ea49d"
+  },
+  {
+    "name": "World Bank NY.GDP.MKTP.KD",
+    "file": "data/raw/extension-worldbank-world-bank-ny-gdp-mktp-kd.gz",
+    "bytes": 927639,
+    "compressed_bytes": 59270,
+    "sha256": "466f4e3176b509613f3df99acffce89b5f1ea14472c376dd10d8b8f67f6172b0"
+  },
+  {
+    "name": "World Bank indicator metadata NY.GDP.MKTP.KD",
+    "file": "data/raw/extension-worldbank-world-bank-indicator-metadata-ny-gdp-mktp-kd.gz",
+    "bytes": 994,
+    "compressed_bytes": 565,
+    "sha256": "bc4bc0ffec1755410f52b1091c6b1f46917c7417977102350d3d1102b4659216"
+  },
+  {
+    "name": "World Bank SP.POP.TOTL",
+    "file": "data/raw/extension-worldbank-world-bank-sp-pop-totl.gz",
+    "bytes": 861774,
+    "compressed_bytes": 41026,
+    "sha256": "7ecf8d749dbddd87a269f2019e6d42ed32875c57565cf5c5af097c6e6c9af528"
+  },
+  {
+    "name": "World Bank indicator metadata SP.POP.TOTL",
+    "file": "data/raw/extension-worldbank-world-bank-indicator-metadata-sp-pop-totl.gz",
+    "bytes": 1099,
+    "compressed_bytes": 567,
+    "sha256": "2f8491efc00bf2c0995112ff8e87aba69e5e9d22d0880b22f7e3a4ec757ba05c"
+  },
+  {
+    "name": "World Bank SP.DYN.LE00.IN",
+    "file": "data/raw/extension-worldbank-world-bank-sp-dyn-le00-in.gz",
+    "bytes": 966800,
+    "compressed_bytes": 38424,
+    "sha256": "d8b5c6bd7fecaf8cee0e422444719ba1f42ec70996308bc74afd14ee48799055"
+  },
+  {
+    "name": "World Bank indicator metadata SP.DYN.LE00.IN",
+    "file": "data/raw/extension-worldbank-world-bank-indicator-metadata-sp-dyn-le00-in.gz",
+    "bytes": 969,
+    "compressed_bytes": 475,
+    "sha256": "a39cb6fddfbbb953053690366243dffe77a266c4deae79c46ce5a06da9f5fc31"
+  },
+  {
+    "name": "World Bank FP.CPI.TOTL",
+    "file": "data/raw/extension-worldbank-world-bank-fp-cpi-totl.gz",
+    "bytes": 939762,
+    "compressed_bytes": 44046,
+    "sha256": "55c3b71ad4dd8c92c15fa7dc2b502a3d60f26cf47ae9a24e384bc2ff6108ff56"
+  },
+  {
+    "name": "World Bank indicator metadata FP.CPI.TOTL",
+    "file": "data/raw/extension-worldbank-world-bank-indicator-metadata-fp-cpi-totl.gz",
+    "bytes": 459,
+    "compressed_bytes": 309,
+    "sha256": "13b1e3c4b2b72f7fb3a630b4dde37f0e68e6d5e78dc06b2437dfea0c0b93af46"
+  },
+  {
+    "name": "World Bank FP.CPI.TOTL.ZG",
+    "file": "data/raw/extension-worldbank-world-bank-fp-cpi-totl-zg.gz",
+    "bytes": 978517,
+    "compressed_bytes": 54104,
+    "sha256": "849b6a88a84a7efdeb92d89e8db1db36f86543e28ff8eb645e0feaa8c634def7"
+  },
+  {
+    "name": "World Bank indicator metadata FP.CPI.TOTL.ZG",
+    "file": "data/raw/extension-worldbank-world-bank-indicator-metadata-fp-cpi-totl-zg.gz",
+    "bytes": 632,
+    "compressed_bytes": 394,
+    "sha256": "df9371a3b6c01e55a3f28991e62e1b1ebbe0cd2a7da94456be9938c7a2962233"
+  },
+  {
+    "name": "World Bank SI.POV.GINI",
+    "file": "data/raw/extension-worldbank-world-bank-si-pov-gini.gz",
+    "bytes": 891950,
+    "compressed_bytes": 22415,
+    "sha256": "4919413d3b9ef06b7445c3fd42d47b8a09e9836bbab7be84e4993099ffdc7ab2"
+  },
+  {
+    "name": "World Bank indicator metadata SI.POV.GINI",
+    "file": "data/raw/extension-worldbank-world-bank-indicator-metadata-si-pov-gini.gz",
+    "bytes": 1494,
+    "compressed_bytes": 688,
+    "sha256": "e377bf82b38024748153880ff90c0106a0ef0fd8cb04761146cc60a2609cab3d"
   }
 ]

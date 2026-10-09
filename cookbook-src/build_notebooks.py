@@ -5,8 +5,8 @@ import nbformat
 from nbclient import NotebookClient
 from jupyter_client import KernelManager
 import runtime
-from courses import COURSES, SECTIONS
-from exercises import EXERCISES
+import science_runtime
+from catalog import COURSES, SECTIONS, EXERCISES, SUBJECTS, data_label
 
 ROOT=Path(__file__).resolve().parent
 DOWNLOADS=ROOT.parent/"cookbook/downloads"
@@ -25,14 +25,16 @@ def introduction(course,locale):
     icons={"01":"🧬","02":"🔎","03":"📊","04":"🧭","05":"🕸️","06":"🧪"}
     title=html.escape(course["title"][locale])
     summary=html.escape(course["summary"][locale])
-    badges=[("生物信息学 · 第 "+course["id"][:2]+" 课" if zh else "Bioinformatics · Lesson "+course["id"][:2]),
+    subject=SUBJECTS[course.get('discipline','bioinformatics')]
+    number=f'{course.get("number",int(course["id"][:2]) if course["id"][:2].isdigit() else 1):02}'
+    badges=[(subject['zh']+" · 第 "+number+" 课" if zh else subject['en']+" · Lesson "+number),
             ("🔋 离线核心分析" if zh else "🔋 Offline core analysis"),
             (f'⏱ {course["minutes"]} 分钟' if zh else f'⏱ {course["minutes"]} min'),
-            ("内嵌真实数据" if zh else "Embedded real data"),
+            (data_label(course,locale) if course.get('data_kind') else ("内嵌真实数据" if zh else "Embedded real data")),
             "📦 "+" · ".join(course["packages"])]
     pills="".join('<span style="display:inline-block;max-width:100%;box-sizing:border-box;margin:4px 6px 0 0;padding:4px 10px;border-radius:999px;background:rgba(255,255,255,.18);color:#fff;font-size:13px;font-weight:600;overflow-wrap:anywhere">'+html.escape(label)+'</span>' for label in badges)
     markup=f'''<section class="lesson-intro" lang="{"zh-CN" if zh else "en"}" aria-label="{title}" style="font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;box-sizing:border-box;max-width:100%;background:linear-gradient(135deg,#00b894 0%,#0984e3 100%);border-radius:22px;padding:26px 28px;color:#fff;line-height:1.6;box-shadow:0 12px 30px rgba(0,0,0,.18);overflow-wrap:anywhere">
-  <div aria-hidden="true" style="font-size:52px;line-height:1">{icons[course["id"][:2]]}</div>
+  <div aria-hidden="true" style="font-size:52px;line-height:1">{course.get('icon') or icons.get(course["id"][:2],subject['icon'])}</div>
   <h1 style="font-size:26px;font-weight:800;line-height:1.3;letter-spacing:normal;margin:8px 0 0;color:#fff">{title}</h1>
   <p style="font-size:16px;line-height:1.6;opacity:.95;margin:6px 0 0;max-width:640px;color:#fff">{summary}</p>
   <div style="margin-top:12px">{pills}</div>
@@ -49,11 +51,24 @@ def refresh_introduction(path,course,locale):
     assert nb.cells[1:]==before
     nbformat.validate(nb);nbformat.write(nb,path)
 
+def refresh_prose(path,course,locale):
+    """Synchronize explanatory cells/provenance only when executed code and data match."""
+    nb=nbformat.read(path,as_version=4);fresh=make_notebook(course,locale)
+    assert len(nb.cells)==len(fresh.cells), 'Cell structure changed; rerun this lesson'
+    assert nb.metadata.vibeit_cookbook.snapshots==fresh.metadata.vibeit_cookbook.snapshots
+    for old,new in zip(nb.cells,fresh.cells):
+        assert old.cell_type==new.cell_type
+        if old.cell_type=='code':assert old.source==new.source, 'Calculation changed; rerun this lesson'
+        else:old.source=new.source;old.metadata=new.metadata
+    nb.metadata.vibeit_cookbook.sources=fresh.metadata.vibeit_cookbook.sources
+    nbformat.validate(nb);nbformat.write(nb,path)
+
 def source_context(keys):
     sources=json.loads((ROOT/"data/sources.json").read_text())
     needles={"sequences":["RefSeq"],"airway":["airway"],"reactome":["Reactome"],
              "network":["STRING"],"structure":["PDB","RCSB"]}
-    return [s for s in sources if any(n in s["name"] for key in keys for n in needles[key])]
+    return [s for s in sources if set(s.get('snapshots',[]))&set(keys) or
+        any(n in s["name"] for key in keys for n in needles.get(key,[]))]
 
 def make_notebook(course,locale):
     zh=locale=="zh-hans"
@@ -65,10 +80,21 @@ def make_notebook(course,locale):
     cells=[introduction(course,locale)]
     cells.append(markdown(("## 目标与运行方法\n\n下载完整 `.ipynb`，在 VibeIt Studio 文件浏览器中使用 **+ → Import from Files** 导入并打开。按从上到下的顺序运行代码单元；阅读模式中的图表是已保存的真实运行输出。重新运行会从内嵌数据计算结果。\n\n本课适合具备 Python 基础的本科生。先阅读每一步的方法与图注，再修改参数。AI 练习为可选部分，不需要 AI 账号即可完成核心课程。数据写在 notebook metadata 中，不需要另下载数据文件。请保持 notebook 已保存到当前工作文件夹。\n\n学习任务是理解本课的研究问题、执行透明的计算、校验结果，并说明结论的边界。"
         if zh else "## Goal and how to run\n\nDownload the complete `.ipynb`. In VibeIt Studio's file browser use **+ → Import from Files**, then open it. Run code cells from top to bottom. Saved charts show actual executed results; rerunning recomputes them from embedded data.\n\nThis lesson assumes basic Python knowledge. Read each method and caption before changing parameters. AI exercises are optional; no AI account is needed for the core workflow. Data lives in notebook metadata, so there is no companion data download. Keep the notebook saved in the active working folder.\n\nYour goal is to understand the biological question, execute transparent calculations, check the results, and state the limits of the conclusion.")))
+    if course.get("discipline")!="bioinformatics":
+        cells[-1].source=cells[-1].source.replace("the biological question","the research question")
     cells.append(markdown("## 环境与参数" if zh else "## Setup and parameters"))
-    extra=""
+    extra=course.get('setup_imports','')
     if "overrepresentation" in course["functions"]:extra+="from scipy.stats import hypergeom\n"
     if "networkx" in course["packages"]:extra+="import networkx as nx\n"
+    if course.get('discipline')!='bioinformatics':
+        extra+='''from IPython.display import display as _display
+def display(value):
+    if isinstance(value,pd.DataFrame):
+        table=value.to_html(max_rows=12,escape=True)
+        style="<style>.vibeit-readable-table{max-width:100%;overflow-x:auto}.vibeit-readable-table table{width:max-content;max-width:none;border-collapse:collapse}.vibeit-readable-table td,.vibeit-readable-table th{white-space:nowrap!important;word-break:normal!important;overflow-wrap:normal!important}</style>"
+        return _display(HTML(style+'<div class="vibeit-readable-table">'+table+'</div>'))
+    return _display(value)
+'''
     cells.append(code('''from pathlib import Path
 import base64, gzip, hashlib, json, platform
 import numpy as np
@@ -92,7 +118,10 @@ print("Embedded snapshots:",list(SNAPSHOT_HASHES))'''))
     cells.append(markdown(("### 方法函数\n\n本课所需函数的完整代码就在下面。它们只使用已列出的预装包与标准库，运行时不会导入任何 cookbook 辅助模块。先检查输入约束和返回值；如果修改算法，后面的校验也需要继续通过。"
         if zh else "### Read the method functions\n\nThe full implementations appear below. They use the listed bundled packages and standard library; no cookbook helper module is imported at runtime. Inspect input requirements and return values. If you change an algorithm, its checks must still pass.")))
     for function in course["functions"]:
-        cells.append(code(inspect.getsource(getattr(runtime,function))+f'\nprint("Method ready: {function}")'))
+        module=runtime if hasattr(runtime,function) else science_runtime
+        cells.append(code(inspect.getsource(getattr(module,function))+f'\nprint("Method ready: {function}")'))
+    if course.get('data_note'):
+        cells.append(markdown(("### 数据与模型边界\n\n" if zh else "### Data and model boundary\n\n")+course['data_note'][locale]))
     cells.append(markdown("## 分步分析" if zh else "## Steps"))
     for number,section in enumerate(SECTIONS[course["id"]],1):
         cells.append(markdown(f'### {number}. {section["title"][locale]}\n\n'+section["text"][locale]))
@@ -110,11 +139,12 @@ print("Embedded snapshots:",list(SNAPSHOT_HASHES))'''))
           "reactome":"https://reactome.org/ContentService/data/database/version",
           "network":"https://string-db.org/api/json/version","structure":"https://data.rcsb.org/rest/v1/core/entry/1A3N"}
     key=course["snapshots"][-1] if course["id"]!="06-hemoglobin-structure" else "structure"
+    online_url=course.get('online_url') or urls.get(key) or source_context([key])[0]['url']
     cells.append(code(f'''RUN_ONLINE_UPDATE=False
 if RUN_ONLINE_UPDATE:
     import requests
     try:
-        response=requests.get({urls[key]!r},timeout=20)
+        response=requests.get({online_url!r},timeout=20)
         response.raise_for_status()
         print("Source:",response.url)
         print(response.text[:700])
@@ -125,7 +155,7 @@ else:
     sources=source_context(course["snapshots"])
     lines=[("## 来源、快照与下一步" if zh else "## Sources, snapshots and next steps")]
     for s in sources:
-        lines.append(f'- [{s["name"]}]({s["url"]}) — {s["license"]}; retrieved {s["retrieved_at"][:10]}. SHA-256 `{s["sha256"]}`.\n  '+s.get("conversion","Original response preserved in the embedded snapshot."))
+        lines.append(f'- [{s["name"]}]({s["url"]}) — {s["license"]}; retrieved {s["retrieved_at"][:10]}. SHA-256 `{s["sha256"]}`.\n  '+s.get("conversion","Original response preserved in the embedded snapshot.")+("\n  "+s['citation'] if s.get('citation') else ''))
     lines.append("\n"+("**下一步。** 在保留本课的数据检查、参数记录和结果校验之后，将相同方法用于自己的公开或已获授权数据。记录研究设计与方法限制，不把示例结果当成新实验的验证。完整数据许可与生成说明见 cookbook 网页。"
         if zh else "**Next steps.** Transfer these methods to your own public or authorized data while retaining input checks, recorded parameters and result validation. Document the new experimental design and method limits; this example does not validate a new experiment. Full data licenses and generation instructions accompany the cookbook."))
     cells.append(markdown("\n\n".join(lines)))
@@ -175,22 +205,30 @@ if __name__=="__main__":
     modes=parser.add_mutually_exclusive_group()
     modes.add_argument("--generate-only",action="store_true")
     modes.add_argument("--refresh-intro",action="store_true",help="Update HTML introduction cards while preserving executed cells and data")
+    modes.add_argument("--refresh-prose",action="store_true",help="Sync explanatory cells and source references only if executed code/data are unchanged")
     parser.add_argument("--only",help="Recipe ID; useful for one changed lesson")
+    parser.add_argument("--subject",help="Build one discipline without rebuilding the published bioinformatics lessons")
     args=parser.parse_args();report=[]
     for course in COURSES:
         if args.only and course["id"]!=args.only:continue
+        if args.subject and course.get('discipline')!=args.subject:continue
         for locale in ("en","zh-hans"):
             path=DOWNLOADS/f'{course["id"]}.{locale}.ipynb'
             if args.refresh_intro:
                 refresh_introduction(path,course,locale)
                 print("Updated introduction",path.name,flush=True)
                 continue
+            if args.refresh_prose:
+                refresh_prose(path,course,locale)
+                print("Updated prose",path.name,flush=True)
+                continue
             nbformat.write(make_notebook(course,locale),path)
             print("Generated",path.name,flush=True)
             if not args.generate_only:
                 result=execute(path);report.append(result);print(result,flush=True)
-    if not args.generate_only and not args.refresh_intro:
+    if not args.generate_only and not args.refresh_intro and not args.refresh_prose:
         report_path=QA/"notebook-execution.json"
-        old=json.loads(report_path.read_text()) if report_path.exists() and args.only else []
-        old=[r for r in old if not r["filename"].startswith(args.only or "")]
+        old=json.loads(report_path.read_text()) if report_path.exists() and (args.only or args.subject) else []
+        filenames={r['filename'] for r in report}
+        old=[r for r in old if r['filename'] not in filenames]
         report_path.write_text(json.dumps(old+report,ensure_ascii=False,indent=2)+"\n")

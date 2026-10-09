@@ -7,6 +7,12 @@ sources=json.loads((ROOT/"data/sources.json").read_text())
 out=ROOT/"data/raw";out.mkdir(exist_ok=True)
 report=[]
 for source in sources:
+    if source.get('raw_file'):
+        path=ROOT/source['raw_file'];raw=gzip.decompress(path.read_bytes())
+        digest=hashlib.sha256(raw).hexdigest()
+        if digest!=source['sha256']:raise RuntimeError('Frozen extension response is corrupt: '+source['name'])
+        row=dict(name=source['name'],file=source['raw_file'],bytes=len(raw),compressed_bytes=path.stat().st_size,sha256=digest)
+        report.append(row);print(row,flush=True);continue
     filename=re.sub(r"[^a-z0-9]+","-",source["name"].lower()).strip("-")+".gz"
     request=source.get("request")
     response=requests.post(source["url"],data=request,timeout=(20,180),stream=True) if request else requests.get(source["url"],timeout=(20,180),stream=True)

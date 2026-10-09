@@ -1,0 +1,30 @@
+{
+  "date": "2026-10-09",
+  "app": "VibeIt 1.0.2 (8)",
+  "platform": "iPadOS 27 simulator",
+  "python": "3.13.14",
+  "numpy": "2.5.0",
+  "pandas": "3.0.3",
+  "issues": [
+    {
+      "trigger": "pd.to_datetime on source dates during ds05-bike-regression",
+      "exception": "EXC_BAD_ACCESS / SIGSEGV",
+      "native_frames": [
+        "get_datetime_metadata_from_dtype",
+        "pandas._libs.tslibs.np_datetime.is_supported_dtype"
+      ],
+      "resolution": "Keep ISO strings in Pandas tables. Parse with standard-library datetime for calendar features/cadence and real-calendar Matplotlib axes; no app code or package changes.",
+      "affected_courses": [
+        "ds05-bike-regression",
+        "ds06-bike-backtesting",
+        "en01-energy-audit",
+        "en02-energy-regression",
+        "en03-energy-filtering",
+        "ec04-fx-returns",
+        "ec05-portfolio-variance",
+        "ec06-tail-risk"
+      ],
+      "verification": "All 84 new bilingual notebooks passed actual app-kernel reruns, including all 16 affected editions; ds05 also passed an individual editor Run All."
+    }
+  ]
+}

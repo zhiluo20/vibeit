@@ -1,0 +1,15 @@
+{
+  "date": "2026-10-10",
+  "device": "Cookbook Expansion QA iPhone / iPhone 18 Pro / iOS 27.0 Simulator",
+  "app": "1.0.2 (8)",
+  "mode": "Read-only presentation of native-captured outputs plus the complete browser-downloaded Chinese humanities notebook; debug open-file launch flag",
+  "checks": {
+    "responsive_caffeine": "complete model visually displayed with width 100% and camera factor 0.7",
+    "table": "source identifiers, full book names and numeric columns kept on single lines; other columns extend into horizontal overflow",
+    "long_chinese_lesson": "HTML introduction, package badges and long Chinese instructions fit the phone viewport"
+  },
+  "new_computational_execution_on_iphone": false,
+  "rotation_gesture_tested": false,
+  "real_device_tested": false,
+  "py3dmol_host_and_app_source_identical_sha256": "6d2afba466ae705f38a33c1370b4f66cebefad869a708f6eede038501e659df6"
+}

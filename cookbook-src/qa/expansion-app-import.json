@@ -1,0 +1,15 @@
+{
+  "device": "Cookbook Expansion QA iPad / iPadOS 27.0 Simulator",
+  "app": "1.0.2 (8)",
+  "mode": "Actual external file-URL import using installed application onOpenURL/importFileForOpening; distinct from manual Import from Files picker",
+  "source_filename": "ch03-caffeine-geometry.en.ipynb",
+  "source_sha256": "f4382d01da45c999924c5c06910bcfff52e3cad5e36564f2a470eb7837b9bb0c",
+  "imported_filename": "ch03-caffeine-geometry.en 2.ipynb",
+  "saved_sha256": "15fa49470ee252bb52788215a3e3791450a5aec42bb1f30519a1beb003c0df98",
+  "code_and_prose": "identical after JSON source normalization",
+  "snapshots": "identical",
+  "saved_png_figures": 3,
+  "raw_html_type": "preserved",
+  "status": "passed",
+  "rerun_from_this_import": "not claimed"
+}

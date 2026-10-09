@@ -85,5 +85,550 @@
     "sha256": "e8fc0a94cd71b53bfa5736021ad877eaf68588632fb5be2c4f30040e340d11da",
     "retrieved_at": "2026-10-09T06:29:53.269828+00:00",
     "license": "CC0 1.0"
+  },
+  {
+    "name": "Historical novel 1342",
+    "url": "https://www.gutenberg.org/cache/epub/1342/pg1342.txt",
+    "sha256": "3f6bb9d6f78e0293b56acd4714dd68cb7d6d1d293402031ce9d5a216bcaf9d75",
+    "retrieved_at": "2026-10-09T10:57:27.315171+00:00",
+    "license": "Original novel public domain in USA; complete source ebook and its Project Gutenberg license retained; free distribution and acknowledgment links",
+    "snapshots": [
+      "novels"
+    ],
+    "conversion": "Preserve unmodified UTF-8 source including ebook headers and complete license; preprocessing occurs visibly in the notebook.",
+    "raw_file": "data/raw/extension-books-historical-novel-1342.gz",
+    "bytes": 772386,
+    "documentation": "https://www.gutenberg.org/ebooks/1342",
+    "terms": "https://www.gutenberg.org/policy/license.html"
+  },
+  {
+    "name": "Historical novel 84",
+    "url": "https://www.gutenberg.org/cache/epub/84/pg84.txt",
+    "sha256": "7810cd483cffcf2cc8a1d8f0d5807931e69d4f48cd14149b8c76f88af82fead3",
+    "retrieved_at": "2026-10-09T10:57:28.970048+00:00",
+    "license": "Original novel public domain in USA; complete source ebook and its Project Gutenberg license retained; free distribution and acknowledgment links",
+    "snapshots": [
+      "novels"
+    ],
+    "conversion": "Preserve unmodified UTF-8 source including ebook headers and complete license; preprocessing occurs visibly in the notebook.",
+    "raw_file": "data/raw/extension-books-historical-novel-84.gz",
+    "bytes": 448885,
+    "documentation": "https://www.gutenberg.org/ebooks/84",
+    "terms": "https://www.gutenberg.org/policy/license.html"
+  },
+  {
+    "name": "NIST CODATA physical constants",
+    "url": "https://physics.nist.gov/cuu/Constants/Table/allascii.txt",
+    "sha256": "77fb90e66c40db3e6eb16630bc9c88e4c7c8beddbe5e71be406f2f26e3f67e67",
+    "retrieved_at": "2026-10-09T10:57:26.753124+00:00",
+    "license": "NIST public reference data; credit NIST/CODATA",
+    "snapshots": [
+      "constants"
+    ],
+    "conversion": "Preserve official ASCII table; extract seven explicitly named SI constants and their units.",
+    "raw_file": "data/raw/extension-constants-nist-codata-physical-constants.gz",
+    "bytes": 40801,
+    "documentation": "https://physics.nist.gov/cuu/Constants/"
+  },
+  {
+    "name": "ECB SDMX euro reference exchange rates",
+    "url": "https://data-api.ecb.europa.eu/service/data/EXR/D.USD+GBP+JPY+CNY.EUR.SP00.A?startPeriod=2019-01-01&endPeriod=2024-12-31&format=csvdata",
+    "sha256": "5f39fc39f60606abafae26c00492d05388c7bdf29cce1922f173f99bd0273ce8",
+    "retrieved_at": "2026-10-09T11:04:17.318925+00:00",
+    "license": "ECB copyright / free reuse with accurate source attribution; data obtained free from ECB; derived returns explicitly labelled",
+    "snapshots": [
+      "ecb"
+    ],
+    "conversion": "Retain 2019-01-01 through 2024-12-31 and USD, GBP, JPY, CNY; preserve missing values and quotation direction.",
+    "raw_file": "data/raw/extension-ecb-ecb-sdmx-euro-reference-exchange-rates.gz",
+    "bytes": 1342082,
+    "documentation": "https://www.ecb.europa.eu/stats/policy_and_exchange_rates/euro_reference_exchange_rates/html/index.en.html",
+    "terms": "https://www.ecb.europa.eu/services/using-our-site/disclaimer/html/index.en.html"
+  },
+  {
+    "name": "GWOSC GW150914 v3 event metadata",
+    "url": "https://gwosc.org/eventapi/json/GWTC-1-confident/GW150914/v3/",
+    "sha256": "1ce014e3277cc6ef491daa48250465eefda026f2b974d2a15bb8c6ea5596e37e",
+    "retrieved_at": "2026-10-09T10:58:54.106205+00:00",
+    "license": "CC BY 4.0; acknowledge GWOSC, LIGO, Virgo and KAGRA; GWTC-1 DOI 10.7935/82H3-HH23",
+    "snapshots": [
+      "gw150914"
+    ],
+    "conversion": "Preserve event GPS, release and strain download parameters; event catalog values are not recomputed detection significance.",
+    "raw_file": "data/raw/extension-gwosc-gwosc-gw150914-v3-event-metadata.gz",
+    "bytes": 13903,
+    "terms": "https://gwosc.org/acknowledgement/"
+  },
+  {
+    "name": "GWOSC H1 32 second strain",
+    "url": "https://gwosc.org/eventapi/json/GWTC-1-confident/GW150914/v3/H-H1_GWOSC_4KHZ_R1-1126259447-32.txt.gz",
+    "sha256": "fefe8717306109460b6c9cff74da6beb9e80ee624824b4b09bdd2c54ce9b4dfc",
+    "retrieved_at": "2026-10-09T10:58:57.785193+00:00",
+    "license": "CC BY 4.0; credit GWOSC and collaborations; DOI 10.7935/82H3-HH23",
+    "snapshots": [
+      "gw150914"
+    ],
+    "conversion": "Decompress original ASCII data and parse all 131072 strain samples; preserve GPS start and sampling rate.",
+    "raw_file": "data/raw/extension-gwosc-gwosc-h1-32-second-strain.gz",
+    "bytes": 1286320,
+    "version": "GW150914 v3, GWOSC 4 kHz R1",
+    "request_parameters": {
+      "GPSstart": 1126259447,
+      "detector": "H1",
+      "sampling_rate": 4096,
+      "duration": 32,
+      "format": "txt",
+      "url": "https://gwosc.org/eventapi/json/GWTC-1-confident/GW150914/v3/H-H1_GWOSC_4KHZ_R1-1126259447-32.txt.gz"
+    }
+  },
+  {
+    "name": "IAPWS saturation reference release",
+    "url": "https://iapws.org/public/documents/6dGkr/Supp-sat.pdf",
+    "sha256": "a10d38d73339b0713c86cfac88f9adcba137202167ccdfa1cd58238c438361d7",
+    "retrieved_at": "2026-10-09T12:32:05.628163+00:00",
+    "license": "IAPWS SR1-86(1992): unrestricted publication allowed in all countries (cover page)",
+    "snapshots": [
+      "models"
+    ],
+    "conversion": "Reference equations and numerical coefficients transcribed from release pages 2–3; pedagogical model values are not new experiments.",
+    "raw_file": "data/raw/extension-models-iapws-saturation-reference-release.gz",
+    "bytes": 285034,
+    "documentation": "https://iapws.org/technical-guidance/release/Supp-sat",
+    "version": "SR1-86(1992)"
+  },
+  {
+    "name": "Authored numerical teaching model parameters",
+    "url": "https://github.com/zhiluo20/vibeit/blob/main/cookbook-src/freeze_subject_data.py",
+    "snapshots": [
+      "models"
+    ],
+    "license": "Original teaching parameters/code MIT; reference equation coefficients attributed to IAPWS SR1-86(1992)",
+    "sha256": "4350c4305a83c772fa295a8be0ef86a247f2bfaae930a081720d3cd0c753abe0",
+    "raw_file": "data/raw/extension-models-authored-parameters.gz",
+    "bytes": 1576,
+    "retrieved_at": "2026-10-09T12:32:05.635149+00:00",
+    "conversion": "Declared parameters and seed; generated trajectories and calibration observations must be labelled simulated.",
+    "reference": "https://iapws.org/technical-guidance/release/Supp-sat"
+  },
+  {
+    "name": "PubChem calculated molecular properties",
+    "url": "https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/cid/702,176,241,887,180,2519,2244,750/property/MolecularFormula,MolecularWeight,HBondDonorCount,HBondAcceptorCount,HeavyAtomCount,XLogP,TPSA,Charge/JSON",
+    "sha256": "b01b092cc8872e14fdab1fdc608c783669131a081c71d9ccee77c0bb9c6ff408",
+    "retrieved_at": "2026-10-09T10:58:56.852752+00:00",
+    "license": "NCBI public data; PubChem computed properties only; credit PubChem; no third-party narrative annotations included",
+    "snapshots": [
+      "molecules"
+    ],
+    "conversion": "Keep the returned calculated fields for eight declared CIDs; molecular weight converted from API numeric string.",
+    "raw_file": "data/raw/extension-pubchem-pubchem-calculated-molecular-properties.gz",
+    "bytes": 2198,
+    "documentation": "https://pubchem.ncbi.nlm.nih.gov/docs/pug-rest"
+  },
+  {
+    "name": "PubChem 2D SDF 702",
+    "url": "https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/cid/702/SDF?record_type=2d",
+    "sha256": "5962afc9ee8115dee9d5e63cefeef89cdc47641420b34afe156062d263c9caa7",
+    "retrieved_at": "2026-10-09T10:58:57.852381+00:00",
+    "license": "NCBI public data; PubChem standardized structure; credit PubChem",
+    "snapshots": [
+      "molecules"
+    ],
+    "conversion": "Preserve complete standardized SDF, including CID and explicit hydrogen/bond fields.",
+    "raw_file": "data/raw/extension-pubchem-pubchem-2d-sdf-702.gz",
+    "bytes": 2255,
+    "cid": 702
+  },
+  {
+    "name": "PubChem 2D SDF 176",
+    "url": "https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/cid/176/SDF?record_type=2d",
+    "sha256": "f51353e1db0a0be8aa3aeb7bea28b6febb1e1f8afdf88fbf298405851f7ee092",
+    "retrieved_at": "2026-10-09T10:58:58.790030+00:00",
+    "license": "NCBI public data; PubChem standardized structure; credit PubChem",
+    "snapshots": [
+      "molecules"
+    ],
+    "conversion": "Preserve complete standardized SDF, including CID and explicit hydrogen/bond fields.",
+    "raw_file": "data/raw/extension-pubchem-pubchem-2d-sdf-176.gz",
+    "bytes": 2201,
+    "cid": 176
+  },
+  {
+    "name": "PubChem 2D SDF 241",
+    "url": "https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/cid/241/SDF?record_type=2d",
+    "sha256": "3f4698bd6773f5e709184759048c116d106ac392e874676444b64af254e9a189",
+    "retrieved_at": "2026-10-09T10:58:59.822368+00:00",
+    "license": "NCBI public data; PubChem standardized structure; credit PubChem",
+    "snapshots": [
+      "molecules"
+    ],
+    "conversion": "Preserve complete standardized SDF, including CID and explicit hydrogen/bond fields.",
+    "raw_file": "data/raw/extension-pubchem-pubchem-2d-sdf-241.gz",
+    "bytes": 2642,
+    "cid": 241
+  },
+  {
+    "name": "PubChem 2D SDF 887",
+    "url": "https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/cid/887/SDF?record_type=2d",
+    "sha256": "5cf6d180935f2fe77d20772a4bf2506711d4436762f6c6801157ac748f088530",
+    "retrieved_at": "2026-10-09T10:59:01.003445+00:00",
+    "license": "NCBI public data; PubChem standardized structure; credit PubChem",
+    "snapshots": [
+      "molecules"
+    ],
+    "conversion": "Preserve complete standardized SDF, including CID and explicit hydrogen/bond fields.",
+    "raw_file": "data/raw/extension-pubchem-pubchem-2d-sdf-887.gz",
+    "bytes": 1974,
+    "cid": 887
+  },
+  {
+    "name": "PubChem 2D SDF 180",
+    "url": "https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/cid/180/SDF?record_type=2d",
+    "sha256": "6ecceacce326b6ecc292dedd946f589e879c999f43242395d995b59a8c8eb128",
+    "retrieved_at": "2026-10-09T10:59:02.065334+00:00",
+    "license": "NCBI public data; PubChem standardized structure; credit PubChem",
+    "snapshots": [
+      "molecules"
+    ],
+    "conversion": "Preserve complete standardized SDF, including CID and explicit hydrogen/bond fields.",
+    "raw_file": "data/raw/extension-pubchem-pubchem-2d-sdf-180.gz",
+    "bytes": 2372,
+    "cid": 180
+  },
+  {
+    "name": "PubChem 2D SDF 2519",
+    "url": "https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/cid/2519/SDF?record_type=2d",
+    "sha256": "47293391d630f44f2a32c3f7702d766744c8f4a4f16f6571d4ae09f04b3daaed",
+    "retrieved_at": "2026-10-09T10:59:03.203415+00:00",
+    "license": "NCBI public data; PubChem standardized structure; credit PubChem",
+    "snapshots": [
+      "molecules"
+    ],
+    "conversion": "Preserve complete standardized SDF, including CID and explicit hydrogen/bond fields.",
+    "raw_file": "data/raw/extension-pubchem-pubchem-2d-sdf-2519.gz",
+    "bytes": 4002,
+    "cid": 2519
+  },
+  {
+    "name": "PubChem 2D SDF 2244",
+    "url": "https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/cid/2244/SDF?record_type=2d",
+    "sha256": "0dfd04496745032c06410241f91f10fcec77cbc6828cdbede75f4c08da418fbb",
+    "retrieved_at": "2026-10-09T10:59:04.262802+00:00",
+    "license": "NCBI public data; PubChem standardized structure; credit PubChem",
+    "snapshots": [
+      "molecules"
+    ],
+    "conversion": "Preserve complete standardized SDF, including CID and explicit hydrogen/bond fields.",
+    "raw_file": "data/raw/extension-pubchem-pubchem-2d-sdf-2244.gz",
+    "bytes": 3630,
+    "cid": 2244
+  },
+  {
+    "name": "PubChem 2D SDF 750",
+    "url": "https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/cid/750/SDF?record_type=2d",
+    "sha256": "e1c2ddd732cea1d052a9426c9a25fef86acd1309748bb2115cf2b56481ba288f",
+    "retrieved_at": "2026-10-09T10:59:05.452718+00:00",
+    "license": "NCBI public data; PubChem standardized structure; credit PubChem",
+    "snapshots": [
+      "molecules"
+    ],
+    "conversion": "Preserve complete standardized SDF, including CID and explicit hydrogen/bond fields.",
+    "raw_file": "data/raw/extension-pubchem-pubchem-2d-sdf-750.gz",
+    "bytes": 2439,
+    "cid": 750
+  },
+  {
+    "name": "PubChem caffeine 3D conformer",
+    "url": "https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/cid/2519/SDF?record_type=3d",
+    "sha256": "2a78d98d09d50768fe3f6e6114d7baf3dad9cf88e41835735f96abf5867f5092",
+    "retrieved_at": "2026-10-09T10:59:06.377211+00:00",
+    "license": "NCBI public data; PubChem computed conformer; credit PubChem",
+    "snapshots": [
+      "molecules"
+    ],
+    "conversion": "Preserve calculated coordinates and conformer identifiers; not an experimental crystal structure.",
+    "raw_file": "data/raw/extension-pubchem-pubchem-caffeine-3d-conformer.gz",
+    "bytes": 3950,
+    "cid": 2519
+  },
+  {
+    "name": "UCI iris",
+    "url": "https://archive.ics.uci.edu/static/public/53/iris.zip",
+    "sha256": "d11fe30213d36434a0879aab7cb00ce3c812eb7ba2495874438abff7b7b762e9",
+    "retrieved_at": "2026-10-09T10:57:26.310198+00:00",
+    "license": "CC BY 4.0; credit UCI and original dataset authors",
+    "snapshots": [
+      "iris"
+    ],
+    "conversion": "Extract iris.data from original download; preserve all rows and declared units; no imputation.",
+    "raw_file": "data/raw/extension-uci-uci-iris.gz",
+    "bytes": 3738,
+    "documentation": "https://archive.ics.uci.edu/dataset/53",
+    "version": "UCI frozen download",
+    "citation": "Fisher, R. (1936). Iris. UCI Machine Learning Repository. DOI: 10.24432/C56C76."
+  },
+  {
+    "name": "UCI wine",
+    "url": "https://archive.ics.uci.edu/static/public/109/wine.zip",
+    "sha256": "2bae62c4481220623579d4c4fb36b55652b6b75e06e49fa1981b8198362dfdab",
+    "retrieved_at": "2026-10-09T10:57:26.943199+00:00",
+    "license": "CC BY 4.0; credit UCI and original dataset authors",
+    "snapshots": [
+      "wine"
+    ],
+    "conversion": "Extract wine.data from original download; preserve all rows and declared units; no imputation.",
+    "raw_file": "data/raw/extension-uci-uci-wine.gz",
+    "bytes": 6038,
+    "documentation": "https://archive.ics.uci.edu/dataset/109",
+    "version": "UCI frozen download",
+    "citation": "Aeberhard, S. & Forina, M. (1992). Wine. UCI Machine Learning Repository. DOI: 10.24432/C5PC7J."
+  },
+  {
+    "name": "UCI bike",
+    "url": "https://archive.ics.uci.edu/static/public/275/bike+sharing+dataset.zip",
+    "sha256": "b70182d0d0508e9abbb79306ce5c0cec34869000f8220175ac83d11dbe845401",
+    "retrieved_at": "2026-10-09T10:57:28.441207+00:00",
+    "license": "CC BY 4.0; credit UCI and original dataset authors",
+    "snapshots": [
+      "bike"
+    ],
+    "conversion": "Extract day.csv from original download; preserve all rows and declared units; no imputation.",
+    "raw_file": "data/raw/extension-uci-uci-bike.gz",
+    "bytes": 279992,
+    "documentation": "https://archive.ics.uci.edu/dataset/275",
+    "version": "UCI frozen download",
+    "citation": "Fanaee-T, H. (2013). Bike Sharing. UCI Machine Learning Repository. DOI: 10.24432/C5W894."
+  },
+  {
+    "name": "UCI energy",
+    "url": "https://archive.ics.uci.edu/static/public/374/appliances+energy+prediction.zip",
+    "sha256": "2fccf354445d886e7917620b0195db1f3e3e34d5a067a93b844694a4c561255a",
+    "retrieved_at": "2026-10-09T10:57:34.128556+00:00",
+    "license": "CC BY 4.0; credit UCI and original dataset authors",
+    "snapshots": [
+      "energy"
+    ],
+    "conversion": "Extract energydata_complete.csv from original download; preserve all rows and declared units; no imputation.",
+    "raw_file": "data/raw/extension-uci-uci-energy.gz",
+    "bytes": 11979507,
+    "documentation": "https://archive.ics.uci.edu/dataset/374",
+    "version": "UCI frozen download",
+    "citation": "Candanedo, L. (2017). Appliances Energy Prediction. UCI Machine Learning Repository. DOI: 10.24432/C5VC8G."
+  },
+  {
+    "name": "World Bank economy metadata",
+    "url": "https://api.worldbank.org/v2/country?format=json&per_page=400",
+    "sha256": "c9acf3932785191a649cbc04c3056af4cf64a236e5c3b49d49be25ddb0440bce",
+    "retrieved_at": "2026-10-09T10:58:53.947781+00:00",
+    "license": "World Bank CC BY 4.0 with additional terms; retain original indicator attribution",
+    "snapshots": [
+      "worldbank"
+    ],
+    "conversion": "Preserve economy IDs, region and income-group metadata; exclude aggregates in student analyses.",
+    "raw_file": "data/raw/extension-worldbank-world-bank-economy-metadata.gz",
+    "bytes": 113954,
+    "terms": "https://data.worldbank.org/summary-terms-of-use"
+  },
+  {
+    "name": "World Bank NY.GDP.PCAP.KD",
+    "url": "https://api.worldbank.org/v2/country/all/indicator/NY.GDP.PCAP.KD?date=2010:2024&format=json&per_page=20000&footnote=y",
+    "sha256": "59a9efaf20ab359c7832f24da45dda2282511c0eaf927d044583f47d08e02cda",
+    "retrieved_at": "2026-10-09T10:59:09.513964+00:00",
+    "license": "World Bank CC BY 4.0 with additional terms; original sources retained in indicator metadata",
+    "snapshots": [
+      "worldbank"
+    ],
+    "conversion": "Retain official observations including null values and footnotes, 2010–2024; no interpolation; no aggregate-country mixing.",
+    "raw_file": "data/raw/extension-worldbank-world-bank-ny-gdp-pcap-kd.gz",
+    "bytes": 970667,
+    "indicator": "NY.GDP.PCAP.KD",
+    "terms": "https://data.worldbank.org/summary-terms-of-use"
+  },
+  {
+    "name": "World Bank indicator metadata NY.GDP.PCAP.KD",
+    "url": "https://api.worldbank.org/v2/indicator/NY.GDP.PCAP.KD?format=json",
+    "sha256": "46689488cd435920647264ede1bfb2d4b51b09800fb36f3d3b1422a0b11ea49d",
+    "retrieved_at": "2026-10-09T10:59:10.244213+00:00",
+    "license": "World Bank CC BY 4.0 with additional terms",
+    "snapshots": [
+      "worldbank"
+    ],
+    "conversion": "Preserve indicator definition, source organization and source note.",
+    "raw_file": "data/raw/extension-worldbank-world-bank-indicator-metadata-ny-gdp-pcap-kd.gz",
+    "bytes": 1100,
+    "indicator": "NY.GDP.PCAP.KD"
+  },
+  {
+    "name": "World Bank NY.GDP.MKTP.KD",
+    "url": "https://api.worldbank.org/v2/country/all/indicator/NY.GDP.MKTP.KD?date=2010:2024&format=json&per_page=20000&footnote=y",
+    "sha256": "466f4e3176b509613f3df99acffce89b5f1ea14472c376dd10d8b8f67f6172b0",
+    "retrieved_at": "2026-10-09T10:59:21.597664+00:00",
+    "license": "World Bank CC BY 4.0 with additional terms; original sources retained in indicator metadata",
+    "snapshots": [
+      "worldbank"
+    ],
+    "conversion": "Retain official observations including null values and footnotes, 2010–2024; no interpolation; no aggregate-country mixing.",
+    "raw_file": "data/raw/extension-worldbank-world-bank-ny-gdp-mktp-kd.gz",
+    "bytes": 927639,
+    "indicator": "NY.GDP.MKTP.KD",
+    "terms": "https://data.worldbank.org/summary-terms-of-use"
+  },
+  {
+    "name": "World Bank indicator metadata NY.GDP.MKTP.KD",
+    "url": "https://api.worldbank.org/v2/indicator/NY.GDP.MKTP.KD?format=json",
+    "sha256": "bc4bc0ffec1755410f52b1091c6b1f46917c7417977102350d3d1102b4659216",
+    "retrieved_at": "2026-10-09T10:59:22.706499+00:00",
+    "license": "World Bank CC BY 4.0 with additional terms",
+    "snapshots": [
+      "worldbank"
+    ],
+    "conversion": "Preserve indicator definition, source organization and source note.",
+    "raw_file": "data/raw/extension-worldbank-world-bank-indicator-metadata-ny-gdp-mktp-kd.gz",
+    "bytes": 994,
+    "indicator": "NY.GDP.MKTP.KD"
+  },
+  {
+    "name": "World Bank SP.POP.TOTL",
+    "url": "https://api.worldbank.org/v2/country/all/indicator/SP.POP.TOTL?date=2010:2024&format=json&per_page=20000&footnote=y",
+    "sha256": "7ecf8d749dbddd87a269f2019e6d42ed32875c57565cf5c5af097c6e6c9af528",
+    "retrieved_at": "2026-10-09T10:59:33.780826+00:00",
+    "license": "World Bank CC BY 4.0 with additional terms; original sources retained in indicator metadata",
+    "snapshots": [
+      "worldbank"
+    ],
+    "conversion": "Retain official observations including null values and footnotes, 2010–2024; no interpolation; no aggregate-country mixing.",
+    "raw_file": "data/raw/extension-worldbank-world-bank-sp-pop-totl.gz",
+    "bytes": 861774,
+    "indicator": "SP.POP.TOTL",
+    "terms": "https://data.worldbank.org/summary-terms-of-use"
+  },
+  {
+    "name": "World Bank indicator metadata SP.POP.TOTL",
+    "url": "https://api.worldbank.org/v2/indicator/SP.POP.TOTL?format=json",
+    "sha256": "2f8491efc00bf2c0995112ff8e87aba69e5e9d22d0880b22f7e3a4ec757ba05c",
+    "retrieved_at": "2026-10-09T10:59:34.433384+00:00",
+    "license": "World Bank CC BY 4.0 with additional terms",
+    "snapshots": [
+      "worldbank"
+    ],
+    "conversion": "Preserve indicator definition, source organization and source note.",
+    "raw_file": "data/raw/extension-worldbank-world-bank-indicator-metadata-sp-pop-totl.gz",
+    "bytes": 1099,
+    "indicator": "SP.POP.TOTL"
+  },
+  {
+    "name": "World Bank SP.DYN.LE00.IN",
+    "url": "https://api.worldbank.org/v2/country/all/indicator/SP.DYN.LE00.IN?date=2010:2024&format=json&per_page=20000&footnote=y",
+    "sha256": "d8b5c6bd7fecaf8cee0e422444719ba1f42ec70996308bc74afd14ee48799055",
+    "retrieved_at": "2026-10-09T10:59:45.500196+00:00",
+    "license": "World Bank CC BY 4.0 with additional terms; original sources retained in indicator metadata",
+    "snapshots": [
+      "worldbank"
+    ],
+    "conversion": "Retain official observations including null values and footnotes, 2010–2024; no interpolation; no aggregate-country mixing.",
+    "raw_file": "data/raw/extension-worldbank-world-bank-sp-dyn-le00-in.gz",
+    "bytes": 966800,
+    "indicator": "SP.DYN.LE00.IN",
+    "terms": "https://data.worldbank.org/summary-terms-of-use"
+  },
+  {
+    "name": "World Bank indicator metadata SP.DYN.LE00.IN",
+    "url": "https://api.worldbank.org/v2/indicator/SP.DYN.LE00.IN?format=json",
+    "sha256": "a39cb6fddfbbb953053690366243dffe77a266c4deae79c46ce5a06da9f5fc31",
+    "retrieved_at": "2026-10-09T10:59:46.194982+00:00",
+    "license": "World Bank CC BY 4.0 with additional terms",
+    "snapshots": [
+      "worldbank"
+    ],
+    "conversion": "Preserve indicator definition, source organization and source note.",
+    "raw_file": "data/raw/extension-worldbank-world-bank-indicator-metadata-sp-dyn-le00-in.gz",
+    "bytes": 969,
+    "indicator": "SP.DYN.LE00.IN"
+  },
+  {
+    "name": "World Bank FP.CPI.TOTL",
+    "url": "https://api.worldbank.org/v2/country/all/indicator/FP.CPI.TOTL?date=2010:2024&format=json&per_page=20000&footnote=y",
+    "sha256": "55c3b71ad4dd8c92c15fa7dc2b502a3d60f26cf47ae9a24e384bc2ff6108ff56",
+    "retrieved_at": "2026-10-09T10:59:58.352079+00:00",
+    "license": "World Bank CC BY 4.0 with additional terms; original sources retained in indicator metadata",
+    "snapshots": [
+      "worldbank"
+    ],
+    "conversion": "Retain official observations including null values and footnotes, 2010–2024; no interpolation; no aggregate-country mixing.",
+    "raw_file": "data/raw/extension-worldbank-world-bank-fp-cpi-totl.gz",
+    "bytes": 939762,
+    "indicator": "FP.CPI.TOTL",
+    "terms": "https://data.worldbank.org/summary-terms-of-use"
+  },
+  {
+    "name": "World Bank indicator metadata FP.CPI.TOTL",
+    "url": "https://api.worldbank.org/v2/indicator/FP.CPI.TOTL?format=json",
+    "sha256": "13b1e3c4b2b72f7fb3a630b4dde37f0e68e6d5e78dc06b2437dfea0c0b93af46",
+    "retrieved_at": "2026-10-09T10:59:59.017087+00:00",
+    "license": "World Bank CC BY 4.0 with additional terms",
+    "snapshots": [
+      "worldbank"
+    ],
+    "conversion": "Preserve indicator definition, source organization and source note.",
+    "raw_file": "data/raw/extension-worldbank-world-bank-indicator-metadata-fp-cpi-totl.gz",
+    "bytes": 459,
+    "indicator": "FP.CPI.TOTL"
+  },
+  {
+    "name": "World Bank FP.CPI.TOTL.ZG",
+    "url": "https://api.worldbank.org/v2/country/all/indicator/FP.CPI.TOTL.ZG?date=2010:2024&format=json&per_page=20000&footnote=y",
+    "sha256": "849b6a88a84a7efdeb92d89e8db1db36f86543e28ff8eb645e0feaa8c634def7",
+    "retrieved_at": "2026-10-09T11:00:07.808421+00:00",
+    "license": "World Bank CC BY 4.0 with additional terms; original sources retained in indicator metadata",
+    "snapshots": [
+      "worldbank"
+    ],
+    "conversion": "Retain official observations including null values and footnotes, 2010–2024; no interpolation; no aggregate-country mixing.",
+    "raw_file": "data/raw/extension-worldbank-world-bank-fp-cpi-totl-zg.gz",
+    "bytes": 978517,
+    "indicator": "FP.CPI.TOTL.ZG",
+    "terms": "https://data.worldbank.org/summary-terms-of-use"
+  },
+  {
+    "name": "World Bank indicator metadata FP.CPI.TOTL.ZG",
+    "url": "https://api.worldbank.org/v2/indicator/FP.CPI.TOTL.ZG?format=json",
+    "sha256": "df9371a3b6c01e55a3f28991e62e1b1ebbe0cd2a7da94456be9938c7a2962233",
+    "retrieved_at": "2026-10-09T11:00:12.033736+00:00",
+    "license": "World Bank CC BY 4.0 with additional terms",
+    "snapshots": [
+      "worldbank"
+    ],
+    "conversion": "Preserve indicator definition, source organization and source note.",
+    "raw_file": "data/raw/extension-worldbank-world-bank-indicator-metadata-fp-cpi-totl-zg.gz",
+    "bytes": 632,
+    "indicator": "FP.CPI.TOTL.ZG"
+  },
+  {
+    "name": "World Bank SI.POV.GINI",
+    "url": "https://api.worldbank.org/v2/country/all/indicator/SI.POV.GINI?date=2010:2024&format=json&per_page=20000&footnote=y",
+    "sha256": "4919413d3b9ef06b7445c3fd42d47b8a09e9836bbab7be84e4993099ffdc7ab2",
+    "retrieved_at": "2026-10-09T11:00:24.263875+00:00",
+    "license": "World Bank CC BY 4.0 with additional terms; original sources retained in indicator metadata",
+    "snapshots": [
+      "worldbank"
+    ],
+    "conversion": "Retain official observations including null values and footnotes, 2010–2024; no interpolation; no aggregate-country mixing.",
+    "raw_file": "data/raw/extension-worldbank-world-bank-si-pov-gini.gz",
+    "bytes": 891950,
+    "indicator": "SI.POV.GINI",
+    "terms": "https://data.worldbank.org/summary-terms-of-use"
+  },
+  {
+    "name": "World Bank indicator metadata SI.POV.GINI",
+    "url": "https://api.worldbank.org/v2/indicator/SI.POV.GINI?format=json",
+    "sha256": "e377bf82b38024748153880ff90c0106a0ef0fd8cb04761146cc60a2609cab3d",
+    "retrieved_at": "2026-10-09T11:00:24.998422+00:00",
+    "license": "World Bank CC BY 4.0 with additional terms",
+    "snapshots": [
+      "worldbank"
+    ],
+    "conversion": "Preserve indicator definition, source organization and source note.",
+    "raw_file": "data/raw/extension-worldbank-world-bank-indicator-metadata-si-pov-gini.gz",
+    "bytes": 1494,
+    "indicator": "SI.POV.GINI"
   }
 ]

@@ -16,6 +16,17 @@ function filterRecipes(){
 search?.addEventListener('input',filterRecipes);category?.addEventListener('change',filterRecipes);
 if(cards.length)filterRecipes();
 
+// Keep the molecular camera/render surface fitted when the reader column resizes.
+if(typeof ResizeObserver!=='undefined'){
+  const observer=new ResizeObserver(entries=>{
+    for(const entry of entries){
+      const viewer=window[entry.target.id.replace('3dmolviewer_','viewer_')];
+      if(viewer){viewer.resize();viewer.zoomTo();viewer.zoom(.7);viewer.render();}
+    }
+  });
+  document.querySelectorAll('[id^="3dmolviewer_"]').forEach(element=>observer.observe(element));
+}
+
 // Product navigation behavior, with two available lesson languages.
 const nav=document.querySelector('.site-header nav');
 const navToggle=document.querySelector('#navToggle');

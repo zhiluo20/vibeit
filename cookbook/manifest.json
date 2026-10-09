@@ -22,10 +22,12 @@
       "matplotlib",
       "IPython"
     ],
-    "cover": "/vibeit/cookbook/assets/fasta-to-protein.png",
     "discipline": "bioinformatics",
+    "number": 1,
+    "cover": "/vibeit/cookbook/assets/fasta-to-protein.png",
     "data_version": "snapshot-2026-10-09",
     "validation": "executed-offline",
+    "data_kind": "measured",
     "downloads": {
       "en": "/vibeit/cookbook/downloads/01-fasta-to-protein.en.ipynb",
       "zh-hans": "/vibeit/cookbook/downloads/01-fasta-to-protein.zh-hans.ipynb"
@@ -58,10 +60,12 @@
       "matplotlib",
       "IPython"
     ],
-    "cover": "/vibeit/cookbook/assets/sequence-alignment.png",
     "discipline": "bioinformatics",
+    "number": 2,
+    "cover": "/vibeit/cookbook/assets/sequence-alignment.png",
     "data_version": "snapshot-2026-10-09",
     "validation": "executed-offline",
+    "data_kind": "measured",
     "downloads": {
       "en": "/vibeit/cookbook/downloads/02-affine-sequence-alignment.en.ipynb",
       "zh-hans": "/vibeit/cookbook/downloads/02-affine-sequence-alignment.zh-hans.ipynb"
@@ -94,10 +98,12 @@
       "matplotlib",
       "IPython"
     ],
-    "cover": "/vibeit/cookbook/assets/rnaseq-expression.png",
     "discipline": "bioinformatics",
+    "number": 3,
+    "cover": "/vibeit/cookbook/assets/rnaseq-expression.png",
     "data_version": "snapshot-2026-10-09",
     "validation": "executed-offline",
+    "data_kind": "measured",
     "downloads": {
       "en": "/vibeit/cookbook/downloads/03-airway-expression.en.ipynb",
       "zh-hans": "/vibeit/cookbook/downloads/03-airway-expression.zh-hans.ipynb"
@@ -133,10 +139,12 @@
       "networkx",
       "IPython"
     ],
-    "cover": "/vibeit/cookbook/assets/pathway-enrichment.png",
     "discipline": "bioinformatics",
+    "number": 4,
+    "cover": "/vibeit/cookbook/assets/pathway-enrichment.png",
     "data_version": "snapshot-2026-10-09",
     "validation": "executed-offline",
+    "data_kind": "measured",
     "downloads": {
       "en": "/vibeit/cookbook/downloads/04-reactome-enrichment.en.ipynb",
       "zh-hans": "/vibeit/cookbook/downloads/04-reactome-enrichment.zh-hans.ipynb"
@@ -170,10 +178,12 @@
       "networkx",
       "IPython"
     ],
-    "cover": "/vibeit/cookbook/assets/protein-interactions.png",
     "discipline": "bioinformatics",
+    "number": 5,
+    "cover": "/vibeit/cookbook/assets/protein-interactions.png",
     "data_version": "snapshot-2026-10-09",
     "validation": "executed-offline",
+    "data_kind": "measured",
     "downloads": {
       "en": "/vibeit/cookbook/downloads/05-string-physical-network.en.ipynb",
       "zh-hans": "/vibeit/cookbook/downloads/05-string-physical-network.zh-hans.ipynb"
@@ -209,10 +219,12 @@
       "py3Dmol",
       "IPython"
     ],
-    "cover": "/vibeit/cookbook/assets/protein-structure.png",
     "discipline": "bioinformatics",
+    "number": 6,
+    "cover": "/vibeit/cookbook/assets/protein-structure.png",
     "data_version": "snapshot-2026-10-09",
     "validation": "executed-offline",
+    "data_kind": "measured",
     "downloads": {
       "en": "/vibeit/cookbook/downloads/06-hemoglobin-structure.en.ipynb",
       "zh-hans": "/vibeit/cookbook/downloads/06-hemoglobin-structure.zh-hans.ipynb"
@@ -220,6 +232,2070 @@
     "previews": {
       "en": "/vibeit/cookbook/bioinformatics/protein-structure/",
       "zh-hans": "/vibeit/cookbook/zh-hans/bioinformatics/protein-structure/"
+    }
+  },
+  {
+    "id": "ds01-iris-audit",
+    "number": 1,
+    "slug": "iris-data-audit",
+    "title": {
+      "en": "Audit a real measurement table",
+      "zh-hans": "审计真实的 Iris 测量表"
+    },
+    "summary": {
+      "en": "Trace 150 UCI Iris observations, inspect repeat measurements and units, and build an honest exploratory report.",
+      "zh-hans": "追溯 150 条 UCI Iris 观测，检查重复测量和单位，并形成可核验的探索报告。"
+    },
+    "discipline": "data-science",
+    "minutes": 50,
+    "difficulty": 1,
+    "snapshots": [
+      "iris"
+    ],
+    "packages": [
+      "numpy",
+      "pandas",
+      "matplotlib",
+      "IPython"
+    ],
+    "category": "audit",
+    "category_title": {
+      "en": "Data audit",
+      "zh-hans": "数据审计"
+    },
+    "icon": "🔎",
+    "online_url": "https://archive.ics.uci.edu/dataset/53",
+    "data_note": {
+      "en": "These are frozen public measurements, not a new random population sample. The original UCI iris.data is retained, including its two source-documented transcription discrepancies. Repeated rounded feature values do not by themselves establish that two rows are the same plant.",
+      "zh-hans": "这些是冻结的公开实测数据，不是新的总体随机样本。保留原始 UCI iris.data，包括来源说明的两处转录差异。舍入后的重复特征值本身不能证明两行属于同一株植物。"
+    },
+    "cover": "/vibeit/cookbook/assets/iris-data-audit.png",
+    "data_version": "snapshot-2026-10-09",
+    "validation": "executed-offline",
+    "data_kind": "measured",
+    "downloads": {
+      "en": "/vibeit/cookbook/downloads/ds01-iris-audit.en.ipynb",
+      "zh-hans": "/vibeit/cookbook/downloads/ds01-iris-audit.zh-hans.ipynb"
+    },
+    "previews": {
+      "en": "/vibeit/cookbook/data-science/iris-data-audit/",
+      "zh-hans": "/vibeit/cookbook/zh-hans/data-science/iris-data-audit/"
+    }
+  },
+  {
+    "id": "ds02-iris-pca",
+    "number": 2,
+    "slug": "iris-pca",
+    "title": {
+      "en": "Understand standardized PCA",
+      "zh-hans": "理解标准化 PCA"
+    },
+    "summary": {
+      "en": "Use all four Iris measurements to inspect scaling, singular values, component directions and reconstruction error.",
+      "zh-hans": "用 Iris 四个测量特征检查缩放、奇异值、主成分方向和重建误差。"
+    },
+    "discipline": "data-science",
+    "minutes": 50,
+    "difficulty": 2,
+    "snapshots": [
+      "iris"
+    ],
+    "packages": [
+      "numpy",
+      "pandas",
+      "matplotlib",
+      "IPython"
+    ],
+    "category": "dimensions",
+    "category_title": {
+      "en": "Dimension reduction",
+      "zh-hans": "降维"
+    },
+    "icon": "📊",
+    "online_url": "https://archive.ics.uci.edu/dataset/53",
+    "data_note": {
+      "en": "These are frozen public measurements, not a new random population sample. The original UCI iris.data is retained, including its two source-documented transcription discrepancies. Repeated rounded feature values do not by themselves establish that two rows are the same plant.",
+      "zh-hans": "这些是冻结的公开实测数据，不是新的总体随机样本。保留原始 UCI iris.data，包括来源说明的两处转录差异。舍入后的重复特征值本身不能证明两行属于同一株植物。"
+    },
+    "cover": "/vibeit/cookbook/assets/iris-pca.png",
+    "data_version": "snapshot-2026-10-09",
+    "validation": "executed-offline",
+    "data_kind": "measured",
+    "downloads": {
+      "en": "/vibeit/cookbook/downloads/ds02-iris-pca.en.ipynb",
+      "zh-hans": "/vibeit/cookbook/downloads/ds02-iris-pca.zh-hans.ipynb"
+    },
+    "previews": {
+      "en": "/vibeit/cookbook/data-science/iris-pca/",
+      "zh-hans": "/vibeit/cookbook/zh-hans/data-science/iris-pca/"
+    }
+  },
+  {
+    "id": "ds03-iris-knn",
+    "number": 3,
+    "slug": "iris-knn-validation",
+    "title": {
+      "en": "Train and evaluate a classifier without leakage",
+      "zh-hans": "避免信息泄漏地训练和评估分类器"
+    },
+    "summary": {
+      "en": "Reserve a stratified test set, select k inside training-only folds, then report held-out confusion and macro-F1.",
+      "zh-hans": "先保留分层测试集，在训练集内选择 k，再报告测试混淆矩阵与宏平均 F1。"
+    },
+    "discipline": "data-science",
+    "minutes": 60,
+    "difficulty": 2,
+    "snapshots": [
+      "iris"
+    ],
+    "packages": [
+      "numpy",
+      "pandas",
+      "matplotlib",
+      "IPython"
+    ],
+    "category": "prediction",
+    "category_title": {
+      "en": "Prediction & validation",
+      "zh-hans": "预测与验证"
+    },
+    "icon": "🎯",
+    "online_url": "https://archive.ics.uci.edu/dataset/53",
+    "data_note": {
+      "en": "These are frozen public measurements, not a new random population sample. The original UCI iris.data is retained, including its two source-documented transcription discrepancies. Repeated rounded feature values do not by themselves establish that two rows are the same plant.",
+      "zh-hans": "这些是冻结的公开实测数据，不是新的总体随机样本。保留原始 UCI iris.data，包括来源说明的两处转录差异。舍入后的重复特征值本身不能证明两行属于同一株植物。"
+    },
+    "cover": "/vibeit/cookbook/assets/iris-knn-validation.png",
+    "data_version": "snapshot-2026-10-09",
+    "validation": "executed-offline",
+    "data_kind": "measured",
+    "downloads": {
+      "en": "/vibeit/cookbook/downloads/ds03-iris-knn.en.ipynb",
+      "zh-hans": "/vibeit/cookbook/downloads/ds03-iris-knn.zh-hans.ipynb"
+    },
+    "previews": {
+      "en": "/vibeit/cookbook/data-science/iris-knn-validation/",
+      "zh-hans": "/vibeit/cookbook/zh-hans/data-science/iris-knn-validation/"
+    }
+  },
+  {
+    "id": "ds04-wine-clusters",
+    "number": 4,
+    "slug": "wine-clustering",
+    "title": {
+      "en": "Inspect clusters in chemical measurements",
+      "zh-hans": "检查 Wine 化学测量的聚类"
+    },
+    "summary": {
+      "en": "Standardize 13 real Wine features, run reproducible k-means, and compare anonymous clusters with source cultivar codes.",
+      "zh-hans": "标准化 13 个真实 Wine 特征，执行可复现的 k-means，并对照来源中的品种代码。"
+    },
+    "discipline": "data-science",
+    "minutes": 60,
+    "difficulty": 2,
+    "snapshots": [
+      "wine"
+    ],
+    "packages": [
+      "numpy",
+      "pandas",
+      "matplotlib",
+      "IPython"
+    ],
+    "category": "dimensions",
+    "category_title": {
+      "en": "Dimension reduction",
+      "zh-hans": "降维"
+    },
+    "icon": "🍇",
+    "online_url": "https://archive.ics.uci.edu/dataset/109",
+    "data_note": {
+      "en": "The public Wine table contains chemical measurements and cultivar codes. Original units are not completely specified, so standardized analyses use dimensionless coordinates and never invent concentration units. Codes are excluded from unsupervised fitting.",
+      "zh-hans": "公开 Wine 表包含化学测量及品种代码。来源未完整声明单位，因此标准化分析使用无量纲坐标，不编造浓度单位。品种代码不参与无监督拟合。"
+    },
+    "cover": "/vibeit/cookbook/assets/wine-clustering.png",
+    "data_version": "snapshot-2026-10-09",
+    "validation": "executed-offline",
+    "data_kind": "measured",
+    "downloads": {
+      "en": "/vibeit/cookbook/downloads/ds04-wine-clusters.en.ipynb",
+      "zh-hans": "/vibeit/cookbook/downloads/ds04-wine-clusters.zh-hans.ipynb"
+    },
+    "previews": {
+      "en": "/vibeit/cookbook/data-science/wine-clustering/",
+      "zh-hans": "/vibeit/cookbook/zh-hans/data-science/wine-clustering/"
+    }
+  },
+  {
+    "id": "ds05-bike-regression",
+    "number": 5,
+    "slug": "bike-regression",
+    "title": {
+      "en": "Build an interpretable rental-count regression",
+      "zh-hans": "构建可解释的共享单车回归"
+    },
+    "summary": {
+      "en": "Fit on 2011 and evaluate on 2012, distinguish conditional weather reconstruction from forecasting, and inspect error and drift.",
+      "zh-hans": "用 2011 年拟合、2012 年评估，区分同日天气条件回归与预测，并检查误差与分布变化。"
+    },
+    "discipline": "data-science",
+    "minutes": 60,
+    "difficulty": 2,
+    "snapshots": [
+      "bike"
+    ],
+    "packages": [
+      "numpy",
+      "pandas",
+      "matplotlib",
+      "IPython"
+    ],
+    "category": "prediction",
+    "category_title": {
+      "en": "Prediction & validation",
+      "zh-hans": "预测与验证"
+    },
+    "icon": "🚲",
+    "setup_imports": "from datetime import datetime\n",
+    "online_url": "https://archive.ics.uci.edu/dataset/275",
+    "data_note": {
+      "en": "The source contains one daily rental count per date in 2011–2012. These are rental events, not unique people. Casual and registered counts sum to the response and are excluded from predictors. Source-normalized daily weather fields are not silently relabelled as degrees Celsius.",
+      "zh-hans": "来源记录 2011–2012 年每天的租赁次数，不是独立人数。casual 与 registered 之和是目标，因此不能作为预测变量。来源归一化的日天气字段不会被静默改写为摄氏度。"
+    },
+    "cover": "/vibeit/cookbook/assets/bike-regression.png",
+    "data_version": "snapshot-2026-10-09",
+    "validation": "executed-offline",
+    "data_kind": "measured",
+    "downloads": {
+      "en": "/vibeit/cookbook/downloads/ds05-bike-regression.en.ipynb",
+      "zh-hans": "/vibeit/cookbook/downloads/ds05-bike-regression.zh-hans.ipynb"
+    },
+    "previews": {
+      "en": "/vibeit/cookbook/data-science/bike-regression/",
+      "zh-hans": "/vibeit/cookbook/zh-hans/data-science/bike-regression/"
+    }
+  },
+  {
+    "id": "ds06-bike-backtesting",
+    "number": 6,
+    "slug": "bike-backtesting",
+    "title": {
+      "en": "Backtest one-day-ahead demand forecasts",
+      "zh-hans": "回测一步向前的需求预测"
+    },
+    "summary": {
+      "en": "Construct past-only lag features, refit expanding windows and compare ridge with two transparent persistence baselines.",
+      "zh-hans": "构造仅使用过去观测的滞后特征，扩展窗口重新拟合，并与两种朴素基线比较。"
+    },
+    "discipline": "data-science",
+    "minutes": 60,
+    "difficulty": 3,
+    "snapshots": [
+      "bike"
+    ],
+    "packages": [
+      "numpy",
+      "pandas",
+      "matplotlib",
+      "IPython"
+    ],
+    "category": "prediction",
+    "category_title": {
+      "en": "Prediction & validation",
+      "zh-hans": "预测与验证"
+    },
+    "icon": "📅",
+    "setup_imports": "from datetime import datetime\n",
+    "online_url": "https://archive.ics.uci.edu/dataset/275",
+    "data_note": {
+      "en": "The source contains one daily rental count per date in 2011–2012. These are rental events, not unique people. Casual and registered counts sum to the response and are excluded from predictors. Source-normalized daily weather fields are not silently relabelled as degrees Celsius.",
+      "zh-hans": "来源记录 2011–2012 年每天的租赁次数，不是独立人数。casual 与 registered 之和是目标，因此不能作为预测变量。来源归一化的日天气字段不会被静默改写为摄氏度。"
+    },
+    "cover": "/vibeit/cookbook/assets/bike-backtesting.png",
+    "data_version": "snapshot-2026-10-09",
+    "validation": "executed-offline",
+    "data_kind": "measured",
+    "downloads": {
+      "en": "/vibeit/cookbook/downloads/ds06-bike-backtesting.en.ipynb",
+      "zh-hans": "/vibeit/cookbook/downloads/ds06-bike-backtesting.zh-hans.ipynb"
+    },
+    "previews": {
+      "en": "/vibeit/cookbook/data-science/bike-backtesting/",
+      "zh-hans": "/vibeit/cookbook/zh-hans/data-science/bike-backtesting/"
+    }
+  },
+  {
+    "id": "ma01-numerical-calculus",
+    "number": 1,
+    "slug": "numerical-calculus",
+    "title": {
+      "en": "Measure differentiation and integration error",
+      "zh-hans": "测量数值微分与积分误差"
+    },
+    "summary": {
+      "en": "Compare tabulated Gaussian curves, finite differences and trapezoidal integration with analytic references.",
+      "zh-hans": "将高斯曲线表、有限差分和梯形积分与解析结果比较。"
+    },
+    "discipline": "mathematics",
+    "minutes": 50,
+    "difficulty": 1,
+    "snapshots": [
+      "models"
+    ],
+    "packages": [
+      "numpy",
+      "pandas",
+      "scipy",
+      "matplotlib",
+      "IPython"
+    ],
+    "category": "numerical",
+    "category_title": {
+      "en": "Numerical methods",
+      "zh-hans": "数值方法"
+    },
+    "data_kind": "model",
+    "icon": "∫",
+    "setup_imports": "import math\nfrom scipy.integrate import quad\n",
+    "online_url": "https://docs.scipy.org/doc/scipy/tutorial/integrate.html",
+    "data_note": {
+      "en": "Analytic functions and Monte Carlo points are mathematical teaching models, not experimental measurements. When Iris observations are used, row exchangeability and the sampling design remain assumptions; convenience records alone do not establish population representativeness. Numerical discretization error is distinct from sampling uncertainty.",
+      "zh-hans": "解析函数与 Monte Carlo 点属于数学教学模型，不是实验测量。使用 Iris 观测时，可交换性和采样设计仍是统计假设；方便样本不自动代表总体。数值离散误差与采样不确定性应分别解释。"
+    },
+    "cover": "/vibeit/cookbook/assets/numerical-calculus.png",
+    "data_version": "snapshot-2026-10-09",
+    "validation": "executed-offline",
+    "downloads": {
+      "en": "/vibeit/cookbook/downloads/ma01-numerical-calculus.en.ipynb",
+      "zh-hans": "/vibeit/cookbook/downloads/ma01-numerical-calculus.zh-hans.ipynb"
+    },
+    "previews": {
+      "en": "/vibeit/cookbook/mathematics/numerical-calculus/",
+      "zh-hans": "/vibeit/cookbook/zh-hans/mathematics/numerical-calculus/"
+    }
+  },
+  {
+    "id": "ma02-bracketed-roots",
+    "number": 2,
+    "slug": "bracketed-roots",
+    "title": {
+      "en": "Find a physical root with a verifiable bracket",
+      "zh-hans": "用可核验区间寻找物理根"
+    },
+    "summary": {
+      "en": "Trace bisection, compare a trusted solver and derive Wien displacement from frozen SI constants.",
+      "zh-hans": "追踪二分迭代，对照参考求解器，并从冻结的 SI 常数推导维恩位移。"
+    },
+    "discipline": "mathematics",
+    "minutes": 50,
+    "difficulty": 2,
+    "snapshots": [
+      "constants"
+    ],
+    "packages": [
+      "numpy",
+      "pandas",
+      "scipy",
+      "matplotlib",
+      "IPython"
+    ],
+    "category": "numerical",
+    "category_title": {
+      "en": "Numerical methods",
+      "zh-hans": "数值方法"
+    },
+    "data_kind": "reference",
+    "icon": "🔍",
+    "setup_imports": "from scipy.optimize import brentq\n",
+    "online_url": "https://physics.nist.gov/cuu/Constants/",
+    "data_note": {
+      "en": "Analytic functions and Monte Carlo points are mathematical teaching models, not experimental measurements. When Iris observations are used, row exchangeability and the sampling design remain assumptions; convenience records alone do not establish population representativeness. Numerical discretization error is distinct from sampling uncertainty.",
+      "zh-hans": "解析函数与 Monte Carlo 点属于数学教学模型，不是实验测量。使用 Iris 观测时，可交换性和采样设计仍是统计假设；方便样本不自动代表总体。数值离散误差与采样不确定性应分别解释。"
+    },
+    "cover": "/vibeit/cookbook/assets/bracketed-roots.png",
+    "data_version": "snapshot-2026-10-09",
+    "validation": "executed-offline",
+    "downloads": {
+      "en": "/vibeit/cookbook/downloads/ma02-bracketed-roots.en.ipynb",
+      "zh-hans": "/vibeit/cookbook/downloads/ma02-bracketed-roots.zh-hans.ipynb"
+    },
+    "previews": {
+      "en": "/vibeit/cookbook/mathematics/bracketed-roots/",
+      "zh-hans": "/vibeit/cookbook/zh-hans/mathematics/bracketed-roots/"
+    }
+  },
+  {
+    "id": "ma03-conditioning",
+    "number": 3,
+    "slug": "least-squares-conditioning",
+    "title": {
+      "en": "Inspect a poorly conditioned least-squares problem",
+      "zh-hans": "检查病态最小二乘问题"
+    },
+    "summary": {
+      "en": "Build a polynomial design matrix, inspect singular values, compare solvers and separate coefficient stability from prediction error.",
+      "zh-hans": "构造多项式设计矩阵，检查奇异值、比较求解器，并区分系数稳定性与预测误差。"
+    },
+    "discipline": "mathematics",
+    "minutes": 50,
+    "difficulty": 2,
+    "snapshots": [
+      "models"
+    ],
+    "packages": [
+      "numpy",
+      "pandas",
+      "matplotlib",
+      "IPython"
+    ],
+    "category": "numerical",
+    "category_title": {
+      "en": "Numerical methods",
+      "zh-hans": "数值方法"
+    },
+    "data_kind": "model",
+    "icon": "🔢",
+    "online_url": "https://docs.scipy.org/doc/scipy/tutorial/integrate.html",
+    "data_note": {
+      "en": "Analytic functions and Monte Carlo points are mathematical teaching models, not experimental measurements. When Iris observations are used, row exchangeability and the sampling design remain assumptions; convenience records alone do not establish population representativeness. Numerical discretization error is distinct from sampling uncertainty.",
+      "zh-hans": "解析函数与 Monte Carlo 点属于数学教学模型，不是实验测量。使用 Iris 观测时，可交换性和采样设计仍是统计假设；方便样本不自动代表总体。数值离散误差与采样不确定性应分别解释。"
+    },
+    "cover": "/vibeit/cookbook/assets/least-squares-conditioning.png",
+    "data_version": "snapshot-2026-10-09",
+    "validation": "executed-offline",
+    "downloads": {
+      "en": "/vibeit/cookbook/downloads/ma03-conditioning.en.ipynb",
+      "zh-hans": "/vibeit/cookbook/downloads/ma03-conditioning.zh-hans.ipynb"
+    },
+    "previews": {
+      "en": "/vibeit/cookbook/mathematics/least-squares-conditioning/",
+      "zh-hans": "/vibeit/cookbook/zh-hans/mathematics/least-squares-conditioning/"
+    }
+  },
+  {
+    "id": "ma04-monte-carlo",
+    "number": 4,
+    "slug": "monte-carlo-uncertainty",
+    "title": {
+      "en": "Quantify Monte Carlo uncertainty",
+      "zh-hans": "量化 Monte Carlo 不确定性"
+    },
+    "summary": {
+      "en": "Estimate a circle area with seeded random points, use Wilson intervals and inspect repeated-experiment coverage.",
+      "zh-hans": "用固定随机点估计圆面积，计算 Wilson 区间，并检查重复实验的覆盖率。"
+    },
+    "discipline": "mathematics",
+    "minutes": 50,
+    "difficulty": 2,
+    "snapshots": [
+      "models"
+    ],
+    "packages": [
+      "numpy",
+      "pandas",
+      "scipy",
+      "matplotlib",
+      "IPython"
+    ],
+    "category": "uncertainty",
+    "category_title": {
+      "en": "Sampling uncertainty",
+      "zh-hans": "采样不确定性"
+    },
+    "data_kind": "simulation",
+    "icon": "🎲",
+    "setup_imports": "import math\nfrom scipy.stats import binomtest\n",
+    "online_url": "https://docs.scipy.org/doc/scipy/tutorial/integrate.html",
+    "data_note": {
+      "en": "Analytic functions and Monte Carlo points are mathematical teaching models, not experimental measurements. When Iris observations are used, row exchangeability and the sampling design remain assumptions; convenience records alone do not establish population representativeness. Numerical discretization error is distinct from sampling uncertainty.",
+      "zh-hans": "解析函数与 Monte Carlo 点属于数学教学模型，不是实验测量。使用 Iris 观测时，可交换性和采样设计仍是统计假设；方便样本不自动代表总体。数值离散误差与采样不确定性应分别解释。"
+    },
+    "cover": "/vibeit/cookbook/assets/monte-carlo-uncertainty.png",
+    "data_version": "snapshot-2026-10-09",
+    "validation": "executed-offline",
+    "downloads": {
+      "en": "/vibeit/cookbook/downloads/ma04-monte-carlo.en.ipynb",
+      "zh-hans": "/vibeit/cookbook/downloads/ma04-monte-carlo.zh-hans.ipynb"
+    },
+    "previews": {
+      "en": "/vibeit/cookbook/mathematics/monte-carlo-uncertainty/",
+      "zh-hans": "/vibeit/cookbook/zh-hans/mathematics/monte-carlo-uncertainty/"
+    }
+  },
+  {
+    "id": "ma05-bootstrap",
+    "number": 5,
+    "slug": "bootstrap-measurements",
+    "title": {
+      "en": "Bootstrap uncertainty in real measurements",
+      "zh-hans": "对真实测量做 Bootstrap 分析"
+    },
+    "summary": {
+      "en": "Resample an observed Iris group, compare percentile intervals and standard-error formulas, and state the sampling assumptions.",
+      "zh-hans": "对真实 Iris 组内测量重采样，比较百分位区间和标准误公式，并说明采样假设。"
+    },
+    "discipline": "mathematics",
+    "minutes": 50,
+    "difficulty": 2,
+    "snapshots": [
+      "iris"
+    ],
+    "packages": [
+      "numpy",
+      "pandas",
+      "matplotlib",
+      "IPython"
+    ],
+    "category": "uncertainty",
+    "category_title": {
+      "en": "Sampling uncertainty",
+      "zh-hans": "采样不确定性"
+    },
+    "icon": "📏",
+    "online_url": "https://archive.ics.uci.edu/dataset/53/iris",
+    "data_note": {
+      "en": "Analytic functions and Monte Carlo points are mathematical teaching models, not experimental measurements. When Iris observations are used, row exchangeability and the sampling design remain assumptions; convenience records alone do not establish population representativeness. Numerical discretization error is distinct from sampling uncertainty.",
+      "zh-hans": "解析函数与 Monte Carlo 点属于数学教学模型，不是实验测量。使用 Iris 观测时，可交换性和采样设计仍是统计假设；方便样本不自动代表总体。数值离散误差与采样不确定性应分别解释。"
+    },
+    "cover": "/vibeit/cookbook/assets/bootstrap-measurements.png",
+    "data_version": "snapshot-2026-10-09",
+    "validation": "executed-offline",
+    "data_kind": "measured",
+    "downloads": {
+      "en": "/vibeit/cookbook/downloads/ma05-bootstrap.en.ipynb",
+      "zh-hans": "/vibeit/cookbook/downloads/ma05-bootstrap.zh-hans.ipynb"
+    },
+    "previews": {
+      "en": "/vibeit/cookbook/mathematics/bootstrap-measurements/",
+      "zh-hans": "/vibeit/cookbook/zh-hans/mathematics/bootstrap-measurements/"
+    }
+  },
+  {
+    "id": "ma06-permutation-tests",
+    "number": 6,
+    "slug": "permutation-multiple-tests",
+    "title": {
+      "en": "Run permutation tests and correct the full family",
+      "zh-hans": "执行置换检验并校正完整检验族"
+    },
+    "summary": {
+      "en": "Test predeclared Iris group comparisons, use the Monte Carlo +1 correction and reconcile joint Benjamini–Hochberg adjustment.",
+      "zh-hans": "检验预先声明的 Iris 组间比较，使用 Monte Carlo +1 修正，并核对联合 BH 校正。"
+    },
+    "discipline": "mathematics",
+    "minutes": 60,
+    "difficulty": 3,
+    "snapshots": [
+      "iris"
+    ],
+    "packages": [
+      "numpy",
+      "pandas",
+      "scipy",
+      "matplotlib",
+      "IPython"
+    ],
+    "category": "inference",
+    "category_title": {
+      "en": "Statistical inference",
+      "zh-hans": "统计推断"
+    },
+    "icon": "⚖️",
+    "setup_imports": "from scipy.stats import false_discovery_control\n",
+    "online_url": "https://archive.ics.uci.edu/dataset/53/iris",
+    "data_note": {
+      "en": "Analytic functions and Monte Carlo points are mathematical teaching models, not experimental measurements. When Iris observations are used, row exchangeability and the sampling design remain assumptions; convenience records alone do not establish population representativeness. Numerical discretization error is distinct from sampling uncertainty.",
+      "zh-hans": "解析函数与 Monte Carlo 点属于数学教学模型，不是实验测量。使用 Iris 观测时，可交换性和采样设计仍是统计假设；方便样本不自动代表总体。数值离散误差与采样不确定性应分别解释。"
+    },
+    "cover": "/vibeit/cookbook/assets/permutation-multiple-tests.png",
+    "data_version": "snapshot-2026-10-09",
+    "validation": "executed-offline",
+    "data_kind": "measured",
+    "downloads": {
+      "en": "/vibeit/cookbook/downloads/ma06-permutation-tests.en.ipynb",
+      "zh-hans": "/vibeit/cookbook/downloads/ma06-permutation-tests.zh-hans.ipynb"
+    },
+    "previews": {
+      "en": "/vibeit/cookbook/mathematics/permutation-multiple-tests/",
+      "zh-hans": "/vibeit/cookbook/zh-hans/mathematics/permutation-multiple-tests/"
+    }
+  },
+  {
+    "id": "ph01-pendulum",
+    "number": 1,
+    "slug": "nonlinear-pendulum",
+    "title": {
+      "en": "Compare nonlinear and small-angle pendulums",
+      "zh-hans": "比较非线性与小角度单摆"
+    },
+    "summary": {
+      "en": "Integrate a declared ideal model, estimate periods from crossings and audit energy conservation.",
+      "zh-hans": "积分明确声明的理想模型，从过零点估计周期，并审计能量守恒。"
+    },
+    "discipline": "physics",
+    "minutes": 50,
+    "difficulty": 2,
+    "snapshots": [
+      "models",
+      "constants"
+    ],
+    "packages": [
+      "numpy",
+      "pandas",
+      "scipy",
+      "matplotlib",
+      "IPython"
+    ],
+    "category": "mechanics",
+    "category_title": {
+      "en": "Mechanics",
+      "zh-hans": "力学"
+    },
+    "data_kind": "model",
+    "icon": "🕰️",
+    "setup_imports": "from scipy.integrate import solve_ivp\n",
+    "online_url": "https://physics.nist.gov/cuu/Constants/",
+    "data_note": {
+      "en": "Pendulum, oscillator, projectile and heat trajectories are declared numerical models, not laboratory measurements. The gravitational acceleration is the conventional standard g0 when used. GW150914 uses actual frozen detector strain and published event timing; a filtered curve is not an independent significance or source-parameter analysis. Blackbody curves assume an ideal emitter.",
+      "zh-hans": "单摆、振子、抛体和温度轨迹是明确声明的数值模型，不是实验室测量。使用的 g0 为约定标准重力加速度。GW150914 使用真实冻结应变和已发表事件时间；滤波曲线不是独立的显著性或源参数分析。黑体曲线假定理想辐射体。"
+    },
+    "cover": "/vibeit/cookbook/assets/nonlinear-pendulum.png",
+    "data_version": "snapshot-2026-10-09",
+    "validation": "executed-offline",
+    "downloads": {
+      "en": "/vibeit/cookbook/downloads/ph01-pendulum.en.ipynb",
+      "zh-hans": "/vibeit/cookbook/downloads/ph01-pendulum.zh-hans.ipynb"
+    },
+    "previews": {
+      "en": "/vibeit/cookbook/physics/nonlinear-pendulum/",
+      "zh-hans": "/vibeit/cookbook/zh-hans/physics/nonlinear-pendulum/"
+    }
+  },
+  {
+    "id": "ph02-oscillator",
+    "number": 2,
+    "slug": "damping-resonance",
+    "title": {
+      "en": "Inspect damping and forced resonance",
+      "zh-hans": "检查阻尼与受迫共振"
+    },
+    "summary": {
+      "en": "Connect free decay, steady frequency response and time-domain integration with dimensional parameters.",
+      "zh-hans": "通过有量纲参数连接自由衰减、稳态频率响应及时间积分。"
+    },
+    "discipline": "physics",
+    "minutes": 50,
+    "difficulty": 2,
+    "snapshots": [
+      "models"
+    ],
+    "packages": [
+      "numpy",
+      "pandas",
+      "scipy",
+      "matplotlib",
+      "IPython"
+    ],
+    "category": "mechanics",
+    "category_title": {
+      "en": "Mechanics",
+      "zh-hans": "力学"
+    },
+    "data_kind": "model",
+    "icon": "〰️",
+    "setup_imports": "from scipy.integrate import solve_ivp\n",
+    "online_url": "https://docs.scipy.org/doc/scipy/reference/generated/scipy.integrate.solve_ivp.html",
+    "data_note": {
+      "en": "Pendulum, oscillator, projectile and heat trajectories are declared numerical models, not laboratory measurements. The gravitational acceleration is the conventional standard g0 when used. GW150914 uses actual frozen detector strain and published event timing; a filtered curve is not an independent significance or source-parameter analysis. Blackbody curves assume an ideal emitter.",
+      "zh-hans": "单摆、振子、抛体和温度轨迹是明确声明的数值模型，不是实验室测量。使用的 g0 为约定标准重力加速度。GW150914 使用真实冻结应变和已发表事件时间；滤波曲线不是独立的显著性或源参数分析。黑体曲线假定理想辐射体。"
+    },
+    "cover": "/vibeit/cookbook/assets/damping-resonance.png",
+    "data_version": "snapshot-2026-10-09",
+    "validation": "executed-offline",
+    "downloads": {
+      "en": "/vibeit/cookbook/downloads/ph02-oscillator.en.ipynb",
+      "zh-hans": "/vibeit/cookbook/downloads/ph02-oscillator.zh-hans.ipynb"
+    },
+    "previews": {
+      "en": "/vibeit/cookbook/physics/damping-resonance/",
+      "zh-hans": "/vibeit/cookbook/zh-hans/physics/damping-resonance/"
+    }
+  },
+  {
+    "id": "ph03-projectile",
+    "number": 3,
+    "slug": "projectile-drag",
+    "title": {
+      "en": "Integrate a projectile with quadratic drag",
+      "zh-hans": "积分具有二次阻力的抛体"
+    },
+    "summary": {
+      "en": "Stop at a ground event, compare a vacuum reference and reconcile mechanical-energy loss with drag work.",
+      "zh-hans": "在落地事件处停止，与真空参考比较，并用阻力功核对机械能损失。"
+    },
+    "discipline": "physics",
+    "minutes": 50,
+    "difficulty": 2,
+    "snapshots": [
+      "models",
+      "constants"
+    ],
+    "packages": [
+      "numpy",
+      "pandas",
+      "scipy",
+      "matplotlib",
+      "IPython"
+    ],
+    "category": "mechanics",
+    "category_title": {
+      "en": "Mechanics",
+      "zh-hans": "力学"
+    },
+    "data_kind": "model",
+    "icon": "🏹",
+    "setup_imports": "from scipy.integrate import solve_ivp\n",
+    "online_url": "https://physics.nist.gov/cuu/Constants/",
+    "data_note": {
+      "en": "Pendulum, oscillator, projectile and heat trajectories are declared numerical models, not laboratory measurements. The gravitational acceleration is the conventional standard g0 when used. GW150914 uses actual frozen detector strain and published event timing; a filtered curve is not an independent significance or source-parameter analysis. Blackbody curves assume an ideal emitter.",
+      "zh-hans": "单摆、振子、抛体和温度轨迹是明确声明的数值模型，不是实验室测量。使用的 g0 为约定标准重力加速度。GW150914 使用真实冻结应变和已发表事件时间；滤波曲线不是独立的显著性或源参数分析。黑体曲线假定理想辐射体。"
+    },
+    "cover": "/vibeit/cookbook/assets/projectile-drag.png",
+    "data_version": "snapshot-2026-10-09",
+    "validation": "executed-offline",
+    "downloads": {
+      "en": "/vibeit/cookbook/downloads/ph03-projectile.en.ipynb",
+      "zh-hans": "/vibeit/cookbook/downloads/ph03-projectile.zh-hans.ipynb"
+    },
+    "previews": {
+      "en": "/vibeit/cookbook/physics/projectile-drag/",
+      "zh-hans": "/vibeit/cookbook/zh-hans/physics/projectile-drag/"
+    }
+  },
+  {
+    "id": "ph04-heat",
+    "number": 4,
+    "slug": "heat-equation",
+    "title": {
+      "en": "Check a heat-diffusion solver",
+      "zh-hans": "核对热扩散求解器"
+    },
+    "summary": {
+      "en": "Enforce the explicit stability limit, compare a known sine-mode solution and measure grid convergence.",
+      "zh-hans": "执行显式稳定性约束，与已知正弦模态解比较，并测量网格收敛。"
+    },
+    "discipline": "physics",
+    "minutes": 50,
+    "difficulty": 2,
+    "snapshots": [
+      "models"
+    ],
+    "packages": [
+      "numpy",
+      "pandas",
+      "scipy",
+      "matplotlib",
+      "IPython"
+    ],
+    "category": "fields",
+    "category_title": {
+      "en": "Fields & transport",
+      "zh-hans": "场与输运"
+    },
+    "data_kind": "model",
+    "icon": "🌡️",
+    "online_url": "https://docs.scipy.org/doc/scipy/reference/generated/scipy.integrate.solve_ivp.html",
+    "data_note": {
+      "en": "Pendulum, oscillator, projectile and heat trajectories are declared numerical models, not laboratory measurements. The gravitational acceleration is the conventional standard g0 when used. GW150914 uses actual frozen detector strain and published event timing; a filtered curve is not an independent significance or source-parameter analysis. Blackbody curves assume an ideal emitter.",
+      "zh-hans": "单摆、振子、抛体和温度轨迹是明确声明的数值模型，不是实验室测量。使用的 g0 为约定标准重力加速度。GW150914 使用真实冻结应变和已发表事件时间；滤波曲线不是独立的显著性或源参数分析。黑体曲线假定理想辐射体。"
+    },
+    "cover": "/vibeit/cookbook/assets/heat-equation.png",
+    "data_version": "snapshot-2026-10-09",
+    "validation": "executed-offline",
+    "downloads": {
+      "en": "/vibeit/cookbook/downloads/ph04-heat.en.ipynb",
+      "zh-hans": "/vibeit/cookbook/downloads/ph04-heat.zh-hans.ipynb"
+    },
+    "previews": {
+      "en": "/vibeit/cookbook/physics/heat-equation/",
+      "zh-hans": "/vibeit/cookbook/zh-hans/physics/heat-equation/"
+    }
+  },
+  {
+    "id": "ph05-gw150914",
+    "number": 5,
+    "slug": "gw150914-signal",
+    "title": {
+      "en": "Inspect real GW150914 detector strain",
+      "zh-hans": "检查真实 GW150914 探测器应变"
+    },
+    "summary": {
+      "en": "Audit a frozen Hanford record, estimate a spectrum and inspect a declared zero-phase band-pass without claiming a new detection.",
+      "zh-hans": "审计冻结的 Hanford 记录，估计频谱，并检查指定零相位带通，不将其作为新的探测结论。"
+    },
+    "discipline": "physics",
+    "minutes": 60,
+    "difficulty": 3,
+    "snapshots": [
+      "gw150914"
+    ],
+    "packages": [
+      "numpy",
+      "pandas",
+      "scipy",
+      "matplotlib",
+      "IPython"
+    ],
+    "category": "signals",
+    "category_title": {
+      "en": "Signals & spectra",
+      "zh-hans": "信号与频谱"
+    },
+    "data_kind": "measured",
+    "icon": "🌠",
+    "setup_imports": "from scipy.signal import welch, butter, sosfiltfilt\n",
+    "online_url": "https://gwosc.org/eventapi/json/GWTC-1-confident/GW150914/v3/",
+    "data_note": {
+      "en": "Pendulum, oscillator, projectile and heat trajectories are declared numerical models, not laboratory measurements. The gravitational acceleration is the conventional standard g0 when used. GW150914 uses actual frozen detector strain and published event timing; a filtered curve is not an independent significance or source-parameter analysis. Blackbody curves assume an ideal emitter.",
+      "zh-hans": "单摆、振子、抛体和温度轨迹是明确声明的数值模型，不是实验室测量。使用的 g0 为约定标准重力加速度。GW150914 使用真实冻结应变和已发表事件时间；滤波曲线不是独立的显著性或源参数分析。黑体曲线假定理想辐射体。"
+    },
+    "cover": "/vibeit/cookbook/assets/gw150914-signal.png",
+    "data_version": "snapshot-2026-10-09",
+    "validation": "executed-offline",
+    "downloads": {
+      "en": "/vibeit/cookbook/downloads/ph05-gw150914.en.ipynb",
+      "zh-hans": "/vibeit/cookbook/downloads/ph05-gw150914.zh-hans.ipynb"
+    },
+    "previews": {
+      "en": "/vibeit/cookbook/physics/gw150914-signal/",
+      "zh-hans": "/vibeit/cookbook/zh-hans/physics/gw150914-signal/"
+    }
+  },
+  {
+    "id": "ph06-blackbody",
+    "number": 6,
+    "slug": "blackbody-radiation",
+    "title": {
+      "en": "Reconcile Planck, Wien and Stefan–Boltzmann laws",
+      "zh-hans": "核对普朗克、维恩与斯忒藩—玻尔兹曼定律"
+    },
+    "summary": {
+      "en": "Compute spectral radiance from frozen SI constants, locate wavelength peaks and verify integrated exitance.",
+      "zh-hans": "从冻结 SI 常数计算光谱辐亮度，定位波长谱峰，并核对积分辐射出射度。"
+    },
+    "discipline": "physics",
+    "minutes": 60,
+    "difficulty": 2,
+    "snapshots": [
+      "constants"
+    ],
+    "packages": [
+      "numpy",
+      "pandas",
+      "scipy",
+      "matplotlib",
+      "IPython"
+    ],
+    "category": "signals",
+    "category_title": {
+      "en": "Signals & spectra",
+      "zh-hans": "信号与频谱"
+    },
+    "data_kind": "reference",
+    "icon": "☀️",
+    "setup_imports": "from scipy.optimize import minimize_scalar\nfrom scipy.integrate import quad\n",
+    "online_url": "https://physics.nist.gov/cuu/Constants/",
+    "data_note": {
+      "en": "Pendulum, oscillator, projectile and heat trajectories are declared numerical models, not laboratory measurements. The gravitational acceleration is the conventional standard g0 when used. GW150914 uses actual frozen detector strain and published event timing; a filtered curve is not an independent significance or source-parameter analysis. Blackbody curves assume an ideal emitter.",
+      "zh-hans": "单摆、振子、抛体和温度轨迹是明确声明的数值模型，不是实验室测量。使用的 g0 为约定标准重力加速度。GW150914 使用真实冻结应变和已发表事件时间；滤波曲线不是独立的显著性或源参数分析。黑体曲线假定理想辐射体。"
+    },
+    "cover": "/vibeit/cookbook/assets/blackbody-radiation.png",
+    "data_version": "snapshot-2026-10-09",
+    "validation": "executed-offline",
+    "downloads": {
+      "en": "/vibeit/cookbook/downloads/ph06-blackbody.en.ipynb",
+      "zh-hans": "/vibeit/cookbook/downloads/ph06-blackbody.zh-hans.ipynb"
+    },
+    "previews": {
+      "en": "/vibeit/cookbook/physics/blackbody-radiation/",
+      "zh-hans": "/vibeit/cookbook/zh-hans/physics/blackbody-radiation/"
+    }
+  },
+  {
+    "id": "ch01-molecular-formulas",
+    "number": 1,
+    "slug": "molecular-formulas",
+    "title": {
+      "en": "Reconcile molecular formulas and calculated properties",
+      "zh-hans": "核对分子式与计算性质"
+    },
+    "summary": {
+      "en": "Parse eight PubChem formulas, reconstruct approximate molar masses and compare elemental mass fractions and reported descriptors.",
+      "zh-hans": "解析八个 PubChem 分子式，重建近似摩尔质量，并比较元素质量分数与计算描述符。"
+    },
+    "discipline": "chemistry",
+    "minutes": 50,
+    "difficulty": 1,
+    "snapshots": [
+      "molecules"
+    ],
+    "packages": [
+      "numpy",
+      "pandas",
+      "matplotlib",
+      "IPython"
+    ],
+    "category": "molecules",
+    "category_title": {
+      "en": "Molecules & structures",
+      "zh-hans": "分子与结构"
+    },
+    "data_kind": "computed",
+    "icon": "⚗️",
+    "setup_imports": "import re\n",
+    "online_url": "https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/cid/2519/property/MolecularFormula/JSON",
+    "data_note": {
+      "en": "PubChem properties and conformers are calculated database fields, not new experimental measurements. V2000 parsing here is intentionally limited to atoms, reported bonds and formal charges. Titration and calibration use stated ideal/simulated teaching assumptions. Water pressure uses the attributed IAPWS reference correlation. Descriptors, distances and visual proximity do not establish biological activity or binding strength.",
+      "zh-hans": "PubChem 性质与构象是数据库计算字段，不是新实验测量。本课 V2000 解析范围明确限定为原子、来源键型与形式电荷。滴定及校准使用已声明的理想/模拟教学假设；水蒸气压使用署名的 IAPWS 参考关联式。描述符、距离和视觉邻近不能证明生物活性或结合强度。"
+    },
+    "cover": "/vibeit/cookbook/assets/molecular-formulas.png",
+    "data_version": "snapshot-2026-10-09",
+    "validation": "executed-offline",
+    "downloads": {
+      "en": "/vibeit/cookbook/downloads/ch01-molecular-formulas.en.ipynb",
+      "zh-hans": "/vibeit/cookbook/downloads/ch01-molecular-formulas.zh-hans.ipynb"
+    },
+    "previews": {
+      "en": "/vibeit/cookbook/chemistry/molecular-formulas/",
+      "zh-hans": "/vibeit/cookbook/zh-hans/chemistry/molecular-formulas/"
+    }
+  },
+  {
+    "id": "ch02-molecular-graphs",
+    "number": 2,
+    "slug": "molecular-graphs",
+    "title": {
+      "en": "Read standardized molecules as graphs",
+      "zh-hans": "将标准化分子读为图"
+    },
+    "summary": {
+      "en": "Parse real V2000 records, preserve formal charges, compare connected components and cycles, and export inspectable graphs.",
+      "zh-hans": "解析真实 V2000 记录，保留形式电荷，比较连通分量与环，并导出可检查的图。"
+    },
+    "discipline": "chemistry",
+    "minutes": 50,
+    "difficulty": 2,
+    "snapshots": [
+      "molecules"
+    ],
+    "packages": [
+      "numpy",
+      "pandas",
+      "matplotlib",
+      "networkx",
+      "IPython"
+    ],
+    "category": "molecules",
+    "category_title": {
+      "en": "Molecules & structures",
+      "zh-hans": "分子与结构"
+    },
+    "data_kind": "computed",
+    "icon": "🕸️",
+    "online_url": "https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/cid/2519/property/MolecularFormula/JSON",
+    "data_note": {
+      "en": "PubChem properties and conformers are calculated database fields, not new experimental measurements. V2000 parsing here is intentionally limited to atoms, reported bonds and formal charges. Titration and calibration use stated ideal/simulated teaching assumptions. Water pressure uses the attributed IAPWS reference correlation. Descriptors, distances and visual proximity do not establish biological activity or binding strength.",
+      "zh-hans": "PubChem 性质与构象是数据库计算字段，不是新实验测量。本课 V2000 解析范围明确限定为原子、来源键型与形式电荷。滴定及校准使用已声明的理想/模拟教学假设；水蒸气压使用署名的 IAPWS 参考关联式。描述符、距离和视觉邻近不能证明生物活性或结合强度。"
+    },
+    "cover": "/vibeit/cookbook/assets/molecular-graphs.png",
+    "data_version": "snapshot-2026-10-09",
+    "validation": "executed-offline",
+    "downloads": {
+      "en": "/vibeit/cookbook/downloads/ch02-molecular-graphs.en.ipynb",
+      "zh-hans": "/vibeit/cookbook/downloads/ch02-molecular-graphs.zh-hans.ipynb"
+    },
+    "previews": {
+      "en": "/vibeit/cookbook/chemistry/molecular-graphs/",
+      "zh-hans": "/vibeit/cookbook/zh-hans/chemistry/molecular-graphs/"
+    }
+  },
+  {
+    "id": "ch03-caffeine-geometry",
+    "number": 3,
+    "slug": "caffeine-geometry",
+    "title": {
+      "en": "Inspect a calculated caffeine conformer",
+      "zh-hans": "检查计算的咖啡因构象"
+    },
+    "summary": {
+      "en": "Preview the PubChem 3D conformer offline, compare bond lengths and audit heavy-atom distance geometry.",
+      "zh-hans": "离线预览 PubChem 三维构象，比较键长并审计重原子距离几何。"
+    },
+    "discipline": "chemistry",
+    "minutes": 50,
+    "difficulty": 2,
+    "snapshots": [
+      "molecules"
+    ],
+    "packages": [
+      "numpy",
+      "pandas",
+      "scipy",
+      "matplotlib",
+      "py3Dmol",
+      "IPython"
+    ],
+    "category": "molecules",
+    "category_title": {
+      "en": "Molecules & structures",
+      "zh-hans": "分子与结构"
+    },
+    "data_kind": "computed",
+    "icon": "🧊",
+    "interactive_3d": true,
+    "setup_imports": "import py3Dmol\nfrom scipy.spatial.distance import cdist\n",
+    "online_url": "https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/cid/2519/property/MolecularFormula/JSON",
+    "data_note": {
+      "en": "PubChem properties and conformers are calculated database fields, not new experimental measurements. V2000 parsing here is intentionally limited to atoms, reported bonds and formal charges. Titration and calibration use stated ideal/simulated teaching assumptions. Water pressure uses the attributed IAPWS reference correlation. Descriptors, distances and visual proximity do not establish biological activity or binding strength.",
+      "zh-hans": "PubChem 性质与构象是数据库计算字段，不是新实验测量。本课 V2000 解析范围明确限定为原子、来源键型与形式电荷。滴定及校准使用已声明的理想/模拟教学假设；水蒸气压使用署名的 IAPWS 参考关联式。描述符、距离和视觉邻近不能证明生物活性或结合强度。"
+    },
+    "cover": "/vibeit/cookbook/assets/caffeine-geometry.png",
+    "data_version": "snapshot-2026-10-09",
+    "validation": "executed-offline",
+    "downloads": {
+      "en": "/vibeit/cookbook/downloads/ch03-caffeine-geometry.en.ipynb",
+      "zh-hans": "/vibeit/cookbook/downloads/ch03-caffeine-geometry.zh-hans.ipynb"
+    },
+    "previews": {
+      "en": "/vibeit/cookbook/chemistry/caffeine-geometry/",
+      "zh-hans": "/vibeit/cookbook/zh-hans/chemistry/caffeine-geometry/"
+    }
+  },
+  {
+    "id": "ch04-titration",
+    "number": 4,
+    "slug": "acid-base-titration",
+    "title": {
+      "en": "Solve an ideal weak-acid titration",
+      "zh-hans": "求解理想弱酸滴定"
+    },
+    "summary": {
+      "en": "Use mass and charge balance across a strong-base titration, compare the buffer approximation and inspect species fractions.",
+      "zh-hans": "在强碱滴定过程中使用质量与电荷平衡，对照缓冲近似并检查物种分数。"
+    },
+    "discipline": "chemistry",
+    "minutes": 50,
+    "difficulty": 2,
+    "snapshots": [
+      "models"
+    ],
+    "packages": [
+      "numpy",
+      "pandas",
+      "scipy",
+      "matplotlib",
+      "IPython"
+    ],
+    "category": "equilibria",
+    "category_title": {
+      "en": "Equilibria & thermodynamics",
+      "zh-hans": "平衡与热力学"
+    },
+    "data_kind": "model",
+    "icon": "🧪",
+    "setup_imports": "from scipy.optimize import brentq\n",
+    "online_url": "https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.brentq.html",
+    "data_note": {
+      "en": "PubChem properties and conformers are calculated database fields, not new experimental measurements. V2000 parsing here is intentionally limited to atoms, reported bonds and formal charges. Titration and calibration use stated ideal/simulated teaching assumptions. Water pressure uses the attributed IAPWS reference correlation. Descriptors, distances and visual proximity do not establish biological activity or binding strength.",
+      "zh-hans": "PubChem 性质与构象是数据库计算字段，不是新实验测量。本课 V2000 解析范围明确限定为原子、来源键型与形式电荷。滴定及校准使用已声明的理想/模拟教学假设；水蒸气压使用署名的 IAPWS 参考关联式。描述符、距离和视觉邻近不能证明生物活性或结合强度。"
+    },
+    "cover": "/vibeit/cookbook/assets/acid-base-titration.png",
+    "data_version": "snapshot-2026-10-09",
+    "validation": "executed-offline",
+    "downloads": {
+      "en": "/vibeit/cookbook/downloads/ch04-titration.en.ipynb",
+      "zh-hans": "/vibeit/cookbook/downloads/ch04-titration.zh-hans.ipynb"
+    },
+    "previews": {
+      "en": "/vibeit/cookbook/chemistry/acid-base-titration/",
+      "zh-hans": "/vibeit/cookbook/zh-hans/chemistry/acid-base-titration/"
+    }
+  },
+  {
+    "id": "ch05-vapor-pressure",
+    "number": 5,
+    "slug": "water-vapor-pressure",
+    "title": {
+      "en": "Evaluate a reference vapor-pressure correlation",
+      "zh-hans": "计算参考饱和蒸气压关联式"
+    },
+    "summary": {
+      "en": "Reproduce IAPWS reference pressure in its valid range, check reference points and examine a Clausius–Clapeyron approximation.",
+      "zh-hans": "在有效范围内复现 IAPWS 参考压力、检查参考点，并考察 Clausius–Clapeyron 近似。"
+    },
+    "discipline": "chemistry",
+    "minutes": 50,
+    "difficulty": 2,
+    "snapshots": [
+      "models",
+      "constants"
+    ],
+    "packages": [
+      "numpy",
+      "pandas",
+      "matplotlib",
+      "IPython"
+    ],
+    "category": "equilibria",
+    "category_title": {
+      "en": "Equilibria & thermodynamics",
+      "zh-hans": "平衡与热力学"
+    },
+    "data_kind": "reference",
+    "icon": "💧",
+    "online_url": "https://iapws.org/technical-guidance/release/Supp-sat",
+    "data_note": {
+      "en": "PubChem properties and conformers are calculated database fields, not new experimental measurements. V2000 parsing here is intentionally limited to atoms, reported bonds and formal charges. Titration and calibration use stated ideal/simulated teaching assumptions. Water pressure uses the attributed IAPWS reference correlation. Descriptors, distances and visual proximity do not establish biological activity or binding strength.",
+      "zh-hans": "PubChem 性质与构象是数据库计算字段，不是新实验测量。本课 V2000 解析范围明确限定为原子、来源键型与形式电荷。滴定及校准使用已声明的理想/模拟教学假设；水蒸气压使用署名的 IAPWS 参考关联式。描述符、距离和视觉邻近不能证明生物活性或结合强度。"
+    },
+    "cover": "/vibeit/cookbook/assets/water-vapor-pressure.png",
+    "data_version": "snapshot-2026-10-09",
+    "validation": "executed-offline",
+    "downloads": {
+      "en": "/vibeit/cookbook/downloads/ch05-vapor-pressure.en.ipynb",
+      "zh-hans": "/vibeit/cookbook/downloads/ch05-vapor-pressure.zh-hans.ipynb"
+    },
+    "previews": {
+      "en": "/vibeit/cookbook/chemistry/water-vapor-pressure/",
+      "zh-hans": "/vibeit/cookbook/zh-hans/chemistry/water-vapor-pressure/"
+    }
+  },
+  {
+    "id": "ch06-calibration",
+    "number": 6,
+    "slug": "spectroscopic-calibration",
+    "title": {
+      "en": "Audit a simulated absorbance calibration",
+      "zh-hans": "审计模拟吸光度校准"
+    },
+    "summary": {
+      "en": "Generate declared Beer–Lambert teaching observations, fit a calibration, inspect residuals and propagate uncertainty to an unknown.",
+      "zh-hans": "生成明确声明的 Beer–Lambert 教学观测，拟合校准、检查残差，并向未知量传播不确定性。"
+    },
+    "discipline": "chemistry",
+    "minutes": 60,
+    "difficulty": 2,
+    "snapshots": [
+      "models"
+    ],
+    "packages": [
+      "numpy",
+      "pandas",
+      "matplotlib",
+      "IPython"
+    ],
+    "category": "measurement",
+    "category_title": {
+      "en": "Measurement models",
+      "zh-hans": "测量模型"
+    },
+    "data_kind": "simulation",
+    "icon": "🔬",
+    "online_url": "https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.brentq.html",
+    "data_note": {
+      "en": "PubChem properties and conformers are calculated database fields, not new experimental measurements. V2000 parsing here is intentionally limited to atoms, reported bonds and formal charges. Titration and calibration use stated ideal/simulated teaching assumptions. Water pressure uses the attributed IAPWS reference correlation. Descriptors, distances and visual proximity do not establish biological activity or binding strength.",
+      "zh-hans": "PubChem 性质与构象是数据库计算字段，不是新实验测量。本课 V2000 解析范围明确限定为原子、来源键型与形式电荷。滴定及校准使用已声明的理想/模拟教学假设；水蒸气压使用署名的 IAPWS 参考关联式。描述符、距离和视觉邻近不能证明生物活性或结合强度。"
+    },
+    "cover": "/vibeit/cookbook/assets/spectroscopic-calibration.png",
+    "data_version": "snapshot-2026-10-09",
+    "validation": "executed-offline",
+    "downloads": {
+      "en": "/vibeit/cookbook/downloads/ch06-calibration.en.ipynb",
+      "zh-hans": "/vibeit/cookbook/downloads/ch06-calibration.zh-hans.ipynb"
+    },
+    "previews": {
+      "en": "/vibeit/cookbook/chemistry/spectroscopic-calibration/",
+      "zh-hans": "/vibeit/cookbook/zh-hans/chemistry/spectroscopic-calibration/"
+    }
+  },
+  {
+    "id": "en01-energy-audit",
+    "number": 1,
+    "slug": "energy-sensor-audit",
+    "title": {
+      "en": "Audit a real building-energy record",
+      "zh-hans": "审计真实建筑能耗记录"
+    },
+    "summary": {
+      "en": "Check timestamps, sensor units, energy-to-power conversion and the observational scope of a single building.",
+      "zh-hans": "检查时间戳、传感器单位、能量至功率换算及单栋建筑的观测范围。"
+    },
+    "discipline": "engineering",
+    "minutes": 50,
+    "difficulty": 1,
+    "snapshots": [
+      "energy"
+    ],
+    "packages": [
+      "numpy",
+      "pandas",
+      "matplotlib",
+      "IPython"
+    ],
+    "category": "measurements",
+    "category_title": {
+      "en": "Measurements & signals",
+      "zh-hans": "测量与信号"
+    },
+    "icon": "🔌",
+    "online_url": "https://archive.ics.uci.edu/dataset/374/appliances+energy+prediction",
+    "data_note": {
+      "en": "The building record contains real ten-minute energy and environmental observations from one source building. Airport weather fields include upstream interpolation and are not colocated calibration references. Beam, circuit and PID examples are declared numerical design models; computed responses do not establish hardware performance or commissioning acceptance.",
+      "zh-hans": "建筑记录包含来源中单栋建筑的真实十分钟能耗及环境观测。机场天气字段含来源插值，不是同位置校准参考。梁、电路和 PID 例子是明确的数值设计模型；计算响应不能证明硬件性能或实际验收。"
+    },
+    "setup_imports": "from datetime import datetime\n",
+    "cover": "/vibeit/cookbook/assets/energy-sensor-audit.png",
+    "data_version": "snapshot-2026-10-09",
+    "validation": "executed-offline",
+    "data_kind": "measured",
+    "downloads": {
+      "en": "/vibeit/cookbook/downloads/en01-energy-audit.en.ipynb",
+      "zh-hans": "/vibeit/cookbook/downloads/en01-energy-audit.zh-hans.ipynb"
+    },
+    "previews": {
+      "en": "/vibeit/cookbook/engineering/energy-sensor-audit/",
+      "zh-hans": "/vibeit/cookbook/zh-hans/engineering/energy-sensor-audit/"
+    }
+  },
+  {
+    "id": "en02-energy-regression",
+    "number": 2,
+    "slug": "energy-demand-regression",
+    "title": {
+      "en": "Evaluate a chronological energy regression",
+      "zh-hans": "按时间顺序评估能耗回归"
+    },
+    "summary": {
+      "en": "Fit training-only weather/calendar regressions, compare a mean baseline and inspect held-out energy errors.",
+      "zh-hans": "只用训练时段拟合天气/日历回归，与均值基线比较，并检查测试能耗误差。"
+    },
+    "discipline": "engineering",
+    "minutes": 60,
+    "difficulty": 2,
+    "snapshots": [
+      "energy"
+    ],
+    "packages": [
+      "numpy",
+      "pandas",
+      "matplotlib",
+      "IPython"
+    ],
+    "category": "measurements",
+    "category_title": {
+      "en": "Measurements & signals",
+      "zh-hans": "测量与信号"
+    },
+    "icon": "🏠",
+    "online_url": "https://archive.ics.uci.edu/dataset/374/appliances+energy+prediction",
+    "data_note": {
+      "en": "The building record contains real ten-minute energy and environmental observations from one source building. Airport weather fields include upstream interpolation and are not colocated calibration references. Beam, circuit and PID examples are declared numerical design models; computed responses do not establish hardware performance or commissioning acceptance.",
+      "zh-hans": "建筑记录包含来源中单栋建筑的真实十分钟能耗及环境观测。机场天气字段含来源插值，不是同位置校准参考。梁、电路和 PID 例子是明确的数值设计模型；计算响应不能证明硬件性能或实际验收。"
+    },
+    "setup_imports": "from datetime import datetime\n",
+    "cover": "/vibeit/cookbook/assets/energy-demand-regression.png",
+    "data_version": "snapshot-2026-10-09",
+    "validation": "executed-offline",
+    "data_kind": "measured",
+    "downloads": {
+      "en": "/vibeit/cookbook/downloads/en02-energy-regression.en.ipynb",
+      "zh-hans": "/vibeit/cookbook/downloads/en02-energy-regression.zh-hans.ipynb"
+    },
+    "previews": {
+      "en": "/vibeit/cookbook/engineering/energy-demand-regression/",
+      "zh-hans": "/vibeit/cookbook/zh-hans/engineering/energy-demand-regression/"
+    }
+  },
+  {
+    "id": "en03-energy-filtering",
+    "number": 3,
+    "slug": "energy-signal-filtering",
+    "title": {
+      "en": "Process a low-rate measured energy signal",
+      "zh-hans": "处理低采样率实测能耗信号"
+    },
+    "summary": {
+      "en": "Inspect a daily-unit spectrum, an explicitly acausal filter and the limits of ten-minute sampling.",
+      "zh-hans": "检查日尺度频谱、明确的非因果滤波及十分钟采样的限制。"
+    },
+    "discipline": "engineering",
+    "minutes": 50,
+    "difficulty": 2,
+    "snapshots": [
+      "energy"
+    ],
+    "packages": [
+      "numpy",
+      "pandas",
+      "scipy",
+      "matplotlib",
+      "IPython"
+    ],
+    "category": "measurements",
+    "category_title": {
+      "en": "Measurements & signals",
+      "zh-hans": "测量与信号"
+    },
+    "icon": "〰️",
+    "setup_imports": "from scipy.signal import welch, butter, sosfiltfilt, sosfreqz\nfrom datetime import datetime\n",
+    "online_url": "https://archive.ics.uci.edu/dataset/374/appliances+energy+prediction",
+    "data_note": {
+      "en": "The building record contains real ten-minute energy and environmental observations from one source building. Airport weather fields include upstream interpolation and are not colocated calibration references. Beam, circuit and PID examples are declared numerical design models; computed responses do not establish hardware performance or commissioning acceptance.",
+      "zh-hans": "建筑记录包含来源中单栋建筑的真实十分钟能耗及环境观测。机场天气字段含来源插值，不是同位置校准参考。梁、电路和 PID 例子是明确的数值设计模型；计算响应不能证明硬件性能或实际验收。"
+    },
+    "cover": "/vibeit/cookbook/assets/energy-signal-filtering.png",
+    "data_version": "snapshot-2026-10-09",
+    "validation": "executed-offline",
+    "data_kind": "measured",
+    "downloads": {
+      "en": "/vibeit/cookbook/downloads/en03-energy-filtering.en.ipynb",
+      "zh-hans": "/vibeit/cookbook/downloads/en03-energy-filtering.zh-hans.ipynb"
+    },
+    "previews": {
+      "en": "/vibeit/cookbook/engineering/energy-signal-filtering/",
+      "zh-hans": "/vibeit/cookbook/zh-hans/engineering/energy-signal-filtering/"
+    }
+  },
+  {
+    "id": "en04-beam-fem",
+    "number": 4,
+    "slug": "cantilever-fem",
+    "title": {
+      "en": "Assemble and verify a beam finite-element model",
+      "zh-hans": "组装并验证梁有限元模型"
+    },
+    "summary": {
+      "en": "Assemble Hermite beam elements, enforce the clamp and compare nodal deflection and reactions with a closed reference.",
+      "zh-hans": "组装 Hermite 梁单元、施加固定端，并将节点挠度与反力和闭式参考比较。"
+    },
+    "discipline": "engineering",
+    "minutes": 60,
+    "difficulty": 3,
+    "snapshots": [
+      "models"
+    ],
+    "packages": [
+      "numpy",
+      "pandas",
+      "matplotlib",
+      "IPython"
+    ],
+    "category": "design",
+    "category_title": {
+      "en": "Design models",
+      "zh-hans": "设计模型"
+    },
+    "data_kind": "model",
+    "icon": "📐",
+    "online_url": "https://docs.scipy.org/doc/scipy/tutorial/linalg.html",
+    "data_note": {
+      "en": "The building record contains real ten-minute energy and environmental observations from one source building. Airport weather fields include upstream interpolation and are not colocated calibration references. Beam, circuit and PID examples are declared numerical design models; computed responses do not establish hardware performance or commissioning acceptance.",
+      "zh-hans": "建筑记录包含来源中单栋建筑的真实十分钟能耗及环境观测。机场天气字段含来源插值，不是同位置校准参考。梁、电路和 PID 例子是明确的数值设计模型；计算响应不能证明硬件性能或实际验收。"
+    },
+    "cover": "/vibeit/cookbook/assets/cantilever-fem.png",
+    "data_version": "snapshot-2026-10-09",
+    "validation": "executed-offline",
+    "downloads": {
+      "en": "/vibeit/cookbook/downloads/en04-beam-fem.en.ipynb",
+      "zh-hans": "/vibeit/cookbook/downloads/en04-beam-fem.zh-hans.ipynb"
+    },
+    "previews": {
+      "en": "/vibeit/cookbook/engineering/cantilever-fem/",
+      "zh-hans": "/vibeit/cookbook/zh-hans/engineering/cantilever-fem/"
+    }
+  },
+  {
+    "id": "en05-rc-circuit",
+    "number": 5,
+    "slug": "rc-circuit-response",
+    "title": {
+      "en": "Reconcile an RC circuit model",
+      "zh-hans": "核对 RC 电路模型"
+    },
+    "summary": {
+      "en": "Compare an explicit transient solution with an analytic step and frequency response, then inspect declared tolerance assumptions.",
+      "zh-hans": "将显式暂态解与解析阶跃、频率响应核对，再检查声明的容差假设。"
+    },
+    "discipline": "engineering",
+    "minutes": 50,
+    "difficulty": 2,
+    "snapshots": [
+      "models"
+    ],
+    "packages": [
+      "numpy",
+      "pandas",
+      "matplotlib",
+      "IPython"
+    ],
+    "category": "design",
+    "category_title": {
+      "en": "Design models",
+      "zh-hans": "设计模型"
+    },
+    "data_kind": "model",
+    "icon": "🔋",
+    "online_url": "https://docs.scipy.org/doc/scipy/tutorial/linalg.html",
+    "data_note": {
+      "en": "The building record contains real ten-minute energy and environmental observations from one source building. Airport weather fields include upstream interpolation and are not colocated calibration references. Beam, circuit and PID examples are declared numerical design models; computed responses do not establish hardware performance or commissioning acceptance.",
+      "zh-hans": "建筑记录包含来源中单栋建筑的真实十分钟能耗及环境观测。机场天气字段含来源插值，不是同位置校准参考。梁、电路和 PID 例子是明确的数值设计模型；计算响应不能证明硬件性能或实际验收。"
+    },
+    "cover": "/vibeit/cookbook/assets/rc-circuit-response.png",
+    "data_version": "snapshot-2026-10-09",
+    "validation": "executed-offline",
+    "downloads": {
+      "en": "/vibeit/cookbook/downloads/en05-rc-circuit.en.ipynb",
+      "zh-hans": "/vibeit/cookbook/downloads/en05-rc-circuit.zh-hans.ipynb"
+    },
+    "previews": {
+      "en": "/vibeit/cookbook/engineering/rc-circuit-response/",
+      "zh-hans": "/vibeit/cookbook/zh-hans/engineering/rc-circuit-response/"
+    }
+  },
+  {
+    "id": "en06-pid-control",
+    "number": 6,
+    "slug": "pid-thermal-control",
+    "title": {
+      "en": "Inspect a bounded thermal PID simulation",
+      "zh-hans": "检查有界热系统 PID 模拟"
+    },
+    "summary": {
+      "en": "Simulate derivative-on-measurement control, actuator saturation and conditional integration, with an explicitly assumed plant.",
+      "zh-hans": "在明确假定的对象模型中，模拟测量微分控制、执行器饱和及条件积分。"
+    },
+    "discipline": "engineering",
+    "minutes": 60,
+    "difficulty": 3,
+    "snapshots": [
+      "models"
+    ],
+    "packages": [
+      "numpy",
+      "pandas",
+      "matplotlib",
+      "IPython"
+    ],
+    "category": "control",
+    "category_title": {
+      "en": "Control models",
+      "zh-hans": "控制模型"
+    },
+    "data_kind": "model",
+    "icon": "🎛️",
+    "online_url": "https://docs.scipy.org/doc/scipy/tutorial/linalg.html",
+    "data_note": {
+      "en": "The building record contains real ten-minute energy and environmental observations from one source building. Airport weather fields include upstream interpolation and are not colocated calibration references. Beam, circuit and PID examples are declared numerical design models; computed responses do not establish hardware performance or commissioning acceptance.",
+      "zh-hans": "建筑记录包含来源中单栋建筑的真实十分钟能耗及环境观测。机场天气字段含来源插值，不是同位置校准参考。梁、电路和 PID 例子是明确的数值设计模型；计算响应不能证明硬件性能或实际验收。"
+    },
+    "cover": "/vibeit/cookbook/assets/pid-thermal-control.png",
+    "data_version": "snapshot-2026-10-09",
+    "validation": "executed-offline",
+    "downloads": {
+      "en": "/vibeit/cookbook/downloads/en06-pid-control.en.ipynb",
+      "zh-hans": "/vibeit/cookbook/downloads/en06-pid-control.zh-hans.ipynb"
+    },
+    "previews": {
+      "en": "/vibeit/cookbook/engineering/pid-thermal-control/",
+      "zh-hans": "/vibeit/cookbook/zh-hans/engineering/pid-thermal-control/"
+    }
+  },
+  {
+    "id": "ec01-real-growth",
+    "number": 1,
+    "slug": "real-growth-indicators",
+    "title": {
+      "en": "Compare real economic growth indicators",
+      "zh-hans": "比较实际经济增长指标"
+    },
+    "summary": {
+      "en": "Audit economy/year records and separate constant-price levels, rebased growth and a common-year comparison.",
+      "zh-hans": "审计经济体/年度记录，区分不变价水平、重定指数增长及同年比较。"
+    },
+    "discipline": "economics",
+    "minutes": 50,
+    "difficulty": 1,
+    "snapshots": [
+      "worldbank"
+    ],
+    "packages": [
+      "numpy",
+      "pandas",
+      "matplotlib",
+      "IPython"
+    ],
+    "category": "indicators",
+    "category_title": {
+      "en": "Economic indicators",
+      "zh-hans": "经济指标"
+    },
+    "icon": "🌍",
+    "online_url": "https://api.worldbank.org/v2/indicator/NY.GDP.PCAP.KD?format=json",
+    "data_note": {
+      "en": "World Bank records retain definitions, missing observations and reference years. The six economies are declared examples, not a random global sample. Country averages, price-basket conversions and Gini indices describe different quantities; survey concepts and coverage can differ.",
+      "zh-hans": "World Bank 记录保留定义、缺失观测及参考年。六个经济体为声明例子，不是全球随机样本。国家均值、价格篮子换算和 Gini 指数描述不同量，调查概念及覆盖可能不同。"
+    },
+    "cover": "/vibeit/cookbook/assets/real-growth-indicators.png",
+    "data_version": "snapshot-2026-10-09",
+    "validation": "executed-offline",
+    "data_kind": "measured",
+    "downloads": {
+      "en": "/vibeit/cookbook/downloads/ec01-real-growth.en.ipynb",
+      "zh-hans": "/vibeit/cookbook/downloads/ec01-real-growth.zh-hans.ipynb"
+    },
+    "previews": {
+      "en": "/vibeit/cookbook/economics/real-growth-indicators/",
+      "zh-hans": "/vibeit/cookbook/zh-hans/economics/real-growth-indicators/"
+    }
+  },
+  {
+    "id": "ec02-inflation",
+    "number": 2,
+    "slug": "inflation-real-values",
+    "title": {
+      "en": "Distinguish CPI, inflation and real values",
+      "zh-hans": "区分 CPI、通胀与实值"
+    },
+    "summary": {
+      "en": "Rebase an observed price index, reconcile annual changes and deflate a stated hypothetical nominal amount.",
+      "zh-hans": "重定观测价格指数，核对年度变化，并对声明的假设名义金额做实值换算。"
+    },
+    "discipline": "economics",
+    "minutes": 50,
+    "difficulty": 2,
+    "snapshots": [
+      "worldbank"
+    ],
+    "packages": [
+      "numpy",
+      "pandas",
+      "matplotlib",
+      "IPython"
+    ],
+    "category": "indicators",
+    "category_title": {
+      "en": "Economic indicators",
+      "zh-hans": "经济指标"
+    },
+    "icon": "🧾",
+    "online_url": "https://api.worldbank.org/v2/indicator/NY.GDP.PCAP.KD?format=json",
+    "data_note": {
+      "en": "World Bank records retain definitions, missing observations and reference years. The six economies are declared examples, not a random global sample. Country averages, price-basket conversions and Gini indices describe different quantities; survey concepts and coverage can differ.",
+      "zh-hans": "World Bank 记录保留定义、缺失观测及参考年。六个经济体为声明例子，不是全球随机样本。国家均值、价格篮子换算和 Gini 指数描述不同量，调查概念及覆盖可能不同。"
+    },
+    "cover": "/vibeit/cookbook/assets/inflation-real-values.png",
+    "data_version": "snapshot-2026-10-09",
+    "validation": "executed-offline",
+    "data_kind": "measured",
+    "downloads": {
+      "en": "/vibeit/cookbook/downloads/ec02-inflation.en.ipynb",
+      "zh-hans": "/vibeit/cookbook/downloads/ec02-inflation.zh-hans.ipynb"
+    },
+    "previews": {
+      "en": "/vibeit/cookbook/economics/inflation-real-values/",
+      "zh-hans": "/vibeit/cookbook/zh-hans/economics/inflation-real-values/"
+    }
+  },
+  {
+    "id": "ec03-inequality",
+    "number": 3,
+    "slug": "inequality-observation-years",
+    "title": {
+      "en": "Audit inequality observations and their years",
+      "zh-hans": "审计不平等观测及其年份"
+    },
+    "summary": {
+      "en": "Preserve absent years and compare dated Gini observations without manufacturing a synchronized ranking.",
+      "zh-hans": "保留缺失年份，比较带年份的 Gini 观测，不制造同步排名。"
+    },
+    "discipline": "economics",
+    "minutes": 50,
+    "difficulty": 2,
+    "snapshots": [
+      "worldbank"
+    ],
+    "packages": [
+      "numpy",
+      "pandas",
+      "matplotlib",
+      "IPython"
+    ],
+    "category": "indicators",
+    "category_title": {
+      "en": "Economic indicators",
+      "zh-hans": "经济指标"
+    },
+    "icon": "⚖️",
+    "online_url": "https://api.worldbank.org/v2/indicator/NY.GDP.PCAP.KD?format=json",
+    "data_note": {
+      "en": "World Bank records retain definitions, missing observations and reference years. The six economies are declared examples, not a random global sample. Country averages, price-basket conversions and Gini indices describe different quantities; survey concepts and coverage can differ.",
+      "zh-hans": "World Bank 记录保留定义、缺失观测及参考年。六个经济体为声明例子，不是全球随机样本。国家均值、价格篮子换算和 Gini 指数描述不同量，调查概念及覆盖可能不同。"
+    },
+    "cover": "/vibeit/cookbook/assets/inequality-observation-years.png",
+    "data_version": "snapshot-2026-10-09",
+    "validation": "executed-offline",
+    "data_kind": "measured",
+    "downloads": {
+      "en": "/vibeit/cookbook/downloads/ec03-inequality.en.ipynb",
+      "zh-hans": "/vibeit/cookbook/downloads/ec03-inequality.zh-hans.ipynb"
+    },
+    "previews": {
+      "en": "/vibeit/cookbook/economics/inequality-observation-years/",
+      "zh-hans": "/vibeit/cookbook/zh-hans/economics/inequality-observation-years/"
+    }
+  },
+  {
+    "id": "ec04-fx-returns",
+    "number": 4,
+    "slug": "currency-return-units",
+    "title": {
+      "en": "Compute currency returns with explicit quote units",
+      "zh-hans": "按明确报价单位计算汇率收益"
+    },
+    "summary": {
+      "en": "Invert ECB foreign-units-per-euro quotes before calculating euro-valued price returns and historical associations.",
+      "zh-hans": "先将 ECB 外国单位/欧元报价取倒数，再计算欧元计价价格收益和历史关联。"
+    },
+    "discipline": "economics",
+    "minutes": 50,
+    "difficulty": 2,
+    "snapshots": [
+      "ecb"
+    ],
+    "packages": [
+      "numpy",
+      "pandas",
+      "matplotlib",
+      "IPython"
+    ],
+    "category": "risk",
+    "category_title": {
+      "en": "Historical risk analysis",
+      "zh-hans": "历史风险分析"
+    },
+    "icon": "💱",
+    "online_url": "https://data-api.ecb.europa.eu/service/data/EXR/D.USD.EUR.SP00.A?startPeriod=2024-01-01&endPeriod=2024-12-31&format=csvdata",
+    "data_note": {
+      "en": "Historical price-only currency examples use hypothetical daily rebalancing, excluding interest/carry, fees, execution costs and tax. They do not establish future performance or an investment recommendation. Source: ECB; original reference rates are available free of charge at the ECB. Inversions, returns and risk statistics are derived course calculations, not ECB statistics.",
+      "zh-hans": "历史价格型货币例子假设每日再平衡，不含利息/套息、费用、成交成本和税，不确定未来表现或构成投资建议。来源：ECB，原始参考汇率可在 ECB 免费取得。倒数、收益和风险统计为课程派生计算，不是 ECB 统计。"
+    },
+    "setup_imports": "from datetime import datetime\n",
+    "cover": "/vibeit/cookbook/assets/currency-return-units.png",
+    "data_version": "snapshot-2026-10-09",
+    "validation": "executed-offline",
+    "data_kind": "measured",
+    "downloads": {
+      "en": "/vibeit/cookbook/downloads/ec04-fx-returns.en.ipynb",
+      "zh-hans": "/vibeit/cookbook/downloads/ec04-fx-returns.zh-hans.ipynb"
+    },
+    "previews": {
+      "en": "/vibeit/cookbook/economics/currency-return-units/",
+      "zh-hans": "/vibeit/cookbook/zh-hans/economics/currency-return-units/"
+    }
+  },
+  {
+    "id": "ec05-portfolio-variance",
+    "number": 5,
+    "slug": "currency-portfolio-variance",
+    "title": {
+      "en": "Evaluate constrained historical variance",
+      "zh-hans": "评估受约束的历史方差"
+    },
+    "summary": {
+      "en": "Fit a long-only covariance model on training years and evaluate fixed hypothetical weights against an equal-weight baseline.",
+      "zh-hans": "用训练年份拟合多头协方差模型，以固定假设权重和等权基线比较测试行为。"
+    },
+    "discipline": "economics",
+    "minutes": 60,
+    "difficulty": 3,
+    "snapshots": [
+      "ecb"
+    ],
+    "packages": [
+      "numpy",
+      "pandas",
+      "scipy",
+      "matplotlib",
+      "IPython"
+    ],
+    "category": "risk",
+    "category_title": {
+      "en": "Historical risk analysis",
+      "zh-hans": "历史风险分析"
+    },
+    "icon": "📊",
+    "setup_imports": "from scipy.optimize import minimize\nfrom datetime import datetime\n",
+    "online_url": "https://data-api.ecb.europa.eu/service/data/EXR/D.USD.EUR.SP00.A?startPeriod=2024-01-01&endPeriod=2024-12-31&format=csvdata",
+    "data_note": {
+      "en": "Historical price-only currency examples use hypothetical daily rebalancing, excluding interest/carry, fees, execution costs and tax. They do not establish future performance or an investment recommendation. Source: ECB; original reference rates are available free of charge at the ECB. Inversions, returns and risk statistics are derived course calculations, not ECB statistics.",
+      "zh-hans": "历史价格型货币例子假设每日再平衡，不含利息/套息、费用、成交成本和税，不确定未来表现或构成投资建议。来源：ECB，原始参考汇率可在 ECB 免费取得。倒数、收益和风险统计为课程派生计算，不是 ECB 统计。"
+    },
+    "cover": "/vibeit/cookbook/assets/currency-portfolio-variance.png",
+    "data_version": "snapshot-2026-10-09",
+    "validation": "executed-offline",
+    "data_kind": "measured",
+    "downloads": {
+      "en": "/vibeit/cookbook/downloads/ec05-portfolio-variance.en.ipynb",
+      "zh-hans": "/vibeit/cookbook/downloads/ec05-portfolio-variance.zh-hans.ipynb"
+    },
+    "previews": {
+      "en": "/vibeit/cookbook/economics/currency-portfolio-variance/",
+      "zh-hans": "/vibeit/cookbook/zh-hans/economics/currency-portfolio-variance/"
+    }
+  },
+  {
+    "id": "ec06-tail-risk",
+    "number": 6,
+    "slug": "empirical-tail-risk",
+    "title": {
+      "en": "Reconcile empirical tail risk and block resampling",
+      "zh-hans": "核对经验尾部风险与分块重采样"
+    },
+    "summary": {
+      "en": "Define inverse-CDF VaR and fractional-tail ES for a hypothetical currency basket, then inspect conditional resampling variability.",
+      "zh-hans": "为假设货币篮子定义逆 CDF VaR 和分数尾部 ES，再检查条件重采样变异。"
+    },
+    "discipline": "economics",
+    "minutes": 60,
+    "difficulty": 3,
+    "snapshots": [
+      "ecb"
+    ],
+    "packages": [
+      "numpy",
+      "pandas",
+      "matplotlib",
+      "IPython"
+    ],
+    "category": "risk",
+    "category_title": {
+      "en": "Historical risk analysis",
+      "zh-hans": "历史风险分析"
+    },
+    "icon": "📉",
+    "online_url": "https://data-api.ecb.europa.eu/service/data/EXR/D.USD.EUR.SP00.A?startPeriod=2024-01-01&endPeriod=2024-12-31&format=csvdata",
+    "data_note": {
+      "en": "Historical price-only currency examples use hypothetical daily rebalancing, excluding interest/carry, fees, execution costs and tax. They do not establish future performance or an investment recommendation. Source: ECB; original reference rates are available free of charge at the ECB. Inversions, returns and risk statistics are derived course calculations, not ECB statistics.",
+      "zh-hans": "历史价格型货币例子假设每日再平衡，不含利息/套息、费用、成交成本和税，不确定未来表现或构成投资建议。来源：ECB，原始参考汇率可在 ECB 免费取得。倒数、收益和风险统计为课程派生计算，不是 ECB 统计。"
+    },
+    "setup_imports": "from datetime import datetime\n",
+    "cover": "/vibeit/cookbook/assets/empirical-tail-risk.png",
+    "data_version": "snapshot-2026-10-09",
+    "validation": "executed-offline",
+    "data_kind": "measured",
+    "downloads": {
+      "en": "/vibeit/cookbook/downloads/ec06-tail-risk.en.ipynb",
+      "zh-hans": "/vibeit/cookbook/downloads/ec06-tail-risk.zh-hans.ipynb"
+    },
+    "previews": {
+      "en": "/vibeit/cookbook/economics/empirical-tail-risk/",
+      "zh-hans": "/vibeit/cookbook/zh-hans/economics/empirical-tail-risk/"
+    }
+  },
+  {
+    "id": "hu01-corpus-audit",
+    "number": 1,
+    "slug": "historical-corpus-audit",
+    "title": {
+      "en": "Audit a historical text corpus",
+      "zh-hans": "审计历史文本语料"
+    },
+    "summary": {
+      "en": "Preserve source ebooks and licenses, inspect chapter boundaries and make tokenization decisions visible.",
+      "zh-hans": "保留来源电子书和许可，检查章节边界并公开分词决策。"
+    },
+    "discipline": "humanities",
+    "minutes": 50,
+    "difficulty": 1,
+    "snapshots": [
+      "novels"
+    ],
+    "packages": [
+      "numpy",
+      "pandas",
+      "matplotlib",
+      "IPython"
+    ],
+    "category": "text",
+    "category_title": {
+      "en": "Text methods",
+      "zh-hans": "文本方法"
+    },
+    "data_kind": "text",
+    "icon": "📚",
+    "setup_imports": "import re\nfrom collections import Counter\n",
+    "online_url": "https://www.gutenberg.org/ebooks/1342",
+    "data_note": {
+      "en": "The snapshot retains complete unmodified source ebooks, including their original licenses. Chapter-based analysis uses 61 Pride and Prejudice chapters and 24 Frankenstein chapters; front matter and Frankenstein framing letters are outside this declared scope. English-letter tokenization is a method choice, not a language-neutral definition. Word frequencies, surface-pattern cooccurrence and SVD axes do not independently establish authorial intent, character relationships or sentiment.",
+      "zh-hans": "快照保留完整未修改来源电子书及原许可。章节分析使用《傲慢与偏见》61 章及《弗兰肯斯坦》24 章；前言和后者书信框架不在本次声明范围。英文字母分词是方法选择，不是语言无关定义。词频、表面模式共现和 SVD 轴不能独立证明作者意图、人物关系或情感。"
+    },
+    "cover": "/vibeit/cookbook/assets/historical-corpus-audit.png",
+    "data_version": "snapshot-2026-10-09",
+    "validation": "executed-offline",
+    "downloads": {
+      "en": "/vibeit/cookbook/downloads/hu01-corpus-audit.en.ipynb",
+      "zh-hans": "/vibeit/cookbook/downloads/hu01-corpus-audit.zh-hans.ipynb"
+    },
+    "previews": {
+      "en": "/vibeit/cookbook/humanities/historical-corpus-audit/",
+      "zh-hans": "/vibeit/cookbook/zh-hans/humanities/historical-corpus-audit/"
+    }
+  },
+  {
+    "id": "hu02-lexical-diversity",
+    "number": 2,
+    "slug": "length-controlled-diversity",
+    "title": {
+      "en": "Compare length-controlled lexical diversity",
+      "zh-hans": "比较控制长度后的词汇多样性"
+    },
+    "summary": {
+      "en": "Separate whole-corpus token/type counts from matched-window vocabulary ratios and inspect length effects.",
+      "zh-hans": "区分整部语料词/词型数量与相同窗口词汇比例，并检查长度影响。"
+    },
+    "discipline": "humanities",
+    "minutes": 50,
+    "difficulty": 2,
+    "snapshots": [
+      "novels"
+    ],
+    "packages": [
+      "numpy",
+      "pandas",
+      "matplotlib",
+      "IPython"
+    ],
+    "category": "text",
+    "category_title": {
+      "en": "Text methods",
+      "zh-hans": "文本方法"
+    },
+    "data_kind": "text",
+    "icon": "🔤",
+    "setup_imports": "import re\nfrom collections import Counter\n",
+    "online_url": "https://www.gutenberg.org/ebooks/1342",
+    "data_note": {
+      "en": "The snapshot retains complete unmodified source ebooks, including their original licenses. Chapter-based analysis uses 61 Pride and Prejudice chapters and 24 Frankenstein chapters; front matter and Frankenstein framing letters are outside this declared scope. English-letter tokenization is a method choice, not a language-neutral definition. Word frequencies, surface-pattern cooccurrence and SVD axes do not independently establish authorial intent, character relationships or sentiment.",
+      "zh-hans": "快照保留完整未修改来源电子书及原许可。章节分析使用《傲慢与偏见》61 章及《弗兰肯斯坦》24 章；前言和后者书信框架不在本次声明范围。英文字母分词是方法选择，不是语言无关定义。词频、表面模式共现和 SVD 轴不能独立证明作者意图、人物关系或情感。"
+    },
+    "cover": "/vibeit/cookbook/assets/length-controlled-diversity.png",
+    "data_version": "snapshot-2026-10-09",
+    "validation": "executed-offline",
+    "downloads": {
+      "en": "/vibeit/cookbook/downloads/hu02-lexical-diversity.en.ipynb",
+      "zh-hans": "/vibeit/cookbook/downloads/hu02-lexical-diversity.zh-hans.ipynb"
+    },
+    "previews": {
+      "en": "/vibeit/cookbook/humanities/length-controlled-diversity/",
+      "zh-hans": "/vibeit/cookbook/zh-hans/humanities/length-controlled-diversity/"
+    }
+  },
+  {
+    "id": "hu03-keyword-context",
+    "number": 3,
+    "slug": "keyword-in-context",
+    "title": {
+      "en": "Read keyword frequencies in context",
+      "zh-hans": "在语境中解读关键词频率"
+    },
+    "summary": {
+      "en": "Retrieve every exact-token match with context, inspect chapter-normalized counts and return to the source passages.",
+      "zh-hans": "为每个完整词匹配提取语境，检查章节归一化数量，并回到来源段落。"
+    },
+    "discipline": "humanities",
+    "minutes": 50,
+    "difficulty": 2,
+    "snapshots": [
+      "novels"
+    ],
+    "packages": [
+      "numpy",
+      "pandas",
+      "matplotlib",
+      "IPython"
+    ],
+    "category": "text",
+    "category_title": {
+      "en": "Text methods",
+      "zh-hans": "文本方法"
+    },
+    "data_kind": "text",
+    "icon": "🔎",
+    "setup_imports": "import re\nfrom collections import Counter\n",
+    "online_url": "https://www.gutenberg.org/ebooks/1342",
+    "data_note": {
+      "en": "The snapshot retains complete unmodified source ebooks, including their original licenses. Chapter-based analysis uses 61 Pride and Prejudice chapters and 24 Frankenstein chapters; front matter and Frankenstein framing letters are outside this declared scope. English-letter tokenization is a method choice, not a language-neutral definition. Word frequencies, surface-pattern cooccurrence and SVD axes do not independently establish authorial intent, character relationships or sentiment.",
+      "zh-hans": "快照保留完整未修改来源电子书及原许可。章节分析使用《傲慢与偏见》61 章及《弗兰肯斯坦》24 章；前言和后者书信框架不在本次声明范围。英文字母分词是方法选择，不是语言无关定义。词频、表面模式共现和 SVD 轴不能独立证明作者意图、人物关系或情感。"
+    },
+    "cover": "/vibeit/cookbook/assets/keyword-in-context.png",
+    "data_version": "snapshot-2026-10-09",
+    "validation": "executed-offline",
+    "downloads": {
+      "en": "/vibeit/cookbook/downloads/hu03-keyword-context.en.ipynb",
+      "zh-hans": "/vibeit/cookbook/downloads/hu03-keyword-context.zh-hans.ipynb"
+    },
+    "previews": {
+      "en": "/vibeit/cookbook/humanities/keyword-in-context/",
+      "zh-hans": "/vibeit/cookbook/zh-hans/humanities/keyword-in-context/"
+    }
+  },
+  {
+    "id": "hu04-mention-network",
+    "number": 4,
+    "slug": "name-mention-network",
+    "title": {
+      "en": "Audit a name-mention cooccurrence graph",
+      "zh-hans": "审计名称提及共现图"
+    },
+    "summary": {
+      "en": "Declare surface-pattern aliases, count paragraph cooccurrences and inspect threshold-sensitive graph summaries.",
+      "zh-hans": "声明表面名称模式，计数段落共现，并检查阈值敏感的图摘要。"
+    },
+    "discipline": "humanities",
+    "minutes": 60,
+    "difficulty": 2,
+    "snapshots": [
+      "novels"
+    ],
+    "packages": [
+      "numpy",
+      "pandas",
+      "matplotlib",
+      "networkx",
+      "IPython"
+    ],
+    "category": "networks",
+    "category_title": {
+      "en": "Networks & representations",
+      "zh-hans": "网络与表示"
+    },
+    "data_kind": "text",
+    "icon": "🕸️",
+    "setup_imports": "import re\nfrom collections import Counter\n",
+    "online_url": "https://www.gutenberg.org/ebooks/1342",
+    "data_note": {
+      "en": "The snapshot retains complete unmodified source ebooks, including their original licenses. Chapter-based analysis uses 61 Pride and Prejudice chapters and 24 Frankenstein chapters; front matter and Frankenstein framing letters are outside this declared scope. English-letter tokenization is a method choice, not a language-neutral definition. Word frequencies, surface-pattern cooccurrence and SVD axes do not independently establish authorial intent, character relationships or sentiment.",
+      "zh-hans": "快照保留完整未修改来源电子书及原许可。章节分析使用《傲慢与偏见》61 章及《弗兰肯斯坦》24 章；前言和后者书信框架不在本次声明范围。英文字母分词是方法选择，不是语言无关定义。词频、表面模式共现和 SVD 轴不能独立证明作者意图、人物关系或情感。"
+    },
+    "cover": "/vibeit/cookbook/assets/name-mention-network.png",
+    "data_version": "snapshot-2026-10-09",
+    "validation": "executed-offline",
+    "downloads": {
+      "en": "/vibeit/cookbook/downloads/hu04-mention-network.en.ipynb",
+      "zh-hans": "/vibeit/cookbook/downloads/hu04-mention-network.zh-hans.ipynb"
+    },
+    "previews": {
+      "en": "/vibeit/cookbook/humanities/name-mention-network/",
+      "zh-hans": "/vibeit/cookbook/zh-hans/humanities/name-mention-network/"
+    }
+  },
+  {
+    "id": "hu05-text-projection",
+    "number": 5,
+    "slug": "tfidf-svd-chapters",
+    "title": {
+      "en": "Inspect TF-IDF and signed chapter projections",
+      "zh-hans": "检查 TF-IDF 与有符号章节投影"
+    },
+    "summary": {
+      "en": "Build a declared chapter vocabulary, compute normalized TF-IDF and interpret an uncentered SVD without treating axes as topic probabilities.",
+      "zh-hans": "构造声明的章节词汇，计算归一化 TF-IDF，并解读未中心化 SVD，不将轴当作主题概率。"
+    },
+    "discipline": "humanities",
+    "minutes": 60,
+    "difficulty": 3,
+    "snapshots": [
+      "novels"
+    ],
+    "packages": [
+      "numpy",
+      "pandas",
+      "matplotlib",
+      "IPython"
+    ],
+    "category": "networks",
+    "category_title": {
+      "en": "Networks & representations",
+      "zh-hans": "网络与表示"
+    },
+    "data_kind": "text",
+    "icon": "🧭",
+    "setup_imports": "import re\nfrom collections import Counter\n",
+    "online_url": "https://www.gutenberg.org/ebooks/1342",
+    "data_note": {
+      "en": "The snapshot retains complete unmodified source ebooks, including their original licenses. Chapter-based analysis uses 61 Pride and Prejudice chapters and 24 Frankenstein chapters; front matter and Frankenstein framing letters are outside this declared scope. English-letter tokenization is a method choice, not a language-neutral definition. Word frequencies, surface-pattern cooccurrence and SVD axes do not independently establish authorial intent, character relationships or sentiment.",
+      "zh-hans": "快照保留完整未修改来源电子书及原许可。章节分析使用《傲慢与偏见》61 章及《弗兰肯斯坦》24 章；前言和后者书信框架不在本次声明范围。英文字母分词是方法选择，不是语言无关定义。词频、表面模式共现和 SVD 轴不能独立证明作者意图、人物关系或情感。"
+    },
+    "cover": "/vibeit/cookbook/assets/tfidf-svd-chapters.png",
+    "data_version": "snapshot-2026-10-09",
+    "validation": "executed-offline",
+    "downloads": {
+      "en": "/vibeit/cookbook/downloads/hu05-text-projection.en.ipynb",
+      "zh-hans": "/vibeit/cookbook/downloads/hu05-text-projection.zh-hans.ipynb"
+    },
+    "previews": {
+      "en": "/vibeit/cookbook/humanities/tfidf-svd-chapters/",
+      "zh-hans": "/vibeit/cookbook/zh-hans/humanities/tfidf-svd-chapters/"
+    }
+  },
+  {
+    "id": "hu06-social-indicators",
+    "number": 6,
+    "slug": "social-indicator-exploration",
+    "title": {
+      "en": "Explore dated social indicators with explicit scope",
+      "zh-hans": "按明确范围探索社会指标"
+    },
+    "summary": {
+      "en": "Join economy-level income, population and life-expectancy observations, audit missingness and distinguish association from individual or causal inference.",
+      "zh-hans": "合并经济体收入、人口及预期寿命观测，审计缺失，并区分关联与个人/因果推断。"
+    },
+    "discipline": "humanities",
+    "minutes": 60,
+    "difficulty": 2,
+    "snapshots": [
+      "worldbank"
+    ],
+    "packages": [
+      "numpy",
+      "pandas",
+      "scipy",
+      "matplotlib",
+      "IPython"
+    ],
+    "category": "social",
+    "category_title": {
+      "en": "Social indicators",
+      "zh-hans": "社会指标"
+    },
+    "icon": "🌍",
+    "setup_imports": "from scipy.stats import spearmanr\n",
+    "online_url": "https://api.worldbank.org/v2/indicator/SP.DYN.LE00.IN?format=json",
+    "data_note": {
+      "en": "Use a declared 2023 economy-level cross-section. Life expectancy at birth is a period indicator based on mortality conditions, not a personal life prediction. Current frozen income-group metadata is not reconstructed historical classification. Complete-case selection and macro-level association cannot establish individual or causal effects.",
+      "zh-hans": "使用声明的 2023 经济体截面。出生时预期寿命是基于死亡条件的时期指标，不是个人寿命预测。冻结的当前收入组 metadata 不等于重建历史分类。完整案例选择和宏观关联不能确定个人或因果效应。"
+    },
+    "cover": "/vibeit/cookbook/assets/social-indicator-exploration.png",
+    "data_version": "snapshot-2026-10-09",
+    "validation": "executed-offline",
+    "data_kind": "measured",
+    "downloads": {
+      "en": "/vibeit/cookbook/downloads/hu06-social-indicators.en.ipynb",
+      "zh-hans": "/vibeit/cookbook/downloads/hu06-social-indicators.zh-hans.ipynb"
+    },
+    "previews": {
+      "en": "/vibeit/cookbook/humanities/social-indicator-exploration/",
+      "zh-hans": "/vibeit/cookbook/zh-hans/humanities/social-indicator-exploration/"
     }
   }
 ]

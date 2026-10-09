@@ -1,0 +1,219 @@
+[
+  {
+    "name": "World Bank economy metadata",
+    "url": "https://api.worldbank.org/v2/country?format=json&per_page=400",
+    "sha256": "c9acf3932785191a649cbc04c3056af4cf64a236e5c3b49d49be25ddb0440bce",
+    "retrieved_at": "2026-10-09T10:58:53.947781+00:00",
+    "license": "World Bank CC BY 4.0 with additional terms; retain original indicator attribution",
+    "snapshots": [
+      "worldbank"
+    ],
+    "conversion": "Preserve economy IDs, region and income-group metadata; exclude aggregates in student analyses.",
+    "raw_file": "data/raw/extension-worldbank-world-bank-economy-metadata.gz",
+    "bytes": 113954,
+    "terms": "https://data.worldbank.org/summary-terms-of-use"
+  },
+  {
+    "name": "World Bank NY.GDP.PCAP.KD",
+    "url": "https://api.worldbank.org/v2/country/all/indicator/NY.GDP.PCAP.KD?date=2010:2024&format=json&per_page=20000&footnote=y",
+    "sha256": "59a9efaf20ab359c7832f24da45dda2282511c0eaf927d044583f47d08e02cda",
+    "retrieved_at": "2026-10-09T10:59:09.513964+00:00",
+    "license": "World Bank CC BY 4.0 with additional terms; original sources retained in indicator metadata",
+    "snapshots": [
+      "worldbank"
+    ],
+    "conversion": "Retain official observations including null values and footnotes, 2010–2024; no interpolation; no aggregate-country mixing.",
+    "raw_file": "data/raw/extension-worldbank-world-bank-ny-gdp-pcap-kd.gz",
+    "bytes": 970667,
+    "indicator": "NY.GDP.PCAP.KD",
+    "terms": "https://data.worldbank.org/summary-terms-of-use"
+  },
+  {
+    "name": "World Bank indicator metadata NY.GDP.PCAP.KD",
+    "url": "https://api.worldbank.org/v2/indicator/NY.GDP.PCAP.KD?format=json",
+    "sha256": "46689488cd435920647264ede1bfb2d4b51b09800fb36f3d3b1422a0b11ea49d",
+    "retrieved_at": "2026-10-09T10:59:10.244213+00:00",
+    "license": "World Bank CC BY 4.0 with additional terms",
+    "snapshots": [
+      "worldbank"
+    ],
+    "conversion": "Preserve indicator definition, source organization and source note.",
+    "raw_file": "data/raw/extension-worldbank-world-bank-indicator-metadata-ny-gdp-pcap-kd.gz",
+    "bytes": 1100,
+    "indicator": "NY.GDP.PCAP.KD"
+  },
+  {
+    "name": "World Bank NY.GDP.MKTP.KD",
+    "url": "https://api.worldbank.org/v2/country/all/indicator/NY.GDP.MKTP.KD?date=2010:2024&format=json&per_page=20000&footnote=y",
+    "sha256": "466f4e3176b509613f3df99acffce89b5f1ea14472c376dd10d8b8f67f6172b0",
+    "retrieved_at": "2026-10-09T10:59:21.597664+00:00",
+    "license": "World Bank CC BY 4.0 with additional terms; original sources retained in indicator metadata",
+    "snapshots": [
+      "worldbank"
+    ],
+    "conversion": "Retain official observations including null values and footnotes, 2010–2024; no interpolation; no aggregate-country mixing.",
+    "raw_file": "data/raw/extension-worldbank-world-bank-ny-gdp-mktp-kd.gz",
+    "bytes": 927639,
+    "indicator": "NY.GDP.MKTP.KD",
+    "terms": "https://data.worldbank.org/summary-terms-of-use"
+  },
+  {
+    "name": "World Bank indicator metadata NY.GDP.MKTP.KD",
+    "url": "https://api.worldbank.org/v2/indicator/NY.GDP.MKTP.KD?format=json",
+    "sha256": "bc4bc0ffec1755410f52b1091c6b1f46917c7417977102350d3d1102b4659216",
+    "retrieved_at": "2026-10-09T10:59:22.706499+00:00",
+    "license": "World Bank CC BY 4.0 with additional terms",
+    "snapshots": [
+      "worldbank"
+    ],
+    "conversion": "Preserve indicator definition, source organization and source note.",
+    "raw_file": "data/raw/extension-worldbank-world-bank-indicator-metadata-ny-gdp-mktp-kd.gz",
+    "bytes": 994,
+    "indicator": "NY.GDP.MKTP.KD"
+  },
+  {
+    "name": "World Bank SP.POP.TOTL",
+    "url": "https://api.worldbank.org/v2/country/all/indicator/SP.POP.TOTL?date=2010:2024&format=json&per_page=20000&footnote=y",
+    "sha256": "7ecf8d749dbddd87a269f2019e6d42ed32875c57565cf5c5af097c6e6c9af528",
+    "retrieved_at": "2026-10-09T10:59:33.780826+00:00",
+    "license": "World Bank CC BY 4.0 with additional terms; original sources retained in indicator metadata",
+    "snapshots": [
+      "worldbank"
+    ],
+    "conversion": "Retain official observations including null values and footnotes, 2010–2024; no interpolation; no aggregate-country mixing.",
+    "raw_file": "data/raw/extension-worldbank-world-bank-sp-pop-totl.gz",
+    "bytes": 861774,
+    "indicator": "SP.POP.TOTL",
+    "terms": "https://data.worldbank.org/summary-terms-of-use"
+  },
+  {
+    "name": "World Bank indicator metadata SP.POP.TOTL",
+    "url": "https://api.worldbank.org/v2/indicator/SP.POP.TOTL?format=json",
+    "sha256": "2f8491efc00bf2c0995112ff8e87aba69e5e9d22d0880b22f7e3a4ec757ba05c",
+    "retrieved_at": "2026-10-09T10:59:34.433384+00:00",
+    "license": "World Bank CC BY 4.0 with additional terms",
+    "snapshots": [
+      "worldbank"
+    ],
+    "conversion": "Preserve indicator definition, source organization and source note.",
+    "raw_file": "data/raw/extension-worldbank-world-bank-indicator-metadata-sp-pop-totl.gz",
+    "bytes": 1099,
+    "indicator": "SP.POP.TOTL"
+  },
+  {
+    "name": "World Bank SP.DYN.LE00.IN",
+    "url": "https://api.worldbank.org/v2/country/all/indicator/SP.DYN.LE00.IN?date=2010:2024&format=json&per_page=20000&footnote=y",
+    "sha256": "d8b5c6bd7fecaf8cee0e422444719ba1f42ec70996308bc74afd14ee48799055",
+    "retrieved_at": "2026-10-09T10:59:45.500196+00:00",
+    "license": "World Bank CC BY 4.0 with additional terms; original sources retained in indicator metadata",
+    "snapshots": [
+      "worldbank"
+    ],
+    "conversion": "Retain official observations including null values and footnotes, 2010–2024; no interpolation; no aggregate-country mixing.",
+    "raw_file": "data/raw/extension-worldbank-world-bank-sp-dyn-le00-in.gz",
+    "bytes": 966800,
+    "indicator": "SP.DYN.LE00.IN",
+    "terms": "https://data.worldbank.org/summary-terms-of-use"
+  },
+  {
+    "name": "World Bank indicator metadata SP.DYN.LE00.IN",
+    "url": "https://api.worldbank.org/v2/indicator/SP.DYN.LE00.IN?format=json",
+    "sha256": "a39cb6fddfbbb953053690366243dffe77a266c4deae79c46ce5a06da9f5fc31",
+    "retrieved_at": "2026-10-09T10:59:46.194982+00:00",
+    "license": "World Bank CC BY 4.0 with additional terms",
+    "snapshots": [
+      "worldbank"
+    ],
+    "conversion": "Preserve indicator definition, source organization and source note.",
+    "raw_file": "data/raw/extension-worldbank-world-bank-indicator-metadata-sp-dyn-le00-in.gz",
+    "bytes": 969,
+    "indicator": "SP.DYN.LE00.IN"
+  },
+  {
+    "name": "World Bank FP.CPI.TOTL",
+    "url": "https://api.worldbank.org/v2/country/all/indicator/FP.CPI.TOTL?date=2010:2024&format=json&per_page=20000&footnote=y",
+    "sha256": "55c3b71ad4dd8c92c15fa7dc2b502a3d60f26cf47ae9a24e384bc2ff6108ff56",
+    "retrieved_at": "2026-10-09T10:59:58.352079+00:00",
+    "license": "World Bank CC BY 4.0 with additional terms; original sources retained in indicator metadata",
+    "snapshots": [
+      "worldbank"
+    ],
+    "conversion": "Retain official observations including null values and footnotes, 2010–2024; no interpolation; no aggregate-country mixing.",
+    "raw_file": "data/raw/extension-worldbank-world-bank-fp-cpi-totl.gz",
+    "bytes": 939762,
+    "indicator": "FP.CPI.TOTL",
+    "terms": "https://data.worldbank.org/summary-terms-of-use"
+  },
+  {
+    "name": "World Bank indicator metadata FP.CPI.TOTL",
+    "url": "https://api.worldbank.org/v2/indicator/FP.CPI.TOTL?format=json",
+    "sha256": "13b1e3c4b2b72f7fb3a630b4dde37f0e68e6d5e78dc06b2437dfea0c0b93af46",
+    "retrieved_at": "2026-10-09T10:59:59.017087+00:00",
+    "license": "World Bank CC BY 4.0 with additional terms",
+    "snapshots": [
+      "worldbank"
+    ],
+    "conversion": "Preserve indicator definition, source organization and source note.",
+    "raw_file": "data/raw/extension-worldbank-world-bank-indicator-metadata-fp-cpi-totl.gz",
+    "bytes": 459,
+    "indicator": "FP.CPI.TOTL"
+  },
+  {
+    "name": "World Bank FP.CPI.TOTL.ZG",
+    "url": "https://api.worldbank.org/v2/country/all/indicator/FP.CPI.TOTL.ZG?date=2010:2024&format=json&per_page=20000&footnote=y",
+    "sha256": "849b6a88a84a7efdeb92d89e8db1db36f86543e28ff8eb645e0feaa8c634def7",
+    "retrieved_at": "2026-10-09T11:00:07.808421+00:00",
+    "license": "World Bank CC BY 4.0 with additional terms; original sources retained in indicator metadata",
+    "snapshots": [
+      "worldbank"
+    ],
+    "conversion": "Retain official observations including null values and footnotes, 2010–2024; no interpolation; no aggregate-country mixing.",
+    "raw_file": "data/raw/extension-worldbank-world-bank-fp-cpi-totl-zg.gz",
+    "bytes": 978517,
+    "indicator": "FP.CPI.TOTL.ZG",
+    "terms": "https://data.worldbank.org/summary-terms-of-use"
+  },
+  {
+    "name": "World Bank indicator metadata FP.CPI.TOTL.ZG",
+    "url": "https://api.worldbank.org/v2/indicator/FP.CPI.TOTL.ZG?format=json",
+    "sha256": "df9371a3b6c01e55a3f28991e62e1b1ebbe0cd2a7da94456be9938c7a2962233",
+    "retrieved_at": "2026-10-09T11:00:12.033736+00:00",
+    "license": "World Bank CC BY 4.0 with additional terms",
+    "snapshots": [
+      "worldbank"
+    ],
+    "conversion": "Preserve indicator definition, source organization and source note.",
+    "raw_file": "data/raw/extension-worldbank-world-bank-indicator-metadata-fp-cpi-totl-zg.gz",
+    "bytes": 632,
+    "indicator": "FP.CPI.TOTL.ZG"
+  },
+  {
+    "name": "World Bank SI.POV.GINI",
+    "url": "https://api.worldbank.org/v2/country/all/indicator/SI.POV.GINI?date=2010:2024&format=json&per_page=20000&footnote=y",
+    "sha256": "4919413d3b9ef06b7445c3fd42d47b8a09e9836bbab7be84e4993099ffdc7ab2",
+    "retrieved_at": "2026-10-09T11:00:24.263875+00:00",
+    "license": "World Bank CC BY 4.0 with additional terms; original sources retained in indicator metadata",
+    "snapshots": [
+      "worldbank"
+    ],
+    "conversion": "Retain official observations including null values and footnotes, 2010–2024; no interpolation; no aggregate-country mixing.",
+    "raw_file": "data/raw/extension-worldbank-world-bank-si-pov-gini.gz",
+    "bytes": 891950,
+    "indicator": "SI.POV.GINI",
+    "terms": "https://data.worldbank.org/summary-terms-of-use"
+  },
+  {
+    "name": "World Bank indicator metadata SI.POV.GINI",
+    "url": "https://api.worldbank.org/v2/indicator/SI.POV.GINI?format=json",
+    "sha256": "e377bf82b38024748153880ff90c0106a0ef0fd8cb04761146cc60a2609cab3d",
+    "retrieved_at": "2026-10-09T11:00:24.998422+00:00",
+    "license": "World Bank CC BY 4.0 with additional terms",
+    "snapshots": [
+      "worldbank"
+    ],
+    "conversion": "Preserve indicator definition, source organization and source note.",
+    "raw_file": "data/raw/extension-worldbank-world-bank-indicator-metadata-si-pov-gini.gz",
+    "bytes": 1494,
+    "indicator": "SI.POV.GINI"
+  }
+]

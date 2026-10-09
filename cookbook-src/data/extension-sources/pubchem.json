@@ -1,0 +1,142 @@
+[
+  {
+    "name": "PubChem calculated molecular properties",
+    "url": "https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/cid/702,176,241,887,180,2519,2244,750/property/MolecularFormula,MolecularWeight,HBondDonorCount,HBondAcceptorCount,HeavyAtomCount,XLogP,TPSA,Charge/JSON",
+    "sha256": "b01b092cc8872e14fdab1fdc608c783669131a081c71d9ccee77c0bb9c6ff408",
+    "retrieved_at": "2026-10-09T10:58:56.852752+00:00",
+    "license": "NCBI public data; PubChem computed properties only; credit PubChem; no third-party narrative annotations included",
+    "snapshots": [
+      "molecules"
+    ],
+    "conversion": "Keep the returned calculated fields for eight declared CIDs; molecular weight converted from API numeric string.",
+    "raw_file": "data/raw/extension-pubchem-pubchem-calculated-molecular-properties.gz",
+    "bytes": 2198,
+    "documentation": "https://pubchem.ncbi.nlm.nih.gov/docs/pug-rest"
+  },
+  {
+    "name": "PubChem 2D SDF 702",
+    "url": "https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/cid/702/SDF?record_type=2d",
+    "sha256": "5962afc9ee8115dee9d5e63cefeef89cdc47641420b34afe156062d263c9caa7",
+    "retrieved_at": "2026-10-09T10:58:57.852381+00:00",
+    "license": "NCBI public data; PubChem standardized structure; credit PubChem",
+    "snapshots": [
+      "molecules"
+    ],
+    "conversion": "Preserve complete standardized SDF, including CID and explicit hydrogen/bond fields.",
+    "raw_file": "data/raw/extension-pubchem-pubchem-2d-sdf-702.gz",
+    "bytes": 2255,
+    "cid": 702
+  },
+  {
+    "name": "PubChem 2D SDF 176",
+    "url": "https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/cid/176/SDF?record_type=2d",
+    "sha256": "f51353e1db0a0be8aa3aeb7bea28b6febb1e1f8afdf88fbf298405851f7ee092",
+    "retrieved_at": "2026-10-09T10:58:58.790030+00:00",
+    "license": "NCBI public data; PubChem standardized structure; credit PubChem",
+    "snapshots": [
+      "molecules"
+    ],
+    "conversion": "Preserve complete standardized SDF, including CID and explicit hydrogen/bond fields.",
+    "raw_file": "data/raw/extension-pubchem-pubchem-2d-sdf-176.gz",
+    "bytes": 2201,
+    "cid": 176
+  },
+  {
+    "name": "PubChem 2D SDF 241",
+    "url": "https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/cid/241/SDF?record_type=2d",
+    "sha256": "3f4698bd6773f5e709184759048c116d106ac392e874676444b64af254e9a189",
+    "retrieved_at": "2026-10-09T10:58:59.822368+00:00",
+    "license": "NCBI public data; PubChem standardized structure; credit PubChem",
+    "snapshots": [
+      "molecules"
+    ],
+    "conversion": "Preserve complete standardized SDF, including CID and explicit hydrogen/bond fields.",
+    "raw_file": "data/raw/extension-pubchem-pubchem-2d-sdf-241.gz",
+    "bytes": 2642,
+    "cid": 241
+  },
+  {
+    "name": "PubChem 2D SDF 887",
+    "url": "https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/cid/887/SDF?record_type=2d",
+    "sha256": "5cf6d180935f2fe77d20772a4bf2506711d4436762f6c6801157ac748f088530",
+    "retrieved_at": "2026-10-09T10:59:01.003445+00:00",
+    "license": "NCBI public data; PubChem standardized structure; credit PubChem",
+    "snapshots": [
+      "molecules"
+    ],
+    "conversion": "Preserve complete standardized SDF, including CID and explicit hydrogen/bond fields.",
+    "raw_file": "data/raw/extension-pubchem-pubchem-2d-sdf-887.gz",
+    "bytes": 1974,
+    "cid": 887
+  },
+  {
+    "name": "PubChem 2D SDF 180",
+    "url": "https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/cid/180/SDF?record_type=2d",
+    "sha256": "6ecceacce326b6ecc292dedd946f589e879c999f43242395d995b59a8c8eb128",
+    "retrieved_at": "2026-10-09T10:59:02.065334+00:00",
+    "license": "NCBI public data; PubChem standardized structure; credit PubChem",
+    "snapshots": [
+      "molecules"
+    ],
+    "conversion": "Preserve complete standardized SDF, including CID and explicit hydrogen/bond fields.",
+    "raw_file": "data/raw/extension-pubchem-pubchem-2d-sdf-180.gz",
+    "bytes": 2372,
+    "cid": 180
+  },
+  {
+    "name": "PubChem 2D SDF 2519",
+    "url": "https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/cid/2519/SDF?record_type=2d",
+    "sha256": "47293391d630f44f2a32c3f7702d766744c8f4a4f16f6571d4ae09f04b3daaed",
+    "retrieved_at": "2026-10-09T10:59:03.203415+00:00",
+    "license": "NCBI public data; PubChem standardized structure; credit PubChem",
+    "snapshots": [
+      "molecules"
+    ],
+    "conversion": "Preserve complete standardized SDF, including CID and explicit hydrogen/bond fields.",
+    "raw_file": "data/raw/extension-pubchem-pubchem-2d-sdf-2519.gz",
+    "bytes": 4002,
+    "cid": 2519
+  },
+  {
+    "name": "PubChem 2D SDF 2244",
+    "url": "https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/cid/2244/SDF?record_type=2d",
+    "sha256": "0dfd04496745032c06410241f91f10fcec77cbc6828cdbede75f4c08da418fbb",
+    "retrieved_at": "2026-10-09T10:59:04.262802+00:00",
+    "license": "NCBI public data; PubChem standardized structure; credit PubChem",
+    "snapshots": [
+      "molecules"
+    ],
+    "conversion": "Preserve complete standardized SDF, including CID and explicit hydrogen/bond fields.",
+    "raw_file": "data/raw/extension-pubchem-pubchem-2d-sdf-2244.gz",
+    "bytes": 3630,
+    "cid": 2244
+  },
+  {
+    "name": "PubChem 2D SDF 750",
+    "url": "https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/cid/750/SDF?record_type=2d",
+    "sha256": "e1c2ddd732cea1d052a9426c9a25fef86acd1309748bb2115cf2b56481ba288f",
+    "retrieved_at": "2026-10-09T10:59:05.452718+00:00",
+    "license": "NCBI public data; PubChem standardized structure; credit PubChem",
+    "snapshots": [
+      "molecules"
+    ],
+    "conversion": "Preserve complete standardized SDF, including CID and explicit hydrogen/bond fields.",
+    "raw_file": "data/raw/extension-pubchem-pubchem-2d-sdf-750.gz",
+    "bytes": 2439,
+    "cid": 750
+  },
+  {
+    "name": "PubChem caffeine 3D conformer",
+    "url": "https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/cid/2519/SDF?record_type=3d",
+    "sha256": "2a78d98d09d50768fe3f6e6114d7baf3dad9cf88e41835735f96abf5867f5092",
+    "retrieved_at": "2026-10-09T10:59:06.377211+00:00",
+    "license": "NCBI public data; PubChem computed conformer; credit PubChem",
+    "snapshots": [
+      "molecules"
+    ],
+    "conversion": "Preserve calculated coordinates and conformer identifiers; not an experimental crystal structure.",
+    "raw_file": "data/raw/extension-pubchem-pubchem-caffeine-3d-conformer.gz",
+    "bytes": 3950,
+    "cid": 2519
+  }
+]

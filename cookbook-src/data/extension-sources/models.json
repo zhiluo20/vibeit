@@ -1,0 +1,31 @@
+[
+  {
+    "name": "IAPWS saturation reference release",
+    "url": "https://iapws.org/public/documents/6dGkr/Supp-sat.pdf",
+    "sha256": "a10d38d73339b0713c86cfac88f9adcba137202167ccdfa1cd58238c438361d7",
+    "retrieved_at": "2026-10-09T12:32:05.628163+00:00",
+    "license": "IAPWS SR1-86(1992): unrestricted publication allowed in all countries (cover page)",
+    "snapshots": [
+      "models"
+    ],
+    "conversion": "Reference equations and numerical coefficients transcribed from release pages 2–3; pedagogical model values are not new experiments.",
+    "raw_file": "data/raw/extension-models-iapws-saturation-reference-release.gz",
+    "bytes": 285034,
+    "documentation": "https://iapws.org/technical-guidance/release/Supp-sat",
+    "version": "SR1-86(1992)"
+  },
+  {
+    "name": "Authored numerical teaching model parameters",
+    "url": "https://github.com/zhiluo20/vibeit/blob/main/cookbook-src/freeze_subject_data.py",
+    "snapshots": [
+      "models"
+    ],
+    "license": "Original teaching parameters/code MIT; reference equation coefficients attributed to IAPWS SR1-86(1992)",
+    "sha256": "4350c4305a83c772fa295a8be0ef86a247f2bfaae930a081720d3cd0c753abe0",
+    "raw_file": "data/raw/extension-models-authored-parameters.gz",
+    "bytes": 1576,
+    "retrieved_at": "2026-10-09T12:32:05.635149+00:00",
+    "conversion": "Declared parameters and seed; generated trajectories and calibration observations must be labelled simulated.",
+    "reference": "https://iapws.org/technical-guidance/release/Supp-sat"
+  }
+]
