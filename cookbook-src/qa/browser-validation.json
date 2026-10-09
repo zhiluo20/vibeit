@@ -1,0 +1,56 @@
+{
+  "environment": "Chromium / local static preview / Browser plugin not available; Playwright CLI",
+  "desktop_viewport": [
+    1440,
+    1000
+  ],
+  "mobile_viewport": [
+    390,
+    844
+  ],
+  "page_identity": "passed",
+  "meaningful_content": "passed",
+  "framework_overlay": "absent",
+  "search": "passed: PCA matches 2 relevant expression recipes",
+  "empty_results": "passed",
+  "topic_filter": "passed: structure shows 1 recipe",
+  "mobile_home_document_width": 390,
+  "mobile_reader_document_width": 390,
+  "structure": {
+    "atoms": 4993,
+    "canvases": 1,
+    "page_errors": [],
+    "external_requests": [],
+    "external_https": "blocked during test"
+  },
+  "browser_downloads": "12 files; exact byte/hash match",
+  "discipline_cards": 8,
+  "screenshots": [
+    "/tmp/vibeit-cookbook-home.png",
+    "/tmp/vibeit-cookbook-filter.png",
+    "/tmp/vibeit-cookbook-mobile.png",
+    "/tmp/vibeit-cookbook-structure.png",
+    "/tmp/vibeit-cookbook-mobile-structure.png"
+  ],
+  "images": "all 6 covers loaded; fresh response check has no failed cookbook assets",
+  "navigation": {
+    "product_en": "cookbook/",
+    "product_zh": "cookbook/zh-hans/",
+    "help_zh": "/vibeit/cookbook/zh-hans/"
+  },
+  "placeholders": {
+    "cards": 8,
+    "unavailable_download_links": 0,
+    "language_switch": "passed"
+  },
+  "brand": {
+    "source": "product page CSS tokens",
+    "background": "#0a0a0c",
+    "surface": "#141418",
+    "text": "#f4f4f6",
+    "accent": "#5aa9ff",
+    "accent_2": "#79e6ff",
+    "computed_match": "passed"
+  },
+  "syntax_highlighting": "Python token spans generated statically with Pygments; no CDN"
+}

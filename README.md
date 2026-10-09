@@ -31,3 +31,7 @@ assets/
 ```
 
 The package wheelhouse remains in `zhiluo20/pydev-wheelhouse`.
+
+## Bioinformatics Cookbook
+
+Six real workflows are available as twelve independent English/Chinese offline notebooks. The static catalog is generated from executed notebooks under `cookbook/`; authoring and verification instructions are in [cookbook-src/README.md](cookbook-src/README.md).

@@ -1,0 +1,9 @@
+**/__pycache__/
+**/.venv/
+.DS_Store
+.playwright-cli/
+cookbook-src/.cache/
+cookbook-src/qa/screenshots/
+cookbook-src/qa/app/
+cookbook-src/qa/browser/
+**/results/

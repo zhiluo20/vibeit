@@ -1,0 +1,51 @@
+[
+  {
+    "name": "RefSeq HBB/HBD",
+    "file": "data/raw/refseq-hbb-hbd.gz",
+    "bytes": 96762,
+    "compressed_bytes": 9455,
+    "sha256": "ea64e38e8e5ffad06f6d8770eaee066ef556e1488c4b9a6b340cbd445abe04ad"
+  },
+  {
+    "name": "airway read counts",
+    "file": "data/raw/airway-read-counts.gz",
+    "bytes": 5651312,
+    "compressed_bytes": 5653074,
+    "sha256": "98d05e82867ae4bed92295eb8863ab6c1aa694876f2b29b455c30a559f801cd0"
+  },
+  {
+    "name": "Reactome human Ensembl pathway mapping",
+    "file": "data/raw/reactome-human-ensembl-pathway-mapping.gz",
+    "bytes": 183277348,
+    "compressed_bytes": 21789020,
+    "sha256": "34852dc2ac258a851bad914708c0045a636161dbbeca604f04343174cca8d7fb"
+  },
+  {
+    "name": "STRING physical network",
+    "file": "data/raw/string-physical-network.gz",
+    "bytes": 10257,
+    "compressed_bytes": 795,
+    "sha256": "bfae5cea28cd3e90ff8bc12f768bfcfd66a6037c25f7c47fe2a81baaa7ea222f"
+  },
+  {
+    "name": "STRING identifier mapping",
+    "file": "data/raw/string-identifier-mapping.gz",
+    "bytes": 8846,
+    "compressed_bytes": 2914,
+    "sha256": "77fc78421492b54895dc862e7a8f4de4a84c61db73fdfbf0696ccee24fe1c371"
+  },
+  {
+    "name": "PDB 1A3N coordinates",
+    "file": "data/raw/pdb-1a3n-coordinates.gz",
+    "bytes": 461700,
+    "compressed_bytes": 106286,
+    "sha256": "a4db006269e9b6f9db0eb5447a5d40e59d67857484a9294b9ca71d642ffe9861"
+  },
+  {
+    "name": "RCSB 1A3N entry metadata",
+    "file": "data/raw/rcsb-1a3n-entry-metadata.gz",
+    "bytes": 14394,
+    "compressed_bytes": 3717,
+    "sha256": "e8fc0a94cd71b53bfa5736021ad877eaf68588632fb5be2c4f30040e340d11da"
+  }
+]

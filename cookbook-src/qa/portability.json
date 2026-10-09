@@ -1,0 +1,50 @@
+[
+  {
+    "filename": "02-affine-sequence-alignment.zh-hans.ipynb",
+    "rename_move_roundtrip": "passed"
+  },
+  {
+    "filename": "06-hemoglobin-structure.zh-hans.ipynb",
+    "rename_move_roundtrip": "passed"
+  },
+  {
+    "filename": "01-fasta-to-protein.zh-hans.ipynb",
+    "rename_move_roundtrip": "passed"
+  },
+  {
+    "filename": "05-string-physical-network.en.ipynb",
+    "rename_move_roundtrip": "passed"
+  },
+  {
+    "filename": "03-airway-expression.zh-hans.ipynb",
+    "rename_move_roundtrip": "passed"
+  },
+  {
+    "filename": "06-hemoglobin-structure.en.ipynb",
+    "rename_move_roundtrip": "passed"
+  },
+  {
+    "filename": "01-fasta-to-protein.en.ipynb",
+    "rename_move_roundtrip": "passed"
+  },
+  {
+    "filename": "04-reactome-enrichment.en.ipynb",
+    "rename_move_roundtrip": "passed"
+  },
+  {
+    "filename": "04-reactome-enrichment.zh-hans.ipynb",
+    "rename_move_roundtrip": "passed"
+  },
+  {
+    "filename": "03-airway-expression.en.ipynb",
+    "rename_move_roundtrip": "passed"
+  },
+  {
+    "filename": "05-string-physical-network.zh-hans.ipynb",
+    "rename_move_roundtrip": "passed"
+  },
+  {
+    "filename": "02-affine-sequence-alignment.en.ipynb",
+    "rename_move_roundtrip": "passed"
+  }
+]

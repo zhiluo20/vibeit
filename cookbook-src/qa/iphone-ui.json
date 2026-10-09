@@ -1,0 +1,10 @@
+{
+  "app": "1.0.2 (8)",
+  "device": "iPhone Simulator / iOS 27.0",
+  "long_chinese_tutorial": "readable and scrollable",
+  "structure": "real 1A3N model displayed and rotated by drag",
+  "table_fix": "Identifiers stay on one line in app; CSS horizontal scrolling verified at 390px in browser",
+  "screenshots": [
+    "/tmp/vibeit-cookbook-iphone-structure.png"
+  ]
+}

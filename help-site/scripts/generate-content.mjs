@@ -22,7 +22,9 @@ for(const locale of publicLocales){
  const folder=path.join(root,'src/content/docs',locale==='en'?'':locale);await mkdir(folder,{recursive:true});
  const popular=['getting-started/first-run','ai/codex','ai/reasoning','models/hugging-face','git/clone','remote/ssh'];
  const links=popular.map(id=>topics.find(t=>t.id===id)).filter(Boolean);
- const index=`---\ntitle: ${JSON.stringify(labels.siteTitle)}\ndescription: ${JSON.stringify(labels.intro)}\n---\n\n${labels.intro}\n\n## ${labels.popular}\n\n${links.map(t=>`- [${t.title[locale]}](${route(locale,t.id)}) — ${t.goal[locale]}`).join('\n')}\n\n## ${labels.all}\n\n${topics.map(t=>`- [${t.title[locale]}](${route(locale,t.id)})`).join('\n')}\n\n[${labels.examples}](${base}downloads/vibeit-tutorials.zip)\n\n[${labels.support}](https://www.mecury.co.uk/vibeit/contact.html)\n`;
+ const cookbookLabel=locale.startsWith('zh-')?'学科 Cookbook：下载真实分析 notebook':'Subject cookbooks: download real analysis notebooks';
+ const cookbookURL='/vibeit/cookbook/'+(locale.startsWith('zh-')?'zh-hans/':'');
+ const index=`---\ntitle: ${JSON.stringify(labels.siteTitle)}\ndescription: ${JSON.stringify(labels.intro)}\n---\n\n${labels.intro}\n\n[${cookbookLabel}](${cookbookURL})\n\n## ${labels.popular}\n\n${links.map(t=>`- [${t.title[locale]}](${route(locale,t.id)}) — ${t.goal[locale]}`).join('\n')}\n\n## ${labels.all}\n\n${topics.map(t=>`- [${t.title[locale]}](${route(locale,t.id)})`).join('\n')}\n\n[${labels.examples}](${base}downloads/vibeit-tutorials.zip)\n\n[${labels.support}](https://www.mecury.co.uk/vibeit/contact.html)\n`;
  await writeFile(path.join(folder,'index.mdx'),index);
 }
 console.log(`Generated ${topics.length} topics in ${publicLocales.length} completed source languages. Required languages: ${locales.length}.`);
