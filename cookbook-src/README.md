@@ -1,6 +1,6 @@
 # VibeIt Studio bioinformatics cookbook
 
-Six workflows, twelve independent English/Simplified Chinese notebooks, and a static subject catalog. Intended for undergraduate students with basic Python knowledge. **Publication is pending review; this branch does not deploy the website.**
+Six workflows, twelve independent English/Simplified Chinese notebooks, and a static subject catalog. Intended for undergraduate students with basic Python knowledge. **Official course catalog: [VibeIt Cookbook](https://www.mecury.co.uk/vibeit/cookbook/). GitHub Pages publishes the committed static artifacts from `main`.**
 
 ## Download and run / 下载与运行
 
@@ -78,7 +78,7 @@ The site generator reads executed notebooks for every code cell, table and figur
 
 The product's existing Lessons navigation opens the Cookbook, using its current language; the Help Center also links to the courses. Cookbook headers are generated from the product header markup, navigation translations, and scoped desktop/mobile CSS. The language menu offers the two available lesson editions and keeps the current page when switching. Cookbook pages use the `www.mecury.co.uk` canonical host and paired English/Chinese hreflang links. The root product sitemap includes all 32 cookbook pages.
 
-Merge/deployment remain a later review step. After publication, rerun the download/hash/import checks against the public origin rather than treating local preview as deployed acceptance.
+Publication merges approved changes into `main` and triggers GitHub Pages. After publication, rerun the download/hash/import checks against the public origin rather than treating local preview as deployed acceptance.
 
 The Cookbook palette is generated directly from the product page CSS tokens. Python code is highlighted statically with Pygments; syntax colors and brand assets require no CDN. Scientific plots preserve their executed colors.
 
