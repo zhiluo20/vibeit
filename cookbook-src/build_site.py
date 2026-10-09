@@ -19,6 +19,7 @@ BASE="/vibeit/cookbook/"
 HOST="https://www.mecury.co.uk"
 ASSETS=OUT/"assets"
 ASSETS.mkdir(parents=True,exist_ok=True)
+PRODUCT=(SITE/"index.html").read_text(encoding="utf-8")
 md=mistune.create_markdown(plugins=["table","url"])
 class VibeitCodeStyle(Style):
     background_color="#101014"
@@ -47,12 +48,92 @@ DISCIPLINES=[
 ]
 
 def esc(value):return html.escape(str(value),quote=True)
+
+def callout(title,content):
+    """A static note card; content has already been rendered as Markdown."""
+    icon='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7v1"/></svg>'
+    return f'<aside class="callout" role="note" aria-label="{esc(title)}"><div class="callout-heading">{icon}<strong>{esc(title)}</strong></div><div class="callout-content">{content}</div></aside>'
+
+# Shared notebook sections identify reusable guidance. Scientific explanations and
+# exercise prompts retain their original paragraph and quotation formatting.
+GUIDANCE_TITLES={
+    "## 目标与运行方法":"在 VibeIt 中运行",
+    "## Goal and how to run":"Run in VibeIt",
+    "### 读取内嵌快照":"内嵌数据说明",
+    "### Load the embedded snapshot":"Embedded data",
+    "### 方法函数":"方法代码说明",
+    "### Read the method functions":"Method code",
+    "## 可选的 AI 编程练习":"可选 AI 练习",
+    "## Optional AI coding exercises":"Optional AI exercises",
+    "## 可选联网扩展":"联网扩展说明",
+    "## Optional online extension":"Online extension",
+}
+
+def markdown_html(source):
+    sections=source.split("\n\n",2)
+    title=GUIDANCE_TITLES.get(sections[0])
+    if title and len(sections)>=2:
+        # Render just the fixed introductory paragraph as a card. Keeping its
+        # Markdown intact preserves inline code, emphasis and future links.
+        return md(sections[0])+callout(title,md(sections[1]))+(md(sections[2]) if len(sections)==3 else "")
+    return md(source)
+
 def prefix(locale):return BASE+("zh-hans/" if locale=="zh-hans" else "")
 def route(locale,tail=""):return prefix(locale)+tail
+
+def site_header(locale,tail):
+    """Reuse the product header markup and its navigation translations."""
+    zh=locale=="zh-hans"
+    header=re.search(r"<header>.*?</header>",PRODUCT,re.S).group(0)
+    language="zh" if zh else "en"
+    product_url="/vibeit/?lang="+language
+    header=header.replace('<header>','<header class="site-header">')
+    header=header.replace('<nav class="wrap">',f'<nav class="wrap" aria-label="{"主导航" if zh else "Main navigation"}">')
+    header=header.replace('href="#top"',f'href="{product_url}"')
+    header=header.replace('src="assets/','src="/vibeit/assets/')
+    for anchor in ["capabilities","pricing"]:
+        header=header.replace(f'href="#{anchor}"',f'href="{product_url}#{anchor}"')
+    header=header.replace('href="cookbook/"',f'href="{prefix(locale)}" aria-current="page"')
+    header=header.replace('href="help/"',f'href="/vibeit/help/{"zh-hans/" if zh else ""}"')
+    translations=re.search(r'\b'+language+r':\{(.*?)\n      \}',PRODUCT.split('const T={',1)[1],re.S).group(1)
+    labels=dict(re.findall(r'"(nav\.[^"]+)":"([^"]+)"',translations))
+    def translate(match):
+        return match[1]+esc(labels[match[2]])+match[3]
+    header=re.sub(r'(<a[^>]*data-i18n="(nav\.[^"]+)"[^>]*>).*?(</a>)',translate,header)
+    header=header.replace('>Help Center</a>',('>使用手册</a>' if zh else '>Help Center</a>'))
+    header=header.replace('aria-label="Menu"',f'aria-label="{"菜单" if zh else "Menu"}"')
+    header=header.replace('id="langBtn" aria-haspopup="true"',f'id="langBtn" aria-label="{"选择语言" if zh else "Choose language"}" aria-controls="langMenu" aria-haspopup="menu"')
+    header=header.replace('<span id="langLabel">English</span>',f'<span id="langLabel">{"中文" if zh else "English"}</span>')
+    languages=[]
+    for code,label in [("en","English"),("zh-hans","中文")]:
+        languages.append(f'<a href="{route(code,tail)}" lang="{code}" role="menuitem" data-code="{code}" aria-current="{str(code==locale).lower()}">{label}</a>')
+    header=header.replace('<div class="lang-menu" id="langMenu" role="menu"></div>','<div class="lang-menu" id="langMenu" role="menu">'+''.join(languages)+'</div>')
+    return header
+
+def header_css():
+    """Scope the actual product desktop/mobile header CSS to cookbook pages."""
+    desktop=re.search(r'(header\{position:sticky;.*?)(?=\s*\.hero\{)',PRODUCT,re.S).group(1)
+    mobile=re.search(r'/\* ===== Mobile: collapse the nav.*?\*/\s*@media\(max-width:820px\)\{(.*?)\n    \}',PRODUCT,re.S).group(1)
+    def scope(rules):
+        rules=re.sub(r'/\*.*?\*/','',rules,flags=re.S)
+        def rule(match):
+            selectors=[]
+            for selector in match[1].strip().split(','):
+                selector=selector.strip().replace('.lang-menu button','.lang-menu a')
+                selectors.append('.site-header' if selector=='header' else '.site-header '+selector)
+            return ','.join(selectors)+'{'+match[2].strip()+'}\n'
+        return re.sub(r'([^{}]+)\{([^{}]*)\}',rule,rules)
+    resets='''.site-header{background:transparent;border:0;line-height:1.5;font-size:16px}
+.site-header .wrap{width:100%;max-width:var(--maxw);margin:0 auto;padding:0 24px}
+.site-header .brand{font-size:16px;white-space:nowrap;color:var(--text)}
+.site-header a{text-decoration:none}
+.site-header .nav-links{align-items:normal;flex-wrap:nowrap}
+.site-header .nav-links a[aria-current="page"]{color:var(--accent);font-weight:650}
+'''
+    return '/* Generated from the product page header CSS. */\n'+resets+scope(desktop)+'\n@media(max-width:820px){\n'+scope(mobile)+'}\n'
+
 def document(title,description,body,locale,tail="",reader=False):
     zh=locale=="zh-hans";url=HOST+route(locale,tail)
-    other="en" if zh else "zh-hans"
-    links=f'<a class="product-link" href="/vibeit/">{"产品" if zh else "Product"}</a><a href="{prefix(locale)}" aria-current="page">Cookbook</a><a href="/vibeit/help/{"zh-hans/" if zh else ""}">{"帮助" if zh else "Help"}</a><a class="language-link" href="{route(other,tail)}" lang="{other}">{"English" if zh else "简体中文"}</a>'
     scripts='<script src="'+BASE+'assets/site.js" defer></script>'
     if reader:
         scripts+='<script src="'+BASE+'assets/3Dmol-min.js"></script><script>window.$3Dmol=window.$3Dmol||window["3Dmol"];window.$3Dmolpromise=Promise.resolve(true);</script>'
@@ -64,8 +145,8 @@ def document(title,description,body,locale,tail="",reader=False):
 <title>{esc(title)} · Vibeit Studio Cookbook</title><meta name="description" content="{esc(description)}">
 <link rel="canonical" href="{url}"><link rel="alternate" hreflang="en" href="{HOST+route('en',tail)}"><link rel="alternate" hreflang="zh-CN" href="{HOST+route('zh-hans',tail)}"><link rel="alternate" hreflang="x-default" href="{HOST+route('en',tail)}">
 <meta property="og:title" content="{esc(title)}"><meta property="og:description" content="{esc(description)}"><meta property="og:url" content="{url}"><meta property="og:type" content="website">
-<link rel="icon" href="/vibeit/assets/pydev-icon.png"><link rel="stylesheet" href="{BASE}assets/brand.css"><link rel="stylesheet" href="{BASE}assets/site.css"><link rel="stylesheet" href="{BASE}assets/code.css">{scripts}<script type="application/ld+json">{structured}</script></head>
-<body><a class="skip" href="#main">{"跳到内容" if zh else "Skip to content"}</a><header class="site-header"><nav class="wrap nav" aria-label="{"主导航" if zh else "Main navigation"}"><a class="brand" href="/vibeit/"><img src="/vibeit/assets/pydev-icon.png" alt="">Vibeit Studio</a><div class="nav-links">{links}</div></nav></header>
+<link rel="icon" href="/vibeit/assets/pydev-icon.png"><link rel="stylesheet" href="{BASE}assets/brand.css"><link rel="stylesheet" href="{BASE}assets/site.css"><link rel="stylesheet" href="{BASE}assets/code.css"><link rel="stylesheet" href="{BASE}assets/header.css">{scripts}<script type="application/ld+json">{structured}</script></head>
+<body><a class="skip" href="#main">{"跳到内容" if zh else "Skip to content"}</a>{site_header(locale,tail)}
 <main id="main" class="wrap">{body}</main><footer class="site-footer"><div class="wrap footer-inner"><span>Vibeit Studio Cookbook · {"真实数据，可复现方法。" if zh else "Real data. Reproducible methods."}</span><div><a href="{route(locale,'sources/')}">{"数据与许可" if zh else "Data & licenses"}</a><a href="/vibeit/help/">{"应用帮助" if zh else "App help"}</a><a href="https://github.com/zhiluo20/vibeit/tree/main/cookbook-src">{"课程源文件" if zh else "Lesson source"}</a></div></div></footer></body></html>'''
 
 def write_page(locale,tail,title,description,body,reader=False):
@@ -108,14 +189,14 @@ def recipes(locale):
     categories=[("all","所有主题" if zh else "All topics"),("sequences","基因与序列" if zh else "Genes & sequences"),("expression","表达与富集" if zh else "Expression & enrichment"),("networks","蛋白互作" if zh else "Protein interactions"),("structure","蛋白结构" if zh else "Protein structure")]
     title="生物信息学" if zh else "Bioinformatics"
     intro="六个独立可运行的课程，把真实数据、方法与生物学解释连接起来。只需下载一个 notebook，即可开始每个工作流。" if zh else "Six independent, runnable lessons connecting real data, methods and biological interpretation. One notebook download starts each workflow."
-    body=f'''<section class="page-intro"><div class="breadcrumbs"><a href="{prefix(locale)}">Cookbook</a> / {title}</div><div class="eyebrow">BIOINFORMATICS / 01–06</div><h1>{title}</h1><p>{intro}</p></section><div class="learning-path"><div><strong>{"序列路径" if zh else "Sequence path"}</strong> 01 → 02 → 06</div><div><strong>{"表达路径" if zh else "Expression path"}</strong> 03 → 04 → 05</div><a href="{BASE}downloads/vibeit-bioinformatics-cookbook.zip" download>{"下载 12 份 notebook 合集" if zh else "Download all 12 notebooks"}</a></div><div class="filter-bar"><div class="search-field"><label for="recipe-search">{"搜索教程或包" if zh else "Search recipes or packages"}</label><input id="recipe-search" type="search" placeholder="{"例如 PCA、序列、NetworkX" if zh else "Try PCA, sequence, NetworkX"}"></div><div><label for="recipe-category">{"主题" if zh else "Topic"}</label><select id="recipe-category">{''.join(f'<option value="{key}">{label}</option>' for key,label in categories)}</select></div></div><p class="results-count" id="result-count" role="status" aria-live="polite">6 recipes</p><section class="grid" aria-label="{"教程列表" if zh else "Recipes"}">{''.join(cards)}</section><p id="empty-state" class="empty-state" hidden>{"没有匹配教程，请修改搜索词或分类。" if zh else "No matching recipes. Try another query or topic."}</p><div class="note">{"在 VibeIt 中使用 + → Import from Files 导入 .ipynb，再按顺序运行单元。核心分析无需联网或 AI 账号。" if zh else "In VibeIt use + → Import from Files to open the .ipynb, then run cells in order. Core analysis needs no network or AI account."}</div>'''
+    body=f'''<section class="page-intro"><div class="breadcrumbs"><a href="{prefix(locale)}">Cookbook</a> / {title}</div><div class="eyebrow">BIOINFORMATICS / 01–06</div><h1>{title}</h1><p>{intro}</p></section><div class="learning-path"><div><strong>{"序列路径" if zh else "Sequence path"}</strong> 01 → 02 → 06</div><div><strong>{"表达路径" if zh else "Expression path"}</strong> 03 → 04 → 05</div><a href="{BASE}downloads/vibeit-bioinformatics-cookbook.zip" download>{"下载 12 份 notebook 合集" if zh else "Download all 12 notebooks"}</a></div><div class="filter-bar"><div class="search-field"><label for="recipe-search">{"搜索教程或包" if zh else "Search recipes or packages"}</label><input id="recipe-search" type="search" placeholder="{"例如 PCA、序列、NetworkX" if zh else "Try PCA, sequence, NetworkX"}"></div><div><label for="recipe-category">{"主题" if zh else "Topic"}</label><select id="recipe-category">{''.join(f'<option value="{key}">{label}</option>' for key,label in categories)}</select></div></div><p class="results-count" id="result-count" role="status" aria-live="polite">6 recipes</p><section class="grid" aria-label="{"教程列表" if zh else "Recipes"}">{''.join(cards)}</section><p id="empty-state" class="empty-state" hidden>{"没有匹配教程，请修改搜索词或分类。" if zh else "No matching recipes. Try another query or topic."}</p>{callout("在 VibeIt 中运行" if zh else "Run in VibeIt",md("在 VibeIt 中使用 **+ → Import from Files** 导入 `.ipynb`，再按顺序运行单元。核心分析无需联网或 AI 账号。" if zh else "In VibeIt use **+ → Import from Files** to open the `.ipynb`, then run cells in order. Core analysis needs no network or AI account."))}'''
     write_page(locale,"bioinformatics/",title,intro,body)
 
 def notebook_html(nb):
     parts=[];toc=[]
     for cell in nb.cells:
         if cell.cell_type=="markdown":
-            rendered=md(cell.source)
+            rendered=markdown_html(cell.source)
             def heading(match):
                 level,text=match.group(1),match.group(2)
                 anchor="s-"+hashlib.sha256((cell.id+text).encode()).hexdigest()[:10]
@@ -177,13 +258,14 @@ if __name__=="__main__":
     # Product page remains the single source of brand colors, including future updates.
     product=(SITE/"index.html").read_text()
     product_root=re.search(r":root\s*\{(.*?)\}",product,re.S).group(1)
-    brand_names=["bg","bg-2","surface","surface-2","text","muted","faint","line","line-2", "accent","accent-2","accent-ink","glass","glass-line","glass-blur","font"]
+    brand_names=["bg","bg-2","surface","surface-2","text","muted","faint","line","line-2", "accent","accent-2","accent-ink","glass","glass-line","glass-blur","font","maxw"]
     tokens=[]
     for name in brand_names:
         value=re.search(r"--"+re.escape(name)+r"\s*:\s*([^;]+);",product_root).group(1).strip()
         tokens.append(f"--{name}:{value};")
     (ASSETS/"brand.css").write_text("/* Generated from the Vibeit product page. */\n:root{"+"".join(tokens)+"}\n")
     (ASSETS/"code.css").write_text(CODE_FORMATTER.get_style_defs(".source-code")+"\n")
+    (ASSETS/"header.css").write_text(header_css())
     for name in ["site.css","site.js"]:shutil.copyfile(ROOT/name,ASSETS/name)
     vendor=ROOT/"vendor"
     for name in ["3Dmol-min.js","3Dmol-min.js.LICENSE.txt","3Dmol-LICENSE"]:

@@ -72,8 +72,10 @@ Machine-readable evidence in `qa/` distinguishes authoring execution, independen
 
 The site generator reads executed notebooks for every code cell, table and figure. Notebook calculations are not duplicated in separate webpage source. `manifest.json` describes six recipes, languages, routes, packages, snapshot version and validation state. New subjects use honest "Coming soon" landing cards until runnable material exists.
 
-Website integration adds the Cookbook entry to the existing main navigation and Help Center landing pages, while preserving their existing language selection. Cookbook pages use the `www.mecury.co.uk` canonical host and paired English/Chinese hreflang links. The root product sitemap includes all 32 cookbook pages.
+The product's existing Lessons navigation opens the Cookbook, using its current language; the Help Center also links to the courses. Cookbook headers are generated from the product header markup, navigation translations, and scoped desktop/mobile CSS. The language menu offers the two available lesson editions and keeps the current page when switching. Cookbook pages use the `www.mecury.co.uk` canonical host and paired English/Chinese hreflang links. The root product sitemap includes all 32 cookbook pages.
 
 Merge/deployment remain a later review step. After publication, rerun the download/hash/import checks against the public origin rather than treating local preview as deployed acceptance.
 
 The Cookbook palette is generated directly from the product page CSS tokens. Python code is highlighted statically with Pygments; syntax colors and brand assets require no CDN. Scientific plots preserve their executed colors.
+
+The reading-page renderer presents fixed introductory guidance in the shared run, snapshot, method, AI and online-extension sections as accessible callout cards. These cards preserve the notebook Markdown text, inline code and emphasis. The downloaded notebooks, calculation cells and saved outputs are unchanged by this presentation layer.

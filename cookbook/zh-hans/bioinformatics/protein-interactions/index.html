@@ -3,15 +3,40 @@
 <title>解读蛋白质物理互作网络 · Vibeit Studio Cookbook</title><meta name="description" content="将 12 个 DNA 损伤响应蛋白映射到 STRING，保留孤立节点，比较阈值并查看证据来源。">
 <link rel="canonical" href="https://www.mecury.co.uk/vibeit/cookbook/zh-hans/bioinformatics/protein-interactions/"><link rel="alternate" hreflang="en" href="https://www.mecury.co.uk/vibeit/cookbook/bioinformatics/protein-interactions/"><link rel="alternate" hreflang="zh-CN" href="https://www.mecury.co.uk/vibeit/cookbook/zh-hans/bioinformatics/protein-interactions/"><link rel="alternate" hreflang="x-default" href="https://www.mecury.co.uk/vibeit/cookbook/bioinformatics/protein-interactions/">
 <meta property="og:title" content="解读蛋白质物理互作网络"><meta property="og:description" content="将 12 个 DNA 损伤响应蛋白映射到 STRING，保留孤立节点，比较阈值并查看证据来源。"><meta property="og:url" content="https://www.mecury.co.uk/vibeit/cookbook/zh-hans/bioinformatics/protein-interactions/"><meta property="og:type" content="website">
-<link rel="icon" href="/vibeit/assets/pydev-icon.png"><link rel="stylesheet" href="/vibeit/cookbook/assets/brand.css"><link rel="stylesheet" href="/vibeit/cookbook/assets/site.css"><link rel="stylesheet" href="/vibeit/cookbook/assets/code.css"><script src="/vibeit/cookbook/assets/site.js" defer></script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "CollectionPage", "name": "解读蛋白质物理互作网络", "description": "将 12 个 DNA 损伤响应蛋白映射到 STRING，保留孤立节点，比较阈值并查看证据来源。", "url": "https://www.mecury.co.uk/vibeit/cookbook/zh-hans/bioinformatics/protein-interactions/", "inLanguage": "zh-CN", "isPartOf": {"@type": "WebSite", "name": "Vibeit Studio", "url": "https://www.mecury.co.uk/vibeit/"}}</script></head>
-<body><a class="skip" href="#main">跳到内容</a><header class="site-header"><nav class="wrap nav" aria-label="主导航"><a class="brand" href="/vibeit/"><img src="/vibeit/assets/pydev-icon.png" alt="">Vibeit Studio</a><div class="nav-links"><a class="product-link" href="/vibeit/">产品</a><a href="/vibeit/cookbook/zh-hans/" aria-current="page">Cookbook</a><a href="/vibeit/help/zh-hans/">帮助</a><a class="language-link" href="/vibeit/cookbook/bioinformatics/protein-interactions/" lang="en">English</a></div></nav></header>
+<link rel="icon" href="/vibeit/assets/pydev-icon.png"><link rel="stylesheet" href="/vibeit/cookbook/assets/brand.css"><link rel="stylesheet" href="/vibeit/cookbook/assets/site.css"><link rel="stylesheet" href="/vibeit/cookbook/assets/code.css"><link rel="stylesheet" href="/vibeit/cookbook/assets/header.css"><script src="/vibeit/cookbook/assets/site.js" defer></script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "CollectionPage", "name": "解读蛋白质物理互作网络", "description": "将 12 个 DNA 损伤响应蛋白映射到 STRING，保留孤立节点，比较阈值并查看证据来源。", "url": "https://www.mecury.co.uk/vibeit/cookbook/zh-hans/bioinformatics/protein-interactions/", "inLanguage": "zh-CN", "isPartOf": {"@type": "WebSite", "name": "Vibeit Studio", "url": "https://www.mecury.co.uk/vibeit/"}}</script></head>
+<body><a class="skip" href="#main">跳到内容</a><header class="site-header">
+    <nav class="wrap" aria-label="主导航">
+      <a class="brand" href="/vibeit/?lang=zh"><img src="/vibeit/assets/pydev-icon.png" alt="Vibeit"> Vibeit</a>
+      <button class="nav-toggle" id="navToggle" aria-label="菜单" aria-controls="navCollapse" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <div class="nav-collapse" id="navCollapse">
+        <div class="nav-links">
+          <a href="/vibeit/?lang=zh#capabilities" data-i18n="nav.features">功能</a>
+          <a href="/vibeit/cookbook/zh-hans/" aria-current="page" data-i18n="nav.lessons" data-cookbook-link>课程</a>
+          <a href="/vibeit/?lang=zh#pricing" data-i18n="nav.pricing">订阅</a>
+          <a href="/vibeit/help/zh-hans/" data-help-link>使用手册</a>
+        </div>
+        <div class="nav-right">
+          <div class="lang-wrap">
+            <button class="lang" id="langBtn" aria-label="选择语言" aria-controls="langMenu" aria-haspopup="menu" aria-expanded="false">
+              <span id="langLabel">中文</span>
+              <svg viewBox="0 0 12 8" fill="none"><path d="M1 1.5 6 6.5 11 1.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <div class="lang-menu" id="langMenu" role="menu"><a href="/vibeit/cookbook/bioinformatics/protein-interactions/" lang="en" role="menuitem" data-code="en" aria-current="false">English</a><a href="/vibeit/cookbook/zh-hans/bioinformatics/protein-interactions/" lang="zh-hans" role="menuitem" data-code="zh-hans" aria-current="true">中文</a></div>
+          </div>
+          <a class="btn btn-primary nav-cta" href="https://apps.apple.com/app/id6786619257" data-i18n="nav.get">获取 Vibeit</a>
+        </div>
+      </div>
+    </nav>
+  </header>
 <main id="main" class="wrap"><div class="page-intro"><div class="breadcrumbs"><a href="/vibeit/cookbook/zh-hans/">Cookbook</a> / <a href="/vibeit/cookbook/zh-hans/bioinformatics/">生物信息学</a> / 05</div><div class="facts"><span>50 分钟</span><span>真实数据快照</span><span>已执行的网页阅读版</span></div><div class="actions"><a class="button" href="/vibeit/cookbook/downloads/05-string-physical-network.zh-hans.ipynb" download>下载并在 VibeIt 中运行</a><a class="button secondary" href="/vibeit/cookbook/zh-hans/bioinformatics/">所有教程</a></div></div><div class="article-layout"><article class="notebook"><h1>解读蛋白质物理互作网络</h1>
 <p>将 12 个 DNA 损伤响应蛋白映射到 STRING，保留孤立节点，比较阈值并查看证据来源。</p>
 <p><strong>生物信息学 · 第 05 课 · 50 分钟 · 内嵌真实数据 · 离线核心分析</strong></p>
 
 <h2 id="s-f3ed528e8a">目标与运行方法</h2>
-<p>下载完整 <code>.ipynb</code>，在 VibeIt Studio 文件浏览器中使用 <strong>+ → Import from Files</strong> 导入并打开。按从上到下的顺序运行代码单元；阅读模式中的图表是已保存的真实运行输出。重新运行会从内嵌数据计算结果。</p>
-<p>本课适合具备 Python 基础的本科生。先阅读每一步的方法与图注，再修改参数。AI 练习为可选部分，不需要 AI 账号即可完成核心课程。数据写在 notebook metadata 中，不需要另下载数据文件。请保持 notebook 已保存到当前工作文件夹。</p>
+<aside class="callout" role="note" aria-label="在 VibeIt 中运行"><div class="callout-heading"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7v1"/></svg><strong>在 VibeIt 中运行</strong></div><div class="callout-content"><p>下载完整 <code>.ipynb</code>，在 VibeIt Studio 文件浏览器中使用 <strong>+ → Import from Files</strong> 导入并打开。按从上到下的顺序运行代码单元；阅读模式中的图表是已保存的真实运行输出。重新运行会从内嵌数据计算结果。</p>
+</div></aside><p>本课适合具备 Python 基础的本科生。先阅读每一步的方法与图注，再修改参数。AI 练习为可选部分，不需要 AI 账号即可完成核心课程。数据写在 notebook metadata 中，不需要另下载数据文件。请保持 notebook 已保存到当前工作文件夹。</p>
 <p>学习任务是理解本课的研究问题、执行透明的计算、校验结果，并说明结论的边界。</p>
 
 <h2 id="s-627344f600">环境与参数</h2>
@@ -35,8 +60,8 @@ Working folder: /Users/zhiluo/Developer/vibeit-cookbook/cookbook/downloads
 Core data mode: embedded snapshot; no network requests
 </pre></div></section>
 <h3 id="s-5623162d9c">读取内嵌快照</h3>
-<p>下面的加载函数按课程 ID 与 SHA-256 在当前文件夹定位本 notebook，解压后再次校验。文件改名不影响匹配。若找不到数据，确认当前工作目录与文件位置；不要用编造的数据替换它。metadata 随 <code>.ipynb</code> 保存及导出，复制代码到单独 <code>.py</code> 不会自动复制数据。</p>
-
+<aside class="callout" role="note" aria-label="内嵌数据说明"><div class="callout-heading"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7v1"/></svg><strong>内嵌数据说明</strong></div><div class="callout-content"><p>下面的加载函数按课程 ID 与 SHA-256 在当前文件夹定位本 notebook，解压后再次校验。文件改名不影响匹配。若找不到数据，确认当前工作目录与文件位置；不要用编造的数据替换它。metadata 随 <code>.ipynb</code> 保存及导出，复制代码到单独 <code>.py</code> 不会自动复制数据。</p>
+</div></aside>
 <section class="code-cell"><div class="cell-prompt">In [2] · Python</div><pre class="source-code"><code><span class="k">def</span><span class="w"> </span><span class="nf">load_snapshot</span><span class="p">(</span><span class="n">recipe_id</span><span class="p">,</span> <span class="n">expected_sha256</span><span class="p">,</span> <span class="n">snapshot_key</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Read embedded data from this notebook, including a renamed copy."""</span>
     <span class="k">for</span> <span class="n">path</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">Path</span><span class="o">.</span><span class="n">cwd</span><span class="p">()</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s2">"*.ipynb"</span><span class="p">)):</span>
@@ -65,8 +90,8 @@ Core data mode: embedded snapshot; no network requests
 </code></pre><div class="output"><pre>Embedded snapshots: [&#x27;network&#x27;]
 </pre></div></section>
 <h3 id="s-40a9de05b9">方法函数</h3>
-<p>本课所需函数的完整代码就在下面。它们只使用已列出的预装包与标准库，运行时不会导入任何 cookbook 辅助模块。先检查输入约束和返回值；如果修改算法，后面的校验也需要继续通过。</p>
-
+<aside class="callout" role="note" aria-label="方法代码说明"><div class="callout-heading"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7v1"/></svg><strong>方法代码说明</strong></div><div class="callout-content"><p>本课所需函数的完整代码就在下面。它们只使用已列出的预装包与标准库，运行时不会导入任何 cookbook 辅助模块。先检查输入约束和返回值；如果修改算法，后面的校验也需要继续通过。</p>
+</div></aside>
 <section class="code-cell"><div class="cell-prompt">In [3] · Python</div><pre class="source-code"><code><span class="k">def</span><span class="w"> </span><span class="nf">physical_graph</span><span class="p">(</span><span class="n">snapshot</span><span class="p">,</span> <span class="n">threshold</span><span class="o">=</span><span class="mf">0.7</span><span class="p">):</span>
     <span class="k">if</span> <span class="ow">not</span> <span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">threshold</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">:</span>
         <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"Network threshold must be between 0 and 1"</span><span class="p">)</span>
@@ -608,8 +633,8 @@ Version: [{&#x27;stable_address&#x27;: &#x27;https://version-12-5.string-db.org&
 <p>先保留当前 notebook 副本，再修改参数。把新图与原图一起比较，并记录改变了哪些输入、哪些计算和哪些结论。</p>
 
 <h2 id="s-a56ec28e55">可选的 AI 编程练习</h2>
-<p>在 VibeIt 的 Coding Agent 中打开当前 notebook，先让助手阅读相关单元。核心课程不依赖 AI 服务；服务可用性与账号设置以应用帮助中心为准。</p>
-<p><strong>提示词 1</strong></p>
+<aside class="callout" role="note" aria-label="可选 AI 练习"><div class="callout-heading"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7v1"/></svg><strong>可选 AI 练习</strong></div><div class="callout-content"><p>在 VibeIt 的 Coding Agent 中打开当前 notebook，先让助手阅读相关单元。核心课程不依赖 AI 服务；服务可用性与账号设置以应用帮助中心为准。</p>
+</div></aside><p><strong>提示词 1</strong></p>
 <blockquote>
 <p>用一个共享的固定随机布局，并排展示 0.7 与 0.95 的网络，保留全部 12 个节点，表格中显示 STRING 标识符。</p>
 </blockquote>
@@ -621,8 +646,8 @@ Version: [{&#x27;stable_address&#x27;: &#x27;https://version-12-5.string-db.org&
 <p>检查修改后的源代码，再手动运行受影响单元及后续校验。要求助手解释修改的目的、使用的包和数据来源，并用实际输出核对解释。</p>
 
 <h2 id="s-7d7e2d64c5">可选联网扩展</h2>
-<p>默认关闭下面的联网操作。它只显示数据库版本及快照来源，不会替换核心数据。若要重新获取数据，应另存一个实验版本并记录新的 URL、数据库版本、获取日期与 SHA-256；新版结果需要重新执行和核验。</p>
-
+<aside class="callout" role="note" aria-label="联网扩展说明"><div class="callout-heading"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7v1"/></svg><strong>联网扩展说明</strong></div><div class="callout-content"><p>默认关闭下面的联网操作。它只显示数据库版本及快照来源，不会替换核心数据。若要重新获取数据，应另存一个实验版本并记录新的 URL、数据库版本、获取日期与 SHA-256；新版结果需要重新执行和核验。</p>
+</div></aside>
 <section class="code-cell"><div class="cell-prompt">In [10] · Python</div><pre class="source-code"><code><span class="n">RUN_ONLINE_UPDATE</span><span class="o">=</span><span class="kc">False</span>
 <span class="k">if</span> <span class="n">RUN_ONLINE_UPDATE</span><span class="p">:</span>
     <span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>

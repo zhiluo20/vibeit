@@ -39,10 +39,13 @@
 - 桌面 1440×1000 与手机 390×844 验证，手机首页和阅读页均没有页面水平溢出。
 - Cookbook 背景、表面、文字、弱化文字及蓝青 accent 的浏览器计算值与产品页完全一致；品牌色从产品 CSS 自动生成。
 - Python 代码使用 Pygments 静态高亮，具备实际 token span 和独立色彩；高亮与结构阅读版均不依赖外部 CDN。
+- 12 个阅读页各有 5 张固定说明 callout 卡片，保留 `.ipynb` 行内代码及导入菜单的加粗文字；390px 手机页面没有水平溢出。
+- 主页现有 Lessons/课程按钮进入相应语言的 Cookbook；32 个 Cookbook 页眉从主页的 HTML、翻译和 CSS 生成。桌面导航宽度 1200px、高度 56px，背景、圆角、内边距、字体及 28px 图标均与主页浏览器计算值一致；手机导航同为 390×56px。
+- 实际点击验证主页课程入口、手机折叠菜单、同课语言切换、返回产品功能区及 Escape 关闭操作。目录定位的标题位于 84px，避开 56px 的固定页眉。
 - 结构页面在阻断所有外部 HTTPS 的测试中显示 4,993 个原子、一个 WebGL canvas，未产生页面异常或外部请求。
-- 所有 32 个页面的 canonical、双语 hreflang、sitemap 和 698 个本地链接/资源目标检查通过。
+- 所有 32 个页面的 canonical、双语 hreflang、sitemap 和 794 个本地链接/资源目标检查通过。
 
-详见 `qa/browser-validation.json`、`qa/browser-downloads.json` 及 `qa/evidence/`。
+详见 `qa/browser-validation.json`、`qa/ui-refinement.json`、`qa/browser-downloads.json` 及 `qa/evidence/`。
 
 ## 发布边界
 

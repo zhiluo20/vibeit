@@ -110,7 +110,7 @@
     }
   ],
   "pages": 32,
-  "local_links_checked": 698,
+  "local_links_checked": 794,
   "bilingual_code_parity": "passed",
   "brand_palette": "exact product tokens",
   "python_highlighting": "static Pygments; offline",

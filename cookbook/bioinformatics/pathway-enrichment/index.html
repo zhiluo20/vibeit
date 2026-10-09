@@ -3,15 +3,40 @@
 <title>Test pathway overrepresentation · Vibeit Studio Cookbook</title><meta name="description" content="Define a measured gene universe, test real Reactome pathways with a hypergeometric model, and correct the entire test family.">
 <link rel="canonical" href="https://www.mecury.co.uk/vibeit/cookbook/bioinformatics/pathway-enrichment/"><link rel="alternate" hreflang="en" href="https://www.mecury.co.uk/vibeit/cookbook/bioinformatics/pathway-enrichment/"><link rel="alternate" hreflang="zh-CN" href="https://www.mecury.co.uk/vibeit/cookbook/zh-hans/bioinformatics/pathway-enrichment/"><link rel="alternate" hreflang="x-default" href="https://www.mecury.co.uk/vibeit/cookbook/bioinformatics/pathway-enrichment/">
 <meta property="og:title" content="Test pathway overrepresentation"><meta property="og:description" content="Define a measured gene universe, test real Reactome pathways with a hypergeometric model, and correct the entire test family."><meta property="og:url" content="https://www.mecury.co.uk/vibeit/cookbook/bioinformatics/pathway-enrichment/"><meta property="og:type" content="website">
-<link rel="icon" href="/vibeit/assets/pydev-icon.png"><link rel="stylesheet" href="/vibeit/cookbook/assets/brand.css"><link rel="stylesheet" href="/vibeit/cookbook/assets/site.css"><link rel="stylesheet" href="/vibeit/cookbook/assets/code.css"><script src="/vibeit/cookbook/assets/site.js" defer></script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "CollectionPage", "name": "Test pathway overrepresentation", "description": "Define a measured gene universe, test real Reactome pathways with a hypergeometric model, and correct the entire test family.", "url": "https://www.mecury.co.uk/vibeit/cookbook/bioinformatics/pathway-enrichment/", "inLanguage": "en", "isPartOf": {"@type": "WebSite", "name": "Vibeit Studio", "url": "https://www.mecury.co.uk/vibeit/"}}</script></head>
-<body><a class="skip" href="#main">Skip to content</a><header class="site-header"><nav class="wrap nav" aria-label="Main navigation"><a class="brand" href="/vibeit/"><img src="/vibeit/assets/pydev-icon.png" alt="">Vibeit Studio</a><div class="nav-links"><a class="product-link" href="/vibeit/">Product</a><a href="/vibeit/cookbook/" aria-current="page">Cookbook</a><a href="/vibeit/help/">Help</a><a class="language-link" href="/vibeit/cookbook/zh-hans/bioinformatics/pathway-enrichment/" lang="zh-hans">简体中文</a></div></nav></header>
+<link rel="icon" href="/vibeit/assets/pydev-icon.png"><link rel="stylesheet" href="/vibeit/cookbook/assets/brand.css"><link rel="stylesheet" href="/vibeit/cookbook/assets/site.css"><link rel="stylesheet" href="/vibeit/cookbook/assets/code.css"><link rel="stylesheet" href="/vibeit/cookbook/assets/header.css"><script src="/vibeit/cookbook/assets/site.js" defer></script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "CollectionPage", "name": "Test pathway overrepresentation", "description": "Define a measured gene universe, test real Reactome pathways with a hypergeometric model, and correct the entire test family.", "url": "https://www.mecury.co.uk/vibeit/cookbook/bioinformatics/pathway-enrichment/", "inLanguage": "en", "isPartOf": {"@type": "WebSite", "name": "Vibeit Studio", "url": "https://www.mecury.co.uk/vibeit/"}}</script></head>
+<body><a class="skip" href="#main">Skip to content</a><header class="site-header">
+    <nav class="wrap" aria-label="Main navigation">
+      <a class="brand" href="/vibeit/?lang=en"><img src="/vibeit/assets/pydev-icon.png" alt="Vibeit"> Vibeit</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Menu" aria-controls="navCollapse" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <div class="nav-collapse" id="navCollapse">
+        <div class="nav-links">
+          <a href="/vibeit/?lang=en#capabilities" data-i18n="nav.features">Features</a>
+          <a href="/vibeit/cookbook/" aria-current="page" data-i18n="nav.lessons" data-cookbook-link>Lessons</a>
+          <a href="/vibeit/?lang=en#pricing" data-i18n="nav.pricing">Pricing</a>
+          <a href="/vibeit/help/" data-help-link>Help Center</a>
+        </div>
+        <div class="nav-right">
+          <div class="lang-wrap">
+            <button class="lang" id="langBtn" aria-label="Choose language" aria-controls="langMenu" aria-haspopup="menu" aria-expanded="false">
+              <span id="langLabel">English</span>
+              <svg viewBox="0 0 12 8" fill="none"><path d="M1 1.5 6 6.5 11 1.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <div class="lang-menu" id="langMenu" role="menu"><a href="/vibeit/cookbook/bioinformatics/pathway-enrichment/" lang="en" role="menuitem" data-code="en" aria-current="true">English</a><a href="/vibeit/cookbook/zh-hans/bioinformatics/pathway-enrichment/" lang="zh-hans" role="menuitem" data-code="zh-hans" aria-current="false">中文</a></div>
+          </div>
+          <a class="btn btn-primary nav-cta" href="https://apps.apple.com/app/id6786619257" data-i18n="nav.get">Get Vibeit</a>
+        </div>
+      </div>
+    </nav>
+  </header>
 <main id="main" class="wrap"><div class="page-intro"><div class="breadcrumbs"><a href="/vibeit/cookbook/">Cookbook</a> / <a href="/vibeit/cookbook/bioinformatics/">Bioinformatics</a> / 04</div><div class="facts"><span>60 min</span><span>Real data snapshot</span><span>Executed reading edition</span></div><div class="actions"><a class="button" href="/vibeit/cookbook/downloads/04-reactome-enrichment.en.ipynb" download>Download and run in VibeIt</a><a class="button secondary" href="/vibeit/cookbook/bioinformatics/">All recipes</a></div></div><div class="article-layout"><article class="notebook"><h1>Test pathway overrepresentation</h1>
 <p>Define a measured gene universe, test real Reactome pathways with a hypergeometric model, and correct the entire test family.</p>
 <p><strong>Bioinformatics · Lesson 04 · 60 minutes · Embedded real data · Offline core analysis</strong></p>
 
 <h2 id="s-cce0052300">Goal and how to run</h2>
-<p>Download the complete <code>.ipynb</code>. In VibeIt Studio's file browser use <strong>+ → Import from Files</strong>, then open it. Run code cells from top to bottom. Saved charts show actual executed results; rerunning recomputes them from embedded data.</p>
-<p>This lesson assumes basic Python knowledge. Read each method and caption before changing parameters. AI exercises are optional; no AI account is needed for the core workflow. Data lives in notebook metadata, so there is no companion data download. Keep the notebook saved in the active working folder.</p>
+<aside class="callout" role="note" aria-label="Run in VibeIt"><div class="callout-heading"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7v1"/></svg><strong>Run in VibeIt</strong></div><div class="callout-content"><p>Download the complete <code>.ipynb</code>. In VibeIt Studio's file browser use <strong>+ → Import from Files</strong>, then open it. Run code cells from top to bottom. Saved charts show actual executed results; rerunning recomputes them from embedded data.</p>
+</div></aside><p>This lesson assumes basic Python knowledge. Read each method and caption before changing parameters. AI exercises are optional; no AI account is needed for the core workflow. Data lives in notebook metadata, so there is no companion data download. Keep the notebook saved in the active working folder.</p>
 <p>Your goal is to understand the biological question, execute transparent calculations, check the results, and state the limits of the conclusion.</p>
 
 <h2 id="s-f49a8d2eb1">Setup and parameters</h2>
@@ -36,8 +61,8 @@ Working folder: /Users/zhiluo/Developer/vibeit-cookbook/cookbook/downloads
 Core data mode: embedded snapshot; no network requests
 </pre></div></section>
 <h3 id="s-9d02a35bf2">Load the embedded snapshot</h3>
-<p>The loader locates this notebook in the working folder by recipe ID and SHA-256, then decompresses and verifies the data. Renaming the file does not change its identity. If loading fails, check the working folder and saved file. Metadata travels with <code>.ipynb</code> save/export; copying code to a standalone <code>.py</code> does not copy the dataset.</p>
-
+<aside class="callout" role="note" aria-label="Embedded data"><div class="callout-heading"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7v1"/></svg><strong>Embedded data</strong></div><div class="callout-content"><p>The loader locates this notebook in the working folder by recipe ID and SHA-256, then decompresses and verifies the data. Renaming the file does not change its identity. If loading fails, check the working folder and saved file. Metadata travels with <code>.ipynb</code> save/export; copying code to a standalone <code>.py</code> does not copy the dataset.</p>
+</div></aside>
 <section class="code-cell"><div class="cell-prompt">In [2] · Python</div><pre class="source-code"><code><span class="k">def</span><span class="w"> </span><span class="nf">load_snapshot</span><span class="p">(</span><span class="n">recipe_id</span><span class="p">,</span> <span class="n">expected_sha256</span><span class="p">,</span> <span class="n">snapshot_key</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Read embedded data from this notebook, including a renamed copy."""</span>
     <span class="k">for</span> <span class="n">path</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">Path</span><span class="o">.</span><span class="n">cwd</span><span class="p">()</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s2">"*.ipynb"</span><span class="p">)):</span>
@@ -66,8 +91,8 @@ Core data mode: embedded snapshot; no network requests
 </code></pre><div class="output"><pre>Embedded snapshots: [&#x27;airway&#x27;, &#x27;reactome&#x27;]
 </pre></div></section>
 <h3 id="s-19af884be9">Read the method functions</h3>
-<p>The full implementations appear below. They use the listed bundled packages and standard library; no cookbook helper module is imported at runtime. Inspect input requirements and return values. If you change an algorithm, its checks must still pass.</p>
-
+<aside class="callout" role="note" aria-label="Method code"><div class="callout-heading"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7v1"/></svg><strong>Method code</strong></div><div class="callout-content"><p>The full implementations appear below. They use the listed bundled packages and standard library; no cookbook helper module is imported at runtime. Inspect input requirements and return values. If you change an algorithm, its checks must still pass.</p>
+</div></aside>
 <section class="code-cell"><div class="cell-prompt">In [3] · Python</div><pre class="source-code"><code><span class="k">def</span><span class="w"> </span><span class="nf">validate_counts</span><span class="p">(</span><span class="n">counts</span><span class="p">,</span> <span class="n">metadata</span><span class="p">):</span>
     <span class="k">if</span> <span class="ow">not</span> <span class="n">counts</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">is_unique</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">counts</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">is_unique</span><span class="p">:</span>
         <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"Gene and sample identifiers must be unique"</span><span class="p">)</span>
@@ -737,8 +762,8 @@ Terms with q &lt; 0.05: 5
 <p>Keep a copy before changing parameters. Compare old and new figures and record which inputs, calculations and conclusions changed.</p>
 
 <h2 id="s-b1960389d4">Optional AI coding exercises</h2>
-<p>Open the current notebook in VibeIt's Coding Agent and ask it to read the relevant cells. The core lesson does not depend on AI access; see the Help Center for provider and account setup.</p>
-<p><strong>Prompt 1</strong></p>
+<aside class="callout" role="note" aria-label="Optional AI exercises"><div class="callout-heading"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7v1"/></svg><strong>Optional AI exercises</strong></div><div class="callout-content"><p>Open the current notebook in VibeIt's Coding Agent and ask it to read the relevant cells. The core lesson does not depend on AI access; see the Help Center for provider and account setup.</p>
+</div></aside><p><strong>Prompt 1</strong></p>
 <blockquote>
 <p>Add the N/K/n/k values to the displayed table and validate one hypergeometric tail by summing the probability mass function. Preserve the measured background and both-direction BH family.</p>
 </blockquote>
@@ -750,8 +775,8 @@ Terms with q &lt; 0.05: 5
 <p>Review the edited source, then manually run affected cells and subsequent checks. Ask the assistant to explain the purpose, packages and data provenance of its changes, and reconcile that explanation with actual output.</p>
 
 <h2 id="s-73dd727ef6">Optional online extension</h2>
-<p>The network action below is disabled by default. It reports a database version/source without replacing the core data. To refresh data, save a separate experimental version and record the new URL, database release, retrieval date and SHA-256. New results require rerunning and validation.</p>
-
+<aside class="callout" role="note" aria-label="Online extension"><div class="callout-heading"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7v1"/></svg><strong>Online extension</strong></div><div class="callout-content"><p>The network action below is disabled by default. It reports a database version/source without replacing the core data. To refresh data, save a separate experimental version and record the new URL, database release, retrieval date and SHA-256. New results require rerunning and validation.</p>
+</div></aside>
 <section class="code-cell"><div class="cell-prompt">In [16] · Python</div><pre class="source-code"><code><span class="n">RUN_ONLINE_UPDATE</span><span class="o">=</span><span class="kc">False</span>
 <span class="k">if</span> <span class="n">RUN_ONLINE_UPDATE</span><span class="p">:</span>
     <span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>

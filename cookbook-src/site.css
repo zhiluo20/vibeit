@@ -36,3 +36,16 @@ a{color:var(--accent)}a:hover{color:var(--accent-2)}
 @media print{body{background:white;color:#111}.notebook pre,.output{background:#f5f5f5;color:#111}.hero h1{background:none;color:#111}}
 
 .cell-prompt{color:var(--muted)}
+.skip{z-index:80}
+.notebook h2,.notebook h3{scroll-margin-top:84px}
+.reader-toc{top:80px}
+
+/* Fixed course guidance uses the product's blue/cyan note cards. */
+.callout{margin:24px 0;padding:18px 22px;border:1px solid rgba(90,169,255,.24);border-inline-start:3px solid var(--accent);border-radius:12px;background:rgba(90,169,255,.07);color:var(--text);min-width:0;break-inside:avoid}
+.callout-heading{display:flex;align-items:center;gap:9px;margin-bottom:10px;color:var(--accent-2);font-size:14px;line-height:1.5}
+.callout-heading svg{width:19px;height:19px;flex:none}
+.callout-content p,.notebook .callout-content p{margin:0;font-size:15px;line-height:1.85;overflow-wrap:anywhere;color:var(--text)}
+.callout-content p+p{margin-top:12px}
+.callout-content code{padding:2px 5px;border:1px solid var(--line);border-radius:4px;background:var(--surface);font-size:.85em}
+@media(max-width:640px){.callout{padding:16px;margin:20px 0}.callout-content p,.notebook .callout-content p{font-size:14px}}
+@media print{.callout{background:#f3f7fb;border-color:#aac5e0;color:#111}.callout-heading{color:#235c88}.callout-content p,.notebook .callout-content p{color:#111}.callout-content code{background:#e9eef5}}
