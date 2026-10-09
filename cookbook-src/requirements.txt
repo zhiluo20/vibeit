@@ -1,0 +1,14 @@
+numpy
+pandas
+scipy
+matplotlib
+networkx
+py3Dmol
+requests
+IPython
+nbformat
+nbclient
+ipykernel
+mistune
+Pygments
+rdata==1.1.0

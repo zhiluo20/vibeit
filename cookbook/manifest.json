@@ -1,0 +1,225 @@
+[
+  {
+    "id": "01-fasta-to-protein",
+    "slug": "fasta-to-protein",
+    "category": "sequences",
+    "minutes": 45,
+    "difficulty": 1,
+    "title": {
+      "en": "From FASTA to a gene and its protein",
+      "zh-hans": "从 FASTA 到基因与蛋白质"
+    },
+    "summary": {
+      "en": "Trace real HBB and HBD transcripts through their annotated coding regions, then verify translation against RefSeq.",
+      "zh-hans": "沿着真实 HBB 与 HBD 转录本提取编码区，将翻译结果与 RefSeq 注释逐字核对。"
+    },
+    "snapshots": [
+      "sequences"
+    ],
+    "packages": [
+      "numpy",
+      "pandas",
+      "matplotlib",
+      "IPython"
+    ],
+    "cover": "/vibeit/cookbook/assets/fasta-to-protein.png",
+    "discipline": "bioinformatics",
+    "data_version": "snapshot-2026-10-09",
+    "validation": "executed-offline",
+    "downloads": {
+      "en": "/vibeit/cookbook/downloads/01-fasta-to-protein.en.ipynb",
+      "zh-hans": "/vibeit/cookbook/downloads/01-fasta-to-protein.zh-hans.ipynb"
+    },
+    "previews": {
+      "en": "/vibeit/cookbook/bioinformatics/fasta-to-protein/",
+      "zh-hans": "/vibeit/cookbook/zh-hans/bioinformatics/fasta-to-protein/"
+    }
+  },
+  {
+    "id": "02-affine-sequence-alignment",
+    "slug": "sequence-alignment",
+    "category": "sequences",
+    "minutes": 60,
+    "difficulty": 2,
+    "title": {
+      "en": "Align the beta- and delta-globin genes",
+      "zh-hans": "比对 β 与 δ 珠蛋白基因"
+    },
+    "summary": {
+      "en": "Build affine-gap global and local alignment, follow the traceback, and explain exactly what identity and coverage measure.",
+      "zh-hans": "实现仿射缺口全局与局部比对，跟随回溯路径，准确理解一致性、覆盖率及评分。"
+    },
+    "snapshots": [
+      "sequences"
+    ],
+    "packages": [
+      "numpy",
+      "pandas",
+      "matplotlib",
+      "IPython"
+    ],
+    "cover": "/vibeit/cookbook/assets/sequence-alignment.png",
+    "discipline": "bioinformatics",
+    "data_version": "snapshot-2026-10-09",
+    "validation": "executed-offline",
+    "downloads": {
+      "en": "/vibeit/cookbook/downloads/02-affine-sequence-alignment.en.ipynb",
+      "zh-hans": "/vibeit/cookbook/downloads/02-affine-sequence-alignment.zh-hans.ipynb"
+    },
+    "previews": {
+      "en": "/vibeit/cookbook/bioinformatics/sequence-alignment/",
+      "zh-hans": "/vibeit/cookbook/zh-hans/bioinformatics/sequence-alignment/"
+    }
+  },
+  {
+    "id": "03-airway-expression",
+    "slug": "rnaseq-expression",
+    "category": "expression",
+    "minutes": 60,
+    "difficulty": 2,
+    "title": {
+      "en": "Explore a paired RNA-seq experiment",
+      "zh-hans": "探索真实的配对 RNA-seq 实验"
+    },
+    "summary": {
+      "en": "Inspect 63,677 genes across eight airway samples; normalize depth, distinguish donor from treatment, and inspect paired responses.",
+      "zh-hans": "检查 63,677 个基因与 8 个 airway 样本，归一化测序深度，区分供体与处理效应并查看配对变化。"
+    },
+    "snapshots": [
+      "airway"
+    ],
+    "packages": [
+      "numpy",
+      "pandas",
+      "matplotlib",
+      "IPython"
+    ],
+    "cover": "/vibeit/cookbook/assets/rnaseq-expression.png",
+    "discipline": "bioinformatics",
+    "data_version": "snapshot-2026-10-09",
+    "validation": "executed-offline",
+    "downloads": {
+      "en": "/vibeit/cookbook/downloads/03-airway-expression.en.ipynb",
+      "zh-hans": "/vibeit/cookbook/downloads/03-airway-expression.zh-hans.ipynb"
+    },
+    "previews": {
+      "en": "/vibeit/cookbook/bioinformatics/rnaseq-expression/",
+      "zh-hans": "/vibeit/cookbook/zh-hans/bioinformatics/rnaseq-expression/"
+    }
+  },
+  {
+    "id": "04-reactome-enrichment",
+    "slug": "pathway-enrichment",
+    "category": "expression",
+    "minutes": 60,
+    "difficulty": 3,
+    "title": {
+      "en": "Test pathway overrepresentation",
+      "zh-hans": "检验响应候选基因的通路富集"
+    },
+    "summary": {
+      "en": "Define a measured gene universe, test real Reactome pathways with a hypergeometric model, and correct the entire test family.",
+      "zh-hans": "定义实际测量的背景集合，用超几何模型检验真实 Reactome 通路，并对完整检验族校正。"
+    },
+    "snapshots": [
+      "airway",
+      "reactome"
+    ],
+    "packages": [
+      "numpy",
+      "pandas",
+      "scipy",
+      "matplotlib",
+      "networkx",
+      "IPython"
+    ],
+    "cover": "/vibeit/cookbook/assets/pathway-enrichment.png",
+    "discipline": "bioinformatics",
+    "data_version": "snapshot-2026-10-09",
+    "validation": "executed-offline",
+    "downloads": {
+      "en": "/vibeit/cookbook/downloads/04-reactome-enrichment.en.ipynb",
+      "zh-hans": "/vibeit/cookbook/downloads/04-reactome-enrichment.zh-hans.ipynb"
+    },
+    "previews": {
+      "en": "/vibeit/cookbook/bioinformatics/pathway-enrichment/",
+      "zh-hans": "/vibeit/cookbook/zh-hans/bioinformatics/pathway-enrichment/"
+    }
+  },
+  {
+    "id": "05-string-physical-network",
+    "slug": "protein-interactions",
+    "category": "networks",
+    "minutes": 50,
+    "difficulty": 2,
+    "title": {
+      "en": "Read a protein interaction network",
+      "zh-hans": "解读蛋白质物理互作网络"
+    },
+    "summary": {
+      "en": "Map 12 DNA-damage response proteins to STRING, retain isolates, compare confidence thresholds, and inspect evidence channels.",
+      "zh-hans": "将 12 个 DNA 损伤响应蛋白映射到 STRING，保留孤立节点，比较阈值并查看证据来源。"
+    },
+    "snapshots": [
+      "network"
+    ],
+    "packages": [
+      "numpy",
+      "pandas",
+      "matplotlib",
+      "networkx",
+      "IPython"
+    ],
+    "cover": "/vibeit/cookbook/assets/protein-interactions.png",
+    "discipline": "bioinformatics",
+    "data_version": "snapshot-2026-10-09",
+    "validation": "executed-offline",
+    "downloads": {
+      "en": "/vibeit/cookbook/downloads/05-string-physical-network.en.ipynb",
+      "zh-hans": "/vibeit/cookbook/downloads/05-string-physical-network.zh-hans.ipynb"
+    },
+    "previews": {
+      "en": "/vibeit/cookbook/bioinformatics/protein-interactions/",
+      "zh-hans": "/vibeit/cookbook/zh-hans/bioinformatics/protein-interactions/"
+    }
+  },
+  {
+    "id": "06-hemoglobin-structure",
+    "slug": "protein-structure",
+    "category": "structure",
+    "minutes": 60,
+    "difficulty": 2,
+    "title": {
+      "en": "Inspect hemoglobin in three dimensions",
+      "zh-hans": "在三维空间中分析血红蛋白"
+    },
+    "summary": {
+      "en": "Rotate real 1A3N coordinates, inspect heme and its neighbors, and connect chain numbering to a RefSeq protein sequence.",
+      "zh-hans": "旋转真实 1A3N 坐标，观察血红素与邻近残基，将结构链编号与 RefSeq 蛋白序列联系起来。"
+    },
+    "snapshots": [
+      "structure",
+      "sequences"
+    ],
+    "packages": [
+      "numpy",
+      "pandas",
+      "scipy",
+      "matplotlib",
+      "py3Dmol",
+      "IPython"
+    ],
+    "cover": "/vibeit/cookbook/assets/protein-structure.png",
+    "discipline": "bioinformatics",
+    "data_version": "snapshot-2026-10-09",
+    "validation": "executed-offline",
+    "downloads": {
+      "en": "/vibeit/cookbook/downloads/06-hemoglobin-structure.en.ipynb",
+      "zh-hans": "/vibeit/cookbook/downloads/06-hemoglobin-structure.zh-hans.ipynb"
+    },
+    "previews": {
+      "en": "/vibeit/cookbook/bioinformatics/protein-structure/",
+      "zh-hans": "/vibeit/cookbook/zh-hans/bioinformatics/protein-structure/"
+    }
+  }
+]

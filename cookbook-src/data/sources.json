@@ -1,0 +1,89 @@
+[
+  {
+    "name": "RefSeq HBB/HBD",
+    "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=nuccore&id=NM_000518.5%2CNM_000519.4&rettype=gb&retmode=xml",
+    "sha256": "ea64e38e8e5ffad06f6d8770eaee066ef556e1488c4b9a6b340cbd445abe04ad",
+    "retrieved_at": "2026-10-09T06:29:06.723901+00:00",
+    "license": "NCBI public sequence data",
+    "accessions": [
+      "NM_000518.5",
+      "NM_000519.4"
+    ],
+    "conversion": "GenBank XML CDS uses 1-based inclusive coordinates"
+  },
+  {
+    "name": "airway read counts",
+    "url": "https://raw.githubusercontent.com/bioconductor-source/airway/596678815f4ade04a9711997150949b9782aeddc/data/airway.RData",
+    "sha256": "98d05e82867ae4bed92295eb8863ab6c1aa694876f2b29b455c30a559f801cd0",
+    "retrieved_at": "2026-10-09T06:29:23.845886+00:00",
+    "license": "LGPL (airway package); original experiment: Himes et al. 2014",
+    "commit": "596678815f4ade04a9711997150949b9782aeddc",
+    "geo": "GSE52778",
+    "doi": "10.1371/journal.pone.0099625",
+    "shape": [
+      63677,
+      8
+    ],
+    "conversion": "rdata 1.1.0: assays.data.listData['counts'], rowRanges.partitioning.NAMES, colData; no scaling or gene subsetting"
+  },
+  {
+    "name": "Reactome human Ensembl pathway mapping",
+    "url": "https://reactome.org/download/current/Ensembl2Reactome.txt",
+    "sha256": "34852dc2ac258a851bad914708c0045a636161dbbeca604f04343174cca8d7fb",
+    "retrieved_at": "2026-10-09T06:29:47.429943+00:00",
+    "license": "CC0 1.0",
+    "version": "97",
+    "bytes": 183277348,
+    "conversion": "Lowest-level pathways; Homo sapiens; retain genes present in the complete airway matrix; deduplicate memberships"
+  },
+  {
+    "name": "STRING physical network",
+    "url": "https://string-db.org/api/json/network",
+    "sha256": "bfae5cea28cd3e90ff8bc12f768bfcfd66a6037c25f7c47fe2a81baaa7ea222f",
+    "retrieved_at": "2026-10-09T06:29:50.237380+00:00",
+    "license": "CC BY 4.0 (STRING data)",
+    "request": {
+      "identifiers": "TP53\rMDM2\rMDM4\rATM\rATR\rCHEK1\rCHEK2\rBRCA1\rBRCA2\rCDKN1A\rBAX\rBCL2",
+      "species": 9606,
+      "caller_identity": "vibeit-studio-cookbook",
+      "network_type": "physical",
+      "required_score": 400,
+      "add_nodes": 0
+    },
+    "version": [
+      {
+        "string_version": "12.5",
+        "stable_address": "https://version-12-5.string-db.org"
+      }
+    ]
+  },
+  {
+    "name": "STRING identifier mapping",
+    "url": "https://string-db.org/api/json/get_string_ids",
+    "sha256": "77fc78421492b54895dc862e7a8f4de4a84c61db73fdfbf0696ccee24fe1c371",
+    "retrieved_at": "2026-10-09T06:29:50.237409+00:00",
+    "license": "CC BY 4.0 (STRING data)",
+    "request": {
+      "identifiers": "TP53\rMDM2\rMDM4\rATM\rATR\rCHEK1\rCHEK2\rBRCA1\rBRCA2\rCDKN1A\rBAX\rBCL2",
+      "species": 9606,
+      "limit": 1,
+      "echo_query": 1,
+      "caller_identity": "vibeit-studio-cookbook"
+    }
+  },
+  {
+    "name": "PDB 1A3N coordinates",
+    "url": "https://files.rcsb.org/download/1A3N.pdb",
+    "sha256": "a4db006269e9b6f9db0eb5447a5d40e59d67857484a9294b9ca71d642ffe9861",
+    "retrieved_at": "2026-10-09T06:29:53.269762+00:00",
+    "license": "CC0 1.0",
+    "pdb_id": "1A3N"
+  },
+  {
+    "name": "RCSB 1A3N entry metadata",
+    "url": "https://data.rcsb.org/rest/v1/core/entry/1A3N",
+    "sha256": "e8fc0a94cd71b53bfa5736021ad877eaf68588632fb5be2c4f30040e340d11da",
+    "retrieved_at": "2026-10-09T06:29:53.269828+00:00",
+    "license": "CC0 1.0"
+  }
+]

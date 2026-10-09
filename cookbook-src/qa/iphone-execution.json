@@ -1,0 +1,35 @@
+[
+  {
+    "filename": "03-airway-expression.zh-hans.ipynb",
+    "status": "passed",
+    "app_version": "1.0.2 (8)",
+    "device": "iPhone Simulator / iOS 27.0",
+    "executed_cells": 14,
+    "png_figures": 5,
+    "html_outputs": 4,
+    "python": "Python: 3.13.14 ; NumPy: 2.5.0 ; Pandas: 3.0.3",
+    "validated_at": "2026-10-09T07:46:52.652073+00:00"
+  },
+  {
+    "filename": "06-hemoglobin-structure.en.ipynb",
+    "status": "passed",
+    "app_version": "1.0.2 (8)",
+    "device": "iPhone Simulator / iOS 27.0",
+    "executed_cells": 12,
+    "png_figures": 3,
+    "html_outputs": 5,
+    "python": "Python: 3.13.14 ; NumPy: 2.5.0 ; Pandas: 3.0.3",
+    "validated_at": "2026-10-09T07:50:37.123086+00:00"
+  },
+  {
+    "filename": "03-airway-expression.final.zh-hans.ipynb",
+    "status": "passed",
+    "app_version": "1.0.2 (8)",
+    "device": "iPhone Simulator / iOS 27.0",
+    "executed_cells": 14,
+    "png_figures": 5,
+    "html_outputs": 4,
+    "python": "Python: 3.13.14 ; NumPy: 2.5.0 ; Pandas: 3.0.3",
+    "validated_at": "2026-10-09T08:01:10.863326+00:00"
+  }
+]

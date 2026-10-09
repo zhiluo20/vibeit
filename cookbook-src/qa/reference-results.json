@@ -1,0 +1,12 @@
+{
+  "airway_rows": 63677,
+  "samples": 8,
+  "donors": 4,
+  "expression_filter_genes": 16139,
+  "effect_screen_up": 527,
+  "effect_screen_down": 529,
+  "reactome_measured_universe": 7980,
+  "ora_test_family": 2086,
+  "ora_q_below_005": 5,
+  "interpretation": "effect-screened candidates; no formal differential-expression p-values"
+}

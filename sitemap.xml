@@ -1,16 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!--
-  Served at https://mecury.co.uk/vibeit/sitemap.xml
-
-  A sitemap may only list URLs at or below its own path, which is exactly the case here,
-  so this is valid despite not being at the domain root. It cannot be auto-discovered via
-  robots.txt though — that file has to live at mecury.co.uk/robots.txt, which this repo
-  does not serve. Submit this URL directly in Search Console instead.
-
-  Only the five indexable pages are listed. ts.html and the trailing-slash redirect shims
-  under contact/, privacy/, terms/, support/ are all marked noindex and are deliberately
-  left out.
--->
+<?xml version='1.0' encoding='utf-8'?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://mecury.co.uk/vibeit/</loc>
@@ -36,5 +24,133 @@
     <loc>https://mecury.co.uk/vibeit/terms.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://www.mecury.co.uk/vibeit/cookbook/</loc>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.mecury.co.uk/vibeit/cookbook/bioinformatics/</loc>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.mecury.co.uk/vibeit/cookbook/sources/</loc>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.mecury.co.uk/vibeit/cookbook/bioinformatics/fasta-to-protein/</loc>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.mecury.co.uk/vibeit/cookbook/bioinformatics/sequence-alignment/</loc>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.mecury.co.uk/vibeit/cookbook/bioinformatics/rnaseq-expression/</loc>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.mecury.co.uk/vibeit/cookbook/bioinformatics/pathway-enrichment/</loc>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.mecury.co.uk/vibeit/cookbook/bioinformatics/protein-interactions/</loc>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.mecury.co.uk/vibeit/cookbook/bioinformatics/protein-structure/</loc>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.mecury.co.uk/vibeit/cookbook/data-science/</loc>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.mecury.co.uk/vibeit/cookbook/mathematics/</loc>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.mecury.co.uk/vibeit/cookbook/physics/</loc>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.mecury.co.uk/vibeit/cookbook/chemistry/</loc>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.mecury.co.uk/vibeit/cookbook/engineering/</loc>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.mecury.co.uk/vibeit/cookbook/economics/</loc>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.mecury.co.uk/vibeit/cookbook/humanities/</loc>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.mecury.co.uk/vibeit/cookbook/zh-hans/</loc>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.mecury.co.uk/vibeit/cookbook/zh-hans/bioinformatics/</loc>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.mecury.co.uk/vibeit/cookbook/zh-hans/sources/</loc>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.mecury.co.uk/vibeit/cookbook/zh-hans/bioinformatics/fasta-to-protein/</loc>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.mecury.co.uk/vibeit/cookbook/zh-hans/bioinformatics/sequence-alignment/</loc>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.mecury.co.uk/vibeit/cookbook/zh-hans/bioinformatics/rnaseq-expression/</loc>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.mecury.co.uk/vibeit/cookbook/zh-hans/bioinformatics/pathway-enrichment/</loc>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.mecury.co.uk/vibeit/cookbook/zh-hans/bioinformatics/protein-interactions/</loc>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.mecury.co.uk/vibeit/cookbook/zh-hans/bioinformatics/protein-structure/</loc>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.mecury.co.uk/vibeit/cookbook/zh-hans/data-science/</loc>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.mecury.co.uk/vibeit/cookbook/zh-hans/mathematics/</loc>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.mecury.co.uk/vibeit/cookbook/zh-hans/physics/</loc>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.mecury.co.uk/vibeit/cookbook/zh-hans/chemistry/</loc>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.mecury.co.uk/vibeit/cookbook/zh-hans/engineering/</loc>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.mecury.co.uk/vibeit/cookbook/zh-hans/economics/</loc>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.mecury.co.uk/vibeit/cookbook/zh-hans/humanities/</loc>
+    <changefreq>monthly</changefreq>
   </url>
 </urlset>

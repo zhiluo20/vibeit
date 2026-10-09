@@ -1,0 +1,66 @@
+{
+  "date": "2026-10-09",
+  "environment": "Chromium / local preview / Browser plugin not available; Playwright CLI",
+  "viewports": {
+    "desktop": [
+      1440,
+      1000
+    ],
+    "mobile": [
+      390,
+      844
+    ]
+  },
+  "callouts": {
+    "reader_pages_checked": 12,
+    "cards_per_reader": 5,
+    "inline_code": ".ipynb",
+    "emphasis": "+ → Import from Files",
+    "role": "note",
+    "mobile_document_width": 390
+  },
+  "header": {
+    "pages_generated": 32,
+    "source": "Product header markup, navigation translations and scoped CSS",
+    "desktop_product_and_cookbook": {
+      "width": 1200,
+      "height": 56,
+      "background": "rgba(16, 16, 20, 0.66)",
+      "radius": "999px",
+      "padding": "0px 24px",
+      "brand_font": "16px",
+      "icon": "28px",
+      "labels": [
+        "功能",
+        "课程",
+        "订阅",
+        "使用手册"
+      ],
+      "cta": "获取 Vibeit"
+    },
+    "mobile_product_and_cookbook": {
+      "width": 390,
+      "height": 56,
+      "radius": "999px"
+    }
+  },
+  "interactions": {
+    "product_lessons_en": "/vibeit/cookbook/",
+    "product_lessons_zh": "/vibeit/cookbook/zh-hans/",
+    "same_page_language_switch": "passed",
+    "mobile_menu": "passed",
+    "keyboard_language_selection": "passed",
+    "escape_close": "passed",
+    "feature_return": "/vibeit/?lang=zh#capabilities",
+    "toc_heading_top": 84.1015625,
+    "sticky_header_bottom": 56
+  },
+  "page_errors": [],
+  "console_errors": [],
+  "notebooks": "Unchanged; all 12 validated with embedded hashes, saved outputs and bilingual code parity",
+  "deployment": "Not published",
+  "screenshots": [
+    "evidence/callout-desktop.png",
+    "evidence/header-mobile.png"
+  ]
+}
