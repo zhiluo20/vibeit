@@ -6,8 +6,8 @@
       "snapshots": "passed",
       "imports": "passed",
       "execution": "passed",
-      "bytes": 140220,
-      "sha256": "eb3ac095dc537728c8755cde775a691b703ce288dcd9b7bfef5b19182f4f3dcf"
+      "bytes": 142252,
+      "sha256": "8e71af0a10e5330d176da45c6e81167a6e05efa516aa6cc1a566868162204d91"
     },
     {
       "filename": "01-fasta-to-protein.zh-hans.ipynb",
@@ -15,8 +15,8 @@
       "snapshots": "passed",
       "imports": "passed",
       "execution": "passed",
-      "bytes": 139744,
-      "sha256": "e4d8698874b7e64f74d53bbc65c3e9dbc1fdb32d69dbf92844adcae19c0fc27f"
+      "bytes": 141778,
+      "sha256": "840dd8c49bb33abc6ecd20ea9a9f89f8cdefc0c82a58efb16980e66034a3c716"
     },
     {
       "filename": "02-affine-sequence-alignment.en.ipynb",
@@ -24,8 +24,8 @@
       "snapshots": "passed",
       "imports": "passed",
       "execution": "passed",
-      "bytes": 324252,
-      "sha256": "786ad8b142ffc839f2dc291cb9d6335ef6df2fd7437a9090a622a573b2ffb180"
+      "bytes": 326286,
+      "sha256": "63c705a80a0df1613bef9c6873dc43ee2796fc24fe014e3c3ce196a42c1040c8"
     },
     {
       "filename": "02-affine-sequence-alignment.zh-hans.ipynb",
@@ -33,8 +33,8 @@
       "snapshots": "passed",
       "imports": "passed",
       "execution": "passed",
-      "bytes": 323677,
-      "sha256": "65e9cab46bbc3b227f241bbe41cf7d790c93fbfe0ece0e5a1476f37e44f1a20a"
+      "bytes": 325712,
+      "sha256": "cda6cd6f84467655abc1606f2244bf4bc733ed21701b2feb37db27a8b403cd2d"
     },
     {
       "filename": "03-airway-expression.en.ipynb",
@@ -42,8 +42,8 @@
       "snapshots": "passed",
       "imports": "passed",
       "execution": "passed",
-      "bytes": 1026275,
-      "sha256": "ef89f9554564204ab380cd1450697790a8e77010fae72ea9cc5ba7a2f5d789e1"
+      "bytes": 1028306,
+      "sha256": "350c647ee15567e2bbb6ec2fd5bc5dfc1e84bd3d08d52054dd01b1ce45ece5ba"
     },
     {
       "filename": "03-airway-expression.zh-hans.ipynb",
@@ -51,8 +51,8 @@
       "snapshots": "passed",
       "imports": "passed",
       "execution": "passed",
-      "bytes": 1025597,
-      "sha256": "f1c19f23345f0ce512e8ac1f0b6560b9435bd26412915aa33c2ab3af7f4a5f31"
+      "bytes": 1027636,
+      "sha256": "130f6e6ea00247fd99953ad36bef41311e396609e07e0d7feb01c811224f2525"
     },
     {
       "filename": "04-reactome-enrichment.en.ipynb",
@@ -60,8 +60,8 @@
       "snapshots": "passed",
       "imports": "passed",
       "execution": "passed",
-      "bytes": 1251611,
-      "sha256": "ecf9fa2b1c00d667951109a2f6e91a8cea4d7a6c01139988b702ade84d709cf2"
+      "bytes": 1253659,
+      "sha256": "c683cee51accebd20e34ae3bf26409a3228c85e58346e72fb7a8a89f3c4e2383"
     },
     {
       "filename": "04-reactome-enrichment.zh-hans.ipynb",
@@ -69,8 +69,8 @@
       "snapshots": "passed",
       "imports": "passed",
       "execution": "passed",
-      "bytes": 1250922,
-      "sha256": "8ca63966ac7252f77e39638fe49ee7c39d2ed5fcdf2586b81abe90568fdb9cde"
+      "bytes": 1252985,
+      "sha256": "9ca28a0409ab59c3ad3ed6bfc932074801c22643ce8f86e2c793d35d23a8f396"
     },
     {
       "filename": "05-string-physical-network.en.ipynb",
@@ -78,8 +78,8 @@
       "snapshots": "passed",
       "imports": "passed",
       "execution": "passed",
-      "bytes": 266592,
-      "sha256": "9ff6db5c671708cf5da2fa9d808f13c0ec1a3afc52249f7b3639756bd3d478ae"
+      "bytes": 268637,
+      "sha256": "ff13ea9e7fe2018b47a689c4843a831783d5c8dadd89bd042f2682affc8633c8"
     },
     {
       "filename": "05-string-physical-network.zh-hans.ipynb",
@@ -87,8 +87,8 @@
       "snapshots": "passed",
       "imports": "passed",
       "execution": "passed",
-      "bytes": 265908,
-      "sha256": "a54056b990ce3b3d7f257765e10d91bb5e3b786d1331d02d9197791588fcd00a"
+      "bytes": 267959,
+      "sha256": "eb2bf8ec6da67b6974f610ea39c0735e05da7ac70c2a1ead558377f2ac9be7cb"
     },
     {
       "filename": "06-hemoglobin-structure.en.ipynb",
@@ -96,8 +96,8 @@
       "snapshots": "passed",
       "imports": "passed",
       "execution": "passed",
-      "bytes": 1284245,
-      "sha256": "cb1afd9ae2b87d97a2a7beb016f69eaed8e40ba1ca8f89d636d5e6c33a3d9ab5"
+      "bytes": 1286299,
+      "sha256": "386d71c1bdf495086a69383f9edaaea9f6ea91234258007265f3e8ce2d75a2b6"
     },
     {
       "filename": "06-hemoglobin-structure.zh-hans.ipynb",
@@ -105,8 +105,8 @@
       "snapshots": "passed",
       "imports": "passed",
       "execution": "passed",
-      "bytes": 1283334,
-      "sha256": "301ab22690c20c9a888a185878729e5ee461d4fa6656b39adeeb5a6c45e292f6"
+      "bytes": 1285393,
+      "sha256": "344d4e89ad2407e0fc9a6cbc9452269f6ea17fc8e95af7beb8190705e467c636"
     }
   ],
   "pages": 32,

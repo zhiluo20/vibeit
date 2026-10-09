@@ -7,6 +7,7 @@
 - 6 个真实生物信息学工作流、12 份中英文 `.ipynb`、32 个静态页面及一个课程合集 ZIP。
 - 所有 notebook 按顺序执行通过，Python socket 连接在作者端验证过程中被禁用；每课保存 3–5 幅实际计算图表。
 - 12 份 notebook 通过 nbformat 校验、内嵌数据 SHA-256 校验、支持包导入检查及中英文计算代码一致性检查。
+- 12 份的首个单元已统一为 Gallery 样式的标准 `raw` / `text/html` 介绍卡片。更新逐份核对：其余单元、实际输出和内嵌数据 metadata 与此前执行的版本完全相同。原执行记录保留历史文件哈希，新旧文件哈希及此次验收见 `qa/html-introduction.json`。
 - 重命名、移动及 JSON 保存/重新读取后，12 份 notebook 均能独立定位和读取自己的 metadata 数据，不需要旁侧数据文件。
 
 详见 `qa/notebook-execution.json`、`qa/artifact-validation.json`、`qa/portability.json`。
@@ -17,6 +18,7 @@
 - 嵌入环境实际输出 **Python 3.13.14、NumPy 2.5.0、Pandas 3.0.3**。
 - 在应用中逐课执行全部 12 份 notebook，共 152 个代码单元，无 Python 错误；更新后的表达、富集和结构版本已再次执行核对。
 - iPhone Simulator / iOS 27.0 验证了中文长教程、表达工作流、真实样本表以及英文结构工作流；1A3N 模型可显示并用拖动旋转。
+- HTML 介绍卡片另外在 VibeIt 1.0.2 (8) iPad Simulator 中打开检查了基因课程的中英文版本，应用识别为 HTML cell 并实际显示标题、摘要、渐变及标签；此次展示更新没有重新执行计算单元。
 - 手机宽表预览使用内嵌 HTML/CSS 保留完整标识符及数值，避免拆成多行；相同表格在 390px 浏览器中验证横向滚动，页面宽度保持 390px。
 - 通过应用导出 `.ipynb` 后，两份内嵌结构/序列快照和全部代码执行结果均保留；通过 **+ → Import from Files** 实际重新导入，复制文件与导出文件字节一致。
 

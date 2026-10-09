@@ -204,6 +204,8 @@ def notebook_html(nb):
                 return f'<h{level} id="{anchor}">{text}</h{level}>'
             rendered=re.sub(r'<h([23])>(.*?)</h\1>',heading,rendered)
             parts.append(rendered)
+        elif cell.cell_type=="raw" and cell.metadata.get("raw_mimetype")=="text/html":
+            parts.append('<div class="html-cell">'+cell.source+'</div>')
         elif cell.cell_type=="code":
             outputs=[]
             for output in cell.outputs:

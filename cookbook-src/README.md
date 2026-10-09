@@ -10,6 +10,8 @@ In VibeIt Studio, use **+ → Import from Files**, select a complete `.ipynb`, o
 
 在 VibeIt Studio 中使用 **+ → Import from Files** 导入完整 `.ipynb`，打开后从上到下运行。每份 notebook 独立包含真实数据，无需解压数据包、安装额外模块、登录 AI 服务或联网即可完成核心分析。修改参数前保留副本；结果导出到当前目录下的 `results/<recipe-id>/`。
 
+Each notebook starts with a Gallery-style HTML introduction card: a standard `raw` cell with `metadata.raw_mimetype = "text/html"`. Inline styles, the lesson icon, title, summary and five information badges render directly in VibeIt without executing a Python cell or requesting external assets. The webpage includes the same HTML from the executed notebook.
+
 | Lesson | Dataset | Method | Expected handoff |
 | --- | --- | --- | --- |
 | 01 FASTA → protein | RefSeq HBB/HBD, versioned transcripts | FASTA parsing, coordinate conversion, translation checks | Transcript/protein FASTA, composition summary |
@@ -40,6 +42,8 @@ uv pip install --python .venv/bin/python -r cookbook-src/requirements-lock.txt
 .venv/bin/python cookbook-src/validate_site.py
 .venv/bin/python cookbook-src/serve.py --port 8764
 ```
+
+For an introduction-card presentation update, use `build_notebooks.py --refresh-intro`, then rebuild the site and validate it. This updates only the first cell, retaining the existing cell ID, embedded snapshots, calculation cells and actual saved outputs. Historical execution reports retain the hashes of their executed artifacts; `qa/html-introduction.json` records the old/new artifact hashes and the subsequent display and download checks.
 
 Run from the website repository root. Preview at `http://127.0.0.1:8764/vibeit/cookbook/` or its `zh-hans/` version. Dependency installation needs network on an uncached machine; notebook execution and site generation use already frozen data without data-source requests. `build_notebooks.py` denies Python socket connections during execution and saves actual outputs. `--only <recipe-id>` rebuilds one changed lesson; `--generate-only` emits unexecuted development notebooks and must not be used for release artifacts.
 

@@ -1,6 +1,6 @@
 """Generate and execute bilingual standard notebooks with self-contained data."""
 from pathlib import Path
-import argparse, ast, base64, copy, datetime, gzip, hashlib, inspect, json, sys, time
+import argparse, ast, base64, copy, datetime, gzip, hashlib, html, inspect, json, sys, time
 import nbformat
 from nbclient import NotebookClient
 from jupyter_client import KernelManager
@@ -19,6 +19,36 @@ def markdown(text):
 def code(text, **metadata):
     return nbformat.v4.new_code_cell(text.strip()+"\n",metadata=metadata)
 
+def introduction(course,locale):
+    """Gallery-style HTML cell, using VibeIt's standard raw text/html format."""
+    zh=locale=="zh-hans"
+    icons={"01":"🧬","02":"🔎","03":"📊","04":"🧭","05":"🕸️","06":"🧪"}
+    title=html.escape(course["title"][locale])
+    summary=html.escape(course["summary"][locale])
+    badges=[("生物信息学 · 第 "+course["id"][:2]+" 课" if zh else "Bioinformatics · Lesson "+course["id"][:2]),
+            ("🔋 离线核心分析" if zh else "🔋 Offline core analysis"),
+            (f'⏱ {course["minutes"]} 分钟' if zh else f'⏱ {course["minutes"]} min'),
+            ("内嵌真实数据" if zh else "Embedded real data"),
+            "📦 "+" · ".join(course["packages"])]
+    pills="".join('<span style="display:inline-block;max-width:100%;box-sizing:border-box;margin:4px 6px 0 0;padding:4px 10px;border-radius:999px;background:rgba(255,255,255,.18);color:#fff;font-size:13px;font-weight:600;overflow-wrap:anywhere">'+html.escape(label)+'</span>' for label in badges)
+    markup=f'''<section class="lesson-intro" lang="{"zh-CN" if zh else "en"}" aria-label="{title}" style="font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;box-sizing:border-box;max-width:100%;background:linear-gradient(135deg,#00b894 0%,#0984e3 100%);border-radius:22px;padding:26px 28px;color:#fff;line-height:1.6;box-shadow:0 12px 30px rgba(0,0,0,.18);overflow-wrap:anywhere">
+  <div aria-hidden="true" style="font-size:52px;line-height:1">{icons[course["id"][:2]]}</div>
+  <h1 style="font-size:26px;font-weight:800;line-height:1.3;letter-spacing:normal;margin:8px 0 0;color:#fff">{title}</h1>
+  <p style="font-size:16px;line-height:1.6;opacity:.95;margin:6px 0 0;max-width:640px;color:#fff">{summary}</p>
+  <div style="margin-top:12px">{pills}</div>
+</section>
+'''
+    return nbformat.v4.new_raw_cell(markup,metadata={"raw_mimetype":"text/html","tags":["lesson-intro"]})
+
+def refresh_introduction(path,course,locale):
+    """Change presentation only, retaining all executed cells and embedded data."""
+    nb=nbformat.read(path,as_version=4)
+    before=copy.deepcopy(nb.cells[1:])
+    intro=introduction(course,locale);intro.id=nb.cells[0].id
+    nb.cells[0]=intro
+    assert nb.cells[1:]==before
+    nbformat.validate(nb);nbformat.write(nb,path)
+
 def source_context(keys):
     sources=json.loads((ROOT/"data/sources.json").read_text())
     needles={"sequences":["RefSeq"],"airway":["airway"],"reactome":["Reactome"],
@@ -32,9 +62,7 @@ def make_notebook(course,locale):
         compressed=(ROOT/"data"/(key+".json.gz")).read_bytes()
         blobs[key]=dict(sha256=hashlib.sha256(gzip.decompress(compressed)).hexdigest(),
                         gzip_base64=base64.b64encode(compressed).decode())
-    cells=[markdown(f'# {course["title"][locale]}\n\n'+course["summary"][locale]+"\n\n"+
-        (f'**生物信息学 · 第 {course["id"][:2]} 课 · {course["minutes"]} 分钟 · 内嵌真实数据 · 离线核心分析**'
-         if zh else f'**Bioinformatics · Lesson {course["id"][:2]} · {course["minutes"]} minutes · Embedded real data · Offline core analysis**'))]
+    cells=[introduction(course,locale)]
     cells.append(markdown(("## 目标与运行方法\n\n下载完整 `.ipynb`，在 VibeIt Studio 文件浏览器中使用 **+ → Import from Files** 导入并打开。按从上到下的顺序运行代码单元；阅读模式中的图表是已保存的真实运行输出。重新运行会从内嵌数据计算结果。\n\n本课适合具备 Python 基础的本科生。先阅读每一步的方法与图注，再修改参数。AI 练习为可选部分，不需要 AI 账号即可完成核心课程。数据写在 notebook metadata 中，不需要另下载数据文件。请保持 notebook 已保存到当前工作文件夹。\n\n学习任务是理解本课的研究问题、执行透明的计算、校验结果，并说明结论的边界。"
         if zh else "## Goal and how to run\n\nDownload the complete `.ipynb`. In VibeIt Studio's file browser use **+ → Import from Files**, then open it. Run code cells from top to bottom. Saved charts show actual executed results; rerunning recomputes them from embedded data.\n\nThis lesson assumes basic Python knowledge. Read each method and caption before changing parameters. AI exercises are optional; no AI account is needed for the core workflow. Data lives in notebook metadata, so there is no companion data download. Keep the notebook saved in the active working folder.\n\nYour goal is to understand the biological question, execute transparent calculations, check the results, and state the limits of the conclusion.")))
     cells.append(markdown("## 环境与参数" if zh else "## Setup and parameters"))
@@ -143,18 +171,25 @@ socket.create_connection=_deny_network''')
                 sha256=hashlib.sha256(path.read_bytes()).hexdigest(),status="passed",offline=True)
 
 if __name__=="__main__":
-    parser=argparse.ArgumentParser();parser.add_argument("--generate-only",action="store_true")
+    parser=argparse.ArgumentParser()
+    modes=parser.add_mutually_exclusive_group()
+    modes.add_argument("--generate-only",action="store_true")
+    modes.add_argument("--refresh-intro",action="store_true",help="Update HTML introduction cards while preserving executed cells and data")
     parser.add_argument("--only",help="Recipe ID; useful for one changed lesson")
     args=parser.parse_args();report=[]
     for course in COURSES:
         if args.only and course["id"]!=args.only:continue
         for locale in ("en","zh-hans"):
             path=DOWNLOADS/f'{course["id"]}.{locale}.ipynb'
+            if args.refresh_intro:
+                refresh_introduction(path,course,locale)
+                print("Updated introduction",path.name,flush=True)
+                continue
             nbformat.write(make_notebook(course,locale),path)
             print("Generated",path.name,flush=True)
             if not args.generate_only:
                 result=execute(path);report.append(result);print(result,flush=True)
-    if not args.generate_only:
+    if not args.generate_only and not args.refresh_intro:
         report_path=QA/"notebook-execution.json"
         old=json.loads(report_path.read_text()) if report_path.exists() and args.only else []
         old=[r for r in old if not r["filename"].startswith(args.only or "")]
