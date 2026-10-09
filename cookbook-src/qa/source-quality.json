@@ -1,0 +1,10 @@
+{
+  "rejected_source": "https://www.ecb.europa.eu/stats/eurofxref/eurofxref-hist.csv",
+  "observed_response_sha256": "7c9c21414ea6989cd2026aa2473ed48dd0372faca7b463b2a24a11a6b30214a7",
+  "observed_date_range": [
+    "1999-01-05",
+    "2010-02-14"
+  ],
+  "reason": "Observed response does not contain the required 2019\u20132024 period and includes malformed/example-looking leading rows; it is excluded from teaching snapshots.",
+  "replacement": "Official ECB SDMX EXR API with explicit 2019\u20132024 query, quotation dimensions and row checks"
+}

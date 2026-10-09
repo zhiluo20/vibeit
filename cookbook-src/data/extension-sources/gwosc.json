@@ -1,0 +1,38 @@
+[
+  {
+    "name": "GWOSC GW150914 v3 event metadata",
+    "url": "https://gwosc.org/eventapi/json/GWTC-1-confident/GW150914/v3/",
+    "sha256": "1ce014e3277cc6ef491daa48250465eefda026f2b974d2a15bb8c6ea5596e37e",
+    "retrieved_at": "2026-10-09T10:58:54.106205+00:00",
+    "license": "CC BY 4.0; acknowledge GWOSC, LIGO, Virgo and KAGRA; GWTC-1 DOI 10.7935/82H3-HH23",
+    "snapshots": [
+      "gw150914"
+    ],
+    "conversion": "Preserve event GPS, release and strain download parameters; event catalog values are not recomputed detection significance.",
+    "raw_file": "data/raw/extension-gwosc-gwosc-gw150914-v3-event-metadata.gz",
+    "bytes": 13903,
+    "terms": "https://gwosc.org/acknowledgement/"
+  },
+  {
+    "name": "GWOSC H1 32 second strain",
+    "url": "https://gwosc.org/eventapi/json/GWTC-1-confident/GW150914/v3/H-H1_GWOSC_4KHZ_R1-1126259447-32.txt.gz",
+    "sha256": "fefe8717306109460b6c9cff74da6beb9e80ee624824b4b09bdd2c54ce9b4dfc",
+    "retrieved_at": "2026-10-09T10:58:57.785193+00:00",
+    "license": "CC BY 4.0; credit GWOSC and collaborations; DOI 10.7935/82H3-HH23",
+    "snapshots": [
+      "gw150914"
+    ],
+    "conversion": "Decompress original ASCII data and parse all 131072 strain samples; preserve GPS start and sampling rate.",
+    "raw_file": "data/raw/extension-gwosc-gwosc-h1-32-second-strain.gz",
+    "bytes": 1286320,
+    "version": "GW150914 v3, GWOSC 4 kHz R1",
+    "request_parameters": {
+      "GPSstart": 1126259447,
+      "detector": "H1",
+      "sampling_rate": 4096,
+      "duration": 32,
+      "format": "txt",
+      "url": "https://gwosc.org/eventapi/json/GWTC-1-confident/GW150914/v3/H-H1_GWOSC_4KHZ_R1-1126259447-32.txt.gz"
+    }
+  }
+]

@@ -1,0 +1,66 @@
+[
+  {
+    "name": "UCI iris",
+    "url": "https://archive.ics.uci.edu/static/public/53/iris.zip",
+    "sha256": "d11fe30213d36434a0879aab7cb00ce3c812eb7ba2495874438abff7b7b762e9",
+    "retrieved_at": "2026-10-09T10:57:26.310198+00:00",
+    "license": "CC BY 4.0; credit UCI and original dataset authors",
+    "snapshots": [
+      "iris"
+    ],
+    "conversion": "Extract iris.data from original download; preserve all rows and declared units; no imputation.",
+    "raw_file": "data/raw/extension-uci-uci-iris.gz",
+    "bytes": 3738,
+    "documentation": "https://archive.ics.uci.edu/dataset/53",
+    "version": "UCI frozen download",
+    "citation": "Fisher, R. (1936). Iris. UCI Machine Learning Repository. DOI: 10.24432/C56C76."
+  },
+  {
+    "name": "UCI wine",
+    "url": "https://archive.ics.uci.edu/static/public/109/wine.zip",
+    "sha256": "2bae62c4481220623579d4c4fb36b55652b6b75e06e49fa1981b8198362dfdab",
+    "retrieved_at": "2026-10-09T10:57:26.943199+00:00",
+    "license": "CC BY 4.0; credit UCI and original dataset authors",
+    "snapshots": [
+      "wine"
+    ],
+    "conversion": "Extract wine.data from original download; preserve all rows and declared units; no imputation.",
+    "raw_file": "data/raw/extension-uci-uci-wine.gz",
+    "bytes": 6038,
+    "documentation": "https://archive.ics.uci.edu/dataset/109",
+    "version": "UCI frozen download",
+    "citation": "Aeberhard, S. & Forina, M. (1992). Wine. UCI Machine Learning Repository. DOI: 10.24432/C5PC7J."
+  },
+  {
+    "name": "UCI bike",
+    "url": "https://archive.ics.uci.edu/static/public/275/bike+sharing+dataset.zip",
+    "sha256": "b70182d0d0508e9abbb79306ce5c0cec34869000f8220175ac83d11dbe845401",
+    "retrieved_at": "2026-10-09T10:57:28.441207+00:00",
+    "license": "CC BY 4.0; credit UCI and original dataset authors",
+    "snapshots": [
+      "bike"
+    ],
+    "conversion": "Extract day.csv from original download; preserve all rows and declared units; no imputation.",
+    "raw_file": "data/raw/extension-uci-uci-bike.gz",
+    "bytes": 279992,
+    "documentation": "https://archive.ics.uci.edu/dataset/275",
+    "version": "UCI frozen download",
+    "citation": "Fanaee-T, H. (2013). Bike Sharing. UCI Machine Learning Repository. DOI: 10.24432/C5W894."
+  },
+  {
+    "name": "UCI energy",
+    "url": "https://archive.ics.uci.edu/static/public/374/appliances+energy+prediction.zip",
+    "sha256": "2fccf354445d886e7917620b0195db1f3e3e34d5a067a93b844694a4c561255a",
+    "retrieved_at": "2026-10-09T10:57:34.128556+00:00",
+    "license": "CC BY 4.0; credit UCI and original dataset authors",
+    "snapshots": [
+      "energy"
+    ],
+    "conversion": "Extract energydata_complete.csv from original download; preserve all rows and declared units; no imputation.",
+    "raw_file": "data/raw/extension-uci-uci-energy.gz",
+    "bytes": 11979507,
+    "documentation": "https://archive.ics.uci.edu/dataset/374",
+    "version": "UCI frozen download",
+    "citation": "Candanedo, L. (2017). Appliances Energy Prediction. UCI Machine Learning Repository. DOI: 10.24432/C5VC8G."
+  }
+]

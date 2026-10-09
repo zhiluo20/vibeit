@@ -1,0 +1,17 @@
+[
+  {
+    "name": "ECB SDMX euro reference exchange rates",
+    "url": "https://data-api.ecb.europa.eu/service/data/EXR/D.USD+GBP+JPY+CNY.EUR.SP00.A?startPeriod=2019-01-01&endPeriod=2024-12-31&format=csvdata",
+    "sha256": "5f39fc39f60606abafae26c00492d05388c7bdf29cce1922f173f99bd0273ce8",
+    "retrieved_at": "2026-10-09T11:04:17.318925+00:00",
+    "license": "ECB copyright / free reuse with accurate source attribution; data obtained free from ECB; derived returns explicitly labelled",
+    "snapshots": [
+      "ecb"
+    ],
+    "conversion": "Retain 2019-01-01 through 2024-12-31 and USD, GBP, JPY, CNY; preserve missing values and quotation direction.",
+    "raw_file": "data/raw/extension-ecb-ecb-sdmx-euro-reference-exchange-rates.gz",
+    "bytes": 1342082,
+    "documentation": "https://www.ecb.europa.eu/stats/policy_and_exchange_rates/euro_reference_exchange_rates/html/index.en.html",
+    "terms": "https://www.ecb.europa.eu/services/using-our-site/disclaimer/html/index.en.html"
+  }
+]

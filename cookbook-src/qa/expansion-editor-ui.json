@@ -1,0 +1,22 @@
+{
+  "mode": "Individual editor UI Run All from cleared fixture",
+  "device": "Vibeit Tutorials iPad / iPadOS 27.0 Simulator",
+  "app": "1.0.2 (8)",
+  "filename": "ds05-bike-regression.zh-hans.ipynb",
+  "executed_code_cells": 12,
+  "png_figures": 3,
+  "saved_notebook_sha256": "0455c4f3b46300f04a3d04206a8fd85705c01c82c9b3c9464f540458a69487af",
+  "source_code_and_snapshots_match_browser_download": true,
+  "python": "3.13.14",
+  "status": "passed",
+  "intro_html_visually_checked": true,
+  "all_new_editor_import_flows_tested": false,
+  "real_device_tested": false,
+  "additional_presentation_check": {
+    "device": "Cookbook Expansion QA iPad / iPadOS 27.0 Simulator",
+    "filename": "ch03-caffeine-geometry.en.ipynb",
+    "debug_open_file_launch": "--pydev-ui-test-open-file",
+    "html_card": "visually passed",
+    "calculation_execution": "not claimed from this presentation check"
+  }
+}

@@ -1,0 +1,16 @@
+[
+  {
+    "name": "NIST CODATA physical constants",
+    "url": "https://physics.nist.gov/cuu/Constants/Table/allascii.txt",
+    "sha256": "77fb90e66c40db3e6eb16630bc9c88e4c7c8beddbe5e71be406f2f26e3f67e67",
+    "retrieved_at": "2026-10-09T10:57:26.753124+00:00",
+    "license": "NIST public reference data; credit NIST/CODATA",
+    "snapshots": [
+      "constants"
+    ],
+    "conversion": "Preserve official ASCII table; extract seven explicitly named SI constants and their units.",
+    "raw_file": "data/raw/extension-constants-nist-codata-physical-constants.gz",
+    "bytes": 40801,
+    "documentation": "https://physics.nist.gov/cuu/Constants/"
+  }
+]

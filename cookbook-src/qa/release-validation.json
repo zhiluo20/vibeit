@@ -1,0 +1,786 @@
+{
+  "scope": {
+    "bioinformatics": 6,
+    "data-science": 6,
+    "mathematics": 6,
+    "physics": 6,
+    "chemistry": 6,
+    "engineering": 6,
+    "economics": 6,
+    "humanities": 6
+  },
+  "courses": 48,
+  "notebooks": [
+    {
+      "filename": "01-fasta-to-protein.en.ipynb",
+      "sha256": "8e71af0a10e5330d176da45c6e81167a6e05efa516aa6cc1a566868162204d91",
+      "current_code_and_sources": "passed",
+      "rename_move_roundtrip": "passed",
+      "png_figures": 3,
+      "offline_guard": true
+    },
+    {
+      "filename": "01-fasta-to-protein.zh-hans.ipynb",
+      "sha256": "840dd8c49bb33abc6ecd20ea9a9f89f8cdefc0c82a58efb16980e66034a3c716",
+      "current_code_and_sources": "passed",
+      "rename_move_roundtrip": "passed",
+      "png_figures": 3,
+      "offline_guard": true
+    },
+    {
+      "filename": "02-affine-sequence-alignment.en.ipynb",
+      "sha256": "63c705a80a0df1613bef9c6873dc43ee2796fc24fe014e3c3ce196a42c1040c8",
+      "current_code_and_sources": "passed",
+      "rename_move_roundtrip": "passed",
+      "png_figures": 3,
+      "offline_guard": true
+    },
+    {
+      "filename": "02-affine-sequence-alignment.zh-hans.ipynb",
+      "sha256": "cda6cd6f84467655abc1606f2244bf4bc733ed21701b2feb37db27a8b403cd2d",
+      "current_code_and_sources": "passed",
+      "rename_move_roundtrip": "passed",
+      "png_figures": 3,
+      "offline_guard": true
+    },
+    {
+      "filename": "03-airway-expression.en.ipynb",
+      "sha256": "350c647ee15567e2bbb6ec2fd5bc5dfc1e84bd3d08d52054dd01b1ce45ece5ba",
+      "current_code_and_sources": "passed",
+      "rename_move_roundtrip": "passed",
+      "png_figures": 5,
+      "offline_guard": true
+    },
+    {
+      "filename": "03-airway-expression.zh-hans.ipynb",
+      "sha256": "130f6e6ea00247fd99953ad36bef41311e396609e07e0d7feb01c811224f2525",
+      "current_code_and_sources": "passed",
+      "rename_move_roundtrip": "passed",
+      "png_figures": 5,
+      "offline_guard": true
+    },
+    {
+      "filename": "04-reactome-enrichment.en.ipynb",
+      "sha256": "c683cee51accebd20e34ae3bf26409a3228c85e58346e72fb7a8a89f3c4e2383",
+      "current_code_and_sources": "passed",
+      "rename_move_roundtrip": "passed",
+      "png_figures": 3,
+      "offline_guard": true
+    },
+    {
+      "filename": "04-reactome-enrichment.zh-hans.ipynb",
+      "sha256": "9ca28a0409ab59c3ad3ed6bfc932074801c22643ce8f86e2c793d35d23a8f396",
+      "current_code_and_sources": "passed",
+      "rename_move_roundtrip": "passed",
+      "png_figures": 3,
+      "offline_guard": true
+    },
+    {
+      "filename": "05-string-physical-network.en.ipynb",
+      "sha256": "ff13ea9e7fe2018b47a689c4843a831783d5c8dadd89bd042f2682affc8633c8",
+      "current_code_and_sources": "passed",
+      "rename_move_roundtrip": "passed",
+      "png_figures": 3,
+      "offline_guard": true
+    },
+    {
+      "filename": "05-string-physical-network.zh-hans.ipynb",
+      "sha256": "eb2bf8ec6da67b6974f610ea39c0735e05da7ac70c2a1ead558377f2ac9be7cb",
+      "current_code_and_sources": "passed",
+      "rename_move_roundtrip": "passed",
+      "png_figures": 3,
+      "offline_guard": true
+    },
+    {
+      "filename": "06-hemoglobin-structure.en.ipynb",
+      "sha256": "386d71c1bdf495086a69383f9edaaea9f6ea91234258007265f3e8ce2d75a2b6",
+      "current_code_and_sources": "passed",
+      "rename_move_roundtrip": "passed",
+      "png_figures": 3,
+      "offline_guard": true
+    },
+    {
+      "filename": "06-hemoglobin-structure.zh-hans.ipynb",
+      "sha256": "344d4e89ad2407e0fc9a6cbc9452269f6ea17fc8e95af7beb8190705e467c636",
+      "current_code_and_sources": "passed",
+      "rename_move_roundtrip": "passed",
+      "png_figures": 3,
+      "offline_guard": true
+    },
+    {
+      "filename": "ds01-iris-audit.en.ipynb",
+      "sha256": "315446ab475958c427bcda42095ad8a3640c860840342117d000b2e8c0bdab36",
+      "current_code_and_sources": "passed",
+      "rename_move_roundtrip": "passed",
+      "png_figures": 3,
+      "offline_guard": true
+    },
+    {
+      "filename": "ds01-iris-audit.zh-hans.ipynb",
+      "sha256": "d1407246ab4be0c199512dac83677f321d8a53d382bd8ebbc770d8f4a2cfb5c6",
+      "current_code_and_sources": "passed",
+      "rename_move_roundtrip": "passed",
+      "png_figures": 3,
+      "offline_guard": true
+    },
+    {
+      "filename": "ds02-iris-pca.en.ipynb",
+      "sha256": "ce33549e2200c870d01620b4bff50b877d6232928e25bfe1eabce6d14f43552e",
+      "current_code_and_sources": "passed",
+      "rename_move_roundtrip": "passed",
+      "png_figures": 3,
+      "offline_guard": true
+    },
+    {
+      "filename": "ds02-iris-pca.zh-hans.ipynb",
+      "sha256": "658019b8d11f6d0b539bab5d3339c1c0d4d86acf44d51350745d6b7e55f96493",
+      "current_code_and_sources": "passed",
+      "rename_move_roundtrip": "passed",
+      "png_figures": 3,
+      "offline_guard": true
+    },
+    {
+      "filename": "ds03-iris-knn.en.ipynb",
+      "sha256": "6e101757d82867236ec51c4a901e4926deed81ac1ae41e5e145fe56781726cac",
+      "current_code_and_sources": "passed",
+      "rename_move_roundtrip": "passed",
+      "png_figures": 3,
+      "offline_guard": true
+    },
+    {
+      "filename": "ds03-iris-knn.zh-hans.ipynb",
+      "sha256": "8e2ce894ac398e1a0e1c0d37c0164b645e9019c380b2770782b65efe07116856",
+      "current_code_and_sources": "passed",
+      "rename_move_roundtrip": "passed",
+      "png_figures": 3,
+      "offline_guard": true
+    },
+    {
+      "filename": "ds04-wine-clusters.en.ipynb",
+      "sha256": "f4df6e7e654a3599b3e5f0d5dec58c49ad078cd0564f3187035b9d1d966af224",
+      "current_code_and_sources": "passed",
+      "rename_move_roundtrip": "passed",
+      "png_figures": 3,
+      "offline_guard": true
+    },
+    {
+      "filename": "ds04-wine-clusters.zh-hans.ipynb",
+      "sha256": "8e58c8d0ac7ae5e811af39c406c8e98a856c7ad745703b2c0b4f409eb01157e2",
+      "current_code_and_sources": "passed",
+      "rename_move_roundtrip": "passed",
+      "png_figures": 3,
+      "offline_guard": true
+    },
+    {
+      "filename": "ds05-bike-regression.en.ipynb",
+      "sha256": "4c1868bfe26d7eb4fac57e8230ef42ec674d8c89811839fa6a2dcac4fecf66ec",
+      "current_code_and_sources": "passed",
+      "rename_move_roundtrip": "passed",
+      "png_figures": 3,
+      "offline_guard": true
+    },
+    {
+      "filename": "ds05-bike-regression.zh-hans.ipynb",
+      "sha256": "c71e47e6a8bb9d58f895071a71cfc0b1aa4d2c24b238b5096c02228f2dcb5f8b",
+      "current_code_and_sources": "passed",
+      "rename_move_roundtrip": "passed",
+      "png_figures": 3,
+      "offline_guard": true
+    },
+    {
+      "filename": "ds06-bike-backtesting.en.ipynb",
+      "sha256": "e7e005267e97e7f22b1655ddcfc7058d21ce0c6ba966911c5c32212e7a0420e9",
+      "current_code_and_sources": "passed",
+      "rename_move_roundtrip": "passed",
+      "png_figures": 3,
+      "offline_guard": true
+    },
+    {
+      "filename": "ds06-bike-backtesting.zh-hans.ipynb",
+      "sha256": "4e643fc07b646f81497b229b928d669e30be448e9b3c438ad181a371163e7aa7",
+      "current_code_and_sources": "passed",
+      "rename_move_roundtrip": "passed",
+      "png_figures": 3,
+      "offline_guard": true
+    },
+    {
+      "filename": "ma01-numerical-calculus.en.ipynb",
+      "sha256": "dc82b824d590194fa4f0e02f74591022da298d076d7aa711093063e190b9788e",
+      "current_code_and_sources": "passed",
+      "rename_move_roundtrip": "passed",
+      "png_figures": 3,
+      "offline_guard": true
+    },
+    {
+      "filename": "ma01-numerical-calculus.zh-hans.ipynb",
+      "sha256": "2e90c6f474be6027c3e1066c91496e8a12a9315105c45711e46009493f6c3d00",
+      "current_code_and_sources": "passed",
+      "rename_move_roundtrip": "passed",
+      "png_figures": 3,
+      "offline_guard": true
+    },
+    {
+      "filename": "ma02-bracketed-roots.en.ipynb",
+      "sha256": "7d2b5e67c6e0acfe8664992c1c8864b41bed2bbbe72473a277167248665ca351",
+      "current_code_and_sources": "passed",
+      "rename_move_roundtrip": "passed",
+      "png_figures": 3,
+      "offline_guard": true
+    },
+    {
+      "filename": "ma02-bracketed-roots.zh-hans.ipynb",
+      "sha256": "ffb7b00a7d21db327a54db8932fa01693b2bd19219356cb468b88be676b821e5",
+      "current_code_and_sources": "passed",
+      "rename_move_roundtrip": "passed",
+      "png_figures": 3,
+      "offline_guard": true
+    },
+    {
+      "filename": "ma03-conditioning.en.ipynb",
+      "sha256": "b16d18ce05f595bd03324ef1295724682b4283cfc74437a0970b210bbbc55fa6",
+      "current_code_and_sources": "passed",
+      "rename_move_roundtrip": "passed",
+      "png_figures": 3,
+      "offline_guard": true
+    },
+    {
+      "filename": "ma03-conditioning.zh-hans.ipynb",
+      "sha256": "3d7caa0a78d5efda2aec4e01a05d7073b15c3de42ac185c0d010c5fbde44af7c",
+      "current_code_and_sources": "passed",
+      "rename_move_roundtrip": "passed",
+      "png_figures": 3,
+      "offline_guard": true
+    },
+    {
+      "filename": "ma04-monte-carlo.en.ipynb",
+      "sha256": "3dc0463326ddc8d1562f40c2a1312cbfb46bd187a72a150da0784942347bbc4e",
+      "current_code_and_sources": "passed",
+      "rename_move_roundtrip": "passed",
+      "png_figures": 3,
+      "offline_guard": true
+    },
+    {
+      "filename": "ma04-monte-carlo.zh-hans.ipynb",
+      "sha256": "7ae4e58acc1f4e35d527dba456044ec681e54ea7cb6f275afa0db86f7137705e",
+      "current_code_and_sources": "passed",
+      "rename_move_roundtrip": "passed",
+      "png_figures": 3,
+      "offline_guard": true
+    },
+    {
+      "filename": "ma05-bootstrap.en.ipynb",
+      "sha256": "8e56aff4bb0d2623222b919961f60107cd348352199d6f4a543496150db1ea38",
+      "current_code_and_sources": "passed",
+      "rename_move_roundtrip": "passed",
+      "png_figures": 3,
+      "offline_guard": true
+    },
+    {
+      "filename": "ma05-bootstrap.zh-hans.ipynb",
+      "sha256": "8af198896cc172f11200f2f695ca9adde57a214467375d1c0242ede0bc537dd7",
+      "current_code_and_sources": "passed",
+      "rename_move_roundtrip": "passed",
+      "png_figures": 3,
+      "offline_guard": true
+    },
+    {
+      "filename": "ma06-permutation-tests.en.ipynb",
+      "sha256": "c7c35e06f5213f3fb29d3a21f74f98130687cca88484003e00a6d686820d7abd",
+      "current_code_and_sources": "passed",
+      "rename_move_roundtrip": "passed",
+      "png_figures": 3,
+      "offline_guard": true
+    },
+    {
+      "filename": "ma06-permutation-tests.zh-hans.ipynb",
+      "sha256": "d0eaaf808c288420f9c4967b316682d0a76afe6688692a957f6dd60951fdf259",
+      "current_code_and_sources": "passed",
+      "rename_move_roundtrip": "passed",
+      "png_figures": 3,
+      "offline_guard": true
+    },
+    {
+      "filename": "ph01-pendulum.en.ipynb",
+      "sha256": "ef57c1b3e1c0c1a815443cac6c892f12b6f11f458f09ff31aaf730d804f6bf47",
+      "current_code_and_sources": "passed",
+      "rename_move_roundtrip": "passed",
+      "png_figures": 3,
+      "offline_guard": true
+    },
+    {
+      "filename": "ph01-pendulum.zh-hans.ipynb",
+      "sha256": "181f23e6f2b56397712fd668db250d77d5a1cc06f55bab4616c739701eaab7a3",
+      "current_code_and_sources": "passed",
+      "rename_move_roundtrip": "passed",
+      "png_figures": 3,
+      "offline_guard": true
+    },
+    {
+      "filename": "ph02-oscillator.en.ipynb",
+      "sha256": "51dc55cb431cc4aa70e56452734a5e03771829281d09828bf0ee61106e423f92",
+      "current_code_and_sources": "passed",
+      "rename_move_roundtrip": "passed",
+      "png_figures": 3,
+      "offline_guard": true
+    },
+    {
+      "filename": "ph02-oscillator.zh-hans.ipynb",
+      "sha256": "8d5572989c711da15d7e46b423f4ee740ded88adf1d800c36cbe1ac9ea19d217",
+      "current_code_and_sources": "passed",
+      "rename_move_roundtrip": "passed",
+      "png_figures": 3,
+      "offline_guard": true
+    },
+    {
+      "filename": "ph03-projectile.en.ipynb",
+      "sha256": "0a2ea6b7b76735ec662f9043f942e281f9ce1ac1181655c4a19f5c7623cbe991",
+      "current_code_and_sources": "passed",
+      "rename_move_roundtrip": "passed",
+      "png_figures": 3,
+      "offline_guard": true
+    },
+    {
+      "filename": "ph03-projectile.zh-hans.ipynb",
+      "sha256": "5cb71940f7b29a4f7e43a8bde58a990ee4b4109db907c3d80510aaac79023512",
+      "current_code_and_sources": "passed",
+      "rename_move_roundtrip": "passed",
+      "png_figures": 3,
+      "offline_guard": true
+    },
+    {
+      "filename": "ph04-heat.en.ipynb",
+      "sha256": "a0ee9d2c4c78055173e4a9f2d56a1bfbbcbb0ec4b80a8b71bbff85161ce3c7f9",
+      "current_code_and_sources": "passed",
+      "rename_move_roundtrip": "passed",
+      "png_figures": 3,
+      "offline_guard": true
+    },
+    {
+      "filename": "ph04-heat.zh-hans.ipynb",
+      "sha256": "6a59a97be527a11bce56366ef64eb66448858a4a3fe6052683e2a312c3c691c3",
+      "current_code_and_sources": "passed",
+      "rename_move_roundtrip": "passed",
+      "png_figures": 3,
+      "offline_guard": true
+    },
+    {
+      "filename": "ph05-gw150914.en.ipynb",
+      "sha256": "9c288e7d3805893e1d96d641a82d2629cb738447d25a615277ad4f9265193f30",
+      "current_code_and_sources": "passed",
+      "rename_move_roundtrip": "passed",
+      "png_figures": 3,
+      "offline_guard": true
+    },
+    {
+      "filename": "ph05-gw150914.zh-hans.ipynb",
+      "sha256": "0910db2a6b1fac49e6491d7f16f40872441c2e908b3a47a288458d4acc518252",
+      "current_code_and_sources": "passed",
+      "rename_move_roundtrip": "passed",
+      "png_figures": 3,
+      "offline_guard": true
+    },
+    {
+      "filename": "ph06-blackbody.en.ipynb",
+      "sha256": "2bc8937589ffd7780ab4972e235e9f40f6428856a709862a82e545b7c10cb7df",
+      "current_code_and_sources": "passed",
+      "rename_move_roundtrip": "passed",
+      "png_figures": 3,
+      "offline_guard": true
+    },
+    {
+      "filename": "ph06-blackbody.zh-hans.ipynb",
+      "sha256": "ab48477a168f8fa36f1e780d83006d12fda7a806305f02e39ce0304d78c7955e",
+      "current_code_and_sources": "passed",
+      "rename_move_roundtrip": "passed",
+      "png_figures": 3,
+      "offline_guard": true
+    },
+    {
+      "filename": "ch01-molecular-formulas.en.ipynb",
+      "sha256": "3154687bfac94592761038317a1192661ee6ede58c13006b1e08134df6c0c0b9",
+      "current_code_and_sources": "passed",
+      "rename_move_roundtrip": "passed",
+      "png_figures": 3,
+      "offline_guard": true
+    },
+    {
+      "filename": "ch01-molecular-formulas.zh-hans.ipynb",
+      "sha256": "1f3698523f9f0dc92214acb0e95d6b989cdc01f5c27875842724e91f96131155",
+      "current_code_and_sources": "passed",
+      "rename_move_roundtrip": "passed",
+      "png_figures": 3,
+      "offline_guard": true
+    },
+    {
+      "filename": "ch02-molecular-graphs.en.ipynb",
+      "sha256": "7c694dd87122062114c71791e660dc09d77f66495b8c14d09f12df2343349ea6",
+      "current_code_and_sources": "passed",
+      "rename_move_roundtrip": "passed",
+      "png_figures": 3,
+      "offline_guard": true
+    },
+    {
+      "filename": "ch02-molecular-graphs.zh-hans.ipynb",
+      "sha256": "ba58deea034e4fab21fb3a0e33a000ade2e5af21d1401d1dd0e65d6f89c7874d",
+      "current_code_and_sources": "passed",
+      "rename_move_roundtrip": "passed",
+      "png_figures": 3,
+      "offline_guard": true
+    },
+    {
+      "filename": "ch03-caffeine-geometry.en.ipynb",
+      "sha256": "f4382d01da45c999924c5c06910bcfff52e3cad5e36564f2a470eb7837b9bb0c",
+      "current_code_and_sources": "passed",
+      "rename_move_roundtrip": "passed",
+      "png_figures": 3,
+      "offline_guard": true
+    },
+    {
+      "filename": "ch03-caffeine-geometry.zh-hans.ipynb",
+      "sha256": "0e20e48a56e737e610c2ed90b035722a76b574f52ddd1e211224f2f0f7c7a6a1",
+      "current_code_and_sources": "passed",
+      "rename_move_roundtrip": "passed",
+      "png_figures": 3,
+      "offline_guard": true
+    },
+    {
+      "filename": "ch04-titration.en.ipynb",
+      "sha256": "294e607954ca21e5dee4cb3dcd993d415c7c0fc09ae1f83e88122d2949c90d68",
+      "current_code_and_sources": "passed",
+      "rename_move_roundtrip": "passed",
+      "png_figures": 3,
+      "offline_guard": true
+    },
+    {
+      "filename": "ch04-titration.zh-hans.ipynb",
+      "sha256": "644c85fc2d408aca2b20628ec7dda9dc0b2234512dc549724af3e76beb427849",
+      "current_code_and_sources": "passed",
+      "rename_move_roundtrip": "passed",
+      "png_figures": 3,
+      "offline_guard": true
+    },
+    {
+      "filename": "ch05-vapor-pressure.en.ipynb",
+      "sha256": "1b53de22334092a88309746f4e066c66351e4a79f38abc96e75c7685aaffd30f",
+      "current_code_and_sources": "passed",
+      "rename_move_roundtrip": "passed",
+      "png_figures": 3,
+      "offline_guard": true
+    },
+    {
+      "filename": "ch05-vapor-pressure.zh-hans.ipynb",
+      "sha256": "97efc4b75e87229b28abac821786e789fb20cc12a605b351d6d57035c2edff48",
+      "current_code_and_sources": "passed",
+      "rename_move_roundtrip": "passed",
+      "png_figures": 3,
+      "offline_guard": true
+    },
+    {
+      "filename": "ch06-calibration.en.ipynb",
+      "sha256": "9ffceac6576a619b045059791c2ac0cedc1d10231b31bd8a47fe90fa7f7c7cab",
+      "current_code_and_sources": "passed",
+      "rename_move_roundtrip": "passed",
+      "png_figures": 3,
+      "offline_guard": true
+    },
+    {
+      "filename": "ch06-calibration.zh-hans.ipynb",
+      "sha256": "c62cd13271cdd73b108bc98c0b7b8e2d5775da25e56bd672e434c74b5db083c1",
+      "current_code_and_sources": "passed",
+      "rename_move_roundtrip": "passed",
+      "png_figures": 3,
+      "offline_guard": true
+    },
+    {
+      "filename": "en01-energy-audit.en.ipynb",
+      "sha256": "7fe54c94508177a71e65822ac07f9559c4b4b14f59bfe17a9ea63902064531d4",
+      "current_code_and_sources": "passed",
+      "rename_move_roundtrip": "passed",
+      "png_figures": 3,
+      "offline_guard": true
+    },
+    {
+      "filename": "en01-energy-audit.zh-hans.ipynb",
+      "sha256": "09aaa514d3326714f4252032b833fb59863d193a2edfe91a17303483d4d28e96",
+      "current_code_and_sources": "passed",
+      "rename_move_roundtrip": "passed",
+      "png_figures": 3,
+      "offline_guard": true
+    },
+    {
+      "filename": "en02-energy-regression.en.ipynb",
+      "sha256": "2950e4c71b11b6c4d0a616cdbf95dd922a3629b879fa0ca5203619c97db60d69",
+      "current_code_and_sources": "passed",
+      "rename_move_roundtrip": "passed",
+      "png_figures": 3,
+      "offline_guard": true
+    },
+    {
+      "filename": "en02-energy-regression.zh-hans.ipynb",
+      "sha256": "473ed6c66a9fa2aa4e892d69bbf58582034993458d47eece60c48416d0123fe2",
+      "current_code_and_sources": "passed",
+      "rename_move_roundtrip": "passed",
+      "png_figures": 3,
+      "offline_guard": true
+    },
+    {
+      "filename": "en03-energy-filtering.en.ipynb",
+      "sha256": "419cf317302c32e6e47a911581c9700abc431059edb462ad695d169443784b24",
+      "current_code_and_sources": "passed",
+      "rename_move_roundtrip": "passed",
+      "png_figures": 3,
+      "offline_guard": true
+    },
+    {
+      "filename": "en03-energy-filtering.zh-hans.ipynb",
+      "sha256": "50d0cdf9cb76c8fb433daf0cd440c4c8ac8f39c33144c2b0f2d235793e0377b5",
+      "current_code_and_sources": "passed",
+      "rename_move_roundtrip": "passed",
+      "png_figures": 3,
+      "offline_guard": true
+    },
+    {
+      "filename": "en04-beam-fem.en.ipynb",
+      "sha256": "7171b204b9e83b61093e367ae08035352aca0d13634fab24993f2f210a8e3605",
+      "current_code_and_sources": "passed",
+      "rename_move_roundtrip": "passed",
+      "png_figures": 3,
+      "offline_guard": true
+    },
+    {
+      "filename": "en04-beam-fem.zh-hans.ipynb",
+      "sha256": "ce78862bd1efc2649e40e2c796ac158acd35cae8bebf6e95afa4481aa5893d61",
+      "current_code_and_sources": "passed",
+      "rename_move_roundtrip": "passed",
+      "png_figures": 3,
+      "offline_guard": true
+    },
+    {
+      "filename": "en05-rc-circuit.en.ipynb",
+      "sha256": "4be5d8dc7a707ba90e7d31b2fc1bd1010aa8176d4650b41ef08fb0edf56061e3",
+      "current_code_and_sources": "passed",
+      "rename_move_roundtrip": "passed",
+      "png_figures": 3,
+      "offline_guard": true
+    },
+    {
+      "filename": "en05-rc-circuit.zh-hans.ipynb",
+      "sha256": "99f897944a6978e3d49a5e153dd6513e24388abe23515b5eb60f8bc5660b7d06",
+      "current_code_and_sources": "passed",
+      "rename_move_roundtrip": "passed",
+      "png_figures": 3,
+      "offline_guard": true
+    },
+    {
+      "filename": "en06-pid-control.en.ipynb",
+      "sha256": "93d92cf98ff2053253eee9a2db6781a2a0281fab529a59b067ab7b2aac7c226d",
+      "current_code_and_sources": "passed",
+      "rename_move_roundtrip": "passed",
+      "png_figures": 3,
+      "offline_guard": true
+    },
+    {
+      "filename": "en06-pid-control.zh-hans.ipynb",
+      "sha256": "ceacb967395aba80c8b6b48ca18099671f36a12c8c922ece4d15a4cc0470e71f",
+      "current_code_and_sources": "passed",
+      "rename_move_roundtrip": "passed",
+      "png_figures": 3,
+      "offline_guard": true
+    },
+    {
+      "filename": "ec01-real-growth.en.ipynb",
+      "sha256": "96faa40788404beee84c89812ae9c76762f19041bc5bc7f47b9503c9803c22d9",
+      "current_code_and_sources": "passed",
+      "rename_move_roundtrip": "passed",
+      "png_figures": 3,
+      "offline_guard": true
+    },
+    {
+      "filename": "ec01-real-growth.zh-hans.ipynb",
+      "sha256": "ce68b9ae29df62c0932667105c3afc85512603c9b81a6d09da72bd3e8cda99a5",
+      "current_code_and_sources": "passed",
+      "rename_move_roundtrip": "passed",
+      "png_figures": 3,
+      "offline_guard": true
+    },
+    {
+      "filename": "ec02-inflation.en.ipynb",
+      "sha256": "e733186aab2cd8f6b93dc4a2fc6363b5ae7a3a5330843b9145aeb5eff72e4a1b",
+      "current_code_and_sources": "passed",
+      "rename_move_roundtrip": "passed",
+      "png_figures": 3,
+      "offline_guard": true
+    },
+    {
+      "filename": "ec02-inflation.zh-hans.ipynb",
+      "sha256": "7eb51ed4b0a76687bfc25c05e0ac896bb8ad0d06c36a8c5b69ee6f55e481dfca",
+      "current_code_and_sources": "passed",
+      "rename_move_roundtrip": "passed",
+      "png_figures": 3,
+      "offline_guard": true
+    },
+    {
+      "filename": "ec03-inequality.en.ipynb",
+      "sha256": "c4f410712a0f186df6c05d052be8c5b6c306f3b5a65bc7e37011f0a805b17bc1",
+      "current_code_and_sources": "passed",
+      "rename_move_roundtrip": "passed",
+      "png_figures": 3,
+      "offline_guard": true
+    },
+    {
+      "filename": "ec03-inequality.zh-hans.ipynb",
+      "sha256": "d419b4b72d769945315e1b07b3dfaeecaf54dd697b938968738626a5fea2327b",
+      "current_code_and_sources": "passed",
+      "rename_move_roundtrip": "passed",
+      "png_figures": 3,
+      "offline_guard": true
+    },
+    {
+      "filename": "ec04-fx-returns.en.ipynb",
+      "sha256": "a83866169a3661645391b231491e29ad667c468d252fcd24aa34597f4865c5a6",
+      "current_code_and_sources": "passed",
+      "rename_move_roundtrip": "passed",
+      "png_figures": 3,
+      "offline_guard": true
+    },
+    {
+      "filename": "ec04-fx-returns.zh-hans.ipynb",
+      "sha256": "4fe1cadd55b345fea16ab5ac244b0ee8cd67a82d25a382b937f9de3413b075aa",
+      "current_code_and_sources": "passed",
+      "rename_move_roundtrip": "passed",
+      "png_figures": 3,
+      "offline_guard": true
+    },
+    {
+      "filename": "ec05-portfolio-variance.en.ipynb",
+      "sha256": "34867e87bca58533826a4ac26a4d9ec26dbf2455b666298dfa45929894f7d467",
+      "current_code_and_sources": "passed",
+      "rename_move_roundtrip": "passed",
+      "png_figures": 3,
+      "offline_guard": true
+    },
+    {
+      "filename": "ec05-portfolio-variance.zh-hans.ipynb",
+      "sha256": "f3d307dfaa60df7ae6aa6e0ea7056ebf8a7211dbd5da4ec961a6309e7bc94469",
+      "current_code_and_sources": "passed",
+      "rename_move_roundtrip": "passed",
+      "png_figures": 3,
+      "offline_guard": true
+    },
+    {
+      "filename": "ec06-tail-risk.en.ipynb",
+      "sha256": "c5875ebcc3bf6d853ecc575f0b8cf3837bb45c00380f6e955f966b4873e87d7d",
+      "current_code_and_sources": "passed",
+      "rename_move_roundtrip": "passed",
+      "png_figures": 3,
+      "offline_guard": true
+    },
+    {
+      "filename": "ec06-tail-risk.zh-hans.ipynb",
+      "sha256": "c4e6d676b9f8c79e9d9d62a01ea4b171ab04d8cbd30e90febc5cecb65d59c7a6",
+      "current_code_and_sources": "passed",
+      "rename_move_roundtrip": "passed",
+      "png_figures": 3,
+      "offline_guard": true
+    },
+    {
+      "filename": "hu01-corpus-audit.en.ipynb",
+      "sha256": "3376eb9375ad9557b7150ec56e07e668906fe2e86353ae71e4865ac1cf871cad",
+      "current_code_and_sources": "passed",
+      "rename_move_roundtrip": "passed",
+      "png_figures": 3,
+      "offline_guard": true
+    },
+    {
+      "filename": "hu01-corpus-audit.zh-hans.ipynb",
+      "sha256": "292fea8b9efb1b77ec11e99637ceaef26ea5cfb92a646f8727f23259e8908018",
+      "current_code_and_sources": "passed",
+      "rename_move_roundtrip": "passed",
+      "png_figures": 3,
+      "offline_guard": true
+    },
+    {
+      "filename": "hu02-lexical-diversity.en.ipynb",
+      "sha256": "e72e08205aae7b8da72fcfb0cb6be8a621acded017261a821a665c682926f10a",
+      "current_code_and_sources": "passed",
+      "rename_move_roundtrip": "passed",
+      "png_figures": 3,
+      "offline_guard": true
+    },
+    {
+      "filename": "hu02-lexical-diversity.zh-hans.ipynb",
+      "sha256": "b7420d5ef5f7cdce998661e95cd0a3280e7c73ba25ea10b9941f4897f269e5d9",
+      "current_code_and_sources": "passed",
+      "rename_move_roundtrip": "passed",
+      "png_figures": 3,
+      "offline_guard": true
+    },
+    {
+      "filename": "hu03-keyword-context.en.ipynb",
+      "sha256": "b5fde6be626fb5c5abcdd36bdd4646ba4143f9d8dd30e7222fc7abf77ac203df",
+      "current_code_and_sources": "passed",
+      "rename_move_roundtrip": "passed",
+      "png_figures": 3,
+      "offline_guard": true
+    },
+    {
+      "filename": "hu03-keyword-context.zh-hans.ipynb",
+      "sha256": "e70f40ac0f2d8a7ed8f5558247f583a827fc381c67857cca93c021b3e7fdffad",
+      "current_code_and_sources": "passed",
+      "rename_move_roundtrip": "passed",
+      "png_figures": 3,
+      "offline_guard": true
+    },
+    {
+      "filename": "hu04-mention-network.en.ipynb",
+      "sha256": "01566ee2e25420725cf26ef8c215961d1d2eb72d089378697e6a19c28d606795",
+      "current_code_and_sources": "passed",
+      "rename_move_roundtrip": "passed",
+      "png_figures": 3,
+      "offline_guard": true
+    },
+    {
+      "filename": "hu04-mention-network.zh-hans.ipynb",
+      "sha256": "c1a0f1be07cef395c0b9d1092a5f1cc8add1afb6c0d76412b30777b56b48d4ab",
+      "current_code_and_sources": "passed",
+      "rename_move_roundtrip": "passed",
+      "png_figures": 3,
+      "offline_guard": true
+    },
+    {
+      "filename": "hu05-text-projection.en.ipynb",
+      "sha256": "4953eb6591d66c24c0c93c299ca5711166d2954f56a8cb86efba18972dc289e4",
+      "current_code_and_sources": "passed",
+      "rename_move_roundtrip": "passed",
+      "png_figures": 3,
+      "offline_guard": true
+    },
+    {
+      "filename": "hu05-text-projection.zh-hans.ipynb",
+      "sha256": "8376df94fd6af6edbf626c5b523954960aa497c36de69ee788ddaacf1a9e62e0",
+      "current_code_and_sources": "passed",
+      "rename_move_roundtrip": "passed",
+      "png_figures": 3,
+      "offline_guard": true
+    },
+    {
+      "filename": "hu06-social-indicators.en.ipynb",
+      "sha256": "9fac355caea003bd35baf74465125eb580624bf18dd34baa8589411d14b8a495",
+      "current_code_and_sources": "passed",
+      "rename_move_roundtrip": "passed",
+      "png_figures": 3,
+      "offline_guard": true
+    },
+    {
+      "filename": "hu06-social-indicators.zh-hans.ipynb",
+      "sha256": "0035cfc79cb1f0e112db76b41910557d4b17862f9b5d6312fc3482197f31710b",
+      "current_code_and_sources": "passed",
+      "rename_move_roundtrip": "passed",
+      "png_figures": 3,
+      "offline_guard": true
+    }
+  ],
+  "source_records": 44,
+  "raw_responses": 44,
+  "source_artifact_parity": "passed"
+}

@@ -32,6 +32,6 @@ assets/
 
 The package wheelhouse remains in `zhiluo20/pydev-wheelhouse`.
 
-## Bioinformatics Cookbook
+## Multidisciplinary Cookbook
 
-Six real workflows are available as twelve independent English/Chinese offline notebooks. The static catalog is generated from executed notebooks under `cookbook/`; authoring and verification instructions are in [cookbook-src/README.md](cookbook-src/README.md).
+Eight disciplines each offer six workflows in English and Chinese: 48 courses and 96 independent offline notebooks. The static catalog is generated from executed notebooks under `cookbook/`; authoring and verification instructions are in [cookbook-src/README.md](cookbook-src/README.md).

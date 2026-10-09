@@ -5,12 +5,12 @@ from urllib.parse import urlsplit,unquote
 import ast,base64,gzip,hashlib,json,zipfile,re
 import xml.etree.ElementTree as ET
 import nbformat
-from courses import COURSES
+from catalog import COURSES, DISCIPLINES, subject_courses
 ROOT=Path(__file__).resolve().parent
 SITE=ROOT.parent
 OUT=SITE/"cookbook"
 SUPPORTED={"pathlib","base64","gzip","hashlib","json","platform","numpy","pandas","matplotlib","IPython",
-           "collections","html","scipy","networkx","py3Dmol","requests"}
+           "collections","html","math","re","statistics","datetime","scipy","networkx","py3Dmol","requests"}
 
 class Links(HTMLParser):
     def __init__(self):super().__init__();self.links=[];self.canonical=[];self.alternates=[]
@@ -51,7 +51,8 @@ def main():
             checks.append(dict(filename=path.name,format="passed",snapshots="passed",imports="passed",execution="passed",
                 bytes=path.stat().st_size,sha256=hashlib.sha256(path.read_bytes()).hexdigest()))
         assert versions[0]==versions[1],"Calculation differs by locale: "+course["id"]
-    pages=list(OUT.rglob("index.html"));assert len(pages)==32
+    expected_pages=2*(2+len(DISCIPLINES)+len(COURSES))
+    pages=list(OUT.rglob("index.html"));assert len(pages)==expected_pages
     product_root=re.search(r":root\s*\{(.*?)\}",(SITE/"index.html").read_text(),re.S).group(1)
     brand=(OUT/"assets/brand.css").read_text()
     for name in ["bg","surface","text","muted","accent","accent-2"]:
@@ -73,14 +74,18 @@ def main():
             if parts.path.endswith("/"):target=target/"index.html"
             assert target.exists(),f"Missing local target {page}: {link}"
             links_checked+=1
-    with zipfile.ZipFile(OUT/"downloads/vibeit-bioinformatics-cookbook.zip") as archive:
-        assert len(archive.namelist())==12
-        for name in archive.namelist():assert archive.read(name)==(OUT/"downloads"/name).read_bytes()
+    archives={"vibeit-cookbook.zip":COURSES}
+    archives.update({"vibeit-"+d['id']+"-cookbook.zip":subject_courses(d['id']) for d in DISCIPLINES if subject_courses(d['id'])})
+    for filename,courses in archives.items():
+        expected={c['id']+'.'+locale+'.ipynb' for c in courses for locale in ['en','zh-hans']}
+        with zipfile.ZipFile(OUT/'downloads'/filename) as archive:
+            assert set(archive.namelist())==expected
+            for name in archive.namelist():assert archive.read(name)==(OUT/"downloads"/name).read_bytes()
     locations=[el.text for el in ET.parse(SITE/"sitemap.xml").getroot().iter() if el.tag.endswith('}loc')]
-    assert len([u for u in locations if '/cookbook/' in u])==32
+    assert len([u for u in locations if '/cookbook/' in u])==expected_pages
     report=dict(notebooks=checks,pages=len(pages),local_links_checked=links_checked,bilingual_code_parity="passed",brand_palette="exact product tokens",python_highlighting="static Pygments; offline",
                 download_archive="passed",sitemap="passed")
     (ROOT/"qa/artifact-validation.json").write_text(json.dumps(report,indent=2)+"\n")
-    print(f"PASS: 12 notebooks, {len(pages)} pages, {links_checked} local links, all snapshots and bilingual code verified")
+    print(f"PASS: {len(checks)} notebooks, {len(pages)} pages, {links_checked} local links, all registered snapshots and bilingual code verified")
 
 if __name__=="__main__":main()
