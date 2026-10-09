@@ -655,7 +655,13 @@
       "executed_code_cells": 9,
       "png_figures": 3,
       "seconds": 1.52,
-      "offline_guard": true
+      "offline_guard": true,
+      "current_artifact_sha256": "2266175c60aa1edd9f3d086d48f75a78f135770c2395aa4ca561bf5c4056c98f",
+      "presentation_only_changes": [
+        "3D container width 640 -> 100%",
+        "camera margin zoom(0.7)"
+      ],
+      "scientific_code_and_data_unchanged": true
     },
     {
       "filename": "ch03-caffeine-geometry.zh-hans.ipynb",
@@ -671,7 +677,13 @@
       "executed_code_cells": 9,
       "png_figures": 3,
       "seconds": 1.09,
-      "offline_guard": true
+      "offline_guard": true,
+      "current_artifact_sha256": "47d5f6080c5ab6fef51312e95cb49417650500120de37bd82ca4da1246c30594",
+      "presentation_only_changes": [
+        "3D container width 640 -> 100%",
+        "camera margin zoom(0.7)"
+      ],
+      "scientific_code_and_data_unchanged": true
     },
     {
       "filename": "ch04-titration.en.ipynb",
@@ -1349,5 +1361,6 @@
   "complete": true,
   "device": "Vibeit Tutorials iPad / iPadOS 27.0 simulator",
   "app_version": "1.0.2 (8)",
-  "real_device_tested": false
+  "real_device_tested": false,
+  "presentation_refresh_note": "Two caffeine editions rerun in author offline environment after display-only width/camera changes; native scientific code/data parity checked and updated HTML displayed in actual iPhone Simulator. The original native execution hashes remain recorded."
 }

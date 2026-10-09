@@ -429,7 +429,7 @@
     },
     {
       "filename": "ch03-caffeine-geometry.en.ipynb",
-      "sha256": "f4382d01da45c999924c5c06910bcfff52e3cad5e36564f2a470eb7837b9bb0c",
+      "sha256": "2266175c60aa1edd9f3d086d48f75a78f135770c2395aa4ca561bf5c4056c98f",
       "current_code_and_sources": "passed",
       "rename_move_roundtrip": "passed",
       "png_figures": 3,
@@ -437,7 +437,7 @@
     },
     {
       "filename": "ch03-caffeine-geometry.zh-hans.ipynb",
-      "sha256": "0e20e48a56e737e610c2ed90b035722a76b574f52ddd1e211224f2f0f7c7a6a1",
+      "sha256": "47d5f6080c5ab6fef51312e95cb49417650500120de37bd82ca4da1246c30594",
       "current_code_and_sources": "passed",
       "rename_move_roundtrip": "passed",
       "png_figures": 3,

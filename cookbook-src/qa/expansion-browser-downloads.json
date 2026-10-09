@@ -368,15 +368,15 @@
     {
       "filename": "ch03-caffeine-geometry.en.ipynb",
       "status": "downloaded via browser",
-      "bytes": 260020,
-      "sha256": "f4382d01da45c999924c5c06910bcfff52e3cad5e36564f2a470eb7837b9bb0c",
+      "bytes": 260185,
+      "sha256": "2266175c60aa1edd9f3d086d48f75a78f135770c2395aa4ca561bf5c4056c98f",
       "exact_artifact_match": true
     },
     {
       "filename": "ch03-caffeine-geometry.zh-hans.ipynb",
       "status": "downloaded via browser",
-      "bytes": 259270,
-      "sha256": "0e20e48a56e737e610c2ed90b035722a76b574f52ddd1e211224f2f0f7c7a6a1",
+      "bytes": 259328,
+      "sha256": "47d5f6080c5ab6fef51312e95cb49417650500120de37bd82ca4da1246c30594",
       "exact_artifact_match": true
     },
     {
@@ -676,8 +676,8 @@
     {
       "filename": "vibeit-cookbook.zip",
       "status": "downloaded via browser",
-      "bytes": 35072848,
-      "sha256": "7fe2cab91afae08cd1f93ef1b107615d6f287bd1d47bf68761de88c37c89c81a",
+      "bytes": 35072940,
+      "sha256": "f55427c50c7cb04873687ae5948a1134f714b1e0f2a9ec9f0a8107dcf2d61757",
       "exact_artifact_match": true
     },
     {
@@ -711,8 +711,8 @@
     {
       "filename": "vibeit-chemistry-cookbook.zip",
       "status": "downloaded via browser",
-      "bytes": 1462788,
-      "sha256": "0b7d286ee3edb3efa4fe6a695ab2c4774b2fb25a81dc109951fab5655546033c",
+      "bytes": 1462880,
+      "sha256": "8093a62d4ff7c47c15470686bf7b12b82032a86d18861fe53d80b2b966740a1e",
       "exact_artifact_match": true
     },
     {

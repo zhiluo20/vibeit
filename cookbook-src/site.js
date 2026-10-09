@@ -21,7 +21,7 @@ if(typeof ResizeObserver!=='undefined'){
   const observer=new ResizeObserver(entries=>{
     for(const entry of entries){
       const viewer=window[entry.target.id.replace('3dmolviewer_','viewer_')];
-      if(viewer){viewer.resize();viewer.zoomTo();viewer.zoom(.85);viewer.render();}
+      if(viewer){viewer.resize();viewer.zoomTo();viewer.zoom(.7);viewer.render();}
     }
   });
   document.querySelectorAll('[id^="3dmolviewer_"]').forEach(element=>observer.observe(element));

@@ -1713,6 +1713,6 @@
     "container_width": 358,
     "canvas_width": 358,
     "external_https": "blocked",
-    "camera_fit": "resize, zoomTo and 0.85 margin"
+    "camera_fit": "resize, zoomTo and 0.7 margin"
   }
 }

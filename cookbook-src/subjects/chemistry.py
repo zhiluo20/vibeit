@@ -76,8 +76,8 @@ SECTIONS[COURSES[2]['id']]=[
  step('Distinguish computed conformation from experiment','区分计算构象与实验结构','The source is a PubChem calculated caffeine conformer. Coordinates are in ångströms and include explicit hydrogens. This is neither a solved protein structure nor a solvent-dependent ensemble; source bond connectivity remains separate from geometric proximity.','来源是 PubChem 计算的咖啡因构象，坐标单位为埃并包含显式氢。它不是实验解析蛋白结构，也不是溶剂中的构象集合；来源键连接与几何邻近应分别处理。','''molecules=snapshot("molecules");sdf=molecules["caffeine_3d_sdf"];record=parse_molfile(sdf)
 positions=np.array([a["position"] for a in record["atoms"]]);elements=np.array([a["element"] for a in record["atoms"]])
 heavy=elements!="H";print("Atoms:",len(positions),"; heavy atoms:",int(heavy.sum()),"; coordinate unit: Å; computed conformer")
-viewer=py3Dmol.view(width=640,height=420)
-viewer.addModel(sdf,"sdf");viewer.setStyle({"stick":{"radius":.15},"sphere":{"scale":.25}});viewer.setBackgroundColor("white");viewer.zoomTo()
+viewer=py3Dmol.view(width="100%",height=420)
+viewer.addModel(sdf,"sdf");viewer.setStyle({"stick":{"radius":.15},"sphere":{"scale":.25}});viewer.setBackgroundColor("white");viewer.zoomTo();viewer.zoom(.7)
 display(HTML(viewer._make_html()))'''),
  step('Build a static geometry cross-check','构造静态几何核对图','The static figure uses the same coordinates and source bonds. Axes are ångströms. It provides an offline non-WebGL view, and does not infer a bond by simply drawing every short interatomic distance.','静态图使用同一组坐标及来源键，轴单位为埃。它提供无需 WebGL 的离线视图，也不靠画出所有短距离推断键。','''colors={"C":"gray","H":"lightgray","N":"royalblue","O":"red"}
 fig=plt.figure(figsize=(7,6));ax=fig.add_subplot(projection="3d")

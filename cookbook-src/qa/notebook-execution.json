@@ -684,24 +684,6 @@
     "offline": true
   },
   {
-    "filename": "ch03-caffeine-geometry.en.ipynb",
-    "cells": 25,
-    "figures": 3,
-    "seconds": 1.53,
-    "sha256": "f4382d01da45c999924c5c06910bcfff52e3cad5e36564f2a470eb7837b9bb0c",
-    "status": "passed",
-    "offline": true
-  },
-  {
-    "filename": "ch03-caffeine-geometry.zh-hans.ipynb",
-    "cells": 25,
-    "figures": 3,
-    "seconds": 1.51,
-    "sha256": "0e20e48a56e737e610c2ed90b035722a76b574f52ddd1e211224f2f0f7c7a6a1",
-    "status": "passed",
-    "offline": true
-  },
-  {
     "filename": "ch04-titration.en.ipynb",
     "cells": 23,
     "figures": 3,
@@ -896,6 +878,24 @@
     "figures": 3,
     "seconds": 5.63,
     "sha256": "c4e6d676b9f8c79e9d9d62a01ea4b171ab04d8cbd30e90febc5cecb65d59c7a6",
+    "status": "passed",
+    "offline": true
+  },
+  {
+    "filename": "ch03-caffeine-geometry.en.ipynb",
+    "cells": 25,
+    "figures": 3,
+    "seconds": 8.3,
+    "sha256": "2266175c60aa1edd9f3d086d48f75a78f135770c2395aa4ca561bf5c4056c98f",
+    "status": "passed",
+    "offline": true
+  },
+  {
+    "filename": "ch03-caffeine-geometry.zh-hans.ipynb",
+    "cells": 25,
+    "figures": 3,
+    "seconds": 27.82,
+    "sha256": "47d5f6080c5ab6fef51312e95cb49417650500120de37bd82ca4da1246c30594",
     "status": "passed",
     "offline": true
   }
