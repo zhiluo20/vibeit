@@ -51,3 +51,18 @@ a{color:var(--accent)}a:hover{color:var(--accent-2)}
 .callout-content code{padding:2px 5px;border:1px solid var(--line);border-radius:4px;background:var(--surface);font-size:.85em}
 @media(max-width:640px){.callout{padding:16px;margin:20px 0}.callout-content p,.notebook .callout-content p{font-size:14px}}
 @media print{.callout{background:#f3f7fb;border-color:#aac5e0;color:#111}.callout-heading{color:#235c88}.callout-content p,.notebook .callout-content p{color:#111}.callout-content code{background:#e9eef5}}
+
+/* Stories and figures stay visible; readers can open code and technical notes when ready. */
+.advanced-note,.code-disclosure{margin:16px 0;border:1px solid var(--line-2);border-radius:10px;padding:12px 16px;background:var(--surface)}
+.advanced-note summary,.code-disclosure summary{cursor:pointer;color:var(--accent-2);font-size:14px;line-height:1.7;overflow-wrap:anywhere}
+.advanced-note[open] summary,.code-disclosure[open] summary{margin-bottom:12px}
+.notebook .advanced-note p,.notebook .advanced-note li{font-size:14px;color:var(--muted)}
+.code-disclosure .source-code{margin-bottom:0}
+.principle-sketch{margin:22px 0;padding:16px;background:#fff;border:1px solid #d6dfe8;border-radius:14px;color:#243445;max-width:100%}
+.principle-sketch img{display:block;width:100%;max-width:720px;height:auto;margin:0 auto}
+.principle-sketch figcaption{font-size:14px;line-height:1.8;margin-top:12px;color:#243445}
+@media(max-width:640px){.principle-sketch{padding:10px}.principle-sketch figcaption{font-size:13px}}
+.note-ref{font-size:.65em;margin-left:3px}.note-ref-link{text-decoration:none}
+.reading-footnotes{margin-top:32px;padding-top:16px;border-top:1px solid var(--line)}
+.notebook .reading-footnotes h2{font-size:16px;margin:0 0 12px;color:var(--muted)}
+.notebook .reading-footnotes p{font-size:12px;line-height:1.75;color:var(--muted);margin:8px 0;scroll-margin-top:88px}

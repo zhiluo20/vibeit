@@ -342,3 +342,7 @@ EXERCISES = {
         '手动重新运行。每个 HER2 残基的整体最短距离须等于 A 单链与 B 单链结果的较小值；增加阈值后接触数量不能下降，CSV 保留插入码和空界面报告。'
     ])
 }
+
+# Computation stays above; the reading layer adds everyday explanations and optional detail.
+from ._drug_plain_language import apply as apply_plain_language
+apply_plain_language(COURSES, SECTIONS, EXERCISES)

@@ -21,6 +21,7 @@ ASSETS=OUT/"assets"
 ASSETS.mkdir(parents=True,exist_ok=True)
 PRODUCT=(SITE/"index.html").read_text(encoding="utf-8")
 md=mistune.create_markdown(plugins=["table","url"])
+md_plain=mistune.create_markdown(escape=False,plugins=["table","url"])
 class VibeitCodeStyle(Style):
     background_color="#101014"
     default_style="#f4f4f6"
@@ -58,16 +59,27 @@ GUIDANCE_TITLES={
     "## Optional AI coding exercises":"Optional AI exercises",
     "## 可选联网扩展":"联网扩展说明",
     "## Optional online extension":"Online extension",
+    "## 从这里开始：先听故事，再看图片":"从零开始",
+    "## Start here: a story, then pictures":"Start from the beginning",
+    "### 打开 notebook 里面的数据包":"数据已经备好",
+    "### Open the data packed inside this notebook":"The data is packed inside",
+    "### 准备几个会反复用到的小工具":"准备小工具",
+    "### Our reusable tools":"Get the tools ready",
+    "## 可选：请 AI 帮忙改一点代码":"可选 AI 练习",
+    "## Optional: ask AI for a small code change":"Optional AI exercises",
+    "## 可选：联网看看数据来源":"可选联网步骤",
+    "## Optional: check the source online":"Optional online step",
 }
 
-def markdown_html(source):
+def markdown_html(source,allow_html=False):
+    renderer=md_plain if allow_html else md
     sections=source.split("\n\n",2)
     title=GUIDANCE_TITLES.get(sections[0])
     if title and len(sections)>=2:
         # Render just the fixed introductory paragraph as a card. Keeping its
         # Markdown intact preserves inline code, emphasis and future links.
-        return md(sections[0])+callout(title,md(sections[1]))+(md(sections[2]) if len(sections)==3 else "")
-    return md(source)
+        return renderer(sections[0])+callout(title,renderer(sections[1]))+(renderer(sections[2]) if len(sections)==3 else "")
+    return renderer(source)
 
 def prefix(locale):return BASE+("zh-hans/" if locale=="zh-hans" else "")
 def route(locale,tail=""):return prefix(locale)+tail
@@ -189,9 +201,11 @@ def recipes(locale,discipline="bioinformatics"):
 
 def notebook_html(nb):
     parts=[];toc=[]
+    plain=nb.metadata.get('vibeit_cookbook',{}).get('plain_language',False)
+    zh=nb.metadata.get('vibeit_cookbook',{}).get('locale')=='zh-hans'
     for cell in nb.cells:
         if cell.cell_type=="markdown":
-            rendered=markdown_html(cell.source)
+            rendered=markdown_html(cell.source,allow_html=plain)
             def heading(match):
                 level,text=match.group(1),match.group(2)
                 anchor="s-"+hashlib.sha256((cell.id+text).encode()).hexdigest()[:10]
@@ -215,7 +229,11 @@ def notebook_html(nb):
                     outputs.append('<pre>'+esc(output.text)+'</pre>')
                 elif output.output_type=="error":raise ValueError("Notebook has an error output")
             highlighted=highlight(cell.source,PythonLexer(),CODE_FORMATTER)
-            parts.append(f'<section class="code-cell"><div class="cell-prompt">In [{cell.execution_count}] · Python</div><pre class="source-code"><code>{highlighted}</code></pre><div class="output">'+"".join(outputs)+'</div></section>')
+            source=f'<pre class="source-code"><code>{highlighted}</code></pre>'
+            if plain:
+                label='看看这一步的 Python 代码（可以先跳过）' if zh else 'See the Python code for this step (optional reading)'
+                source=f'<details class="code-disclosure"><summary>{label}</summary>{source}</details>'
+            parts.append(f'<section class="code-cell"><div class="cell-prompt">In [{cell.execution_count}] · Python</div>{source}<div class="output">'+"".join(outputs)+'</div></section>')
     return "\n".join(parts),toc
 
 def reader(course,locale):
@@ -277,7 +295,7 @@ if __name__=="__main__":
                     path=OUT/'downloads'/(c['id']+'.'+locale+'.ipynb');archive.write(path,path.name)
     manifest=[]
     for c in COURSES:
-        item={k:v for k,v in c.items() if k!="functions"}
+        item={k:v for k,v in c.items() if k not in ("functions","reading_notes")}
         item.update(data_version=c.get("data_version","snapshot-2026-10-09"),validation="executed-offline",data_kind=c.get("data_kind","measured"))
         item["downloads"]={locale:BASE+"downloads/"+c["id"]+"."+locale+".ipynb" for locale in ["en","zh-hans"]}
         item["previews"]={locale:route(locale,course_path(c)) for locale in ["en","zh-hans"]}

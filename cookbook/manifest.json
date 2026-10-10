@@ -239,12 +239,12 @@
     "number": 7,
     "slug": "imatinib-binding-pocket",
     "title": {
-      "en": "How imatinib occupies an ABL kinase pocket",
-      "zh-hans": "伊马替尼如何占据 ABL 激酶口袋"
+      "en": "How does a small drug fit into a protein pocket?",
+      "zh-hans": "小药物怎样放进蛋白质口袋？"
     },
     "summary": {
-      "en": "Inspect an experimentally observed drug pose in 1IEP, measure its pocket, and separate geometric contacts from affinity and efficacy.",
-      "zh-hans": "观察 1IEP 中实验测定的药物姿态，测量结合口袋，区分几何接触、亲和力与药效。"
+      "en": "Turn a real 3D model, find the drug and its neighbors, and learn what a distance measurement can tell us.",
+      "zh-hans": "用伊马替尼与 ABL 的真实模型，像观察小积木放进凹槽一样，找到药物和它旁边的蛋白小部件。"
     },
     "discipline": "bioinformatics",
     "minutes": 60,
@@ -274,8 +274,14 @@
     "keywords": "imatinib 伊马替尼 ABL kinase 激酶 药物 结合口袋 小分子 ATP STI 1IEP",
     "online_url": "https://data.rcsb.org/rest/v1/core/entry/1IEP",
     "data_note": {
-      "en": "1IEP is an X-ray structure (2.10 Å) of **mouse c-Abl kinase domain**, not a complete human BCR–ABL fusion. STI is imatinib. The asymmetric unit contains two kinase copies; use author chain A and its own STI, not an inferred A/B dimer. The coordinates and RCSB identity metadata are frozen. This is analysis of an observed complex, not docking. No hydrogens, solvent energetics, affinity or clinical response are reconstructed.",
-      "zh-hans": "1IEP 是 **鼠源 c-Abl 激酶结构域**的 X 射线结构（2.10 Å），不是完整的人 BCR–ABL 融合蛋白。STI 是伊马替尼。不对称单元含两个激酶副本；本课选作者链 A 及其自身的 STI，不把 A/B 自动解释为二聚体。坐标及 RCSB 身份注释均已冻结。本课分析已观测的复合物，不进行对接，也不重建氢原子、溶剂能量、亲和力或临床反应。"
+      "en": "Our model shows a piece of mouse ABL and a drug already observed together in an experiment. We study that picture rather than guessing a new position.<a class=\"note-ref-link\" href=\"#reading-note-2\"><sup class=\"note-ref\">2</sup></a>",
+      "zh-hans": "今天看的是小鼠 ABL 的一部分和药物在实验中一起出现的模型。我们研究这份真实记录，不随意猜一个新位置。<a class=\"note-ref-link\" href=\"#reading-note-2\"><sup class=\"note-ref\">2</sup></a>"
+    },
+    "plain_language": true,
+    "illustration": "drug-pocket-sketch.png",
+    "illustration_caption": {
+      "en": "Green is the protein and orange is the small drug. Top: identify the two parts. Bottom: see the drug in the pocket. Purple rings pick out nearby parts; the dashed line shows where a distance is measured.",
+      "zh-hans": "绿色是蛋白，橙色是小药物。上图认识两部分，下图看药物在口袋中的位置。紫圈选出附近的小部件，虚线标出量距离的位置。"
     },
     "cover": "/vibeit/cookbook/assets/imatinib-binding-pocket.png",
     "validation": "executed-offline",
@@ -293,12 +299,12 @@
     "number": 8,
     "slug": "antibody-target-interface",
     "title": {
-      "en": "How a trastuzumab Fab recognizes HER2",
-      "zh-hans": "曲妥珠单抗 Fab 如何识别 HER2"
+      "en": "How does an antibody meet a protein surface?",
+      "zh-hans": "抗体怎样贴在蛋白质表面？"
     },
     "summary": {
-      "en": "Read the antibody–target complex 1N8Z, locate its protein interface, and compare surface recognition with small-molecule pocket binding.",
-      "zh-hans": "解读抗体与靶蛋白复合物 1N8Z，定位蛋白界面，与小分子的口袋结合进行比较。"
+      "en": "Follow three colors in a real 3D model and discover where an antibody piece meets its target protein.",
+      "zh-hans": "用曲妥珠单抗与 HER2 的真实模型，跟着三种颜色，看看抗体的一部分怎样贴在蛋白表面。"
     },
     "discipline": "bioinformatics",
     "minutes": 60,
@@ -328,8 +334,14 @@
     "keywords": "trastuzumab 曲妥珠单抗 Herceptin HER2 抗体 生物药 Fab 表位 界面 1N8Z",
     "online_url": "https://data.rcsb.org/rest/v1/core/entry/1N8Z",
     "data_note": {
-      "en": "1N8Z is an X-ray complex (2.52 Å): author chain A is the trastuzumab Fab light chain, B the Fab heavy chain, and C the human HER2 extracellular construct. This is **one Fab, not a complete IgG**; neither Fc nor the membrane/intracellular kinase domain is present. Trastuzumab is a [humanized IgG1 antibody](https://www.gene.com/download/pdf/herceptin_prescribing.pdf). RCSB labels these mixed-source entities chimeric; that database flag should not be substituted for the therapeutic antibody classification. NAG is a sugar component, not the antibody drug. Use deposited author residue numbers including insertion codes; do not invent CDR or clinical numbering assignments.",
-      "zh-hans": "1N8Z 是 X 射线复合物（2.52 Å）：作者链 A 是曲妥珠单抗 Fab 轻链，B 是 Fab 重链，C 是人 HER2 胞外区构建体。这是**一个 Fab，不是完整 IgG**；没有 Fc、细胞膜或胞内激酶结构域。曲妥珠单抗是[人源化 IgG1 抗体](https://www.gene.com/download/pdf/herceptin_prescribing.pdf)。RCSB 对鼠/人多来源实体使用 chimeric 标记，这个数据库标记不能替代治疗抗体的分类。NAG 是糖组分，不是抗体药物。保留作者残基编号和插入码，不自行推定 CDR 或临床编号对应关系。"
+      "en": "Our model shows the antibody’s Fab piece and part of HER2 already observed together in an experiment.<a class=\"note-ref-link\" href=\"#reading-note-2\"><sup class=\"note-ref\">2</sup></a>",
+      "zh-hans": "今天看的是抗体负责结合的 Fab 部分，和 HER2 的一部分在实验中一起出现的模型。<a class=\"note-ref-link\" href=\"#reading-note-2\"><sup class=\"note-ref\">2</sup></a>"
+    },
+    "plain_language": true,
+    "illustration": "antibody-surface-sketch.png",
+    "illustration_caption": {
+      "en": "Green is the target protein. Orange and blue show the two Fab chains approaching a local surface patch. Dashed lines show distances from a Fab part to a green target part.",
+      "zh-hans": "绿色是靶蛋白，橙色和蓝色是 Fab 的两条链。它们在一小块表面相遇，虚线标出 Fab 部件与绿色靶蛋白部件之间的距离。"
     },
     "cover": "/vibeit/cookbook/assets/antibody-target-interface.png",
     "validation": "executed-offline",

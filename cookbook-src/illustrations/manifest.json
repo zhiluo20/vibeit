@@ -1,0 +1,34 @@
+[
+  {
+    "file": "antibody-surface-sketch.png",
+    "sha256": "f25f508fc1eefbdaf9b9b097d10c63ff6e70f67b844f6f912f855e4372772109",
+    "bytes": 2172501,
+    "kind": "teaching illustration, not measured data",
+    "width": 1254,
+    "height": 1254
+  },
+  {
+    "file": "counting-pairs.en.svg",
+    "sha256": "9a8ca42794dda3ea4f35749b73951f29467a2c2b02702b1696f8d170cb9fae0b",
+    "bytes": 2642,
+    "kind": "teaching illustration, not measured data",
+    "people": 5,
+    "greeting_pairs": 6
+  },
+  {
+    "file": "counting-pairs.zh-hans.svg",
+    "sha256": "8021b062a997fb152125d65aeffa405773023104f37dc4dedd837e53e96c2fbb",
+    "bytes": 2682,
+    "kind": "teaching illustration, not measured data",
+    "people": 5,
+    "greeting_pairs": 6
+  },
+  {
+    "file": "drug-pocket-sketch.png",
+    "sha256": "6bc144cfa9645301bfb1d28a7217d15d85798d632db0e29164e5408e1f8a284f",
+    "bytes": 1912380,
+    "kind": "teaching illustration, not measured data",
+    "width": 1254,
+    "height": 1254
+  }
+]
