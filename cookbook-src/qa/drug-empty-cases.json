@@ -1,0 +1,26 @@
+[
+  {
+    "filename": "renamed-empty-case.ipynb",
+    "cells": 33,
+    "figures": 4,
+    "seconds": 4.47,
+    "sha256": "85059d63484dd8d8a7296779239a55e13f5b52c5a6445dce6f97f8ea5e024138",
+    "status": "passed",
+    "offline": true,
+    "course": "07-imatinib-pocket",
+    "case": "0.01 \u00c5, zero contacts, renamed file in isolated folder",
+    "exports": "passed"
+  },
+  {
+    "filename": "renamed-empty-case.ipynb",
+    "cells": 33,
+    "figures": 5,
+    "seconds": 5.52,
+    "sha256": "271a5d6342e7c96e66a8d2ae85cbf543d704525a794f97e984d269dca26b44f5",
+    "status": "passed",
+    "offline": true,
+    "course": "08-trastuzumab-interface",
+    "case": "0.01 \u00c5, zero contacts, renamed file in isolated folder",
+    "exports": "passed"
+  }
+]

@@ -17,12 +17,14 @@ def main():
     parser.add_argument('--documents',type=Path,required=True)
     parser.add_argument('--downloads',type=Path,required=True)
     parser.add_argument('--progress',type=Path,required=True)
+    parser.add_argument('--only',action='append',help='Explicit course IDs, including bioinformatics')
+    parser.add_argument('--report',default='expansion-native-imports.json')
     args=parser.parse_args()
     incoming=args.documents/'QA-Incoming';incoming.mkdir(exist_ok=True)
     rows=json.loads(args.progress.read_text()) if args.progress.exists() else []
     complete={row['filename']:row for row in rows}
-    for course in COURSES:
-        if course['discipline']=='bioinformatics':continue
+    selected=[c for c in COURSES if (c['id'] in args.only if args.only else c['discipline']!='bioinformatics')]
+    for course in selected:
         for locale in ['en','zh-hans']:
             filename=course['id']+'.'+locale+'.ipynb'
             source=args.downloads/filename;digest=hashlib.sha256(source.read_bytes()).hexdigest()
@@ -53,10 +55,10 @@ def main():
             rows.append(row);complete[filename]=row
             args.progress.write_text(json.dumps(rows,indent=2)+'\n')
             print('Imported',len(rows),filename,flush=True)
-    assert len(rows)==84
+    assert len(rows)==2*len(selected)
     report=dict(mode='Actual installed-app external file-URL import; distinct from manual Files picker, editor Run All, and export UI',
         device='Cookbook Expansion QA iPad / iPadOS 27.0 Simulator',app='1.0.2 (8)',results=rows,complete=True,real_device_tested=False)
-    (ROOT/'qa/expansion-native-imports.json').write_text(json.dumps(report,indent=2)+'\n')
-    print('PASS: 84 actual installed-app imports with complete cells and snapshots')
+    (ROOT/'qa'/args.report).write_text(json.dumps(report,indent=2)+'\n')
+    print('PASS:',len(rows),'actual installed-app imports with complete cells and snapshots')
 
 if __name__=='__main__':main()

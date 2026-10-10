@@ -9,11 +9,12 @@ import nbformat
 from catalog import COURSES
 
 ROOT=Path(__file__).resolve().parent
-parser=argparse.ArgumentParser();parser.add_argument('--destination',required=True);parser.add_argument('--subject');args=parser.parse_args()
+parser=argparse.ArgumentParser();parser.add_argument('--destination',required=True);parser.add_argument('--subject');parser.add_argument('--only',action='append',help='Explicit course IDs, including bioinformatics');args=parser.parse_args()
 destination=Path(args.destination);destination.mkdir(parents=True,exist_ok=True)
 manifest=[]
 for course in COURSES:
-    if course['discipline']=='bioinformatics':continue
+    if args.only and course['id'] not in args.only:continue
+    if not args.only and course['discipline']=='bioinformatics':continue
     if args.subject and course['discipline']!=args.subject:continue
     for language in ['en','zh-hans']:
         source=ROOT.parent/'cookbook/downloads'/(course['id']+'.'+language+'.ipynb')

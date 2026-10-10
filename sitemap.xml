@@ -58,6 +58,14 @@
     <changefreq>monthly</changefreq>
   </url>
   <url>
+    <loc>https://www.mecury.co.uk/vibeit/cookbook/bioinformatics/imatinib-binding-pocket/</loc>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.mecury.co.uk/vibeit/cookbook/bioinformatics/antibody-target-interface/</loc>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
     <loc>https://www.mecury.co.uk/vibeit/cookbook/data-science/iris-data-audit/</loc>
     <changefreq>monthly</changefreq>
   </url>
@@ -287,6 +295,14 @@
   </url>
   <url>
     <loc>https://www.mecury.co.uk/vibeit/cookbook/zh-hans/bioinformatics/protein-structure/</loc>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.mecury.co.uk/vibeit/cookbook/zh-hans/bioinformatics/imatinib-binding-pocket/</loc>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.mecury.co.uk/vibeit/cookbook/zh-hans/bioinformatics/antibody-target-interface/</loc>
     <changefreq>monthly</changefreq>
   </url>
   <url>

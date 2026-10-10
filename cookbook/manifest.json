@@ -235,6 +235,114 @@
     }
   },
   {
+    "id": "07-imatinib-pocket",
+    "number": 7,
+    "slug": "imatinib-binding-pocket",
+    "title": {
+      "en": "How imatinib occupies an ABL kinase pocket",
+      "zh-hans": "伊马替尼如何占据 ABL 激酶口袋"
+    },
+    "summary": {
+      "en": "Inspect an experimentally observed drug pose in 1IEP, measure its pocket, and separate geometric contacts from affinity and efficacy.",
+      "zh-hans": "观察 1IEP 中实验测定的药物姿态，测量结合口袋，区分几何接触、亲和力与药效。"
+    },
+    "discipline": "bioinformatics",
+    "minutes": 60,
+    "difficulty": 2,
+    "snapshots": [
+      "imatinib"
+    ],
+    "packages": [
+      "numpy",
+      "pandas",
+      "scipy",
+      "matplotlib",
+      "py3Dmol",
+      "IPython"
+    ],
+    "category": "drug-binding",
+    "category_title": {
+      "en": "Drug–protein binding",
+      "zh-hans": "药物与蛋白结合"
+    },
+    "setup_imports": "import py3Dmol\nfrom scipy.spatial.distance import cdist\n",
+    "data_kind": "measured",
+    "interactive_3d": true,
+    "scroll_tables": true,
+    "icon": "💊",
+    "data_version": "snapshot-2026-10-10",
+    "keywords": "imatinib 伊马替尼 ABL kinase 激酶 药物 结合口袋 小分子 ATP STI 1IEP",
+    "online_url": "https://data.rcsb.org/rest/v1/core/entry/1IEP",
+    "data_note": {
+      "en": "1IEP is an X-ray structure (2.10 Å) of **mouse c-Abl kinase domain**, not a complete human BCR–ABL fusion. STI is imatinib. The asymmetric unit contains two kinase copies; use author chain A and its own STI, not an inferred A/B dimer. The coordinates and RCSB identity metadata are frozen. This is analysis of an observed complex, not docking. No hydrogens, solvent energetics, affinity or clinical response are reconstructed.",
+      "zh-hans": "1IEP 是 **鼠源 c-Abl 激酶结构域**的 X 射线结构（2.10 Å），不是完整的人 BCR–ABL 融合蛋白。STI 是伊马替尼。不对称单元含两个激酶副本；本课选作者链 A 及其自身的 STI，不把 A/B 自动解释为二聚体。坐标及 RCSB 身份注释均已冻结。本课分析已观测的复合物，不进行对接，也不重建氢原子、溶剂能量、亲和力或临床反应。"
+    },
+    "cover": "/vibeit/cookbook/assets/imatinib-binding-pocket.png",
+    "validation": "executed-offline",
+    "downloads": {
+      "en": "/vibeit/cookbook/downloads/07-imatinib-pocket.en.ipynb",
+      "zh-hans": "/vibeit/cookbook/downloads/07-imatinib-pocket.zh-hans.ipynb"
+    },
+    "previews": {
+      "en": "/vibeit/cookbook/bioinformatics/imatinib-binding-pocket/",
+      "zh-hans": "/vibeit/cookbook/zh-hans/bioinformatics/imatinib-binding-pocket/"
+    }
+  },
+  {
+    "id": "08-trastuzumab-interface",
+    "number": 8,
+    "slug": "antibody-target-interface",
+    "title": {
+      "en": "How a trastuzumab Fab recognizes HER2",
+      "zh-hans": "曲妥珠单抗 Fab 如何识别 HER2"
+    },
+    "summary": {
+      "en": "Read the antibody–target complex 1N8Z, locate its protein interface, and compare surface recognition with small-molecule pocket binding.",
+      "zh-hans": "解读抗体与靶蛋白复合物 1N8Z，定位蛋白界面，与小分子的口袋结合进行比较。"
+    },
+    "discipline": "bioinformatics",
+    "minutes": 60,
+    "difficulty": 2,
+    "snapshots": [
+      "trastuzumab"
+    ],
+    "packages": [
+      "numpy",
+      "pandas",
+      "scipy",
+      "matplotlib",
+      "py3Dmol",
+      "IPython"
+    ],
+    "category": "drug-binding",
+    "category_title": {
+      "en": "Drug–protein binding",
+      "zh-hans": "药物与蛋白结合"
+    },
+    "setup_imports": "import py3Dmol\nfrom scipy.spatial.distance import cdist\n",
+    "data_kind": "measured",
+    "interactive_3d": true,
+    "scroll_tables": true,
+    "icon": "🧩",
+    "data_version": "snapshot-2026-10-10",
+    "keywords": "trastuzumab 曲妥珠单抗 Herceptin HER2 抗体 生物药 Fab 表位 界面 1N8Z",
+    "online_url": "https://data.rcsb.org/rest/v1/core/entry/1N8Z",
+    "data_note": {
+      "en": "1N8Z is an X-ray complex (2.52 Å): author chain A is the trastuzumab Fab light chain, B the Fab heavy chain, and C the human HER2 extracellular construct. This is **one Fab, not a complete IgG**; neither Fc nor the membrane/intracellular kinase domain is present. Trastuzumab is a [humanized IgG1 antibody](https://www.gene.com/download/pdf/herceptin_prescribing.pdf). RCSB labels these mixed-source entities chimeric; that database flag should not be substituted for the therapeutic antibody classification. NAG is a sugar component, not the antibody drug. Use deposited author residue numbers including insertion codes; do not invent CDR or clinical numbering assignments.",
+      "zh-hans": "1N8Z 是 X 射线复合物（2.52 Å）：作者链 A 是曲妥珠单抗 Fab 轻链，B 是 Fab 重链，C 是人 HER2 胞外区构建体。这是**一个 Fab，不是完整 IgG**；没有 Fc、细胞膜或胞内激酶结构域。曲妥珠单抗是[人源化 IgG1 抗体](https://www.gene.com/download/pdf/herceptin_prescribing.pdf)。RCSB 对鼠/人多来源实体使用 chimeric 标记，这个数据库标记不能替代治疗抗体的分类。NAG 是糖组分，不是抗体药物。保留作者残基编号和插入码，不自行推定 CDR 或临床编号对应关系。"
+    },
+    "cover": "/vibeit/cookbook/assets/antibody-target-interface.png",
+    "validation": "executed-offline",
+    "downloads": {
+      "en": "/vibeit/cookbook/downloads/08-trastuzumab-interface.en.ipynb",
+      "zh-hans": "/vibeit/cookbook/downloads/08-trastuzumab-interface.zh-hans.ipynb"
+    },
+    "previews": {
+      "en": "/vibeit/cookbook/bioinformatics/antibody-target-interface/",
+      "zh-hans": "/vibeit/cookbook/zh-hans/bioinformatics/antibody-target-interface/"
+    }
+  },
+  {
     "id": "ds01-iris-audit",
     "number": 1,
     "slug": "iris-data-audit",

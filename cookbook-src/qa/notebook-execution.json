@@ -898,5 +898,47 @@
     "sha256": "47d5f6080c5ab6fef51312e95cb49417650500120de37bd82ca4da1246c30594",
     "status": "passed",
     "offline": true
+  },
+  {
+    "filename": "07-imatinib-pocket.en.ipynb",
+    "cells": 33,
+    "figures": 4,
+    "seconds": 3.28,
+    "sha256": "3b509c718c160ddb9eebb1da15c82879dbcfa05a6c39dc8a14b60f5b81152f44",
+    "status": "passed",
+    "offline": true,
+    "source_note_updated_without_calculation_change": true,
+    "prose_refreshed_without_calculation_change": true
+  },
+  {
+    "filename": "07-imatinib-pocket.zh-hans.ipynb",
+    "cells": 33,
+    "figures": 4,
+    "seconds": 3.2,
+    "sha256": "162e43946554d0956153b6a9f93cb03b074d35c3a319ea57163fafd09b34d041",
+    "status": "passed",
+    "offline": true,
+    "source_note_updated_without_calculation_change": true,
+    "prose_refreshed_without_calculation_change": true
+  },
+  {
+    "filename": "08-trastuzumab-interface.en.ipynb",
+    "cells": 33,
+    "figures": 5,
+    "seconds": 3.59,
+    "sha256": "1bebdb117bfff2dd8a86d3bf88979c26a6cb7a62eb3549a1308db9821e17d793",
+    "status": "passed",
+    "offline": true,
+    "prose_refreshed_without_calculation_change": true
+  },
+  {
+    "filename": "08-trastuzumab-interface.zh-hans.ipynb",
+    "cells": 33,
+    "figures": 5,
+    "seconds": 3.61,
+    "sha256": "c822762a9efc799f4e6efb250639001af739b7cfdaa42ef346ffa7878f170030",
+    "status": "passed",
+    "offline": true,
+    "prose_refreshed_without_calculation_change": true
   }
 ]

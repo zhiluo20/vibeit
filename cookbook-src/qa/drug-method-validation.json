@@ -1,0 +1,45 @@
+{
+  "results": [
+    {
+      "snapshot": "imatinib",
+      "sha256": "5c917b32818fda4715c7887577a22d275c25e7a80f9ebf0e6b55e923f2c1f187",
+      "drug_heavy_atoms": 37,
+      "target_heavy_atoms": 2229,
+      "matrix_shape": [
+        1,
+        274
+      ],
+      "contacting_drug_residues": 1,
+      "contacting_target_residues": 21,
+      "residue_pair_edges": 21,
+      "cutoff_angstrom": 4.0,
+      "independent_radius_search": "passed",
+      "pdb_coordinate_and_insertion_roundtrip": "passed",
+      "rigid_rotation_translation": "passed",
+      "distance_symmetry": "passed",
+      "empty_contacts": "passed"
+    },
+    {
+      "snapshot": "trastuzumab",
+      "sha256": "147b0a3329c44a3ac92e5eda4c4e0e5b18511bf95c9938e3e0936567f9c252b5",
+      "drug_heavy_atoms": 3287,
+      "target_heavy_atoms": 4491,
+      "matrix_shape": [
+        434,
+        581
+      ],
+      "contacting_drug_residues": 14,
+      "contacting_target_residues": 17,
+      "residue_pair_edges": 32,
+      "cutoff_angstrom": 4.0,
+      "independent_radius_search": "passed",
+      "pdb_coordinate_and_insertion_roundtrip": "passed",
+      "rigid_rotation_translation": "passed",
+      "distance_symmetry": "passed",
+      "empty_contacts": "passed"
+    }
+  ],
+  "fixture_and_invalid_inputs": "passed",
+  "real_device_tested": false,
+  "scope": "Geometry validation; does not validate pharmacological efficacy or binding affinity"
+}

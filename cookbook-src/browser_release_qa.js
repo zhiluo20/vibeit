@@ -6,7 +6,7 @@ async page => {
   page.on('pageerror', error => errors.push(String(error)));
   await page.goto(origin + '/vibeit/cookbook/');
   const courses = await page.evaluate(async () => (await fetch('/vibeit/cookbook/manifest.json')).json());
-  if (courses.length !== 48) throw new Error('Expected all 48 courses');
+  if (courses.length !== 50) throw new Error('Expected all 50 courses');
   const results = [];
   for (const locale of ['en','zh-hans']) {
     const root = '/vibeit/cookbook/' + (locale==='en' ? '' : 'zh-hans/');
@@ -15,7 +15,8 @@ async page => {
     for (const discipline of [...new Set(courses.map(c=>c.discipline))]) {
       await page.goto(origin+root+discipline+'/');
       const cards = page.locator('.recipe-card');
-      if (await cards.count() !== 6) throw new Error('Missing six lessons: '+discipline);
+      const expected = courses.filter(c=>c.discipline===discipline).length;
+      if (await cards.count() !== expected) throw new Error('Missing lessons: '+discipline);
       await page.locator('#recipe-search').fill('no such recipe 987654');
       if (await cards.filter({visible:true}).count() !== 0 || !await page.locator('#empty-state').isVisible()) throw new Error('Empty search');
       await page.locator('#recipe-search').fill('');
@@ -23,7 +24,7 @@ async page => {
       await page.locator('#recipe-category').selectOption(categories[1]);
       if (await cards.filter({visible:true}).count() === 0) throw new Error('Category filter');
       await page.locator('#recipe-category').selectOption('all');
-      if (await cards.filter({visible:true}).count() !== 6) throw new Error('Reset filter');
+      if (await cards.filter({visible:true}).count() !== expected) throw new Error('Reset filter');
     }
     for (const course of courses) {
       await page.goto(origin+course.previews[locale],{waitUntil:'load'});
@@ -54,5 +55,5 @@ async page => {
   const atoms=await page.evaluate(()=>Object.values(window).filter(v=>v && typeof v.selectedAtoms==='function').map(v=>v.selectedAtoms({}).length));
   if(!atoms.includes(24))throw new Error('Caffeine should have 24 atoms: '+JSON.stringify(atoms));
   if(errors.length)throw new Error('Browser errors: '+errors.join('; '));
-  return {courses:48,reader_checks:results,disciplines:8,languages:2,search_and_categories:'passed',caffeine_offline_atoms:atoms,page_errors:errors};
+  return {courses:50,reader_checks:results,disciplines:8,languages:2,search_and_categories:'passed',caffeine_offline_atoms:atoms,page_errors:errors};
 }

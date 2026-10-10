@@ -306,5 +306,68 @@
     "bytes": 1494,
     "compressed_bytes": 688,
     "sha256": "e377bf82b38024748153880ff90c0106a0ef0fd8cb04761146cc60a2609cab3d"
+  },
+  {
+    "name": "Drug complex 1IEP coordinates",
+    "file": "data/raw/drug-1iep-coordinates.gz",
+    "bytes": 434565,
+    "compressed_bytes": 103109,
+    "sha256": "577386b4b8bc58a570facba0c8a843386842caef5ed7b60106c685d0f68d4218"
+  },
+  {
+    "name": "Drug complex 1IEP entry metadata",
+    "file": "data/raw/drug-1iep-entry.gz",
+    "bytes": 13820,
+    "compressed_bytes": 4066,
+    "sha256": "09499268eccba586c0443425240eccc171748fd24bc964c448e792c2ad96e4c2"
+  },
+  {
+    "name": "Drug complex 1IEP polymer entity 1",
+    "file": "data/raw/drug-1iep-entity-1.gz",
+    "bytes": 206508,
+    "compressed_bytes": 28603,
+    "sha256": "010c30720f818eb5cd6d32507bacff456173ce04b1f5653a5e4dcbda9b998f8a"
+  },
+  {
+    "name": "Drug complex STI chemical component",
+    "file": "data/raw/drug-sti-component.gz",
+    "bytes": 15584,
+    "compressed_bytes": 2707,
+    "sha256": "071661c3f0296df1a405b9157d5190d7cc0d50297c13b97a3ce2f7056007cc59"
+  },
+  {
+    "name": "Drug complex 1N8Z coordinates",
+    "file": "data/raw/drug-1n8z-coordinates.gz",
+    "bytes": 703809,
+    "compressed_bytes": 166816,
+    "sha256": "ed934d36503335c6764b08880f9e50933d99eb13b9bf145339cfcaee150eb21e"
+  },
+  {
+    "name": "Drug complex 1N8Z entry metadata",
+    "file": "data/raw/drug-1n8z-entry.gz",
+    "bytes": 16480,
+    "compressed_bytes": 4384,
+    "sha256": "7d86208b30f290f045ce5444f071bca574e417fa1f2a1b8bac463cf7c19bff70"
+  },
+  {
+    "name": "Drug complex 1N8Z polymer entity 1",
+    "file": "data/raw/drug-1n8z-entity-1.gz",
+    "bytes": 27065,
+    "compressed_bytes": 5417,
+    "sha256": "996883fdd4c89becba41a942b412553ae95c4ab762deb2b0137f6eba04a37cd7"
+  },
+  {
+    "name": "Drug complex 1N8Z polymer entity 2",
+    "file": "data/raw/drug-1n8z-entity-2.gz",
+    "bytes": 22775,
+    "compressed_bytes": 4031,
+    "sha256": "d853860110234b7dc3f3fe562976ddd867cdd688c97cac4af9f324dc9f53e462"
+  },
+  {
+    "name": "Drug complex 1N8Z polymer entity 3",
+    "file": "data/raw/drug-1n8z-entity-3.gz",
+    "bytes": 131658,
+    "compressed_bytes": 23570,
+    "sha256": "2bf10361f07b58c0f3121c10f0b61f7ded3ab2e01d0998b285f434e5b42cc448"
   }
 ]
