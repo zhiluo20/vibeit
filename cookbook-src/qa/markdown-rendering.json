@@ -1,0 +1,14 @@
+{
+  "narrative_cells_checked": 1482,
+  "unrendered_emphasis": [],
+  "changed_notebooks": [
+    "07-imatinib-pocket.zh-hans.ipynb",
+    "08-trastuzumab-interface.zh-hans.ipynb"
+  ],
+  "baseline_ref": "56ab123ba437515fe5a02cc16da10f939d2a54a5",
+  "calculation_code": "unchanged",
+  "saved_outputs": "unchanged",
+  "scientific_snapshots": "unchanged",
+  "cjk_punctuation_fixtures": "passed",
+  "python_exponent_operator": "preserved"
+}

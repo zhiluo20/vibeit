@@ -45,6 +45,21 @@ async page => {
       if(!await page.locator('#reading-note-1').isVisible())throw Error('Footnote link failed');
       const reading=await page.locator('.notebook').innerText();
       if(reading.includes('原理简笔画，不是实验结构')||reading.includes('Teaching sketch, not an experimental structure'))throw Error('Repeated clarification caption');
+      const markdownArtifacts=await page.evaluate(()=>{
+        const root=document.querySelector('.notebook');
+        const walk=document.createTreeWalker(root,NodeFilter.SHOW_TEXT);
+        const found=[];let node;
+        while(node=walk.nextNode()){
+          if(node.parentElement.closest('pre,code,script,style'))continue;
+          if(node.textContent.includes('**'))found.push(node.textContent.slice(0,160));
+        }
+        return found;
+      });
+      if(markdownArtifacts.length)throw Error('Unrendered Markdown: '+JSON.stringify(markdownArtifacts));
+      if(locale==='zh-hans'&&!antibody){
+        const text=await page.locator('strong').allTextContents();
+        if(!text.includes('柱形图这样看')||!text.includes('哪些蛋白小部件，有某个小点离药物足够近'))throw Error('Missing intended Chinese bold spans');
+      }
       await page.setViewportSize({width:390,height:844});
       await page.waitForFunction(()=>document.documentElement.scrollWidth<=innerWidth);
       await page.waitForFunction(()=>getComputedStyle(document.querySelector('#navCollapse')).opacity==='0'&&getComputedStyle(document.querySelector('#navCollapse')).visibility==='hidden');
@@ -52,7 +67,7 @@ async page => {
       const figure=page.locator('.principle-sketch').first();
       await figure.evaluate(e=>e.scrollIntoView({block:'center'}));
       await page.screenshot({path:'/tmp/vibeit-plain-sketch-'+slug+'-'+locale+'.png'});
-      rows.push({locale,slug,...row,mobileOverflow:false,keyboardCodeToggle:'passed',endnoteReference:'passed'});
+      rows.push({locale,slug,...row,mobileOverflow:false,keyboardCodeToggle:'passed',endnoteReference:'passed',unrenderedMarkdown:markdownArtifacts});
     }
   }
   if(errors.length)throw Error(errors.join(';'));
