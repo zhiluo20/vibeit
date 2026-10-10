@@ -1,0 +1,146 @@
+{
+  "scope": "plain-language reading, embedded sketches, preserved real outputs, keyboard code disclosure, endnotes and phone layout",
+  "rows": [
+    {
+      "locale": "en",
+      "slug": "imatinib-binding-pocket",
+      "notes": 0,
+      "noteParagraphs": 0,
+      "endnotes": 4,
+      "notesAtEnd": true,
+      "noteFontSize": 12,
+      "code": 14,
+      "open": 0,
+      "figures": 4,
+      "callouts": 5,
+      "width": 1280,
+      "documentWidth": 1280,
+      "sketches": [
+        {
+          "width": 1254,
+          "height": 1254,
+          "embedded": true,
+          "visibleOutsideTechnicalNotes": true,
+          "alt": true
+        }
+      ],
+      "modelAtoms": [
+        37,
+        2266,
+        208
+      ],
+      "mobileOverflow": false,
+      "keyboardCodeToggle": "passed",
+      "endnoteReference": "passed"
+    },
+    {
+      "locale": "en",
+      "slug": "antibody-target-interface",
+      "notes": 0,
+      "noteParagraphs": 0,
+      "endnotes": 4,
+      "notesAtEnd": true,
+      "noteFontSize": 12,
+      "code": 14,
+      "open": 0,
+      "figures": 5,
+      "callouts": 5,
+      "width": 1280,
+      "documentWidth": 1280,
+      "sketches": [
+        {
+          "width": 1254,
+          "height": 1254,
+          "embedded": true,
+          "visibleOutsideTechnicalNotes": true,
+          "alt": true
+        },
+        {
+          "width": 800,
+          "height": 490,
+          "embedded": true,
+          "visibleOutsideTechnicalNotes": true,
+          "alt": true
+        }
+      ],
+      "modelAtoms": [
+        7778
+      ],
+      "countingPairs": 6,
+      "mobileOverflow": false,
+      "keyboardCodeToggle": "passed",
+      "endnoteReference": "passed"
+    },
+    {
+      "locale": "zh-hans",
+      "slug": "imatinib-binding-pocket",
+      "notes": 0,
+      "noteParagraphs": 0,
+      "endnotes": 4,
+      "notesAtEnd": true,
+      "noteFontSize": 12,
+      "code": 14,
+      "open": 0,
+      "figures": 4,
+      "callouts": 5,
+      "width": 1280,
+      "documentWidth": 1280,
+      "sketches": [
+        {
+          "width": 1254,
+          "height": 1254,
+          "embedded": true,
+          "visibleOutsideTechnicalNotes": true,
+          "alt": true
+        }
+      ],
+      "modelAtoms": [
+        37,
+        2266,
+        208
+      ],
+      "mobileOverflow": false,
+      "keyboardCodeToggle": "passed",
+      "endnoteReference": "passed"
+    },
+    {
+      "locale": "zh-hans",
+      "slug": "antibody-target-interface",
+      "notes": 0,
+      "noteParagraphs": 0,
+      "endnotes": 4,
+      "notesAtEnd": true,
+      "noteFontSize": 12,
+      "code": 14,
+      "open": 0,
+      "figures": 5,
+      "callouts": 5,
+      "width": 1280,
+      "documentWidth": 1280,
+      "sketches": [
+        {
+          "width": 1254,
+          "height": 1254,
+          "embedded": true,
+          "visibleOutsideTechnicalNotes": true,
+          "alt": true
+        },
+        {
+          "width": 800,
+          "height": 490,
+          "embedded": true,
+          "visibleOutsideTechnicalNotes": true,
+          "alt": true
+        }
+      ],
+      "modelAtoms": [
+        7778
+      ],
+      "countingPairs": 6,
+      "mobileOverflow": false,
+      "keyboardCodeToggle": "passed",
+      "endnoteReference": "passed"
+    }
+  ],
+  "page_errors": []
+}

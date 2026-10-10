@@ -1,0 +1,46 @@
+{
+  "changed_notebooks": [
+    {
+      "filename": "08-trastuzumab-interface.zh-hans.ipynb",
+      "before_sha256": "c822762a9efc799f4e6efb250639001af739b7cfdaa42ef346ffa7878f170030",
+      "after_sha256": "b30a0176b852df2aa15d93ac73bda1bb5f0f3e9462e0b75ed55804547120c5b4",
+      "code": "byte-identical",
+      "outputs": "identical",
+      "embedded_snapshots": "identical",
+      "sketch_embedded_and_hash_verified": true,
+      "scope": "prose, teaching illustrations and endnote presentation only"
+    },
+    {
+      "filename": "08-trastuzumab-interface.en.ipynb",
+      "before_sha256": "1bebdb117bfff2dd8a86d3bf88979c26a6cb7a62eb3549a1308db9821e17d793",
+      "after_sha256": "afdb68a6180de5ab9b02172c1aebdbee6451b75b1d41b39d8c4c1e45eb333f10",
+      "code": "byte-identical",
+      "outputs": "identical",
+      "embedded_snapshots": "identical",
+      "sketch_embedded_and_hash_verified": true,
+      "scope": "prose, teaching illustrations and endnote presentation only"
+    },
+    {
+      "filename": "07-imatinib-pocket.en.ipynb",
+      "before_sha256": "3b509c718c160ddb9eebb1da15c82879dbcfa05a6c39dc8a14b60f5b81152f44",
+      "after_sha256": "f6062d90f559b8db52af33c5d5ba3a5fe526a97ec844fc7e4ce2c0ed7024a127",
+      "code": "byte-identical",
+      "outputs": "identical",
+      "embedded_snapshots": "identical",
+      "sketch_embedded_and_hash_verified": true,
+      "scope": "prose, teaching illustrations and endnote presentation only"
+    },
+    {
+      "filename": "07-imatinib-pocket.zh-hans.ipynb",
+      "before_sha256": "162e43946554d0956153b6a9f93cb03b074d35c3a319ea57163fafd09b34d041",
+      "after_sha256": "1851fb624c9639d6ebd827dbcd4ace41316925aaaab2b87964c704ce149efc0c",
+      "code": "byte-identical",
+      "outputs": "identical",
+      "embedded_snapshots": "identical",
+      "sketch_embedded_and_hash_verified": true,
+      "scope": "prose, teaching illustrations and endnote presentation only"
+    }
+  ],
+  "other_notebooks_unchanged": 96,
+  "calculation_or_data_change": false
+}

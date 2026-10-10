@@ -40,6 +40,11 @@ def introduction(course,locale):
   <div style="margin-top:12px">{pills}</div>
 </section>
 '''
+    if course.get('illustration'):
+        raw=(ROOT/'illustrations'/course['illustration']).read_bytes()
+        caption=html.escape(course['illustration_caption'][locale])
+        heading='先看一张简笔画' if zh else 'Start with a teaching sketch'
+        markup+=f'<figure class="principle-sketch" style="margin:20px 0;padding:16px;background:#fff;border:1px solid #d6dfe8;border-radius:14px;max-width:100%;box-sizing:border-box"><strong style="display:block;color:#243445;margin-bottom:12px">{heading}</strong><img src="data:image/png;base64,{base64.b64encode(raw).decode()}" alt="{caption}" style="display:block;width:100%;height:auto;max-width:720px;margin:0 auto"><figcaption style="color:#243445;font-size:14px;line-height:1.8;margin-top:12px">{caption}<a class="note-ref-link" href="#reading-note-1"><sup class="note-ref">1</sup></a></figcaption></figure>'
     return nbformat.v4.new_raw_cell(markup,metadata={"raw_mimetype":"text/html","tags":["lesson-intro"]})
 
 def refresh_introduction(path,course,locale):
@@ -61,6 +66,8 @@ def refresh_prose(path,course,locale):
         if old.cell_type=='code':assert old.source==new.source, 'Calculation changed; rerun this lesson'
         else:old.source=new.source;old.metadata=new.metadata
     nb.metadata.vibeit_cookbook.sources=fresh.metadata.vibeit_cookbook.sources
+    if course.get('plain_language'):
+        nb.metadata.vibeit_cookbook.plain_language=True
     nbformat.validate(nb);nbformat.write(nb,path)
 
 def source_context(keys):
@@ -159,11 +166,39 @@ else:
     lines.append("\n"+("**下一步。** 在保留本课的数据检查、参数记录和结果校验之后，将相同方法用于自己的公开或已获授权数据。记录研究设计与方法限制，不把示例结果当成新实验的验证。完整数据许可与生成说明见 cookbook 网页。"
         if zh else "**Next steps.** Transfer these methods to your own public or authorized data while retaining input checks, recorded parameters and result validation. Document the new experimental design and method limits; this example does not validate a new experiment. Full data licenses and generation instructions accompany the cookbook."))
     cells.append(markdown("\n\n".join(lines)))
+    if course.get('plain_language'):
+        from subjects._drug_plain_language import GUIDANCE, clean_explanation
+        cells[1].source=clean_explanation(GUIDANCE['goal'][locale],locale)
+        cells[2].source=GUIDANCE['setup'][locale]
+        cells[4].source=GUIDANCE['load'][locale]
+        cells[6].source=GUIDANCE['methods'][locale]
+        for cell in cells:
+            if cell.cell_type!='markdown':continue
+            if cell.source.startswith('### 数据与模型边界') or cell.source.startswith('### Data and model boundary'):
+                cell.source=GUIDANCE['data_heading'][locale]+'\n\n'+course['data_note'][locale]
+            elif cell.source in ('## 分步分析','## Steps'):
+                cell.source=GUIDANCE['steps'][locale]
+            elif cell.source.startswith('## 可选联网扩展') or cell.source.startswith('## Optional online extension'):
+                cell.source=GUIDANCE['online'][locale]
+            elif cell.source.startswith('## 可选的 AI 编程练习'):
+                tail=cell.source.split('**提示词 1**',1)[1]
+                cell.source='## 可选：请 AI 帮忙改一点代码\n\n只听故事的话，这一段可以先跳过。想试着改代码，请熟悉 Python 的老师或同学一起检查。在 VibeIt 的 Coding Agent 中打开 notebook，先请助手读懂代码。AI 给出的修改也要核对，再手动运行。\n\n**提示词 1**'+tail
+            elif cell.source.startswith('## Optional AI coding exercises'):
+                tail=cell.source.split('**Prompt 1**',1)[1]
+                cell.source='## Optional: ask AI for a small code change\n\nYou can skip this while following the story. For a coding exercise, work with someone who knows basic Python. Open the notebook in VibeIt\'s Coding Agent and ask it to read the code first. Check the changes, then run them yourself.\n\n**Prompt 1**'+tail
+            elif cell.source.startswith('## 来源、快照与下一步') or cell.source.startswith('## Sources, snapshots and next steps'):
+                before=cell.source.rsplit('\n\n',1)[0]
+                cell.source=before+'\n\n'+GUIDANCE['next'][locale]
+                heading='注释' if zh else 'Notes'
+                notes=''.join(f'<p id="reading-note-{i}"><sup>{i}</sup> {html.escape(t)}</p>' for i,t in enumerate(course['reading_notes'][locale],1))
+                cell.source+=f'\n\n<section class="reading-footnotes"><h2>{heading}</h2>{notes}</section>'
     nb=nbformat.v4.new_notebook(cells=cells,metadata=dict(
         kernelspec=dict(name="python3",display_name="Python 3",language="python"),
         language_info=dict(name="python",version="3.13",file_extension=".py",mimetype="text/x-python"),
         vibeit_cookbook=dict(recipe_id=course["id"],locale=locale,version=1,snapshots=blobs,sources=sources,
             packages=course["packages"],offline_core=True)))
+    if course.get('plain_language'):
+        nb.metadata.vibeit_cookbook.plain_language=True
     for i,cell in enumerate(nb.cells):
         cell.id=hashlib.sha256(f'{course["id"]}:{locale}:{i}'.encode()).hexdigest()[:12]
     nbformat.validate(nb)

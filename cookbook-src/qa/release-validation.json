@@ -109,7 +109,7 @@
     },
     {
       "filename": "07-imatinib-pocket.en.ipynb",
-      "sha256": "3b509c718c160ddb9eebb1da15c82879dbcfa05a6c39dc8a14b60f5b81152f44",
+      "sha256": "f6062d90f559b8db52af33c5d5ba3a5fe526a97ec844fc7e4ce2c0ed7024a127",
       "current_code_and_sources": "passed",
       "rename_move_roundtrip": "passed",
       "png_figures": 4,
@@ -117,7 +117,7 @@
     },
     {
       "filename": "07-imatinib-pocket.zh-hans.ipynb",
-      "sha256": "162e43946554d0956153b6a9f93cb03b074d35c3a319ea57163fafd09b34d041",
+      "sha256": "1851fb624c9639d6ebd827dbcd4ace41316925aaaab2b87964c704ce149efc0c",
       "current_code_and_sources": "passed",
       "rename_move_roundtrip": "passed",
       "png_figures": 4,
@@ -125,7 +125,7 @@
     },
     {
       "filename": "08-trastuzumab-interface.en.ipynb",
-      "sha256": "1bebdb117bfff2dd8a86d3bf88979c26a6cb7a62eb3549a1308db9821e17d793",
+      "sha256": "afdb68a6180de5ab9b02172c1aebdbee6451b75b1d41b39d8c4c1e45eb333f10",
       "current_code_and_sources": "passed",
       "rename_move_roundtrip": "passed",
       "png_figures": 5,
@@ -133,7 +133,7 @@
     },
     {
       "filename": "08-trastuzumab-interface.zh-hans.ipynb",
-      "sha256": "c822762a9efc799f4e6efb250639001af739b7cfdaa42ef346ffa7878f170030",
+      "sha256": "b30a0176b852df2aa15d93ac73bda1bb5f0f3e9462e0b75ed55804547120c5b4",
       "current_code_and_sources": "passed",
       "rename_move_roundtrip": "passed",
       "png_figures": 5,
