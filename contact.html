@@ -70,22 +70,35 @@
     p, li { color: var(--text); }
     .updated { color: var(--muted); font-size: 14px; margin-top: 0; }
 
-    /* category picker: two cards, one per kind of feedback */
-    .kind-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 22px 0 0; }
-    @media (max-width: 560px) { .kind-grid { grid-template-columns: 1fr; } }
+    /* Category picker: a segmented control, mirroring the billing switch on the home page
+       so both pages share one control language. It replaced two large icon cards, which
+       spent a big block of vertical space above the form on what is a binary choice. */
+    .kind-seg {
+      display: inline-flex; gap: 4px; padding: 4px; margin: 22px 0 0;
+      border: 1px solid var(--line); border-radius: 999px; background: var(--surface);
+      max-width: 100%;
+    }
     .kind {
-      text-align: start; cursor: pointer; font: inherit; color: var(--text);
-      background: var(--surface); border: 1px solid var(--line); border-radius: 16px; padding: 18px 20px;
-      transition: border-color .18s, box-shadow .18s;
+      appearance: none; border: 0; background: transparent; color: var(--muted);
+      font: inherit; font-size: 14.5px; font-weight: 600;
+      padding: 9px 20px; border-radius: 999px; cursor: pointer; white-space: nowrap;
+      transition: color .18s, background .18s;
     }
-    .kind:hover { border-color: var(--accent); }
-    .kind[aria-pressed="true"] {
-      border-color: var(--accent);
-      box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 22%, transparent);
+    .kind:hover { color: var(--text); }
+    .kind[aria-pressed="true"] { background: var(--accent); color: #fff; }
+    /* Only the selected kind's description renders, so the hint stays a single line
+       instead of both descriptions competing for space. */
+    .kind-hint { margin: 12px 0 0; color: var(--muted); font-size: 13.5px; line-height: 1.45; }
+    .kind-hint > span { display: none; }
+    .kind-hint > span.on { display: inline; }
+    /* Narrow screens: stop being an inline pill and split the full width evenly. The labels
+       are nowrap and some locales are long ("Funktionsvorschlag"), so an inline control
+       would overflow rather than shrink. */
+    @media (max-width: 560px) {
+      .kind-seg { display: flex; width: 100%; }
+      .kind { flex: 1 1 0; min-width: 0; padding: 9px 8px; font-size: 13.5px;
+              white-space: normal; text-align: center; }
     }
-    .kind .k-icon { font-size: 22px; }
-    .kind .k-name { display: block; font-weight: 700; font-size: 16px; margin: 6px 0 2px; }
-    .kind .k-desc { display: block; color: var(--muted); font-size: 13.5px; line-height: 1.45; }
 
     /* forms */
     .fb-form { display: none; margin-top: 22px; }
@@ -159,18 +172,15 @@
         <p class="updated">Send a feature idea or report a problem — we read every message.</p>
       </div>
 
-      <div class="kind-grid">
-        <button type="button" class="kind" id="kindFeature" aria-pressed="false">
-          <span class="k-icon" aria-hidden="true">&#128161;</span>
-          <span class="k-name" data-ui="c.feature">Feature suggestion</span>
-          <span class="k-desc" data-ui="c.featureDesc">Something Vibeit should do, or do better.</span>
-        </button>
-        <button type="button" class="kind" id="kindBug" aria-pressed="false">
-          <span class="k-icon" aria-hidden="true">&#128027;</span>
-          <span class="k-name" data-ui="c.bug">Problem report</span>
-          <span class="k-desc" data-ui="c.bugDesc">Something isn't working the way it should.</span>
-        </button>
+      <!-- data-ui sets textContent, so it may only sit on text-only nodes: on each button,
+           and on each hint span — never on .kind-hint itself, which has children. -->
+      <div class="kind-seg" role="group" aria-label="Feedback type">
+        <button type="button" class="kind" id="kindFeature" aria-pressed="false" data-ui="c.feature">Feature suggestion</button>
+        <button type="button" class="kind" id="kindBug" aria-pressed="false" data-ui="c.bug">Problem report</button>
       </div>
+      <p class="kind-hint">
+        <span id="descFeature" data-ui="c.featureDesc">Something Vibeit should do, or do better.</span><span id="descBug" data-ui="c.bugDesc">Something isn't working the way it should.</span>
+      </p>
 
       <form class="fb-form" id="formFeature">
         <input class="hp" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
@@ -288,6 +298,8 @@
       document.getElementById("formBug").classList.toggle("active", kind === "bug");
       document.getElementById("kindFeature").setAttribute("aria-pressed", String(kind === "feature"));
       document.getElementById("kindBug").setAttribute("aria-pressed", String(kind === "bug"));
+      document.getElementById("descFeature").classList.toggle("on", kind === "feature");
+      document.getElementById("descBug").classList.toggle("on", kind === "bug");
     }
     document.getElementById("kindFeature").addEventListener("click", function () { show("feature"); });
     document.getElementById("kindBug").addEventListener("click", function () { show("bug"); });
