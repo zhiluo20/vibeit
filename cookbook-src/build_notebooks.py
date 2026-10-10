@@ -86,7 +86,7 @@ def make_notebook(course,locale):
     extra=course.get('setup_imports','')
     if "overrepresentation" in course["functions"]:extra+="from scipy.stats import hypergeom\n"
     if "networkx" in course["packages"]:extra+="import networkx as nx\n"
-    if course.get('discipline')!='bioinformatics':
+    if course.get('discipline')!='bioinformatics' or course.get('scroll_tables'):
         extra+='''from IPython.display import display as _display
 def display(value):
     if isinstance(value,pd.DataFrame):

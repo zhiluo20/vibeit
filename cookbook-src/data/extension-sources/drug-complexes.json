@@ -1,0 +1,119 @@
+[
+  {
+    "name": "Drug complex 1IEP coordinates",
+    "url": "https://files.rcsb.org/download/1IEP.pdb",
+    "snapshots": [
+      "imatinib"
+    ],
+    "raw_file": "data/raw/drug-1iep-coordinates.gz",
+    "bytes": 434565,
+    "sha256": "577386b4b8bc58a570facba0c8a843386842caef5ed7b60106c685d0f68d4218",
+    "retrieved_at": "2026-10-10T15:10:26.071268+00:00",
+    "license": "CC0 1.0 (wwPDB data); credit depositors and primary publication",
+    "conversion": "Preserve complete original PDB; first-model, occupancy and chain selections are visible student code. No docking or coordinate registration."
+  },
+  {
+    "name": "Drug complex 1IEP entry metadata",
+    "url": "https://data.rcsb.org/rest/v1/core/entry/1IEP",
+    "snapshots": [
+      "imatinib"
+    ],
+    "raw_file": "data/raw/drug-1iep-entry.gz",
+    "bytes": 13820,
+    "sha256": "09499268eccba586c0443425240eccc171748fd24bc964c448e792c2ad96e4c2",
+    "retrieved_at": "2026-10-10T15:10:26.851861+00:00",
+    "license": "CC0 1.0 (wwPDB data); credit depositors and primary publication",
+    "conversion": "Preserve experiment, revision and primary citation metadata."
+  },
+  {
+    "name": "Drug complex 1IEP polymer entity 1",
+    "url": "https://data.rcsb.org/rest/v1/core/polymer_entity/1IEP/1",
+    "snapshots": [
+      "imatinib"
+    ],
+    "raw_file": "data/raw/drug-1iep-entity-1.gz",
+    "bytes": 206508,
+    "sha256": "010c30720f818eb5cd6d32507bacff456173ce04b1f5653a5e4dcbda9b998f8a",
+    "retrieved_at": "2026-10-10T15:10:27.709848+00:00",
+    "license": "CC0 1.0 (wwPDB data); credit depositors and primary publication",
+    "conversion": "Preserve entity identity, source species, sequences and author chain IDs; do not infer a chain role from color."
+  },
+  {
+    "name": "Drug complex STI chemical component",
+    "url": "https://data.rcsb.org/rest/v1/core/chemcomp/STI",
+    "snapshots": [
+      "imatinib"
+    ],
+    "raw_file": "data/raw/drug-sti-component.gz",
+    "bytes": 15584,
+    "sha256": "071661c3f0296df1a405b9157d5190d7cc0d50297c13b97a3ce2f7056007cc59",
+    "retrieved_at": "2026-10-10T15:10:28.443839+00:00",
+    "license": "CC0 1.0 (wwPDB data); credit depositors and primary publication",
+    "conversion": "Preserve chemical identity, formula, descriptors and reported atom counts. Atom names and bound coordinates come from 1IEP, not ideal CCD coordinates."
+  },
+  {
+    "name": "Drug complex 1N8Z coordinates",
+    "url": "https://files.rcsb.org/download/1N8Z.pdb",
+    "snapshots": [
+      "trastuzumab"
+    ],
+    "raw_file": "data/raw/drug-1n8z-coordinates.gz",
+    "bytes": 703809,
+    "sha256": "ed934d36503335c6764b08880f9e50933d99eb13b9bf145339cfcaee150eb21e",
+    "retrieved_at": "2026-10-10T15:10:29.838307+00:00",
+    "license": "CC0 1.0 (wwPDB data); credit depositors and primary publication",
+    "conversion": "Preserve complete original PDB; first-model, occupancy and chain selections are visible student code. No docking or coordinate registration."
+  },
+  {
+    "name": "Drug complex 1N8Z entry metadata",
+    "url": "https://data.rcsb.org/rest/v1/core/entry/1N8Z",
+    "snapshots": [
+      "trastuzumab"
+    ],
+    "raw_file": "data/raw/drug-1n8z-entry.gz",
+    "bytes": 16480,
+    "sha256": "7d86208b30f290f045ce5444f071bca574e417fa1f2a1b8bac463cf7c19bff70",
+    "retrieved_at": "2026-10-10T15:10:30.709277+00:00",
+    "license": "CC0 1.0 (wwPDB data); credit depositors and primary publication",
+    "conversion": "Preserve experiment, revision and primary citation metadata."
+  },
+  {
+    "name": "Drug complex 1N8Z polymer entity 1",
+    "url": "https://data.rcsb.org/rest/v1/core/polymer_entity/1N8Z/1",
+    "snapshots": [
+      "trastuzumab"
+    ],
+    "raw_file": "data/raw/drug-1n8z-entity-1.gz",
+    "bytes": 27065,
+    "sha256": "996883fdd4c89becba41a942b412553ae95c4ab762deb2b0137f6eba04a37cd7",
+    "retrieved_at": "2026-10-10T15:10:31.476292+00:00",
+    "license": "CC0 1.0 (wwPDB data); credit depositors and primary publication",
+    "conversion": "Preserve entity identity, source species, sequences and author chain IDs; do not infer a chain role from color."
+  },
+  {
+    "name": "Drug complex 1N8Z polymer entity 2",
+    "url": "https://data.rcsb.org/rest/v1/core/polymer_entity/1N8Z/2",
+    "snapshots": [
+      "trastuzumab"
+    ],
+    "raw_file": "data/raw/drug-1n8z-entity-2.gz",
+    "bytes": 22775,
+    "sha256": "d853860110234b7dc3f3fe562976ddd867cdd688c97cac4af9f324dc9f53e462",
+    "retrieved_at": "2026-10-10T15:10:32.534194+00:00",
+    "license": "CC0 1.0 (wwPDB data); credit depositors and primary publication",
+    "conversion": "Preserve entity identity, source species, sequences and author chain IDs; do not infer a chain role from color."
+  },
+  {
+    "name": "Drug complex 1N8Z polymer entity 3",
+    "url": "https://data.rcsb.org/rest/v1/core/polymer_entity/1N8Z/3",
+    "snapshots": [
+      "trastuzumab"
+    ],
+    "raw_file": "data/raw/drug-1n8z-entity-3.gz",
+    "bytes": 131658,
+    "sha256": "2bf10361f07b58c0f3121c10f0b61f7ded3ab2e01d0998b285f434e5b42cc448",
+    "retrieved_at": "2026-10-10T15:10:33.682343+00:00",
+    "license": "CC0 1.0 (wwPDB data); credit depositors and primary publication",
+    "conversion": "Preserve entity identity, source species, sequences and author chain IDs; do not infer a chain role from color."
+  }
+]

@@ -1,0 +1,45 @@
+{
+  "mode": "Actual installed-app external file-URL import; distinct from manual Files picker, editor Run All, and export UI",
+  "device": "Cookbook Expansion QA iPad / iPadOS 27.0 Simulator",
+  "app": "1.0.2 (8)",
+  "results": [
+    {
+      "filename": "07-imatinib-pocket.en.ipynb",
+      "imported_filename": "import-3b509c71-07-imatinib-pocket.en.ipynb",
+      "discipline": "bioinformatics",
+      "source_sha256": "3b509c718c160ddb9eebb1da15c82879dbcfa05a6c39dc8a14b60f5b81152f44",
+      "imported_sha256": "3b509c718c160ddb9eebb1da15c82879dbcfa05a6c39dc8a14b60f5b81152f44",
+      "cells_prose_snapshots_and_raw_html": "passed",
+      "status": "passed"
+    },
+    {
+      "filename": "07-imatinib-pocket.zh-hans.ipynb",
+      "imported_filename": "import-162e4394-07-imatinib-pocket.zh-hans.ipynb",
+      "discipline": "bioinformatics",
+      "source_sha256": "162e43946554d0956153b6a9f93cb03b074d35c3a319ea57163fafd09b34d041",
+      "imported_sha256": "84d6f487813bd2bd7c0695dd22d5102f17adf17c7da1be7ece440e01632fa60c",
+      "cells_prose_snapshots_and_raw_html": "passed",
+      "status": "passed"
+    },
+    {
+      "filename": "08-trastuzumab-interface.en.ipynb",
+      "imported_filename": "import-1bebdb11-08-trastuzumab-interface.en.ipynb",
+      "discipline": "bioinformatics",
+      "source_sha256": "1bebdb117bfff2dd8a86d3bf88979c26a6cb7a62eb3549a1308db9821e17d793",
+      "imported_sha256": "1bebdb117bfff2dd8a86d3bf88979c26a6cb7a62eb3549a1308db9821e17d793",
+      "cells_prose_snapshots_and_raw_html": "passed",
+      "status": "passed"
+    },
+    {
+      "filename": "08-trastuzumab-interface.zh-hans.ipynb",
+      "imported_filename": "import-c822762a-08-trastuzumab-interface.zh-hans.ipynb",
+      "discipline": "bioinformatics",
+      "source_sha256": "c822762a9efc799f4e6efb250639001af739b7cfdaa42ef346ffa7878f170030",
+      "imported_sha256": "c822762a9efc799f4e6efb250639001af739b7cfdaa42ef346ffa7878f170030",
+      "cells_prose_snapshots_and_raw_html": "passed",
+      "status": "passed"
+    }
+  ],
+  "complete": true,
+  "real_device_tested": false
+}

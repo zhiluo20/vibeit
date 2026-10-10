@@ -1,6 +1,6 @@
 # VibeIt Studio multidisciplinary cookbook
 
-**8 disciplines × 6 workflows × 2 languages: 48 courses and 96 independent, executed notebooks.** The seven new disciplines add 42 workflows / 84 notebooks to the six existing bioinformatics courses. Intended for undergraduate students with basic Python knowledge.
+**8 disciplines, 50 workflows and 100 independent, executed bilingual notebooks.** The original 48-course catalog is extended with two experimental drug–protein lessons (bioinformatics 07/08); the other seven disciplines retain six courses each. Intended for undergraduate students with basic Python knowledge.
 
 The official catalog is [VibeIt Cookbook](https://www.mecury.co.uk/vibeit/cookbook/), with a [Chinese edition](https://www.mecury.co.uk/vibeit/cookbook/zh-hans/). GitHub Pages serves committed static artifacts from `main`; a development branch or local preview is not deployment evidence.
 
@@ -10,15 +10,15 @@ Use **+ → Import from Files** in VibeIt Studio, select a complete `.ipynb`, op
 
 在 VibeIt Studio 中使用 **+ → Import from Files** 导入完整 `.ipynb`，打开后从上到下运行。每份 notebook 内嵌自己的冻结输入，不需要旁侧数据文件、服务器或 AI 账号。结果导出到当前目录的 `results/<recipe-id>/`。修改参数前保留副本。
 
-Downloads in `../cookbook/downloads/` include 96 single notebooks, eight bilingual subject ZIPs and `vibeit-cookbook.zip` containing all 96. A single lesson requires only its `.ipynb`.
+Downloads in `../cookbook/downloads/` include 100 single notebooks, eight bilingual subject ZIPs and `vibeit-cookbook.zip` containing all 100. A single lesson requires only its `.ipynb`.
 
 Each first cell is a Gallery-style standard `raw` / `text/html` introduction card. Every lesson includes a research question, source/model audit, transparent computation, at least three actual figures, result checks, exports, two independent exercises with answers and two AI modification exercises with acceptance criteria. Explanations and figure captions are bilingual; computation and inputs are identical across languages.
 
 ## Learning paths
 
-| Discipline | Six independent workflows | Input boundary |
+| Discipline | Independent workflows | Input boundary |
 | --- | --- | --- |
-| Bioinformatics | FASTA/CDS translation; affine alignment; RNA-seq exploration; ORA; physical interactions; hemoglobin structure | RefSeq, airway, Reactome, STRING and PDB frozen records |
+| Bioinformatics | FASTA/CDS translation; affine alignment; RNA-seq exploration; ORA; physical interactions; hemoglobin; imatinib pocket; trastuzumab Fab interface | RefSeq, airway, Reactome, STRING and experimental PDB frozen records |
 | Data science & ML | Iris audit; standardized PCA; held-out kNN; Wine clustering; chronological bike regression; sequential forecast backtesting | Original UCI measurements, source discrepancies and units retained |
 | Mathematics & statistics | Numerical calculus; bracketed roots; conditioning; Monte Carlo; bootstrap; permutation/BH | Explicit mathematical models and public Iris observations |
 | Physics | Nonlinear pendulum; damping/resonance; projectile drag; heat equation; GW150914 signal; blackbody radiation | Models distinguished from real GWOSC strain and CODATA reference constants |
@@ -63,7 +63,7 @@ Intentional source updates use `freeze_data.py` for bioinformatics or `freeze_su
 
 ## Provenance, licenses and interpretation
 
-`data/sources.json` records 44 sources with original URLs, retrieval dates, SHA-256, parameters, versions, rights and transformations. `data/raw-manifest.json` links all 44 byte-identical gzip archives. Raw books include their complete license text; authored model inputs are labelled model parameters, not measurements.
+`data/sources.json` records 53 sources with original URLs, retrieval dates, SHA-256, parameters, versions, rights and transformations. `data/raw-manifest.json` links all 53 byte-identical gzip archives. Raw books include their complete license text; authored model inputs are labelled model parameters, not measurements.
 
 - RefSeq: public sequence records NM_000518.5 / NM_000519.4, credited to NCBI.
 - airway: official commit `596678815f4ade04a9711997150949b9782aeddc`, LGPL package source; Himes et al., DOI `10.1371/journal.pone.0099625`, GSE52778. Full 63,677 × 8 integer matrix and sample annotations extracted with author-only pure Python `rdata`.
@@ -81,8 +81,16 @@ Expression courses are exploratory, not formal DEG inference; ORA does not prove
 
 ## Website and release evidence
 
-The generator builds 116 static pages, reads all code/tables/figures from executed notebooks, and adds routes, canonical/hreflang, schema, search/topic filters and current-language downloads. Product Lessons links and header/palette are shared with the product page. Code highlighting is static Pygments; fixed guidance uses accessible callouts. No server/database/CDN is introduced.
+The generator builds 120 static pages, reads all code/tables/figures from executed notebooks, and adds routes, canonical/hreflang, schema, search/topic filters and current-language downloads. Product Lessons links and header/palette are shared with the product page. Code highlighting is static Pygments; fixed guidance uses accessible callouts. No server/database/CDN is introduced.
 
 `qa/` separates author execution, independent references, native kernel runs, individual UI checks, portability, browser checks and download hashes. Simulator observations are not real-device testing. `VERIFICATION.md` describes current coverage and limitations.
 
 Publication requires merging the reviewed website changes into `main`, then checking the GitHub Pages deployment and public artifact hashes. A successful build, saved output or simulator screenshot alone is not publication acceptance. App source, Gallery examples and App Store releases are outside this website change.
+
+## Drug–protein teaching extension
+
+Lessons 07/08 use experimental complexes 1IEP (mouse c-Abl kinase domain / imatinib, STI) and 1N8Z (human HER2 extracellular construct / trastuzumab Fab light and heavy chains). These are observed complex coordinates, not docking outputs. Pocket/interface metrics are positive-occupancy heavy-atom minimum distances in Å; no binding-energy, affinity or clinical efficacy estimate is inferred. Antibody insertion codes are retained, and sugars are not misidentified as the drug.
+
+See [the Chinese classroom guide](DRUG_BINDING_TEACHER_GUIDE.zh-hans.md) for the heme → chemical drug → antibody analogy, actual results, questions and answers. Both courses use the same readable geometry helpers and support valid zero-contact results. `test_drug_methods.py` independently checks a KD-tree radius search, direct point-wise norms, coordinate/insertion-code roundtrip, symmetry and rigid transformations. `freeze_drug_data.py` uses nine archived original RCSB responses on rerun; `--refresh` intentionally fetches new snapshots.
+
+Build only the new lessons with `build_notebooks.py --only 07-imatinib-pocket` and `--only 08-trastuzumab-interface`, then rebuild/validate the site. `make_native_batch_qa.py --only 07-imatinib-pocket --only 08-trastuzumab-interface --destination <own QA folder>` isolates the exact new code for on-device kernel checks. `drug_browser_qa.js` checks bilingual pages, category/search, desktop/tablet/phone layouts, locally rendered 3D and actual notebook downloads with external HTTPS blocked. Native kernel evidence and editor/real-device acceptance remain separately labelled.

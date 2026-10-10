@@ -109,6 +109,42 @@
       "sha256": "344d4e89ad2407e0fc9a6cbc9452269f6ea17fc8e95af7beb8190705e467c636"
     },
     {
+      "filename": "07-imatinib-pocket.en.ipynb",
+      "format": "passed",
+      "snapshots": "passed",
+      "imports": "passed",
+      "execution": "passed",
+      "bytes": 834927,
+      "sha256": "3b509c718c160ddb9eebb1da15c82879dbcfa05a6c39dc8a14b60f5b81152f44"
+    },
+    {
+      "filename": "07-imatinib-pocket.zh-hans.ipynb",
+      "format": "passed",
+      "snapshots": "passed",
+      "imports": "passed",
+      "execution": "passed",
+      "bytes": 834030,
+      "sha256": "162e43946554d0956153b6a9f93cb03b074d35c3a319ea57163fafd09b34d041"
+    },
+    {
+      "filename": "08-trastuzumab-interface.en.ipynb",
+      "format": "passed",
+      "snapshots": "passed",
+      "imports": "passed",
+      "execution": "passed",
+      "bytes": 1443941,
+      "sha256": "1bebdb117bfff2dd8a86d3bf88979c26a6cb7a62eb3549a1308db9821e17d793"
+    },
+    {
+      "filename": "08-trastuzumab-interface.zh-hans.ipynb",
+      "format": "passed",
+      "snapshots": "passed",
+      "imports": "passed",
+      "execution": "passed",
+      "bytes": 1442666,
+      "sha256": "c822762a9efc799f4e6efb250639001af739b7cfdaa42ef346ffa7878f170030"
+    },
+    {
       "filename": "ds01-iris-audit.en.ipynb",
       "format": "passed",
       "snapshots": "passed",
@@ -865,8 +901,8 @@
       "sha256": "0035cfc79cb1f0e112db76b41910557d4b17862f9b5d6312fc3482197f31710b"
     }
   ],
-  "pages": 116,
-  "local_links_checked": 3146,
+  "pages": 120,
+  "local_links_checked": 3262,
   "bilingual_code_parity": "passed",
   "brand_palette": "exact product tokens",
   "python_highlighting": "static Pygments; offline",

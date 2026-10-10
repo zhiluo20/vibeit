@@ -7,6 +7,48 @@ from datetime import datetime
 from collections import Counter
 from scipy.integrate import solve_ivp
 from scipy.optimize import brentq, minimize
+from scipy.spatial.distance import cdist
+
+def residue_minimum_distances(left, right):
+    """Minimum Euclidean atom distance per residue pair, retaining chain/insertion IDs.
+
+    Caller explicitly selects positive-occupancy heavy atoms. This measures
+    geometric proximity, not a hydrogen bond, affinity, buried area or energy.
+    At most one residue's atom-distance block is held in memory at a time.
+    """
+    keys = ['chain', 'resnum', 'icode', 'residue']
+    columns = keys + ['atom_count']
+    if left.empty or right.empty:
+        raise ValueError('Both atom selections must be nonempty')
+    if not np.isfinite(left[['x','y','z']].to_numpy()).all() or not np.isfinite(right[['x','y','z']].to_numpy()).all():
+        raise ValueError('Coordinates must be finite')
+    left = left.reset_index(drop=True)
+    right = right.reset_index(drop=True)
+    left_groups = list(left.groupby(keys, sort=False).indices.items())
+    right_groups = list(right.groupby(keys, sort=False).indices.items())
+    left_residues = pd.DataFrame([list(key)+[len(indices)] for key,indices in left_groups], columns=columns)
+    right_residues = pd.DataFrame([list(key)+[len(indices)] for key,indices in right_groups], columns=columns)
+    right_codes = np.empty(len(right), dtype=int)
+    for j, (_, indices) in enumerate(right_groups):
+        right_codes[indices] = j
+    matrix = np.full((len(left_groups),len(right_groups)), np.inf)
+    right_xyz = right[['x','y','z']].to_numpy(dtype=float)
+    for i, (_, indices) in enumerate(left_groups):
+        block = cdist(left.iloc[indices][['x','y','z']].to_numpy(dtype=float), right_xyz)
+        np.minimum.at(matrix[i], right_codes, block.min(axis=0))
+    return left_residues, right_residues, matrix
+
+def residue_labels(frame):
+    """Display author residue identifiers without discarding insertion codes."""
+    return [f'{r.chain}:{r.residue}{int(r.resnum)}{r.icode}' for r in frame.itertuples()]
+
+def pdb_atom_text(atoms):
+    """Serialize an explicitly selected atom table for 3D display, without reorienting it."""
+    lines = []
+    for r in atoms.itertuples():
+        lines.append(f'{r.record:<6}{r.serial:5d} {r.atom:>4} {r.residue:>3} {r.chain:1}{r.resnum:4d}{r.icode:1}   '
+                     f'{r.x:8.3f}{r.y:8.3f}{r.z:8.3f}{r.occupancy:6.2f}{r.bfactor:6.2f}          {r.element:>2}  ')
+    return '\n'.join(lines) + '\nEND\n'
 
 def iso_datetimes(values):
     """Parse source ISO dates with the standard library; keep tables as ISO strings."""

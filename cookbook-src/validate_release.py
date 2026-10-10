@@ -9,8 +9,9 @@ ROOT=Path(__file__).resolve().parent
 DOWNLOADS=ROOT.parent/'cookbook/downloads'
 
 def main():
-    assert len(DISCIPLINES)==8 and len(COURSES)==48
-    assert all(len(subject_courses(d['id']))==6 for d in DISCIPLINES)
+    assert len(DISCIPLINES)==8 and len(COURSES)==50
+    assert all(len(subject_courses(d['id']))==(8 if d['id']=='bioinformatics' else 6) for d in DISCIPLINES)
+    assert {c['id'] for c in COURSES if c['number']>6}=={'07-imatinib-pocket','08-trastuzumab-interface'}
     rows=[];start=Path.cwd()
     original_connect=socket.socket.connect;original_create=socket.create_connection
     def deny(*args,**kwargs):raise RuntimeError('Network disabled during portability validation')
@@ -46,17 +47,17 @@ def main():
                     current_code_and_sources='passed',rename_move_roundtrip='passed',png_figures=figures,offline_guard=True))
     finally:
         os.chdir(start);socket.socket.connect=original_connect;socket.create_connection=original_create
-    assert len(rows)==96
+    assert len(rows)==100
     sources=json.loads((ROOT/'data/sources.json').read_text())
     raw=json.loads((ROOT/'data/raw-manifest.json').read_text())
-    assert len(sources)==44 and len(raw)==44
+    assert len(sources)==53 and len(raw)==53
     source_hashes={row['name']:row['sha256'] for row in sources}
     for row in raw:
         decoded=gzip.decompress((ROOT/row['file']).read_bytes())
         assert hashlib.sha256(decoded).hexdigest()==row['sha256']==source_hashes[row['name']]
-    report=dict(scope={d['id']:len(subject_courses(d['id'])) for d in DISCIPLINES},courses=48,notebooks=rows,
+    report=dict(scope={d['id']:len(subject_courses(d['id'])) for d in DISCIPLINES},courses=50,notebooks=rows,
         source_records=len(sources),raw_responses=len(raw),source_artifact_parity='passed')
     (ROOT/'qa/release-validation.json').write_text(json.dumps(report,indent=2)+'\n')
-    print('PASS: 8 disciplines x 6 courses x 2 languages; 96 current portable executed notebooks')
+    print('PASS: original 48 workflows plus 2 drug complexes; 100 current portable executed notebooks')
 
 if __name__=='__main__':main()

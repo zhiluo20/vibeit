@@ -1,0 +1,191 @@
+{
+  "scope": "new drug lessons plus catalog/filter regression",
+  "checks": [
+    {
+      "id": "07-imatinib-pocket",
+      "locale": "en",
+      "viewport": "desktop",
+      "download": "07-imatinib-pocket.en.ipynb",
+      "width": 1440,
+      "documentWidth": 1440,
+      "images": 4,
+      "tokens": 3414,
+      "callouts": 5,
+      "viewers": [
+        {
+          "atoms": 37,
+          "width": 640,
+          "canvas": true
+        },
+        {
+          "atoms": 2266,
+          "width": 640,
+          "canvas": true
+        },
+        {
+          "atoms": 208,
+          "width": 640,
+          "canvas": true
+        }
+      ],
+      "download_sha256": "3b509c718c160ddb9eebb1da15c82879dbcfa05a6c39dc8a14b60f5b81152f44"
+    },
+    {
+      "id": "07-imatinib-pocket",
+      "locale": "en",
+      "viewport": "tablet",
+      "width": 768,
+      "documentWidth": 768,
+      "viewerWidths": [
+        640,
+        640,
+        640
+      ]
+    },
+    {
+      "id": "07-imatinib-pocket",
+      "locale": "en",
+      "viewport": "phone",
+      "width": 390,
+      "documentWidth": 390,
+      "viewerWidths": [
+        358,
+        358,
+        358
+      ]
+    },
+    {
+      "id": "08-trastuzumab-interface",
+      "locale": "en",
+      "viewport": "desktop",
+      "download": "08-trastuzumab-interface.en.ipynb",
+      "width": 1440,
+      "documentWidth": 1440,
+      "images": 5,
+      "tokens": 3302,
+      "callouts": 5,
+      "viewers": [
+        {
+          "atoms": 7778,
+          "width": 640,
+          "canvas": true
+        }
+      ],
+      "download_sha256": "1bebdb117bfff2dd8a86d3bf88979c26a6cb7a62eb3549a1308db9821e17d793"
+    },
+    {
+      "id": "08-trastuzumab-interface",
+      "locale": "en",
+      "viewport": "tablet",
+      "width": 768,
+      "documentWidth": 768,
+      "viewerWidths": [
+        640
+      ]
+    },
+    {
+      "id": "08-trastuzumab-interface",
+      "locale": "en",
+      "viewport": "phone",
+      "width": 390,
+      "documentWidth": 390,
+      "viewerWidths": [
+        358
+      ]
+    },
+    {
+      "id": "07-imatinib-pocket",
+      "locale": "zh-hans",
+      "viewport": "desktop",
+      "download": "07-imatinib-pocket.zh-hans.ipynb",
+      "width": 1440,
+      "documentWidth": 1440,
+      "images": 4,
+      "tokens": 3414,
+      "callouts": 5,
+      "viewers": [
+        {
+          "atoms": 37,
+          "width": 640,
+          "canvas": true
+        },
+        {
+          "atoms": 2266,
+          "width": 640,
+          "canvas": true
+        },
+        {
+          "atoms": 208,
+          "width": 640,
+          "canvas": true
+        }
+      ],
+      "download_sha256": "162e43946554d0956153b6a9f93cb03b074d35c3a319ea57163fafd09b34d041"
+    },
+    {
+      "id": "07-imatinib-pocket",
+      "locale": "zh-hans",
+      "viewport": "tablet",
+      "width": 768,
+      "documentWidth": 768,
+      "viewerWidths": [
+        640,
+        640,
+        640
+      ]
+    },
+    {
+      "id": "07-imatinib-pocket",
+      "locale": "zh-hans",
+      "viewport": "phone",
+      "width": 390,
+      "documentWidth": 390,
+      "viewerWidths": [
+        358,
+        358,
+        358
+      ]
+    },
+    {
+      "id": "08-trastuzumab-interface",
+      "locale": "zh-hans",
+      "viewport": "desktop",
+      "download": "08-trastuzumab-interface.zh-hans.ipynb",
+      "width": 1440,
+      "documentWidth": 1440,
+      "images": 5,
+      "tokens": 3302,
+      "callouts": 5,
+      "viewers": [
+        {
+          "atoms": 7778,
+          "width": 640,
+          "canvas": true
+        }
+      ],
+      "download_sha256": "c822762a9efc799f4e6efb250639001af739b7cfdaa42ef346ffa7878f170030"
+    },
+    {
+      "id": "08-trastuzumab-interface",
+      "locale": "zh-hans",
+      "viewport": "tablet",
+      "width": 768,
+      "documentWidth": 768,
+      "viewerWidths": [
+        640
+      ]
+    },
+    {
+      "id": "08-trastuzumab-interface",
+      "locale": "zh-hans",
+      "viewport": "phone",
+      "width": 390,
+      "documentWidth": 390,
+      "viewerWidths": [
+        358
+      ]
+    }
+  ],
+  "external_https_blocked": true,
+  "page_errors": []
+}
