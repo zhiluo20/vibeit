@@ -2,6 +2,7 @@
 from ._common import bilingual
 from pathlib import Path
 import base64
+import re
 
 GUIDANCE = {
     'goal': bilingual(
@@ -94,6 +95,18 @@ def clean_explanation(text, locale):
     }
     for before,after in changes[locale]:
         text=text.replace(before,after)
+    if locale=='zh-hans':
+        # CommonMark cannot close emphasis after punctuation before a CJK letter.
+        # Keep punctuation outside the bold span without changing the reading text.
+        def emphasis(match):
+            following=text[match.end():match.end()+1]
+            trailing=re.search(r'[：。！？；，、:.,!?;]+$',match[1])
+            if following and following.isalnum() and trailing:
+                value=match[1][:trailing.start()]
+                if value:return '**'+value+'**'+trailing[0]
+            return match[0]
+        # Consume every complete pair so a closing marker cannot be reused as an opener.
+        text=re.sub(r'\*\*([^*\n]+)\*\*',emphasis,text)
     return text.strip()
 
 
