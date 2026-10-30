@@ -1,0 +1,49 @@
+{
+  "case_id": "1A3N-chain-B-C-alpha-distances",
+  "source_entry": "https://www.rcsb.org/structure/1A3N",
+  "source_structure_file": "https://files.rcsb.org/download/1A3N.pdb",
+  "entry_title": "Deoxy human hemoglobin",
+  "experimental_method": "X-RAY DIFFRACTION",
+  "entry_resolution_angstrom": 1.8,
+  "original_structure_paper": "https://doi.org/10.1107/S0907444900006387",
+  "snapshot_note": "Inputs are exact, fixed copies from the previously executed lecture case. The C-alpha CSV retains the established first-model, alternate-location and occupancy>0 selection; inputs are not regenerated or adjusted.",
+  "original_files": [
+    {
+      "file": "data/1A3N.pdb",
+      "sha256": "a4db006269e9b6f9db0eb5447a5d40e59d67857484a9294b9ca71d642ffe9861"
+    },
+    {
+      "file": "data/1a3n_ca.csv",
+      "sha256": "fcee1eab78f55e3b114b6eabf17970b5377de33582659b19623e8b67ff5879ab"
+    },
+    {
+      "file": "notebooks/06_vibeit_structure_workflow.ipynb",
+      "sha256": "37e483dce00a07475dcce57a6073dacbb0729e64760f8bd5f745c958ff3dd4f4"
+    },
+    {
+      "file": "data/AI-Workflow-Provenance.json",
+      "sha256": "635899a1b275e3de6a278ed887509ddbf17ba278a378baba2e6120d40c8c4547"
+    },
+    {
+      "file": "results/live-v11/b_ca_distance_matrix_angstrom.csv",
+      "sha256": "67b79736b4e4f323282891f19ea26b80d3d0efc5e8b4abd3cd3fe998e2d83e0a"
+    }
+  ],
+  "package_inputs": [
+    {
+      "file": "data/1A3N.pdb",
+      "sha256": "a4db006269e9b6f9db0eb5447a5d40e59d67857484a9294b9ca71d642ffe9861"
+    },
+    {
+      "file": "data/1a3n_ca.csv",
+      "sha256": "fcee1eab78f55e3b114b6eabf17970b5377de33582659b19623e8b67ff5879ab"
+    }
+  ],
+  "reference_matrix_sha256": "67b79736b4e4f323282891f19ea26b80d3d0efc5e8b4abd3cd3fe998e2d83e0a",
+  "original_app_workflow": {
+    "agent": "Prepared/modified analysis notebook source",
+    "researcher": "Ran the analysis in Vibeit and inspected outputs",
+    "previous_independent_check": "Prior case record reports a SciPy independent check",
+    "new_package_execution": "This package is rerun independently on host Python; it does not claim a new Vibeit device execution."
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "executed_utc": "2026-10-30T05:03:58.392260+00:00",
+  "execution_environment": "Host Python re-run of fixed public inputs; not a new physical-device run",
+  "software": {
+    "python": "3.10.8",
+    "numpy": "1.26.4",
+    "pandas": "2.3.3",
+    "matplotlib": "3.10.9"
+  },
+  "chain": "B",
+  "ca_count": 145,
+  "matrix_shape": [
+    145,
+    145
+  ],
+  "distance_unit": "angstrom",
+  "contact_definition": "strict distance < cutoff; PDB number gap >2; unique i<j",
+  "counts": {
+    "6": 174,
+    "8": 390,
+    "10": 920
+  },
+  "GLU7_ALA129_CA_distance_angstrom": 5.024620483180794,
+  "reference_maximum_difference_angstrom": 4.999996860988176e-09,
+  "reference_comparison": "Prior exported matrix is rounded to eight decimal places",
+  "exported_matrix_byte_identical_to_reference": true,
+  "selected_coordinates_match_supplied_pdb": true,
+  "validation_passed": true
+}

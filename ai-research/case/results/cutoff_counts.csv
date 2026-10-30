@@ -1,0 +1,4 @@
+chain,cutoff_angstrom,distance_rule,pdb_number_gap_rule,pair_rule,unique_pair_count
+B,6,<,>2,i<j,174
+B,8,<,>2,i<j,390
+B,10,<,>2,i<j,920

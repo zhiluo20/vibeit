@@ -1,0 +1,80 @@
+{
+  "generated_date": "2026-10-30",
+  "files": [
+    {
+      "file": "1A3N-analysis.ipynb",
+      "bytes": 217115,
+      "sha256": "a41094d7ec9d0e2d151a477e630b9b616412266e1232c99c1498e7b66312d30b"
+    },
+    {
+      "file": "README.md",
+      "bytes": 4465,
+      "sha256": "4fcd92148e216e8e4dc3b6472a21c128fcace98f6477eac2d6de5e9018736427"
+    },
+    {
+      "file": "RUN-REPORT.md",
+      "bytes": 963,
+      "sha256": "98b51a6144f744b4b36354537f0e108e4cf96ff488ed3be51317973ef06c8377"
+    },
+    {
+      "file": "SOURCE-PROVENANCE.json",
+      "bytes": 2128,
+      "sha256": "d8672f7ba90ed30f067588327ba08efb1837bf2e9853f055ded93e19773e0c09"
+    },
+    {
+      "file": "analysis.py",
+      "bytes": 7905,
+      "sha256": "8e45e31e05c092ae6eede6c085b6727aa265373358a6ab02f59a948efbdeaf6a"
+    },
+    {
+      "file": "data/1A3N.pdb",
+      "bytes": 461700,
+      "sha256": "a4db006269e9b6f9db0eb5447a5d40e59d67857484a9294b9ca71d642ffe9861"
+    },
+    {
+      "file": "data/1a3n_ca.csv",
+      "bytes": 32128,
+      "sha256": "fcee1eab78f55e3b114b6eabf17970b5377de33582659b19623e8b67ff5879ab"
+    },
+    {
+      "file": "reference/b_ca_distance_matrix_reference.csv",
+      "bytes": 250712,
+      "sha256": "67b79736b4e4f323282891f19ea26b80d3d0efc5e8b4abd3cd3fe998e2d83e0a"
+    },
+    {
+      "file": "requirements.txt",
+      "bytes": 40,
+      "sha256": "982c24839a17e4ed89742eb74690aca75fbf40aeb1247d88bd456aa37e2f1be2"
+    },
+    {
+      "file": "results/b_ca_distance_matrix_angstrom.csv",
+      "bytes": 250712,
+      "sha256": "67b79736b4e4f323282891f19ea26b80d3d0efc5e8b4abd3cd3fe998e2d83e0a"
+    },
+    {
+      "file": "results/cutoff_counts.csv",
+      "bytes": 136,
+      "sha256": "d17da0366981170fbc77d8c505d5f833b810309736830309abc31a2de5304953"
+    },
+    {
+      "file": "results/distance-matrix.png",
+      "bytes": 156893,
+      "sha256": "76510e3f6be16a35a9415a204acc99f42f97a20e47141dbd7e80cf5aca708513"
+    },
+    {
+      "file": "results/distance-matrix.svg",
+      "bytes": 126996,
+      "sha256": "39cae93ee1f1762cb90ffca059800842d9dacfe990b90f9b2b47aa662f6be57d"
+    },
+    {
+      "file": "results/run-summary.json",
+      "bytes": 874,
+      "sha256": "fecac7b5e575db6bd74df5f0efb4a8e3a5f7ee2e6b3c812d49b83ddaa02d7f83"
+    },
+    {
+      "file": "results/structure-view.html",
+      "bytes": 468287,
+      "sha256": "9502321b55f67634df7dbce348a81225c8b24a435f87875a2cb4a13577950cc2"
+    }
+  ]
+}
