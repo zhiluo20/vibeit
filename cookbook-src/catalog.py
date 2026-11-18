@@ -25,6 +25,20 @@ for info in sorted(pkgutil.iter_modules(subjects.__path__),key=lambda i:i.name):
     COURSES.extend(module.COURSES)
     SECTIONS.update(module.SECTIONS)
     EXERCISES.update(module.EXERCISES)
+# Explicit dependencies prevent unrelated bundled model sources appearing in lessons.
+MODEL_FIELDS = {
+    'ma04-monte-carlo': ['seed'],
+    'ph01-pendulum': ['pendulum'], 'ph02-oscillator': ['oscillator'],
+    'ph03-projectile': ['projectile'], 'ph04-heat': ['heat'],
+    'ch04-titration': ['titration'], 'ch05-vapor-pressure': ['water_saturation'],
+    'ch06-calibration': ['calibration', 'seed'],
+    'en04-beam-fem': ['beam'], 'en05-rc-circuit': ['circuit', 'seed'],
+    'en06-pid-control': ['pid'],
+}
+for course in COURSES:
+    if 'models' in course['snapshots']:
+        course['model_fields'] = MODEL_FIELDS[course['id']]
+
 COURSES.sort(key=lambda c:([d['id'] for d in DISCIPLINES].index(c['discipline']),c['number']))
 assert len({c['id'] for c in COURSES})==len(COURSES)
 

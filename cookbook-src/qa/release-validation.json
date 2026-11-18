@@ -13,7 +13,7 @@
   "notebooks": [
     {
       "filename": "01-fasta-to-protein.en.ipynb",
-      "sha256": "8e71af0a10e5330d176da45c6e81167a6e05efa516aa6cc1a566868162204d91",
+      "sha256": "57bcb9fe3306daaf94f9e9ec880de05a320c85bf969f45d78d32c387472e6059",
       "current_code_and_sources": "passed",
       "rename_move_roundtrip": "passed",
       "png_figures": 3,
@@ -21,7 +21,7 @@
     },
     {
       "filename": "01-fasta-to-protein.zh-hans.ipynb",
-      "sha256": "840dd8c49bb33abc6ecd20ea9a9f89f8cdefc0c82a58efb16980e66034a3c716",
+      "sha256": "5825990e49821f5bb714d7a0a2a60a554c98543c46738609ad185cd6c39ec1a6",
       "current_code_and_sources": "passed",
       "rename_move_roundtrip": "passed",
       "png_figures": 3,
@@ -29,7 +29,7 @@
     },
     {
       "filename": "02-affine-sequence-alignment.en.ipynb",
-      "sha256": "63c705a80a0df1613bef9c6873dc43ee2796fc24fe014e3c3ce196a42c1040c8",
+      "sha256": "f4eeb6325a7d434fe98320a7d866ce511ede0a6e30b1f857a4f836ef7bf49a54",
       "current_code_and_sources": "passed",
       "rename_move_roundtrip": "passed",
       "png_figures": 3,
@@ -37,7 +37,7 @@
     },
     {
       "filename": "02-affine-sequence-alignment.zh-hans.ipynb",
-      "sha256": "cda6cd6f84467655abc1606f2244bf4bc733ed21701b2feb37db27a8b403cd2d",
+      "sha256": "128e5cf9fe051f9eb25580b314a0be031f284e69018e2c797766f9a37f4d12e4",
       "current_code_and_sources": "passed",
       "rename_move_roundtrip": "passed",
       "png_figures": 3,
@@ -45,7 +45,7 @@
     },
     {
       "filename": "03-airway-expression.en.ipynb",
-      "sha256": "350c647ee15567e2bbb6ec2fd5bc5dfc1e84bd3d08d52054dd01b1ce45ece5ba",
+      "sha256": "fe1d1d127c539e74511b09346872dd4bfea24809c4c079639cb5ceb5f2798e69",
       "current_code_and_sources": "passed",
       "rename_move_roundtrip": "passed",
       "png_figures": 5,
@@ -53,7 +53,7 @@
     },
     {
       "filename": "03-airway-expression.zh-hans.ipynb",
-      "sha256": "130f6e6ea00247fd99953ad36bef41311e396609e07e0d7feb01c811224f2525",
+      "sha256": "9b468b6a090f5dd1e8128898271bec344e9d6b6367377f2163727d8f49d09fa9",
       "current_code_and_sources": "passed",
       "rename_move_roundtrip": "passed",
       "png_figures": 5,
@@ -61,7 +61,7 @@
     },
     {
       "filename": "04-reactome-enrichment.en.ipynb",
-      "sha256": "c683cee51accebd20e34ae3bf26409a3228c85e58346e72fb7a8a89f3c4e2383",
+      "sha256": "c67942693f60f37918f095a406ee17ab740676371c396eb9949cb3af8c930b8d",
       "current_code_and_sources": "passed",
       "rename_move_roundtrip": "passed",
       "png_figures": 3,
@@ -69,7 +69,7 @@
     },
     {
       "filename": "04-reactome-enrichment.zh-hans.ipynb",
-      "sha256": "9ca28a0409ab59c3ad3ed6bfc932074801c22643ce8f86e2c793d35d23a8f396",
+      "sha256": "364463d1226878d1c208cb584458f1114b203a55ab6eb8138328ad5996aab28a",
       "current_code_and_sources": "passed",
       "rename_move_roundtrip": "passed",
       "png_figures": 3,
@@ -77,7 +77,7 @@
     },
     {
       "filename": "05-string-physical-network.en.ipynb",
-      "sha256": "ff13ea9e7fe2018b47a689c4843a831783d5c8dadd89bd042f2682affc8633c8",
+      "sha256": "721b02ce770a341e562a44313f8f943f3dbbead14b56c5e604a9427dc4ad551e",
       "current_code_and_sources": "passed",
       "rename_move_roundtrip": "passed",
       "png_figures": 3,
@@ -85,7 +85,7 @@
     },
     {
       "filename": "05-string-physical-network.zh-hans.ipynb",
-      "sha256": "eb2bf8ec6da67b6974f610ea39c0735e05da7ac70c2a1ead558377f2ac9be7cb",
+      "sha256": "b2e01fa0ae7998d62db321a9ad005fdad0f5cb3dc9f461bf5f56ff3dc0fb9f63",
       "current_code_and_sources": "passed",
       "rename_move_roundtrip": "passed",
       "png_figures": 3,
@@ -93,7 +93,7 @@
     },
     {
       "filename": "06-hemoglobin-structure.en.ipynb",
-      "sha256": "386d71c1bdf495086a69383f9edaaea9f6ea91234258007265f3e8ce2d75a2b6",
+      "sha256": "861b52085b19465be54761796b5cf909d18eab22e3fcad75b2f4134cda0eb53e",
       "current_code_and_sources": "passed",
       "rename_move_roundtrip": "passed",
       "png_figures": 3,
@@ -101,7 +101,7 @@
     },
     {
       "filename": "06-hemoglobin-structure.zh-hans.ipynb",
-      "sha256": "344d4e89ad2407e0fc9a6cbc9452269f6ea17fc8e95af7beb8190705e467c636",
+      "sha256": "97217824b8058a8b5eac19161b3f7544aac274867b69941080b1dac4b6f86438",
       "current_code_and_sources": "passed",
       "rename_move_roundtrip": "passed",
       "png_figures": 3,
@@ -109,7 +109,7 @@
     },
     {
       "filename": "07-imatinib-pocket.en.ipynb",
-      "sha256": "f6062d90f559b8db52af33c5d5ba3a5fe526a97ec844fc7e4ce2c0ed7024a127",
+      "sha256": "fbb04d508243d84f46e322b6b9c01ff2152fc225738f07b9e0554f8bcd07cabb",
       "current_code_and_sources": "passed",
       "rename_move_roundtrip": "passed",
       "png_figures": 4,
@@ -117,7 +117,7 @@
     },
     {
       "filename": "07-imatinib-pocket.zh-hans.ipynb",
-      "sha256": "92cd2ef18ff1df9d408d82a5f2e180760985b393414d1146718336ba9d291aae",
+      "sha256": "7969a3ab56acc70e5d47745359a406f231153d008c4da0182b41d2383436abd7",
       "current_code_and_sources": "passed",
       "rename_move_roundtrip": "passed",
       "png_figures": 4,
@@ -125,7 +125,7 @@
     },
     {
       "filename": "08-trastuzumab-interface.en.ipynb",
-      "sha256": "afdb68a6180de5ab9b02172c1aebdbee6451b75b1d41b39d8c4c1e45eb333f10",
+      "sha256": "2c7d501542fa1efe98c4ef59f8afa4bf3af56e2e0f9ffbe532bb19af22622d46",
       "current_code_and_sources": "passed",
       "rename_move_roundtrip": "passed",
       "png_figures": 5,
@@ -133,7 +133,7 @@
     },
     {
       "filename": "08-trastuzumab-interface.zh-hans.ipynb",
-      "sha256": "efb251d2c36e82947e126532906c8a6484299eb8923c6057b761e5384d481711",
+      "sha256": "ff5050a136a186d57a43d83d2abaed260636a50764dc81d44fb8708c4598ddb2",
       "current_code_and_sources": "passed",
       "rename_move_roundtrip": "passed",
       "png_figures": 5,
@@ -141,7 +141,7 @@
     },
     {
       "filename": "ds01-iris-audit.en.ipynb",
-      "sha256": "315446ab475958c427bcda42095ad8a3640c860840342117d000b2e8c0bdab36",
+      "sha256": "66f6552616652dc048a6ecea891be2b1d46f80f0bbccd06ae26c2dc971e62604",
       "current_code_and_sources": "passed",
       "rename_move_roundtrip": "passed",
       "png_figures": 3,
@@ -149,7 +149,7 @@
     },
     {
       "filename": "ds01-iris-audit.zh-hans.ipynb",
-      "sha256": "d1407246ab4be0c199512dac83677f321d8a53d382bd8ebbc770d8f4a2cfb5c6",
+      "sha256": "6ee14c3ecd604a4c78a14995e7c4283d1faf15f66ca7dcaa5b401ea91d876072",
       "current_code_and_sources": "passed",
       "rename_move_roundtrip": "passed",
       "png_figures": 3,
@@ -157,7 +157,7 @@
     },
     {
       "filename": "ds02-iris-pca.en.ipynb",
-      "sha256": "ce33549e2200c870d01620b4bff50b877d6232928e25bfe1eabce6d14f43552e",
+      "sha256": "ab5b1015ecc21acef096c2d5957a0c864f2cfc4874aebe7ff35f7f7cbc9a8363",
       "current_code_and_sources": "passed",
       "rename_move_roundtrip": "passed",
       "png_figures": 3,
@@ -165,7 +165,7 @@
     },
     {
       "filename": "ds02-iris-pca.zh-hans.ipynb",
-      "sha256": "658019b8d11f6d0b539bab5d3339c1c0d4d86acf44d51350745d6b7e55f96493",
+      "sha256": "1873507944d6259322dbe3d4d76f37908ccbca8dceafa7f905908ee09125cee4",
       "current_code_and_sources": "passed",
       "rename_move_roundtrip": "passed",
       "png_figures": 3,
@@ -173,7 +173,7 @@
     },
     {
       "filename": "ds03-iris-knn.en.ipynb",
-      "sha256": "6e101757d82867236ec51c4a901e4926deed81ac1ae41e5e145fe56781726cac",
+      "sha256": "898eda4d675d9df74851ad2d169f71ecf98ba62476e5e54e713864de679bdb76",
       "current_code_and_sources": "passed",
       "rename_move_roundtrip": "passed",
       "png_figures": 3,
@@ -181,7 +181,7 @@
     },
     {
       "filename": "ds03-iris-knn.zh-hans.ipynb",
-      "sha256": "8e2ce894ac398e1a0e1c0d37c0164b645e9019c380b2770782b65efe07116856",
+      "sha256": "741f1e73639fc24881ba325e932341473f0826dae0cf03a2bbd9de468b1dc778",
       "current_code_and_sources": "passed",
       "rename_move_roundtrip": "passed",
       "png_figures": 3,
@@ -189,7 +189,7 @@
     },
     {
       "filename": "ds04-wine-clusters.en.ipynb",
-      "sha256": "f4df6e7e654a3599b3e5f0d5dec58c49ad078cd0564f3187035b9d1d966af224",
+      "sha256": "c0139cc2685a7ca933dd90262872a4d0250069a21cd747320f2795f853342c93",
       "current_code_and_sources": "passed",
       "rename_move_roundtrip": "passed",
       "png_figures": 3,
@@ -197,7 +197,7 @@
     },
     {
       "filename": "ds04-wine-clusters.zh-hans.ipynb",
-      "sha256": "8e58c8d0ac7ae5e811af39c406c8e98a856c7ad745703b2c0b4f409eb01157e2",
+      "sha256": "ef0f2833260fc4d3f7be5bc7f29ab04a9160ab8d23d3b7f0e725553fda00563a",
       "current_code_and_sources": "passed",
       "rename_move_roundtrip": "passed",
       "png_figures": 3,
@@ -205,7 +205,7 @@
     },
     {
       "filename": "ds05-bike-regression.en.ipynb",
-      "sha256": "4c1868bfe26d7eb4fac57e8230ef42ec674d8c89811839fa6a2dcac4fecf66ec",
+      "sha256": "8633627bbf3d05b0f191dca06cc0d4e5067faf4a384e4974ae6ae55c210dc565",
       "current_code_and_sources": "passed",
       "rename_move_roundtrip": "passed",
       "png_figures": 3,
@@ -213,7 +213,7 @@
     },
     {
       "filename": "ds05-bike-regression.zh-hans.ipynb",
-      "sha256": "c71e47e6a8bb9d58f895071a71cfc0b1aa4d2c24b238b5096c02228f2dcb5f8b",
+      "sha256": "209bcfe20de913cab95d3c7fe45758eff9dfbe6f5d096fde78b229242a3e1159",
       "current_code_and_sources": "passed",
       "rename_move_roundtrip": "passed",
       "png_figures": 3,
@@ -221,7 +221,7 @@
     },
     {
       "filename": "ds06-bike-backtesting.en.ipynb",
-      "sha256": "e7e005267e97e7f22b1655ddcfc7058d21ce0c6ba966911c5c32212e7a0420e9",
+      "sha256": "5622732e3b1798e5fdc2cc961b0d320617df0cef0c63b590cb4352159f505cad",
       "current_code_and_sources": "passed",
       "rename_move_roundtrip": "passed",
       "png_figures": 3,
@@ -229,7 +229,7 @@
     },
     {
       "filename": "ds06-bike-backtesting.zh-hans.ipynb",
-      "sha256": "4e643fc07b646f81497b229b928d669e30be448e9b3c438ad181a371163e7aa7",
+      "sha256": "8a7aa4fa01d4b2dc76c1212c37da5d9ee7ea7c6f58611d6616ebfc27ea54c87d",
       "current_code_and_sources": "passed",
       "rename_move_roundtrip": "passed",
       "png_figures": 3,
@@ -237,7 +237,7 @@
     },
     {
       "filename": "ma01-numerical-calculus.en.ipynb",
-      "sha256": "dc82b824d590194fa4f0e02f74591022da298d076d7aa711093063e190b9788e",
+      "sha256": "27c6313cb0b086348b1c1c565ac9c0ce907d8196746dc42693f75a27ee5c04a3",
       "current_code_and_sources": "passed",
       "rename_move_roundtrip": "passed",
       "png_figures": 3,
@@ -245,7 +245,7 @@
     },
     {
       "filename": "ma01-numerical-calculus.zh-hans.ipynb",
-      "sha256": "2e90c6f474be6027c3e1066c91496e8a12a9315105c45711e46009493f6c3d00",
+      "sha256": "fe51cafa62f14e9b67674dd187517cd845558300b375f460ad7fa8907a226dd7",
       "current_code_and_sources": "passed",
       "rename_move_roundtrip": "passed",
       "png_figures": 3,
@@ -253,7 +253,7 @@
     },
     {
       "filename": "ma02-bracketed-roots.en.ipynb",
-      "sha256": "7d2b5e67c6e0acfe8664992c1c8864b41bed2bbbe72473a277167248665ca351",
+      "sha256": "d4c6efef053b2a784349c563ab2587e2d5a2c0c10a1e36998923a3400b1965d7",
       "current_code_and_sources": "passed",
       "rename_move_roundtrip": "passed",
       "png_figures": 3,
@@ -261,7 +261,7 @@
     },
     {
       "filename": "ma02-bracketed-roots.zh-hans.ipynb",
-      "sha256": "ffb7b00a7d21db327a54db8932fa01693b2bd19219356cb468b88be676b821e5",
+      "sha256": "83416d811a368e6e248bbca2a879cfe546cf4cfbfbb68061cfa5cf4adf61d862",
       "current_code_and_sources": "passed",
       "rename_move_roundtrip": "passed",
       "png_figures": 3,
@@ -269,7 +269,7 @@
     },
     {
       "filename": "ma03-conditioning.en.ipynb",
-      "sha256": "b16d18ce05f595bd03324ef1295724682b4283cfc74437a0970b210bbbc55fa6",
+      "sha256": "a9114d3a106aa9d69795aeb8cdbc4dd8fe84a59b03f9c74101bee6f22b823cbf",
       "current_code_and_sources": "passed",
       "rename_move_roundtrip": "passed",
       "png_figures": 3,
@@ -277,7 +277,7 @@
     },
     {
       "filename": "ma03-conditioning.zh-hans.ipynb",
-      "sha256": "3d7caa0a78d5efda2aec4e01a05d7073b15c3de42ac185c0d010c5fbde44af7c",
+      "sha256": "437412b695df4daa22c478b8c0739785a58e9d5c2e36276a05f6ecad16ed542c",
       "current_code_and_sources": "passed",
       "rename_move_roundtrip": "passed",
       "png_figures": 3,
@@ -285,7 +285,7 @@
     },
     {
       "filename": "ma04-monte-carlo.en.ipynb",
-      "sha256": "3dc0463326ddc8d1562f40c2a1312cbfb46bd187a72a150da0784942347bbc4e",
+      "sha256": "bdb411befb8adbf118384edf94df2298fae8d73be8f05ad2cf747a8978bc3ed5",
       "current_code_and_sources": "passed",
       "rename_move_roundtrip": "passed",
       "png_figures": 3,
@@ -293,7 +293,7 @@
     },
     {
       "filename": "ma04-monte-carlo.zh-hans.ipynb",
-      "sha256": "7ae4e58acc1f4e35d527dba456044ec681e54ea7cb6f275afa0db86f7137705e",
+      "sha256": "b0130f9b31401155a9a25f0c9de3ea55ca468f274ed3f631b12fc6063d4d8e75",
       "current_code_and_sources": "passed",
       "rename_move_roundtrip": "passed",
       "png_figures": 3,
@@ -301,7 +301,7 @@
     },
     {
       "filename": "ma05-bootstrap.en.ipynb",
-      "sha256": "8e56aff4bb0d2623222b919961f60107cd348352199d6f4a543496150db1ea38",
+      "sha256": "694d55af6754424fa2f6e6b878407385103b46b8020979b4618f7c54ebee8cfd",
       "current_code_and_sources": "passed",
       "rename_move_roundtrip": "passed",
       "png_figures": 3,
@@ -309,7 +309,7 @@
     },
     {
       "filename": "ma05-bootstrap.zh-hans.ipynb",
-      "sha256": "8af198896cc172f11200f2f695ca9adde57a214467375d1c0242ede0bc537dd7",
+      "sha256": "5b1ec2876fc8657b19e360b9ddac2a02b05fbede6680fcd586db747e23a737ae",
       "current_code_and_sources": "passed",
       "rename_move_roundtrip": "passed",
       "png_figures": 3,
@@ -317,7 +317,7 @@
     },
     {
       "filename": "ma06-permutation-tests.en.ipynb",
-      "sha256": "c7c35e06f5213f3fb29d3a21f74f98130687cca88484003e00a6d686820d7abd",
+      "sha256": "84958e1fd7ae3ead662ac2e157ea8ed9f05134fc0e0dae12bb63e813590f84eb",
       "current_code_and_sources": "passed",
       "rename_move_roundtrip": "passed",
       "png_figures": 3,
@@ -325,7 +325,7 @@
     },
     {
       "filename": "ma06-permutation-tests.zh-hans.ipynb",
-      "sha256": "d0eaaf808c288420f9c4967b316682d0a76afe6688692a957f6dd60951fdf259",
+      "sha256": "6f184be8a7d2d76128d9e43d72dde53e0a869643200382715f5386430e2b3ad9",
       "current_code_and_sources": "passed",
       "rename_move_roundtrip": "passed",
       "png_figures": 3,
@@ -333,7 +333,7 @@
     },
     {
       "filename": "ph01-pendulum.en.ipynb",
-      "sha256": "ef57c1b3e1c0c1a815443cac6c892f12b6f11f458f09ff31aaf730d804f6bf47",
+      "sha256": "5b4869fc714ea2451ab772f77e13e13686d8b36228816bafcfdd228bfb92edc9",
       "current_code_and_sources": "passed",
       "rename_move_roundtrip": "passed",
       "png_figures": 3,
@@ -341,7 +341,7 @@
     },
     {
       "filename": "ph01-pendulum.zh-hans.ipynb",
-      "sha256": "181f23e6f2b56397712fd668db250d77d5a1cc06f55bab4616c739701eaab7a3",
+      "sha256": "01bbc97e0f423fd1d338531004bf71736c78483f9b32be257f3e15b1f0f62473",
       "current_code_and_sources": "passed",
       "rename_move_roundtrip": "passed",
       "png_figures": 3,
@@ -349,7 +349,7 @@
     },
     {
       "filename": "ph02-oscillator.en.ipynb",
-      "sha256": "51dc55cb431cc4aa70e56452734a5e03771829281d09828bf0ee61106e423f92",
+      "sha256": "f511f1b82afd2ccac16af6aa0360d56b5cb1de4d53b221c6f2127c46f6307254",
       "current_code_and_sources": "passed",
       "rename_move_roundtrip": "passed",
       "png_figures": 3,
@@ -357,7 +357,7 @@
     },
     {
       "filename": "ph02-oscillator.zh-hans.ipynb",
-      "sha256": "8d5572989c711da15d7e46b423f4ee740ded88adf1d800c36cbe1ac9ea19d217",
+      "sha256": "eb182eb3ebc7319e7e629db9d8ba5a9dde86ac6ed8889872c455e54fe8d42120",
       "current_code_and_sources": "passed",
       "rename_move_roundtrip": "passed",
       "png_figures": 3,
@@ -365,7 +365,7 @@
     },
     {
       "filename": "ph03-projectile.en.ipynb",
-      "sha256": "0a2ea6b7b76735ec662f9043f942e281f9ce1ac1181655c4a19f5c7623cbe991",
+      "sha256": "4de2ffc0f047eaa68c27e84b8a8f383574504bd1dab57486cc0bec1831674968",
       "current_code_and_sources": "passed",
       "rename_move_roundtrip": "passed",
       "png_figures": 3,
@@ -373,7 +373,7 @@
     },
     {
       "filename": "ph03-projectile.zh-hans.ipynb",
-      "sha256": "5cb71940f7b29a4f7e43a8bde58a990ee4b4109db907c3d80510aaac79023512",
+      "sha256": "3fe6a422cdc0a8fe10b7aface31129913947eae002af144fc268be5b80fd88ef",
       "current_code_and_sources": "passed",
       "rename_move_roundtrip": "passed",
       "png_figures": 3,
@@ -381,7 +381,7 @@
     },
     {
       "filename": "ph04-heat.en.ipynb",
-      "sha256": "a0ee9d2c4c78055173e4a9f2d56a1bfbbcbb0ec4b80a8b71bbff85161ce3c7f9",
+      "sha256": "1eb3ab2e301cb08f24b1b9aac37ffe7b64d8c925cc4a2447c88d9d7f0f9554f5",
       "current_code_and_sources": "passed",
       "rename_move_roundtrip": "passed",
       "png_figures": 3,
@@ -389,7 +389,7 @@
     },
     {
       "filename": "ph04-heat.zh-hans.ipynb",
-      "sha256": "6a59a97be527a11bce56366ef64eb66448858a4a3fe6052683e2a312c3c691c3",
+      "sha256": "c2bf0e51886804264c2349f172344bc2060114f05992c42d899b8c7a5e8172d6",
       "current_code_and_sources": "passed",
       "rename_move_roundtrip": "passed",
       "png_figures": 3,
@@ -397,7 +397,7 @@
     },
     {
       "filename": "ph05-gw150914.en.ipynb",
-      "sha256": "9c288e7d3805893e1d96d641a82d2629cb738447d25a615277ad4f9265193f30",
+      "sha256": "a8d877364c0a35154d436e1c4340faedefcbe31ec13f514a3e1a3577fab7859b",
       "current_code_and_sources": "passed",
       "rename_move_roundtrip": "passed",
       "png_figures": 3,
@@ -405,7 +405,7 @@
     },
     {
       "filename": "ph05-gw150914.zh-hans.ipynb",
-      "sha256": "0910db2a6b1fac49e6491d7f16f40872441c2e908b3a47a288458d4acc518252",
+      "sha256": "4fdaeb1ab6c5dd5f450eb131af035726f257cd8ce5329bca57a40c27b518d074",
       "current_code_and_sources": "passed",
       "rename_move_roundtrip": "passed",
       "png_figures": 3,
@@ -413,7 +413,7 @@
     },
     {
       "filename": "ph06-blackbody.en.ipynb",
-      "sha256": "2bc8937589ffd7780ab4972e235e9f40f6428856a709862a82e545b7c10cb7df",
+      "sha256": "ab66ccb25cb90a85b9574ac4fe295290f9a1a1ab8920b2dae2bf4cbcc7b83a76",
       "current_code_and_sources": "passed",
       "rename_move_roundtrip": "passed",
       "png_figures": 3,
@@ -421,7 +421,7 @@
     },
     {
       "filename": "ph06-blackbody.zh-hans.ipynb",
-      "sha256": "ab48477a168f8fa36f1e780d83006d12fda7a806305f02e39ce0304d78c7955e",
+      "sha256": "65c70358e8007f409470687a1db65a3c5d64a265a0e56853b5e803dd343353e8",
       "current_code_and_sources": "passed",
       "rename_move_roundtrip": "passed",
       "png_figures": 3,
@@ -429,7 +429,7 @@
     },
     {
       "filename": "ch01-molecular-formulas.en.ipynb",
-      "sha256": "3154687bfac94592761038317a1192661ee6ede58c13006b1e08134df6c0c0b9",
+      "sha256": "1a8da90e8c4f7175cc0c28576244f4bf673a6ec1e4b763a27ed48b8c6667c8f3",
       "current_code_and_sources": "passed",
       "rename_move_roundtrip": "passed",
       "png_figures": 3,
@@ -437,7 +437,7 @@
     },
     {
       "filename": "ch01-molecular-formulas.zh-hans.ipynb",
-      "sha256": "1f3698523f9f0dc92214acb0e95d6b989cdc01f5c27875842724e91f96131155",
+      "sha256": "69317ad2bd6351deca4d3b978ee35d43d99c1cee9327ce40d98ae3730cfadd48",
       "current_code_and_sources": "passed",
       "rename_move_roundtrip": "passed",
       "png_figures": 3,
@@ -445,7 +445,7 @@
     },
     {
       "filename": "ch02-molecular-graphs.en.ipynb",
-      "sha256": "7c694dd87122062114c71791e660dc09d77f66495b8c14d09f12df2343349ea6",
+      "sha256": "db429653aefe43141bab0e4ddb9330980e90882150e79687e634aaf83bc97e45",
       "current_code_and_sources": "passed",
       "rename_move_roundtrip": "passed",
       "png_figures": 3,
@@ -453,7 +453,7 @@
     },
     {
       "filename": "ch02-molecular-graphs.zh-hans.ipynb",
-      "sha256": "ba58deea034e4fab21fb3a0e33a000ade2e5af21d1401d1dd0e65d6f89c7874d",
+      "sha256": "613155142b47dffb8219975ac2f53fa0203489bba2872aeb3f2256904f500c3f",
       "current_code_and_sources": "passed",
       "rename_move_roundtrip": "passed",
       "png_figures": 3,
@@ -461,7 +461,7 @@
     },
     {
       "filename": "ch03-caffeine-geometry.en.ipynb",
-      "sha256": "2266175c60aa1edd9f3d086d48f75a78f135770c2395aa4ca561bf5c4056c98f",
+      "sha256": "3df2719fdee072bdf95a37ee3882d9c4c7db6dd76ebd613be8aba5ed6f20cedd",
       "current_code_and_sources": "passed",
       "rename_move_roundtrip": "passed",
       "png_figures": 3,
@@ -469,7 +469,7 @@
     },
     {
       "filename": "ch03-caffeine-geometry.zh-hans.ipynb",
-      "sha256": "47d5f6080c5ab6fef51312e95cb49417650500120de37bd82ca4da1246c30594",
+      "sha256": "bb1a30173e9002a0bb9d955ca0c448fdeab1f230ae325017a25cf007ab87f592",
       "current_code_and_sources": "passed",
       "rename_move_roundtrip": "passed",
       "png_figures": 3,
@@ -477,7 +477,7 @@
     },
     {
       "filename": "ch04-titration.en.ipynb",
-      "sha256": "294e607954ca21e5dee4cb3dcd993d415c7c0fc09ae1f83e88122d2949c90d68",
+      "sha256": "90c918b92bfeca0c8b6c525f413ef7aac75e54b07c3acee57afb57c90db8854a",
       "current_code_and_sources": "passed",
       "rename_move_roundtrip": "passed",
       "png_figures": 3,
@@ -485,7 +485,7 @@
     },
     {
       "filename": "ch04-titration.zh-hans.ipynb",
-      "sha256": "644c85fc2d408aca2b20628ec7dda9dc0b2234512dc549724af3e76beb427849",
+      "sha256": "103331d717ba63c04e96c600bbde48b2b99ea9814ddf8388e440b040e1020102",
       "current_code_and_sources": "passed",
       "rename_move_roundtrip": "passed",
       "png_figures": 3,
@@ -493,7 +493,7 @@
     },
     {
       "filename": "ch05-vapor-pressure.en.ipynb",
-      "sha256": "1b53de22334092a88309746f4e066c66351e4a79f38abc96e75c7685aaffd30f",
+      "sha256": "02c8cbfb7f34e9bac1d9b3ab11d7dc4d0d4b422532e9602f2947e06d817b8761",
       "current_code_and_sources": "passed",
       "rename_move_roundtrip": "passed",
       "png_figures": 3,
@@ -501,7 +501,7 @@
     },
     {
       "filename": "ch05-vapor-pressure.zh-hans.ipynb",
-      "sha256": "97efc4b75e87229b28abac821786e789fb20cc12a605b351d6d57035c2edff48",
+      "sha256": "1d83adaae0765a85708c3a9275d041e35ffbd2ec069c675be3cdb9414aa9299f",
       "current_code_and_sources": "passed",
       "rename_move_roundtrip": "passed",
       "png_figures": 3,
@@ -509,7 +509,7 @@
     },
     {
       "filename": "ch06-calibration.en.ipynb",
-      "sha256": "9ffceac6576a619b045059791c2ac0cedc1d10231b31bd8a47fe90fa7f7c7cab",
+      "sha256": "ed743fea1f0587ce6e23518d7b32bf646a25f334fae5c87296c0ffbcbd2c9e47",
       "current_code_and_sources": "passed",
       "rename_move_roundtrip": "passed",
       "png_figures": 3,
@@ -517,7 +517,7 @@
     },
     {
       "filename": "ch06-calibration.zh-hans.ipynb",
-      "sha256": "c62cd13271cdd73b108bc98c0b7b8e2d5775da25e56bd672e434c74b5db083c1",
+      "sha256": "df157de74c6fcd573dd7561346d0d3e8082c8674fbb1e36f93cc8c190fcc0b40",
       "current_code_and_sources": "passed",
       "rename_move_roundtrip": "passed",
       "png_figures": 3,
@@ -525,7 +525,7 @@
     },
     {
       "filename": "en01-energy-audit.en.ipynb",
-      "sha256": "7fe54c94508177a71e65822ac07f9559c4b4b14f59bfe17a9ea63902064531d4",
+      "sha256": "21095bfadb7d93fbd1cecc09883b431aaee75414bb4cda4e940a729eb43ed39e",
       "current_code_and_sources": "passed",
       "rename_move_roundtrip": "passed",
       "png_figures": 3,
@@ -533,7 +533,7 @@
     },
     {
       "filename": "en01-energy-audit.zh-hans.ipynb",
-      "sha256": "09aaa514d3326714f4252032b833fb59863d193a2edfe91a17303483d4d28e96",
+      "sha256": "cc78292b2850ad8c3d8d2e7a847e4a8a6e4adeb0b62e8528e7e5aa381952b10f",
       "current_code_and_sources": "passed",
       "rename_move_roundtrip": "passed",
       "png_figures": 3,
@@ -541,7 +541,7 @@
     },
     {
       "filename": "en02-energy-regression.en.ipynb",
-      "sha256": "2950e4c71b11b6c4d0a616cdbf95dd922a3629b879fa0ca5203619c97db60d69",
+      "sha256": "b0ff653725acadde0cfdfc65d87d3076b110cb3edaa2a023245c68f7bfbd2b07",
       "current_code_and_sources": "passed",
       "rename_move_roundtrip": "passed",
       "png_figures": 3,
@@ -549,7 +549,7 @@
     },
     {
       "filename": "en02-energy-regression.zh-hans.ipynb",
-      "sha256": "473ed6c66a9fa2aa4e892d69bbf58582034993458d47eece60c48416d0123fe2",
+      "sha256": "69fd7dd3cb2bb53c6ea83ded2791d05287e7ea8b5f2fbfdddafde9775f1065ca",
       "current_code_and_sources": "passed",
       "rename_move_roundtrip": "passed",
       "png_figures": 3,
@@ -557,7 +557,7 @@
     },
     {
       "filename": "en03-energy-filtering.en.ipynb",
-      "sha256": "419cf317302c32e6e47a911581c9700abc431059edb462ad695d169443784b24",
+      "sha256": "1b5689aa63a43e1b82f3dc0290d6ac38513b8c175ce56b69e91f6b7e1ea9330e",
       "current_code_and_sources": "passed",
       "rename_move_roundtrip": "passed",
       "png_figures": 3,
@@ -565,7 +565,7 @@
     },
     {
       "filename": "en03-energy-filtering.zh-hans.ipynb",
-      "sha256": "50d0cdf9cb76c8fb433daf0cd440c4c8ac8f39c33144c2b0f2d235793e0377b5",
+      "sha256": "0f26e1043e1518392236b1cfb7697613255b6e040a6af6d4a74b1bd63c6c7a8c",
       "current_code_and_sources": "passed",
       "rename_move_roundtrip": "passed",
       "png_figures": 3,
@@ -573,7 +573,7 @@
     },
     {
       "filename": "en04-beam-fem.en.ipynb",
-      "sha256": "7171b204b9e83b61093e367ae08035352aca0d13634fab24993f2f210a8e3605",
+      "sha256": "529cdcee8d1bd1f49b2ef7dec9a1f440b8957576af9dbe503b990fcda768b005",
       "current_code_and_sources": "passed",
       "rename_move_roundtrip": "passed",
       "png_figures": 3,
@@ -581,7 +581,7 @@
     },
     {
       "filename": "en04-beam-fem.zh-hans.ipynb",
-      "sha256": "ce78862bd1efc2649e40e2c796ac158acd35cae8bebf6e95afa4481aa5893d61",
+      "sha256": "89ecc26973c41d4854b9403093e1e7404223e778ac8dafd7306e5489646d3386",
       "current_code_and_sources": "passed",
       "rename_move_roundtrip": "passed",
       "png_figures": 3,
@@ -589,7 +589,7 @@
     },
     {
       "filename": "en05-rc-circuit.en.ipynb",
-      "sha256": "4be5d8dc7a707ba90e7d31b2fc1bd1010aa8176d4650b41ef08fb0edf56061e3",
+      "sha256": "90fe798381c02c33b23852a811d295fed60daae14fbeb9e645d174405beebe8a",
       "current_code_and_sources": "passed",
       "rename_move_roundtrip": "passed",
       "png_figures": 3,
@@ -597,7 +597,7 @@
     },
     {
       "filename": "en05-rc-circuit.zh-hans.ipynb",
-      "sha256": "99f897944a6978e3d49a5e153dd6513e24388abe23515b5eb60f8bc5660b7d06",
+      "sha256": "af68c6cb6e408bacbac07d1be7efdbd948a9960776a271876a4c6e87b294c8cc",
       "current_code_and_sources": "passed",
       "rename_move_roundtrip": "passed",
       "png_figures": 3,
@@ -605,7 +605,7 @@
     },
     {
       "filename": "en06-pid-control.en.ipynb",
-      "sha256": "93d92cf98ff2053253eee9a2db6781a2a0281fab529a59b067ab7b2aac7c226d",
+      "sha256": "e7ab65a9db65f3c186a4b1d678024a8fe73268184eac4179e3d1f8039f314764",
       "current_code_and_sources": "passed",
       "rename_move_roundtrip": "passed",
       "png_figures": 3,
@@ -613,7 +613,7 @@
     },
     {
       "filename": "en06-pid-control.zh-hans.ipynb",
-      "sha256": "ceacb967395aba80c8b6b48ca18099671f36a12c8c922ece4d15a4cc0470e71f",
+      "sha256": "6c83beffd7b656c11ebea217c7a4101b4f2b8b5da736a7b7930c71319f19123b",
       "current_code_and_sources": "passed",
       "rename_move_roundtrip": "passed",
       "png_figures": 3,
@@ -621,7 +621,7 @@
     },
     {
       "filename": "ec01-real-growth.en.ipynb",
-      "sha256": "96faa40788404beee84c89812ae9c76762f19041bc5bc7f47b9503c9803c22d9",
+      "sha256": "4d760a58d61097a86b849f55875f8cad7afbbf0091a258ee496bf7ac50298f9f",
       "current_code_and_sources": "passed",
       "rename_move_roundtrip": "passed",
       "png_figures": 3,
@@ -629,7 +629,7 @@
     },
     {
       "filename": "ec01-real-growth.zh-hans.ipynb",
-      "sha256": "ce68b9ae29df62c0932667105c3afc85512603c9b81a6d09da72bd3e8cda99a5",
+      "sha256": "f8c2305f24d55472f5ac5a527db382d0ace44e707fb17c8f52e7b617611289de",
       "current_code_and_sources": "passed",
       "rename_move_roundtrip": "passed",
       "png_figures": 3,
@@ -637,7 +637,7 @@
     },
     {
       "filename": "ec02-inflation.en.ipynb",
-      "sha256": "e733186aab2cd8f6b93dc4a2fc6363b5ae7a3a5330843b9145aeb5eff72e4a1b",
+      "sha256": "9d3e3d266f3cf2e4c40f02a612fc24f59cd535e99944686d4232a7eeb01448f3",
       "current_code_and_sources": "passed",
       "rename_move_roundtrip": "passed",
       "png_figures": 3,
@@ -645,7 +645,7 @@
     },
     {
       "filename": "ec02-inflation.zh-hans.ipynb",
-      "sha256": "7eb51ed4b0a76687bfc25c05e0ac896bb8ad0d06c36a8c5b69ee6f55e481dfca",
+      "sha256": "d0684fccccc39e4388c978aeb5f7ed02e643ab29105840c994a451389ec43ea7",
       "current_code_and_sources": "passed",
       "rename_move_roundtrip": "passed",
       "png_figures": 3,
@@ -653,7 +653,7 @@
     },
     {
       "filename": "ec03-inequality.en.ipynb",
-      "sha256": "c4f410712a0f186df6c05d052be8c5b6c306f3b5a65bc7e37011f0a805b17bc1",
+      "sha256": "662835eb0ca4fdc521dcdfea73943434969047cda414814fef17a1930e9ae37a",
       "current_code_and_sources": "passed",
       "rename_move_roundtrip": "passed",
       "png_figures": 3,
@@ -661,7 +661,7 @@
     },
     {
       "filename": "ec03-inequality.zh-hans.ipynb",
-      "sha256": "d419b4b72d769945315e1b07b3dfaeecaf54dd697b938968738626a5fea2327b",
+      "sha256": "3bd732c2d16d4acdc7ab1102d5da1ac289ba3f0b4fab667e66c50fefd15ef2d4",
       "current_code_and_sources": "passed",
       "rename_move_roundtrip": "passed",
       "png_figures": 3,
@@ -669,7 +669,7 @@
     },
     {
       "filename": "ec04-fx-returns.en.ipynb",
-      "sha256": "a83866169a3661645391b231491e29ad667c468d252fcd24aa34597f4865c5a6",
+      "sha256": "2ac27cb9c14c11d7f13993c49070b18f8604a135e2ffdd68b875d8ed70b486ca",
       "current_code_and_sources": "passed",
       "rename_move_roundtrip": "passed",
       "png_figures": 3,
@@ -677,7 +677,7 @@
     },
     {
       "filename": "ec04-fx-returns.zh-hans.ipynb",
-      "sha256": "4fe1cadd55b345fea16ab5ac244b0ee8cd67a82d25a382b937f9de3413b075aa",
+      "sha256": "3c12ac057578c44dfec7b2a2f744137bfaea111671f643c514799b0dfd4b33b3",
       "current_code_and_sources": "passed",
       "rename_move_roundtrip": "passed",
       "png_figures": 3,
@@ -685,7 +685,7 @@
     },
     {
       "filename": "ec05-portfolio-variance.en.ipynb",
-      "sha256": "34867e87bca58533826a4ac26a4d9ec26dbf2455b666298dfa45929894f7d467",
+      "sha256": "1226489ff7591bf547a683ec49ef9746595c2e8dea5dcd6559674df640f78328",
       "current_code_and_sources": "passed",
       "rename_move_roundtrip": "passed",
       "png_figures": 3,
@@ -693,7 +693,7 @@
     },
     {
       "filename": "ec05-portfolio-variance.zh-hans.ipynb",
-      "sha256": "f3d307dfaa60df7ae6aa6e0ea7056ebf8a7211dbd5da4ec961a6309e7bc94469",
+      "sha256": "a7f3e2ecadfd1e2464f0ae7d82057f25898430116c96764de270deaa1651adb5",
       "current_code_and_sources": "passed",
       "rename_move_roundtrip": "passed",
       "png_figures": 3,
@@ -701,7 +701,7 @@
     },
     {
       "filename": "ec06-tail-risk.en.ipynb",
-      "sha256": "c5875ebcc3bf6d853ecc575f0b8cf3837bb45c00380f6e955f966b4873e87d7d",
+      "sha256": "58ac64a451b2b3bfa29bf8b99737141e57963bbbab0a9d928aa874d5ec4329f4",
       "current_code_and_sources": "passed",
       "rename_move_roundtrip": "passed",
       "png_figures": 3,
@@ -709,7 +709,7 @@
     },
     {
       "filename": "ec06-tail-risk.zh-hans.ipynb",
-      "sha256": "c4e6d676b9f8c79e9d9d62a01ea4b171ab04d8cbd30e90febc5cecb65d59c7a6",
+      "sha256": "749b53fb906ea276d1bab34d600824bfd65e0c50444ddb4e770464afbcebcd88",
       "current_code_and_sources": "passed",
       "rename_move_roundtrip": "passed",
       "png_figures": 3,
@@ -717,7 +717,7 @@
     },
     {
       "filename": "hu01-corpus-audit.en.ipynb",
-      "sha256": "3376eb9375ad9557b7150ec56e07e668906fe2e86353ae71e4865ac1cf871cad",
+      "sha256": "86e13c88a9c8767b2271b7f83bd8e10c8687855f5b23758770ada68728b31fd9",
       "current_code_and_sources": "passed",
       "rename_move_roundtrip": "passed",
       "png_figures": 3,
@@ -725,7 +725,7 @@
     },
     {
       "filename": "hu01-corpus-audit.zh-hans.ipynb",
-      "sha256": "292fea8b9efb1b77ec11e99637ceaef26ea5cfb92a646f8727f23259e8908018",
+      "sha256": "da105cf4adc201930e2d3e1d4d9b6558ab3fa895931016914d09f00d92ce3741",
       "current_code_and_sources": "passed",
       "rename_move_roundtrip": "passed",
       "png_figures": 3,
@@ -733,7 +733,7 @@
     },
     {
       "filename": "hu02-lexical-diversity.en.ipynb",
-      "sha256": "e72e08205aae7b8da72fcfb0cb6be8a621acded017261a821a665c682926f10a",
+      "sha256": "30d8a384b32aae7f4fd4dc32730f85376eba782370c474c485be03d0033c7194",
       "current_code_and_sources": "passed",
       "rename_move_roundtrip": "passed",
       "png_figures": 3,
@@ -741,7 +741,7 @@
     },
     {
       "filename": "hu02-lexical-diversity.zh-hans.ipynb",
-      "sha256": "b7420d5ef5f7cdce998661e95cd0a3280e7c73ba25ea10b9941f4897f269e5d9",
+      "sha256": "db64eea33e725334d30a0781cf6cbf0194c108292333034b169bb559ee8ec8f4",
       "current_code_and_sources": "passed",
       "rename_move_roundtrip": "passed",
       "png_figures": 3,
@@ -749,7 +749,7 @@
     },
     {
       "filename": "hu03-keyword-context.en.ipynb",
-      "sha256": "b5fde6be626fb5c5abcdd36bdd4646ba4143f9d8dd30e7222fc7abf77ac203df",
+      "sha256": "5af46cb8b92748854554fc7f5107d26df7fc3a6ff57ac57fd135fc051264b3e5",
       "current_code_and_sources": "passed",
       "rename_move_roundtrip": "passed",
       "png_figures": 3,
@@ -757,7 +757,7 @@
     },
     {
       "filename": "hu03-keyword-context.zh-hans.ipynb",
-      "sha256": "e70f40ac0f2d8a7ed8f5558247f583a827fc381c67857cca93c021b3e7fdffad",
+      "sha256": "d29c58ac24f71d6ba663b742e724676f7782bfb2495a99dbba09e1685548c2e1",
       "current_code_and_sources": "passed",
       "rename_move_roundtrip": "passed",
       "png_figures": 3,
@@ -765,7 +765,7 @@
     },
     {
       "filename": "hu04-mention-network.en.ipynb",
-      "sha256": "01566ee2e25420725cf26ef8c215961d1d2eb72d089378697e6a19c28d606795",
+      "sha256": "bd0818d5b4c7d5566a9336da6fee5388c69d376d0a46ed2c58b79b3057d62061",
       "current_code_and_sources": "passed",
       "rename_move_roundtrip": "passed",
       "png_figures": 3,
@@ -773,7 +773,7 @@
     },
     {
       "filename": "hu04-mention-network.zh-hans.ipynb",
-      "sha256": "c1a0f1be07cef395c0b9d1092a5f1cc8add1afb6c0d76412b30777b56b48d4ab",
+      "sha256": "492317d4a79df1c59a2b438f2cc5995aefd1d13c470a7f03c4ca569bdd91a44b",
       "current_code_and_sources": "passed",
       "rename_move_roundtrip": "passed",
       "png_figures": 3,
@@ -781,7 +781,7 @@
     },
     {
       "filename": "hu05-text-projection.en.ipynb",
-      "sha256": "4953eb6591d66c24c0c93c299ca5711166d2954f56a8cb86efba18972dc289e4",
+      "sha256": "7aac4c746f882b2a8326b207da325537440c30f0893d353a9c692b7410efa42f",
       "current_code_and_sources": "passed",
       "rename_move_roundtrip": "passed",
       "png_figures": 3,
@@ -789,7 +789,7 @@
     },
     {
       "filename": "hu05-text-projection.zh-hans.ipynb",
-      "sha256": "8376df94fd6af6edbf626c5b523954960aa497c36de69ee788ddaacf1a9e62e0",
+      "sha256": "fca261c125fe5ddf9a65044ab82793564406640e3a0eeea0192846615c7c4909",
       "current_code_and_sources": "passed",
       "rename_move_roundtrip": "passed",
       "png_figures": 3,
@@ -797,7 +797,7 @@
     },
     {
       "filename": "hu06-social-indicators.en.ipynb",
-      "sha256": "9fac355caea003bd35baf74465125eb580624bf18dd34baa8589411d14b8a495",
+      "sha256": "33896e7c7e91876567ebb0774ca7d0b27b250a3fc6b38db46056121299466e59",
       "current_code_and_sources": "passed",
       "rename_move_roundtrip": "passed",
       "png_figures": 3,
@@ -805,7 +805,7 @@
     },
     {
       "filename": "hu06-social-indicators.zh-hans.ipynb",
-      "sha256": "0035cfc79cb1f0e112db76b41910557d4b17862f9b5d6312fc3482197f31710b",
+      "sha256": "20817d94fe2c41f002fe4372016338e1c140a8a1819024288c9eb939feab07de",
       "current_code_and_sources": "passed",
       "rename_move_roundtrip": "passed",
       "png_figures": 3,
