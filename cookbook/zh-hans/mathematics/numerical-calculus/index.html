@@ -60,19 +60,19 @@
         <span class="k">return</span> <span class="n">_display</span><span class="p">(</span><span class="n">HTML</span><span class="p">(</span><span class="n">style</span><span class="o">+</span><span class="s1">'&lt;div class="vibeit-readable-table"&gt;'</span><span class="o">+</span><span class="n">table</span><span class="o">+</span><span class="s1">'&lt;/div&gt;'</span><span class="p">))</span>
     <span class="k">return</span> <span class="n">_display</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
 <span class="n">RECIPE_ID</span><span class="o">=</span><span class="s1">'ma01-numerical-calculus'</span>
-<span class="n">OUTPUT_DIR</span><span class="o">=</span><span class="n">Path</span><span class="o">.</span><span class="n">cwd</span><span class="p">()</span><span class="o">/</span><span class="s2">"results"</span><span class="o">/</span><span class="n">RECIPE_ID</span>
+<span class="n">OUTPUT_DIR</span><span class="o">=</span><span class="n">Path</span><span class="p">(</span><span class="s2">"results"</span><span class="p">)</span><span class="o">/</span><span class="n">RECIPE_ID</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s2">"figure.dpi"</span><span class="p">:</span><span class="mi">120</span><span class="p">,</span><span class="s2">"font.size"</span><span class="p">:</span><span class="mi">10</span><span class="p">,</span><span class="s2">"axes.spines.top"</span><span class="p">:</span><span class="kc">False</span><span class="p">,</span><span class="s2">"axes.spines.right"</span><span class="p">:</span><span class="kc">False</span><span class="p">,</span>
                       <span class="s2">"axes.prop_cycle"</span><span class="p">:</span><span class="n">plt</span><span class="o">.</span><span class="n">cycler</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="p">[</span><span class="s2">"#18785f"</span><span class="p">,</span><span class="s2">"#416aa6"</span><span class="p">,</span><span class="s2">"#bc6541"</span><span class="p">,</span><span class="s2">"#9974a5"</span><span class="p">])})</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">"Python:"</span><span class="p">,</span><span class="n">platform</span><span class="o">.</span><span class="n">python_version</span><span class="p">(),</span><span class="s2">"; NumPy:"</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">__version__</span><span class="p">,</span><span class="s2">"; Pandas:"</span><span class="p">,</span><span class="n">pd</span><span class="o">.</span><span class="n">__version__</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"Working folder:"</span><span class="p">,</span><span class="n">Path</span><span class="o">.</span><span class="n">cwd</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Results folder:"</span><span class="p">,</span><span class="n">OUTPUT_DIR</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">"Core data mode: embedded snapshot; no network requests"</span><span class="p">)</span>
 </code></pre><div class="output"><pre>Python: 3.13.13 ; NumPy: 2.5.3 ; Pandas: 3.0.6
-Working folder: /Users/zhiluo/Developer/vibeit-cookbook/cookbook/downloads
+Results folder: results/ma01-numerical-calculus
 Core data mode: embedded snapshot; no network requests
 </pre></div></section>
-<h3 id="s-815bffa4f0">读取内嵌快照</h3>
-<aside class="callout" role="note" aria-label="内嵌数据说明"><div class="callout-heading"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7v1"/></svg><strong>内嵌数据说明</strong></div><div class="callout-content"><p>下面的加载函数按课程 ID 与 SHA-256 在当前文件夹定位本 notebook，解压后再次校验。文件改名不影响匹配。若找不到数据，确认当前工作目录与文件位置；不要用编造的数据替换它。metadata 随 <code>.ipynb</code> 保存及导出，复制代码到单独 <code>.py</code> 不会自动复制数据。</p>
-</div></aside>
+<h3 id="s-c5a2bff3fa">确定性教学模型</h3>
+<p>本课直接在代码中定义解析函数和参数，不读取外部数据或内嵌模型快照。</p>
+
 <section class="code-cell"><div class="cell-prompt">In [2] · Python</div><pre class="source-code"><code><span class="k">def</span><span class="w"> </span><span class="nf">load_snapshot</span><span class="p">(</span><span class="n">recipe_id</span><span class="p">,</span> <span class="n">expected_sha256</span><span class="p">,</span> <span class="n">snapshot_key</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Read embedded data from this notebook, including a renamed copy."""</span>
     <span class="k">for</span> <span class="n">path</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">Path</span><span class="o">.</span><span class="n">cwd</span><span class="p">()</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s2">"*.ipynb"</span><span class="p">)):</span>
@@ -94,11 +94,11 @@ Core data mode: embedded snapshot; no network requests
         <span class="s2">"Save/open the complete .ipynb in the active working folder. "</span>
         <span class="s2">"The embedded snapshot could not be located for "</span> <span class="o">+</span> <span class="n">recipe_id</span><span class="p">)</span>
 
-<span class="n">SNAPSHOT_HASHES</span><span class="o">=</span><span class="p">{</span><span class="s1">'models'</span><span class="p">:</span> <span class="s1">'48fd2e6e706650fe2ee0c0ad80b6d794a546a1dec78dd9d370ac09db3cc3adbf'</span><span class="p">}</span>
+<span class="n">SNAPSHOT_HASHES</span><span class="o">=</span><span class="p">{}</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">snapshot</span><span class="p">(</span><span class="n">key</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">load_snapshot</span><span class="p">(</span><span class="n">RECIPE_ID</span><span class="p">,</span><span class="n">SNAPSHOT_HASHES</span><span class="p">[</span><span class="n">key</span><span class="p">],</span><span class="n">key</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">"Embedded snapshots:"</span><span class="p">,</span><span class="nb">list</span><span class="p">(</span><span class="n">SNAPSHOT_HASHES</span><span class="p">))</span>
-</code></pre><div class="output"><pre>Embedded snapshots: [&#x27;models&#x27;]
+</code></pre><div class="output"><pre>Embedded snapshots: []
 </pre></div></section>
 <h3 id="s-a7b588b916">方法函数</h3>
 <aside class="callout" role="note" aria-label="方法代码说明"><div class="callout-heading"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7v1"/></svg><strong>方法代码说明</strong></div><div class="callout-content"><p>本课所需函数的完整代码就在下面。它们只使用已列出的预装包与标准库，运行时不会导入任何 cookbook 辅助模块。先检查输入约束和返回值；如果修改算法，后面的校验也需要继续通过。</p>
@@ -122,8 +122,7 @@ Core data mode: embedded snapshot; no network requests
 <h3 id="s-f28848919f">1. 声明函数与参考积分</h3>
 <p>使用 [−2,2] 区间上的 f(x)=exp(−x²)。本基准的 x 与函数值无量纲。有限区间积分为 sqrt(pi)·erf(2)，不能与无限区间积分 sqrt(pi) 混淆。</p>
 
-<section class="code-cell"><div class="cell-prompt">In [4] · Python</div><pre class="source-code"><code><span class="n">model_inputs</span><span class="o">=</span><span class="n">snapshot</span><span class="p">(</span><span class="s2">"models"</span><span class="p">);</span><span class="n">seed</span><span class="o">=</span><span class="n">model_inputs</span><span class="p">[</span><span class="s2">"seed"</span><span class="p">]</span>
-<span class="n">LOWER</span><span class="p">,</span><span class="n">UPPER</span><span class="o">=-</span><span class="mf">2.0</span><span class="p">,</span><span class="mf">2.0</span><span class="p">;</span><span class="n">POINTS</span><span class="o">=</span><span class="mi">161</span>
+<section class="code-cell"><div class="cell-prompt">In [4] · Python</div><pre class="source-code"><code><span class="n">LOWER</span><span class="p">,</span><span class="n">UPPER</span><span class="o">=-</span><span class="mf">2.0</span><span class="p">,</span><span class="mf">2.0</span><span class="p">;</span><span class="n">POINTS</span><span class="o">=</span><span class="mi">161</span>
 <span class="n">x</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">LOWER</span><span class="p">,</span><span class="n">UPPER</span><span class="p">,</span><span class="n">POINTS</span><span class="p">);</span><span class="n">y</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">x</span><span class="o">*</span><span class="n">x</span><span class="p">)</span>
 <span class="n">reference</span><span class="o">=</span><span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span><span class="o">*</span><span class="n">math</span><span class="o">.</span><span class="n">erf</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
 <span class="n">quad_reference</span><span class="p">,</span><span class="n">quad_error</span><span class="o">=</span><span class="n">quad</span><span class="p">(</span><span class="k">lambda</span> <span class="n">value</span><span class="p">:</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">value</span><span class="o">*</span><span class="n">value</span><span class="p">),</span><span class="n">LOWER</span><span class="p">,</span><span class="n">UPPER</span><span class="p">)</span>
@@ -166,7 +165,7 @@ Core data mode: embedded snapshot; no network requests
 <span class="p">(</span><span class="n">OUTPUT_DIR</span><span class="o">/</span><span class="s2">"references.json"</span><span class="p">)</span><span class="o">.</span><span class="n">write_text</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">({</span><span class="s2">"finite_interval"</span><span class="p">:[</span><span class="n">LOWER</span><span class="p">,</span><span class="n">UPPER</span><span class="p">],</span><span class="s2">"analytic_integral"</span><span class="p">:</span><span class="n">reference</span><span class="p">,</span><span class="s2">"quad_reference"</span><span class="p">:</span><span class="n">quad_reference</span><span class="p">,</span><span class="s2">"quad_error_estimate"</span><span class="p">:</span><span class="n">quad_error</span><span class="p">},</span><span class="n">indent</span><span class="o">=</span><span class="mi">2</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">"Reference checks passed; exports:"</span><span class="p">,</span><span class="n">OUTPUT_DIR</span><span class="p">)</span>
 </code></pre><div class="output"><pre>Reversed abscissae rejected
-Reference checks passed; exports: /Users/zhiluo/Developer/vibeit-cookbook/cookbook/downloads/results/ma01-numerical-calculus
+Reference checks passed; exports: results/ma01-numerical-calculus
 </pre></div></section>
 <h2 id="s-c3097d41ef">自主练习与参考答案</h2>
 <ol>
@@ -207,13 +206,5 @@ Reference checks passed; exports: /Users/zhiluo/Developer/vibeit-cookbook/cookbo
 </code></pre><div class="output"><pre>Online extension skipped; embedded core data unchanged
 </pre></div></section>
 <h2 id="s-7d26e67a6b">来源、快照与下一步</h2>
-<ul>
-<li><p><a href="https://iapws.org/public/documents/6dGkr/Supp-sat.pdf">IAPWS saturation reference release</a> — IAPWS SR1-86(1992): unrestricted publication allowed in all countries (cover page); retrieved 2026-10-09. SHA-256 <code>a10d38d73339b0713c86cfac88f9adcba137202167ccdfa1cd58238c438361d7</code>.
-Reference equations and numerical coefficients transcribed from release pages 2–3; pedagogical model values are not new experiments.</p>
-</li>
-<li><p><a href="https://github.com/zhiluo20/vibeit/blob/main/cookbook-src/freeze_subject_data.py">Authored numerical teaching model parameters</a> — Original teaching parameters/code MIT; reference equation coefficients attributed to IAPWS SR1-86(1992); retrieved 2026-10-09. SHA-256 <code>4350c4305a83c772fa295a8be0ef86a247f2bfaae930a081720d3cd0c753abe0</code>.
-Declared parameters and seed; generated trajectories and calibration observations must be labelled simulated.</p>
-</li>
-</ul>
 <p><strong>下一步。</strong> 在保留本课的数据检查、参数记录和结果校验之后，将相同方法用于自己的公开或已获授权数据。记录研究设计与方法限制，不把示例结果当成新实验的验证。完整数据许可与生成说明见 cookbook 网页。</p>
 </article><aside class="reader-toc" aria-label="本页目录"><strong>本页目录</strong><a href="#s-b0bc678a69">目标与运行方法</a><a href="#s-15d04722c9">环境与参数</a><a href="#s-cd3de2fa98">分步分析</a><a href="#s-c3097d41ef">自主练习与参考答案</a><a href="#s-8f3fc39dc7">可选的 AI 编程练习</a><a href="#s-f68b88f3cc">可选联网扩展</a><a href="#s-7d26e67a6b">来源、快照与下一步</a><a class="button" href="/vibeit/cookbook/downloads/ma01-numerical-calculus.zh-hans.ipynb" download>.ipynb ↓</a></aside></div></main><footer class="site-footer"><div class="wrap footer-inner"><span>Vibeit Studio Cookbook · 真实数据，可复现方法。</span><div><a href="/vibeit/cookbook/zh-hans/sources/">数据与许可</a><a href="/vibeit/help/">应用帮助</a><a href="https://github.com/zhiluo20/vibeit/tree/main/cookbook-src">课程源文件</a></div></div></footer></body></html>

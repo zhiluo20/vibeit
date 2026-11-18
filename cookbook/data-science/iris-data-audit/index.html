@@ -58,14 +58,14 @@
         <span class="k">return</span> <span class="n">_display</span><span class="p">(</span><span class="n">HTML</span><span class="p">(</span><span class="n">style</span><span class="o">+</span><span class="s1">'&lt;div class="vibeit-readable-table"&gt;'</span><span class="o">+</span><span class="n">table</span><span class="o">+</span><span class="s1">'&lt;/div&gt;'</span><span class="p">))</span>
     <span class="k">return</span> <span class="n">_display</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
 <span class="n">RECIPE_ID</span><span class="o">=</span><span class="s1">'ds01-iris-audit'</span>
-<span class="n">OUTPUT_DIR</span><span class="o">=</span><span class="n">Path</span><span class="o">.</span><span class="n">cwd</span><span class="p">()</span><span class="o">/</span><span class="s2">"results"</span><span class="o">/</span><span class="n">RECIPE_ID</span>
+<span class="n">OUTPUT_DIR</span><span class="o">=</span><span class="n">Path</span><span class="p">(</span><span class="s2">"results"</span><span class="p">)</span><span class="o">/</span><span class="n">RECIPE_ID</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s2">"figure.dpi"</span><span class="p">:</span><span class="mi">120</span><span class="p">,</span><span class="s2">"font.size"</span><span class="p">:</span><span class="mi">10</span><span class="p">,</span><span class="s2">"axes.spines.top"</span><span class="p">:</span><span class="kc">False</span><span class="p">,</span><span class="s2">"axes.spines.right"</span><span class="p">:</span><span class="kc">False</span><span class="p">,</span>
                       <span class="s2">"axes.prop_cycle"</span><span class="p">:</span><span class="n">plt</span><span class="o">.</span><span class="n">cycler</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="p">[</span><span class="s2">"#18785f"</span><span class="p">,</span><span class="s2">"#416aa6"</span><span class="p">,</span><span class="s2">"#bc6541"</span><span class="p">,</span><span class="s2">"#9974a5"</span><span class="p">])})</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">"Python:"</span><span class="p">,</span><span class="n">platform</span><span class="o">.</span><span class="n">python_version</span><span class="p">(),</span><span class="s2">"; NumPy:"</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">__version__</span><span class="p">,</span><span class="s2">"; Pandas:"</span><span class="p">,</span><span class="n">pd</span><span class="o">.</span><span class="n">__version__</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"Working folder:"</span><span class="p">,</span><span class="n">Path</span><span class="o">.</span><span class="n">cwd</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Results folder:"</span><span class="p">,</span><span class="n">OUTPUT_DIR</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">"Core data mode: embedded snapshot; no network requests"</span><span class="p">)</span>
 </code></pre><div class="output"><pre>Python: 3.13.13 ; NumPy: 2.5.3 ; Pandas: 3.0.6
-Working folder: /Users/zhiluo/Developer/vibeit-cookbook/cookbook/downloads
+Results folder: results/ds01-iris-audit
 Core data mode: embedded snapshot; no network requests
 </pre></div></section>
 <h3 id="s-a8f5b4bb8c">Load the embedded snapshot</h3>
@@ -275,7 +275,7 @@ Source variant: Original UCI iris.data; no silent correction of the two document
 <span class="n">correlation</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">OUTPUT_DIR</span><span class="o">/</span><span class="s2">"correlation.csv"</span><span class="p">)</span>
 <span class="p">(</span><span class="n">OUTPUT_DIR</span><span class="o">/</span><span class="s2">"audit.json"</span><span class="p">)</span><span class="o">.</span><span class="n">write_text</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">audit</span><span class="p">,</span><span class="n">indent</span><span class="o">=</span><span class="mi">2</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">"Checked"</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">frame</span><span class="p">),</span><span class="s2">"observations; exports:"</span><span class="p">,</span><span class="n">OUTPUT_DIR</span><span class="p">)</span>
-</code></pre><div class="output"><pre>Checked 150 observations; exports: /Users/zhiluo/Developer/vibeit-cookbook/cookbook/downloads/results/ds01-iris-audit
+</code></pre><div class="output"><pre>Checked 150 observations; exports: results/ds01-iris-audit
 </pre></div></section>
 <h2 id="s-bf8cc9a838">Exercises and reference explanation</h2>
 <ol>

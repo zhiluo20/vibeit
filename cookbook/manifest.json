@@ -659,9 +659,7 @@
     "discipline": "mathematics",
     "minutes": 50,
     "difficulty": 1,
-    "snapshots": [
-      "models"
-    ],
+    "snapshots": [],
     "packages": [
       "numpy",
       "pandas",
@@ -759,9 +757,7 @@
     "discipline": "mathematics",
     "minutes": 50,
     "difficulty": 2,
-    "snapshots": [
-      "models"
-    ],
+    "snapshots": [],
     "packages": [
       "numpy",
       "pandas",
@@ -830,6 +826,9 @@
       "en": "Analytic functions and Monte Carlo points are mathematical teaching models, not experimental measurements. When Iris observations are used, row exchangeability and the sampling design remain assumptions; convenience records alone do not establish population representativeness. Numerical discretization error is distinct from sampling uncertainty.",
       "zh-hans": "解析函数与 Monte Carlo 点属于数学教学模型，不是实验测量。使用 Iris 观测时，可交换性和采样设计仍是统计假设；方便样本不自动代表总体。数值离散误差与采样不确定性应分别解释。"
     },
+    "model_fields": [
+      "seed"
+    ],
     "cover": "/vibeit/cookbook/assets/monte-carlo-uncertainty.png",
     "data_version": "snapshot-2026-10-09",
     "validation": "executed-offline",
@@ -979,6 +978,9 @@
       "en": "Pendulum, oscillator, projectile and heat trajectories are declared numerical models, not laboratory measurements. The gravitational acceleration is the conventional standard g0 when used. GW150914 uses actual frozen detector strain and published event timing; a filtered curve is not an independent significance or source-parameter analysis. Blackbody curves assume an ideal emitter.",
       "zh-hans": "单摆、振子、抛体和温度轨迹是明确声明的数值模型，不是实验室测量。使用的 g0 为约定标准重力加速度。GW150914 使用真实冻结应变和已发表事件时间；滤波曲线不是独立的显著性或源参数分析。黑体曲线假定理想辐射体。"
     },
+    "model_fields": [
+      "pendulum"
+    ],
     "cover": "/vibeit/cookbook/assets/nonlinear-pendulum.png",
     "data_version": "snapshot-2026-10-09",
     "validation": "executed-offline",
@@ -1029,6 +1031,9 @@
       "en": "Pendulum, oscillator, projectile and heat trajectories are declared numerical models, not laboratory measurements. The gravitational acceleration is the conventional standard g0 when used. GW150914 uses actual frozen detector strain and published event timing; a filtered curve is not an independent significance or source-parameter analysis. Blackbody curves assume an ideal emitter.",
       "zh-hans": "单摆、振子、抛体和温度轨迹是明确声明的数值模型，不是实验室测量。使用的 g0 为约定标准重力加速度。GW150914 使用真实冻结应变和已发表事件时间；滤波曲线不是独立的显著性或源参数分析。黑体曲线假定理想辐射体。"
     },
+    "model_fields": [
+      "oscillator"
+    ],
     "cover": "/vibeit/cookbook/assets/damping-resonance.png",
     "data_version": "snapshot-2026-10-09",
     "validation": "executed-offline",
@@ -1080,6 +1085,9 @@
       "en": "Pendulum, oscillator, projectile and heat trajectories are declared numerical models, not laboratory measurements. The gravitational acceleration is the conventional standard g0 when used. GW150914 uses actual frozen detector strain and published event timing; a filtered curve is not an independent significance or source-parameter analysis. Blackbody curves assume an ideal emitter.",
       "zh-hans": "单摆、振子、抛体和温度轨迹是明确声明的数值模型，不是实验室测量。使用的 g0 为约定标准重力加速度。GW150914 使用真实冻结应变和已发表事件时间；滤波曲线不是独立的显著性或源参数分析。黑体曲线假定理想辐射体。"
     },
+    "model_fields": [
+      "projectile"
+    ],
     "cover": "/vibeit/cookbook/assets/projectile-drag.png",
     "data_version": "snapshot-2026-10-09",
     "validation": "executed-offline",
@@ -1129,6 +1137,9 @@
       "en": "Pendulum, oscillator, projectile and heat trajectories are declared numerical models, not laboratory measurements. The gravitational acceleration is the conventional standard g0 when used. GW150914 uses actual frozen detector strain and published event timing; a filtered curve is not an independent significance or source-parameter analysis. Blackbody curves assume an ideal emitter.",
       "zh-hans": "单摆、振子、抛体和温度轨迹是明确声明的数值模型，不是实验室测量。使用的 g0 为约定标准重力加速度。GW150914 使用真实冻结应变和已发表事件时间；滤波曲线不是独立的显著性或源参数分析。黑体曲线假定理想辐射体。"
     },
+    "model_fields": [
+      "heat"
+    ],
     "cover": "/vibeit/cookbook/assets/heat-equation.png",
     "data_version": "snapshot-2026-10-09",
     "validation": "executed-offline",
@@ -1429,6 +1440,9 @@
       "en": "PubChem properties and conformers are calculated database fields, not new experimental measurements. V2000 parsing here is intentionally limited to atoms, reported bonds and formal charges. Titration and calibration use stated ideal/simulated teaching assumptions. Water pressure uses the attributed IAPWS reference correlation. Descriptors, distances and visual proximity do not establish biological activity or binding strength.",
       "zh-hans": "PubChem 性质与构象是数据库计算字段，不是新实验测量。本课 V2000 解析范围明确限定为原子、来源键型与形式电荷。滴定及校准使用已声明的理想/模拟教学假设；水蒸气压使用署名的 IAPWS 参考关联式。描述符、距离和视觉邻近不能证明生物活性或结合强度。"
     },
+    "model_fields": [
+      "titration"
+    ],
     "cover": "/vibeit/cookbook/assets/acid-base-titration.png",
     "data_version": "snapshot-2026-10-09",
     "validation": "executed-offline",
@@ -1478,6 +1492,9 @@
       "en": "PubChem properties and conformers are calculated database fields, not new experimental measurements. V2000 parsing here is intentionally limited to atoms, reported bonds and formal charges. Titration and calibration use stated ideal/simulated teaching assumptions. Water pressure uses the attributed IAPWS reference correlation. Descriptors, distances and visual proximity do not establish biological activity or binding strength.",
       "zh-hans": "PubChem 性质与构象是数据库计算字段，不是新实验测量。本课 V2000 解析范围明确限定为原子、来源键型与形式电荷。滴定及校准使用已声明的理想/模拟教学假设；水蒸气压使用署名的 IAPWS 参考关联式。描述符、距离和视觉邻近不能证明生物活性或结合强度。"
     },
+    "model_fields": [
+      "water_saturation"
+    ],
     "cover": "/vibeit/cookbook/assets/water-vapor-pressure.png",
     "data_version": "snapshot-2026-10-09",
     "validation": "executed-offline",
@@ -1526,6 +1543,10 @@
       "en": "PubChem properties and conformers are calculated database fields, not new experimental measurements. V2000 parsing here is intentionally limited to atoms, reported bonds and formal charges. Titration and calibration use stated ideal/simulated teaching assumptions. Water pressure uses the attributed IAPWS reference correlation. Descriptors, distances and visual proximity do not establish biological activity or binding strength.",
       "zh-hans": "PubChem 性质与构象是数据库计算字段，不是新实验测量。本课 V2000 解析范围明确限定为原子、来源键型与形式电荷。滴定及校准使用已声明的理想/模拟教学假设；水蒸气压使用署名的 IAPWS 参考关联式。描述符、距离和视觉邻近不能证明生物活性或结合强度。"
     },
+    "model_fields": [
+      "calibration",
+      "seed"
+    ],
     "cover": "/vibeit/cookbook/assets/spectroscopic-calibration.png",
     "data_version": "snapshot-2026-10-09",
     "validation": "executed-offline",
@@ -1722,6 +1743,9 @@
       "en": "The building record contains real ten-minute energy and environmental observations from one source building. Airport weather fields include upstream interpolation and are not colocated calibration references. Beam, circuit and PID examples are declared numerical design models; computed responses do not establish hardware performance or commissioning acceptance.",
       "zh-hans": "建筑记录包含来源中单栋建筑的真实十分钟能耗及环境观测。机场天气字段含来源插值，不是同位置校准参考。梁、电路和 PID 例子是明确的数值设计模型；计算响应不能证明硬件性能或实际验收。"
     },
+    "model_fields": [
+      "beam"
+    ],
     "cover": "/vibeit/cookbook/assets/cantilever-fem.png",
     "data_version": "snapshot-2026-10-09",
     "validation": "executed-offline",
@@ -1770,6 +1794,10 @@
       "en": "The building record contains real ten-minute energy and environmental observations from one source building. Airport weather fields include upstream interpolation and are not colocated calibration references. Beam, circuit and PID examples are declared numerical design models; computed responses do not establish hardware performance or commissioning acceptance.",
       "zh-hans": "建筑记录包含来源中单栋建筑的真实十分钟能耗及环境观测。机场天气字段含来源插值，不是同位置校准参考。梁、电路和 PID 例子是明确的数值设计模型；计算响应不能证明硬件性能或实际验收。"
     },
+    "model_fields": [
+      "circuit",
+      "seed"
+    ],
     "cover": "/vibeit/cookbook/assets/rc-circuit-response.png",
     "data_version": "snapshot-2026-10-09",
     "validation": "executed-offline",
@@ -1818,6 +1846,9 @@
       "en": "The building record contains real ten-minute energy and environmental observations from one source building. Airport weather fields include upstream interpolation and are not colocated calibration references. Beam, circuit and PID examples are declared numerical design models; computed responses do not establish hardware performance or commissioning acceptance.",
       "zh-hans": "建筑记录包含来源中单栋建筑的真实十分钟能耗及环境观测。机场天气字段含来源插值，不是同位置校准参考。梁、电路和 PID 例子是明确的数值设计模型；计算响应不能证明硬件性能或实际验收。"
     },
+    "model_fields": [
+      "pid"
+    ],
     "cover": "/vibeit/cookbook/assets/pid-thermal-control.png",
     "data_version": "snapshot-2026-10-09",
     "validation": "executed-offline",

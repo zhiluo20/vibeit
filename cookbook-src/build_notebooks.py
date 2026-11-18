@@ -70,18 +70,42 @@ def refresh_prose(path,course,locale):
         nb.metadata.vibeit_cookbook.plain_language=True
     nbformat.validate(nb);nbformat.write(nb,path)
 
-def source_context(keys):
+def source_context(keys, model_fields=None):
     sources=json.loads((ROOT/"data/sources.json").read_text())
     needles={"sequences":["RefSeq"],"airway":["airway"],"reactome":["Reactome"],
              "network":["STRING"],"structure":["PDB","RCSB"]}
-    return [s for s in sources if set(s.get('snapshots',[]))&set(keys) or
+    selected = [s for s in sources if set(s.get('snapshots',[]))&set(keys) or
         any(n in s["name"] for key in keys for n in needles.get(key,[]))]
+    if model_fields is not None:
+        selected = [s for s in selected if
+                    s['name'] != 'IAPWS saturation reference release' or 'water_saturation' in model_fields]
+        # Scope the citation to the values actually embedded. Keep the archival
+        # source hash and global mixed-bundle license unchanged in data/sources.json.
+        selected = copy.deepcopy(selected)
+        for source in selected:
+            if source['name'] == 'Authored numerical teaching model parameters' and 'water_saturation' not in model_fields:
+                source['license'] = 'Original teaching parameters/code MIT'
+                source.pop('reference', None)
+                source['conversion'] = ('Declared teaching parameters selected from the archived model bundle: '
+                                        + ', '.join(model_fields) + '. Generated observations are simulated, not measurements.')
+    return selected
+
+def snapshot_payload(course, key):
+    """Embed only explicitly declared model fields, preserving their exact values."""
+    compressed = (ROOT/'data'/(key+'.json.gz')).read_bytes()
+    if key == 'models':
+        fields = course['model_fields']
+        values = json.loads(gzip.decompress(compressed))
+        raw = json.dumps({field: values[field] for field in fields}, sort_keys=True,
+                         separators=(',', ':')).encode('utf-8')
+        compressed = gzip.compress(raw, mtime=0)
+    return compressed
 
 def make_notebook(course,locale):
     zh=locale=="zh-hans"
     blobs={}
     for key in course["snapshots"]:
-        compressed=(ROOT/"data"/(key+".json.gz")).read_bytes()
+        compressed=snapshot_payload(course,key)
         blobs[key]=dict(sha256=hashlib.sha256(gzip.decompress(compressed)).hexdigest(),
                         gzip_base64=base64.b64encode(compressed).decode())
     cells=[introduction(course,locale)]
@@ -109,11 +133,11 @@ import pandas as pd
 import matplotlib.pyplot as plt
 from IPython.display import display, HTML
 '''+extra+f'''RECIPE_ID={course["id"]!r}
-OUTPUT_DIR=Path.cwd()/"results"/RECIPE_ID
+OUTPUT_DIR=Path("results")/RECIPE_ID
 plt.rcParams.update({{"figure.dpi":120,"font.size":10,"axes.spines.top":False,"axes.spines.right":False,
                       "axes.prop_cycle":plt.cycler(color=["#18785f","#416aa6","#bc6541","#9974a5"])}})
 print("Python:",platform.python_version(),"; NumPy:",np.__version__,"; Pandas:",pd.__version__)
-print("Working folder:",Path.cwd())
+print("Results folder:",OUTPUT_DIR)
 print("Core data mode: embedded snapshot; no network requests")'''))
     cells.append(markdown(("### 读取内嵌快照\n\n下面的加载函数按课程 ID 与 SHA-256 在当前文件夹定位本 notebook，解压后再次校验。文件改名不影响匹配。若找不到数据，确认当前工作目录与文件位置；不要用编造的数据替换它。metadata 随 `.ipynb` 保存及导出，复制代码到单独 `.py` 不会自动复制数据。"
         if zh else "### Load the embedded snapshot\n\nThe loader locates this notebook in the working folder by recipe ID and SHA-256, then decompresses and verifies the data. Renaming the file does not change its identity. If loading fails, check the working folder and saved file. Metadata travels with `.ipynb` save/export; copying code to a standalone `.py` does not copy the dataset.")))
@@ -122,6 +146,9 @@ print("Core data mode: embedded snapshot; no network requests")'''))
         '''def snapshot(key):
     return load_snapshot(RECIPE_ID,SNAPSHOT_HASHES[key],key)
 print("Embedded snapshots:",list(SNAPSHOT_HASHES))'''))
+    if not course['snapshots']:
+        cells[4] = markdown('### 确定性教学模型\n\n本课直接在代码中定义解析函数和参数，不读取外部数据或内嵌模型快照。'
+                            if zh else '### Deterministic teaching model\n\nThis lesson defines its analytic functions and parameters directly in code; it reads no external data or embedded model snapshot.')
     cells.append(markdown(("### 方法函数\n\n本课所需函数的完整代码就在下面。它们只使用已列出的预装包与标准库，运行时不会导入任何 cookbook 辅助模块。先检查输入约束和返回值；如果修改算法，后面的校验也需要继续通过。"
         if zh else "### Read the method functions\n\nThe full implementations appear below. They use the listed bundled packages and standard library; no cookbook helper module is imported at runtime. Inspect input requirements and return values. If you change an algorithm, its checks must still pass.")))
     for function in course["functions"]:
@@ -145,7 +172,7 @@ print("Embedded snapshots:",list(SNAPSHOT_HASHES))'''))
           "airway":"https://raw.githubusercontent.com/bioconductor-source/airway/596678815f4ade04a9711997150949b9782aeddc/DESCRIPTION",
           "reactome":"https://reactome.org/ContentService/data/database/version",
           "network":"https://string-db.org/api/json/version","structure":"https://data.rcsb.org/rest/v1/core/entry/1A3N"}
-    key=course["snapshots"][-1] if course["id"]!="06-hemoglobin-structure" else "structure"
+    key=(course["snapshots"][-1] if course["snapshots"] else None) if course["id"]!="06-hemoglobin-structure" else "structure"
     online_url=course.get('online_url') or urls.get(key) or source_context([key])[0]['url']
     cells.append(code(f'''RUN_ONLINE_UPDATE=False
 if RUN_ONLINE_UPDATE:
@@ -159,7 +186,7 @@ if RUN_ONLINE_UPDATE:
         print("Online extension unavailable:",type(error).__name__,str(error)[:160])
 else:
     print("Online extension skipped; embedded core data unchanged")''',tags=["optional-online"]))
-    sources=source_context(course["snapshots"])
+    sources=source_context(course["snapshots"],course.get("model_fields"))
     lines=[("## 来源、快照与下一步" if zh else "## Sources, snapshots and next steps")]
     for s in sources:
         lines.append(f'- [{s["name"]}]({s["url"]}) — {s["license"]}; retrieved {s["retrieved_at"][:10]}. SHA-256 `{s["sha256"]}`.\n  '+s.get("conversion","Original response preserved in the embedded snapshot.")+("\n  "+s['citation'] if s.get('citation') else ''))

@@ -3,9 +3,9 @@ from ._common import lesson,step,exercises,bilingual
 from .data_science import IRIS_LOAD
 
 COURSES=[
- lesson('ma01-numerical-calculus',1,'numerical-calculus','Measure differentiation and integration error','测量数值微分与积分误差','Compare tabulated Gaussian curves, finite differences and trapezoidal integration with analytic references.','将高斯曲线表、有限差分和梯形积分与解析结果比较。',['models'],['trapezoid_integral'],'numerical','Numerical methods','数值方法',discipline='mathematics',data_kind='model',difficulty=1,icon='∫',setup_imports='import math\nfrom scipy.integrate import quad\n',packages=['numpy','pandas','scipy','matplotlib','IPython']),
+ lesson('ma01-numerical-calculus',1,'numerical-calculus','Measure differentiation and integration error','测量数值微分与积分误差','Compare tabulated Gaussian curves, finite differences and trapezoidal integration with analytic references.','将高斯曲线表、有限差分和梯形积分与解析结果比较。',[],['trapezoid_integral'],'numerical','Numerical methods','数值方法',discipline='mathematics',data_kind='model',difficulty=1,icon='∫',setup_imports='import math\nfrom scipy.integrate import quad\n',packages=['numpy','pandas','scipy','matplotlib','IPython']),
  lesson('ma02-bracketed-roots',2,'bracketed-roots','Find a physical root with a verifiable bracket','用可核验区间寻找物理根','Trace bisection, compare a trusted solver and derive Wien displacement from frozen SI constants.','追踪二分迭代，对照参考求解器，并从冻结的 SI 常数推导维恩位移。',['constants'],['bisection'],'numerical','Numerical methods','数值方法',discipline='mathematics',data_kind='reference',icon='🔍',setup_imports='from scipy.optimize import brentq\n',packages=['numpy','pandas','scipy','matplotlib','IPython']),
- lesson('ma03-conditioning',3,'least-squares-conditioning','Inspect a poorly conditioned least-squares problem','检查病态最小二乘问题','Build a polynomial design matrix, inspect singular values, compare solvers and separate coefficient stability from prediction error.','构造多项式设计矩阵，检查奇异值、比较求解器，并区分系数稳定性与预测误差。',['models'],[],'numerical','Numerical methods','数值方法',discipline='mathematics',data_kind='model',icon='🔢'),
+ lesson('ma03-conditioning',3,'least-squares-conditioning','Inspect a poorly conditioned least-squares problem','检查病态最小二乘问题','Build a polynomial design matrix, inspect singular values, compare solvers and separate coefficient stability from prediction error.','构造多项式设计矩阵，检查奇异值、比较求解器，并区分系数稳定性与预测误差。',[],[],'numerical','Numerical methods','数值方法',discipline='mathematics',data_kind='model',icon='🔢'),
  lesson('ma04-monte-carlo',4,'monte-carlo-uncertainty','Quantify Monte Carlo uncertainty','量化 Monte Carlo 不确定性','Estimate a circle area with seeded random points, use Wilson intervals and inspect repeated-experiment coverage.','用固定随机点估计圆面积，计算 Wilson 区间，并检查重复实验的覆盖率。',['models'],['wilson_interval'],'uncertainty','Sampling uncertainty','采样不确定性',discipline='mathematics',data_kind='simulation',icon='🎲',setup_imports='import math\nfrom scipy.stats import binomtest\n',packages=['numpy','pandas','scipy','matplotlib','IPython']),
  lesson('ma05-bootstrap',5,'bootstrap-measurements','Bootstrap uncertainty in real measurements','对真实测量做 Bootstrap 分析','Resample an observed Iris group, compare percentile intervals and standard-error formulas, and state the sampling assumptions.','对真实 Iris 组内测量重采样，比较百分位区间和标准误公式，并说明采样假设。',['iris'],['audit_numeric_table','bootstrap_mean'],'uncertainty','Sampling uncertainty','采样不确定性',discipline='mathematics',icon='📏'),
  lesson('ma06-permutation-tests',6,'permutation-multiple-tests','Run permutation tests and correct the full family','执行置换检验并校正完整检验族','Test predeclared Iris group comparisons, use the Monte Carlo +1 correction and reconcile joint Benjamini–Hochberg adjustment.','检验预先声明的 Iris 组间比较，使用 Monte Carlo +1 修正，并核对联合 BH 校正。',['iris'],['audit_numeric_table','permutation_mean_test','bh_adjust'],'inference','Statistical inference','统计推断',discipline='mathematics',minutes=60,difficulty=3,icon='⚖️',setup_imports='from scipy.stats import false_discovery_control\n',packages=['numpy','pandas','scipy','matplotlib','IPython']),
@@ -16,8 +16,7 @@ for c in COURSES:
 
 SECTIONS={}
 SECTIONS[COURSES[0]['id']]=[
- step('Declare the function and reference integral','声明函数与参考积分','Use f(x)=exp(−x²) on the finite interval [−2,2]. x and f are dimensionless in this benchmark. The exact finite-interval integral is sqrt(pi)·erf(2); do not compare it with the infinite-interval value sqrt(pi).','使用 [−2,2] 区间上的 f(x)=exp(−x²)。本基准的 x 与函数值无量纲。有限区间积分为 sqrt(pi)·erf(2)，不能与无限区间积分 sqrt(pi) 混淆。','''model_inputs=snapshot("models");seed=model_inputs["seed"]
-LOWER,UPPER=-2.0,2.0;POINTS=161
+ step('Declare the function and reference integral','声明函数与参考积分','Use f(x)=exp(−x²) on the finite interval [−2,2]. x and f are dimensionless in this benchmark. The exact finite-interval integral is sqrt(pi)·erf(2); do not compare it with the infinite-interval value sqrt(pi).','使用 [−2,2] 区间上的 f(x)=exp(−x²)。本基准的 x 与函数值无量纲。有限区间积分为 sqrt(pi)·erf(2)，不能与无限区间积分 sqrt(pi) 混淆。','''LOWER,UPPER=-2.0,2.0;POINTS=161
 x=np.linspace(LOWER,UPPER,POINTS);y=np.exp(-x*x)
 reference=math.sqrt(math.pi)*math.erf(2)
 quad_reference,quad_error=quad(lambda value:np.exp(-value*value),LOWER,UPPER)
@@ -77,8 +76,7 @@ pd.DataFrame({"temperature_K":temperatures,"peak_wavelength_nm":peak_nm}).to_csv
 print("Root certificate and unit checks passed; exports:",OUTPUT_DIR)''')]
 
 SECTIONS[COURSES[2]['id']]=[
- step('Build a deterministic model benchmark','构造确定性模型基准','Use 25 x values on [0,1] and y=exp(x). A degree-10 Vandermonde design has powers with very different scales. These are analytic teaching values; no measurement noise or statistical confidence interval is implied.','取 [0,1] 上 25 个 x，并令 y=exp(x)。十阶 Vandermonde 矩阵的幂次量级不同。这是解析教学数据，没有隐含测量噪声或统计置信区间。','''inputs=snapshot("models")
-DEGREE=10;x=np.linspace(0,1,25);y=np.exp(x)
+ step('Build a deterministic model benchmark','构造确定性模型基准','Use 25 x values on [0,1] and y=exp(x). A degree-10 Vandermonde design has powers with very different scales. These are analytic teaching values; no measurement noise or statistical confidence interval is implied.','取 [0,1] 上 25 个 x，并令 y=exp(x)。十阶 Vandermonde 矩阵的幂次量级不同。这是解析教学数据，没有隐含测量噪声或统计置信区间。','''DEGREE=10;x=np.linspace(0,1,25);y=np.exp(x)
 design=np.vander(x,DEGREE+1,increasing=True)
 singular=np.linalg.svd(design,compute_uv=False);condition=np.linalg.cond(design)
 print("Design shape:",design.shape,"; condition number:",condition)

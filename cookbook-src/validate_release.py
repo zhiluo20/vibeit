@@ -3,7 +3,7 @@ from pathlib import Path
 import ast,base64,gzip,hashlib,json,os,socket,tempfile
 import nbformat
 from catalog import COURSES,DISCIPLINES,subject_courses
-from build_notebooks import make_notebook
+from build_notebooks import make_notebook, snapshot_payload
 
 ROOT=Path(__file__).resolve().parent
 DOWNLOADS=ROOT.parent/'cookbook/downloads'
@@ -41,7 +41,7 @@ def main():
                     os.chdir(moved)
                     for key,blob in notebook.metadata.vibeit_cookbook.snapshots.items():
                         loaded=namespace['load_snapshot'](course['id'],blob.sha256,key)
-                        assert loaded==json.loads(gzip.decompress((ROOT/'data'/(key+'.json.gz')).read_bytes()))
+                        assert loaded==json.loads(gzip.decompress(snapshot_payload(course,key)))
                     os.chdir(start)
                 rows.append(dict(filename=path.name,sha256=hashlib.sha256(path.read_bytes()).hexdigest(),
                     current_code_and_sources='passed',rename_move_roundtrip='passed',png_figures=figures,offline_guard=True))
