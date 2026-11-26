@@ -9,7 +9,7 @@
 <meta name="robots" content="index,follow">
 <link rel="canonical" href="https://www.mecury.co.uk/vibeit/">
 <link rel="icon" href="/vibeit/assets/pydev-icon.png">
-<meta name="vibeit-release" content="eclipse-2026-11-26-safe-area">
+<meta name="vibeit-release" content="eclipse-2026-11-26-mobile">
 <meta content="website" property="og:type"/>
 <meta content="Vibeit Studio" property="og:site_name"/>
 <meta content="en" property="og:locale"/>
@@ -562,6 +562,36 @@ body[data-in-flight=true] #chapter-rail #count{color:#79e6ff}
  .ending .download-title-continuation{display:block;white-space:nowrap}
  #deck .slide > .visual:not(.vibecode-visual){margin-inline:0}
 }
+
+/* Keep the responsive content grid in the visible viewport, including browser fullscreen. */
+.voyage-fullscreen[hidden]{display:none!important}
+.voyage-fullscreen{display:inline-flex;align-items:center;justify-content:center;width:35px;height:34px;border:1px solid #cddcf82b;border-radius:9px;background:#111622e8;color:#d5dff0}
+.voyage-fullscreen svg{width:17px;height:17px}
+.compact-demo{display:none}
+body[data-voyage-render=eco] :is(#demo-frame,#vibecode-frame){display:none!important}
+body[data-voyage-render=eco] .compact-demo{display:block;width:100%;height:auto;object-fit:contain;background:transparent}
+body[data-voyage-render=eco] .compact-demo:not([src]){visibility:hidden}
+body[data-voyage-render=eco] .live-demo{overflow:hidden}
+body[data-voyage-render=eco] #vibecode-stage{overflow:hidden;border-radius:14px}
+body[data-voyage-render=eco] :is(.voyage-site-header,.voyage-site-footer,.file-float,.trait-card,.case-card,.pricing-deck .plan){
+ -webkit-backdrop-filter:none;backdrop-filter:none
+}
+body[data-voyage-render=eco] .voyage-site-header{background:#0a0c12ef}
+body[data-voyage-render=eco] .voyage-site-footer{background:#0b1018f3}
+body[data-voyage-render=eco] .device-duo .official-device-screen{background:#121829}
+@media(max-width:760px) and (orientation:portrait){
+ #deck .ending .copy[dir]{text-align:center!important}
+ #deck .ending .kicker,#deck .ending .actions{justify-content:center}
+ #deck .ending .store-star{translate:0 0}
+ #deck .ending .download-title-continuation{white-space:normal;text-wrap:balance}
+ #deck .ending .copy{padding-bottom:clamp(38px,10vh,87px)}
+ body[data-voyage-render=eco] #deck .overview-demo .site-showcase{margin-top:clamp(8px,2vh,16px)}
+ body[data-voyage-render=eco] #deck [data-key=aivibe] .vibecode-visual{margin-top:clamp(8px,2vh,16px)}
+ body[data-voyage-render=eco] #deck :is([data-key=features],[data-key=aivibe]) .copy::before{
+  content:"";position:absolute;inset:-13px -9px -8px;z-index:-1;pointer-events:none;
+  background:radial-gradient(ellipse at center,#070c18a1 0%,#070c186c 62%,transparent 100%);
+ }
+}
 </style>
 </head>
 <body>
@@ -575,6 +605,8 @@ body[data-in-flight=true] #chapter-rail #count{color:#79e6ff}
      <a href="#pricing" data-voyage-go="pricing" data-v="nav.pricing">价格</a>
      <a href="https://www.mecury.co.uk/vibeit/help/" target="_blank" rel="noopener" data-v="help">帮助中心</a>
     </div><div class="voyage-nav-tools">
+     <button class="voyage-fullscreen" id="voyage-fullscreen" hidden type="button" aria-label="全屏">
+      <svg viewBox="0 0 20 20" stroke="currentColor" fill="none" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M3 8V3h5m4 0h5v5m0 4v5h-5m-4 0H3v-5"/></svg></button>
      <select id="voyage-language" class="voyage-nav-language" data-v-label="language"><option value="en" lang="en">English</option><option value="zh" lang="zh">中文</option><option value="ja" lang="ja">日本語</option><option value="ko" lang="ko">한국어</option><option value="fr" lang="fr">Français</option><option value="it" lang="it">Italiano</option><option value="de" lang="de">Deutsch</option><option value="ar" lang="ar">العربية</option><option value="th" lang="th">ไทย</option></select>
      <a class="voyage-nav-get" href="https://apps.apple.com/app/id6786619257" target="_blank" rel="noopener" data-v="nav.get">获取 Vibeit</a>
     </div></div>
@@ -588,7 +620,7 @@ body[data-in-flight=true] #chapter-rail #count{color:#79e6ff}
                 <stop offset="0" stop-color="#5aa9ff"/><stop offset="1" stop-color="#79e6ff"/>
               </linearGradient></defs>
             </svg></div><h1>真正的 Python，<br><em>就在你的 iPad 上</em></h1><p class="lead">完整的 Python IDE：Jupyter 笔记本、可使用 Apple GPU 的 PyTorch，以及引导式课程。本地 Python 和笔记本可离线运行。</p><div class="actions"><button id="launch" class="cta">看看里面有什么 ↓</button></div></div></section>
-<section class="slide overview-demo" data-key="features" data-title="功能概览" inert><div class="copy"><div class="kicker">FEATURES</div><h2>随身 Python 工作站</h2><p class="lead">真正的设备内核、科学计算栈、AI 智能体，还有你自己的服务器。无需云端。</p></div><div class="visual site-showcase" aria-label="Vibeit 官网界面展示"><div class="showcase-gallery"><div class="live-demo" id="live-demo"><iframe id="demo-frame" title="Vibeit 官网动态产品演示" sandbox="allow-scripts" tabindex="-1"></iframe></div><div class="showcase-tabs" role="group" aria-label="切换官网产品画面"><button type="button" aria-pressed="true" data-demo-button="0" aria-controls="demo-frame">HTML 预览</button><button type="button" aria-pressed="false" data-demo-button="1" aria-controls="demo-frame">GPU Notebook</button><button type="button" aria-pressed="false" data-demo-button="2" aria-controls="demo-frame">3D 分子与 Agent</button><button type="button" aria-pressed="false" data-demo-button="3" aria-controls="demo-frame">界面与配色</button><button id="showcase-play" type="button" aria-label="暂停产品演示轮播" title="暂停产品演示轮播">暂停</button></div></div></div></section>
+<section class="slide overview-demo" data-key="features" data-title="功能概览" inert><div class="copy"><div class="kicker">FEATURES</div><h2>随身 Python 工作站</h2><p class="lead">真正的设备内核、科学计算栈、AI 智能体，还有你自己的服务器。无需云端。</p></div><div class="visual site-showcase" aria-label="Vibeit 官网界面展示"><div class="showcase-gallery"><div class="live-demo" id="live-demo"><img id="phone-demo-features" class="compact-demo" alt="" decoding="async" width="1160" height="790"><iframe id="demo-frame" title="Vibeit 官网动态产品演示" sandbox="allow-scripts" tabindex="-1"></iframe></div><div class="showcase-tabs" role="group" aria-label="切换官网产品画面"><button type="button" aria-pressed="true" data-demo-button="0" aria-controls="demo-frame">HTML 预览</button><button type="button" aria-pressed="false" data-demo-button="1" aria-controls="demo-frame">GPU Notebook</button><button type="button" aria-pressed="false" data-demo-button="2" aria-controls="demo-frame">3D 分子与 Agent</button><button type="button" aria-pressed="false" data-demo-button="3" aria-controls="demo-frame">界面与配色</button><button id="showcase-play" type="button" aria-label="暂停产品演示轮播" title="暂停产品演示轮播">暂停</button></div></div></div></section>
 <section class="slide compute-orbit" data-key="silicon" data-title="释放 iPad M 芯片的潜力" inert>
 <div class="compute-heading"><div class="kicker">APPLE SILICON · PYTORCH MPS</div><h2>释放 iPad <em>M 芯片</em>的潜力</h2></div>
 <div class="compute-stage"><svg class="compute-dust" viewBox="0 0 1000 460" preserveAspectRatio="none" aria-hidden="true"><g class="compute-dust-cloud cloud-0"><circle cx="545.3" cy="141.8" r="2.0" opacity="0.37"/><circle cx="342.2" cy="231.1" r="1.1" opacity="0.21"/><circle cx="849.0" cy="282.5" r="1.6" opacity="0.31"/><circle cx="396.4" cy="410.3" r="1.1" opacity="0.56"/><circle cx="225.1" cy="401.1" r="1.1" opacity="0.59"/><circle cx="163.3" cy="183.3" r="1.6" opacity="0.43"/><circle cx="481.1" cy="316.8" r="2.0" opacity="0.56"/><circle cx="419.5" cy="134.0" r="1.1" opacity="0.48"/><circle cx="359.9" cy="110.8" r="0.68" opacity="0.27"/><circle cx="893.7" cy="295.9" r="0.82" opacity="0.43"/><circle cx="526.5" cy="158.5" r="2.0" opacity="0.48"/><circle cx="682.9" cy="71.0" r="0.68" opacity="0.47"/><circle cx="557.6" cy="150.1" r="2.0" opacity="0.48"/><circle cx="318.5" cy="305.0" r="1.6" opacity="0.22"/><circle cx="387.1" cy="311.9" r="1.6" opacity="0.26"/><circle cx="506.6" cy="202.9" r="1.6" opacity="0.22"/><circle cx="578.7" cy="421.1" r="1.6" opacity="0.23"/><circle cx="321.6" cy="377.0" r="1.1" opacity="0.18"/><circle cx="267.3" cy="317.6" r="2.0" opacity="0.28"/><circle cx="585.9" cy="336.5" r="2.0" opacity="0.61"/><circle cx="492.9" cy="76.1" r="2.0" opacity="0.27"/><circle cx="280.9" cy="365.5" r="0.82" opacity="0.32"/><circle cx="310.1" cy="290.6" r="1.6" opacity="0.49"/><circle cx="352.1" cy="373.7" r="0.68" opacity="0.56"/><circle cx="388.8" cy="133.1" r="0.82" opacity="0.22"/><circle cx="622.7" cy="282.6" r="1.1" opacity="0.44"/><circle cx="384.8" cy="202.4" r="1.6" opacity="0.31"/><circle cx="538.2" cy="71.0" r="0.82" opacity="0.28"/><circle cx="545.8" cy="365.1" r="1.6" opacity="0.55"/><circle cx="498.1" cy="270.6" r="0.68" opacity="0.15"/><circle cx="394.5" cy="239.4" r="0.82" opacity="0.56"/><circle cx="289.2" cy="99.2" r="0.68" opacity="0.46"/><circle cx="104.0" cy="260.2" r="1.6" opacity="0.38"/><circle cx="309.7" cy="215.5" r="1.1" opacity="0.38"/><circle cx="750.9" cy="367.9" r="1.1" opacity="0.45"/><circle cx="70.7" cy="287.2" r="2.0" opacity="0.14"/><circle cx="897.1" cy="196.4" r="1.6" opacity="0.41"/><circle cx="728.9" cy="334.8" r="1.1" opacity="0.51"/><circle cx="755.0" cy="345.9" r="0.68" opacity="0.57"/><circle cx="621.5" cy="252.9" r="1.6" opacity="0.39"/><circle cx="132.6" cy="279.3" r="0.68" opacity="0.20"/><circle cx="300.4" cy="118.7" r="0.68" opacity="0.22"/><circle cx="697.8" cy="328.0" r="0.68" opacity="0.26"/><circle cx="577.9" cy="411.1" r="2.0" opacity="0.37"/><circle cx="750.7" cy="403.2" r="0.68" opacity="0.46"/><circle cx="322.8" cy="101.7" r="1.6" opacity="0.47"/><circle cx="480.9" cy="148.6" r="0.82" opacity="0.19"/><circle cx="186.8" cy="176.4" r="0.68" opacity="0.50"/><circle cx="774.4" cy="123.2" r="0.68" opacity="0.15"/><circle cx="249.0" cy="85.5" r="0.82" opacity="0.38"/><circle cx="78.2" cy="292.8" r="0.68" opacity="0.13"/><circle cx="589.1" cy="343.5" r="2.0" opacity="0.51"/><circle cx="167.3" cy="305.9" r="0.68" opacity="0.60"/><circle cx="681.3" cy="185.8" r="1.1" opacity="0.47"/><circle cx="346.2" cy="359.5" r="2.0" opacity="0.30"/><circle cx="816.4" cy="166.5" r="0.82" opacity="0.43"/><circle cx="553.2" cy="164.8" r="1.1" opacity="0.37"/><circle cx="846.0" cy="215.3" r="1.6" opacity="0.49"/><circle cx="191.6" cy="385.0" r="0.82" opacity="0.30"/><circle cx="216.9" cy="326.0" r="0.82" opacity="0.44"/><circle cx="398.4" cy="68.5" r="1.1" opacity="0.20"/><circle cx="345.9" cy="81.8" r="0.68" opacity="0.59"/><circle cx="344.3" cy="167.4" r="1.1" opacity="0.28"/><circle cx="425.2" cy="313.5" r="1.6" opacity="0.40"/><circle cx="534.5" cy="272.7" r="0.82" opacity="0.55"/><circle cx="413.6" cy="145.0" r="2.0" opacity="0.51"/><circle cx="718.9" cy="64.6" r="2.0" opacity="0.29"/><circle cx="379.0" cy="346.3" r="0.82" opacity="0.35"/><circle cx="574.6" cy="199.3" r="1.1" opacity="0.33"/><circle cx="497.8" cy="273.1" r="0.82" opacity="0.22"/><circle cx="224.3" cy="147.5" r="0.82" opacity="0.31"/><circle cx="517.5" cy="371.5" r="1.6" opacity="0.25"/><circle cx="254.4" cy="350.4" r="0.68" opacity="0.30"/><circle cx="557.9" cy="111.6" r="1.1" opacity="0.25"/><circle cx="417.7" cy="439.6" r="2.0" opacity="0.19"/><circle cx="281.9" cy="50.0" r="2.0" opacity="0.17"/><circle cx="357.0" cy="223.7" r="1.6" opacity="0.35"/><circle cx="738.8" cy="157.0" r="0.68" opacity="0.14"/></g><g class="compute-dust-cloud cloud-1"><circle cx="223.9" cy="118.2" r="2.0" opacity="0.29"/><circle cx="494.2" cy="195.8" r="1.6" opacity="0.48"/><circle cx="497.5" cy="435.7" r="0.68" opacity="0.38"/><circle cx="795.6" cy="377.2" r="1.6" opacity="0.30"/><circle cx="460.7" cy="367.3" r="0.68" opacity="0.52"/><circle cx="933.9" cy="207.9" r="2.0" opacity="0.19"/><circle cx="172.1" cy="251.8" r="0.68" opacity="0.20"/><circle cx="625.1" cy="184.7" r="0.82" opacity="0.25"/><circle cx="525.6" cy="295.1" r="1.6" opacity="0.22"/><circle cx="600.0" cy="122.6" r="0.82" opacity="0.53"/><circle cx="546.6" cy="248.7" r="2.0" opacity="0.14"/><circle cx="725.1" cy="269.2" r="1.6" opacity="0.45"/><circle cx="895.2" cy="262.5" r="0.68" opacity="0.22"/><circle cx="84.6" cy="257.0" r="2.0" opacity="0.41"/><circle cx="684.6" cy="129.8" r="2.0" opacity="0.15"/><circle cx="901.9" cy="231.4" r="0.68" opacity="0.14"/><circle cx="484.3" cy="430.1" r="1.1" opacity="0.46"/><circle cx="277.3" cy="300.1" r="0.82" opacity="0.48"/><circle cx="164.3" cy="314.8" r="1.1" opacity="0.18"/><circle cx="396.2" cy="340.1" r="1.1" opacity="0.53"/><circle cx="130.7" cy="366.7" r="2.0" opacity="0.41"/><circle cx="181.1" cy="130.4" r="1.6" opacity="0.28"/><circle cx="534.4" cy="171.9" r="1.6" opacity="0.62"/><circle cx="328.6" cy="77.8" r="0.68" opacity="0.32"/><circle cx="552.1" cy="244.2" r="0.68" opacity="0.59"/><circle cx="320.1" cy="291.9" r="0.82" opacity="0.55"/><circle cx="76.3" cy="184.5" r="1.6" opacity="0.18"/><circle cx="761.6" cy="380.7" r="1.6" opacity="0.38"/><circle cx="704.1" cy="132.2" r="1.1" opacity="0.56"/><circle cx="857.0" cy="204.5" r="1.6" opacity="0.33"/><circle cx="176.2" cy="94.8" r="0.68" opacity="0.62"/><circle cx="569.4" cy="132.4" r="1.1" opacity="0.45"/><circle cx="315.5" cy="332.4" r="1.6" opacity="0.17"/><circle cx="460.9" cy="196.2" r="1.6" opacity="0.45"/><circle cx="232.1" cy="385.8" r="0.82" opacity="0.16"/><circle cx="420.7" cy="250.5" r="1.6" opacity="0.30"/><circle cx="917.8" cy="227.9" r="1.6" opacity="0.52"/><circle cx="435.1" cy="261.6" r="1.6" opacity="0.25"/><circle cx="279.8" cy="75.8" r="1.6" opacity="0.49"/><circle cx="208.0" cy="217.3" r="2.0" opacity="0.32"/><circle cx="804.8" cy="120.9" r="0.82" opacity="0.13"/><circle cx="229.3" cy="166.9" r="2.0" opacity="0.59"/><circle cx="848.5" cy="173.4" r="0.68" opacity="0.15"/><circle cx="598.1" cy="248.4" r="0.68" opacity="0.37"/><circle cx="327.0" cy="157.3" r="0.68" opacity="0.14"/><circle cx="304.0" cy="271.8" r="1.1" opacity="0.41"/><circle cx="242.6" cy="328.1" r="0.82" opacity="0.40"/><circle cx="346.5" cy="213.8" r="2.0" opacity="0.21"/><circle cx="844.4" cy="172.6" r="2.0" opacity="0.44"/><circle cx="736.2" cy="278.1" r="2.0" opacity="0.40"/><circle cx="90.2" cy="200.3" r="1.1" opacity="0.40"/><circle cx="192.0" cy="345.6" r="1.1" opacity="0.32"/><circle cx="297.8" cy="388.6" r="0.82" opacity="0.62"/><circle cx="656.4" cy="274.9" r="0.82" opacity="0.35"/><circle cx="150.8" cy="245.3" r="1.1" opacity="0.29"/><circle cx="390.5" cy="223.2" r="0.68" opacity="0.45"/><circle cx="637.9" cy="260.4" r="1.6" opacity="0.27"/><circle cx="639.8" cy="78.6" r="1.1" opacity="0.28"/><circle cx="565.4" cy="28.5" r="1.1" opacity="0.33"/><circle cx="467.4" cy="429.6" r="1.1" opacity="0.55"/><circle cx="790.6" cy="197.4" r="0.82" opacity="0.23"/><circle cx="287.5" cy="211.9" r="1.1" opacity="0.61"/><circle cx="506.3" cy="123.7" r="1.6" opacity="0.12"/><circle cx="760.0" cy="370.8" r="0.68" opacity="0.44"/><circle cx="500.0" cy="400.2" r="1.1" opacity="0.37"/><circle cx="524.8" cy="36.5" r="1.6" opacity="0.54"/><circle cx="197.1" cy="238.0" r="1.6" opacity="0.32"/><circle cx="288.1" cy="95.9" r="0.68" opacity="0.23"/><circle cx="735.2" cy="211.6" r="2.0" opacity="0.59"/><circle cx="371.0" cy="353.1" r="1.1" opacity="0.32"/><circle cx="254.0" cy="369.3" r="1.1" opacity="0.28"/><circle cx="512.2" cy="66.2" r="1.1" opacity="0.53"/><circle cx="277.8" cy="370.5" r="0.82" opacity="0.32"/><circle cx="521.6" cy="64.1" r="2.0" opacity="0.44"/><circle cx="736.3" cy="72.2" r="1.6" opacity="0.32"/><circle cx="456.1" cy="65.3" r="0.68" opacity="0.39"/><circle cx="443.6" cy="226.5" r="1.1" opacity="0.13"/><circle cx="120.4" cy="220.1" r="0.82" opacity="0.53"/></g><g class="compute-dust-cloud cloud-2"><circle cx="466.7" cy="158.9" r="1.1" opacity="0.42"/><circle cx="375.4" cy="329.5" r="1.6" opacity="0.16"/><circle cx="623.3" cy="140.7" r="0.68" opacity="0.38"/><circle cx="459.0" cy="225.5" r="0.82" opacity="0.54"/><circle cx="181.2" cy="206.0" r="0.68" opacity="0.48"/><circle cx="835.3" cy="103.0" r="0.82" opacity="0.59"/><circle cx="553.1" cy="408.8" r="1.6" opacity="0.15"/><circle cx="576.7" cy="388.6" r="1.6" opacity="0.50"/><circle cx="766.2" cy="77.5" r="0.82" opacity="0.15"/><circle cx="294.9" cy="115.3" r="0.82" opacity="0.14"/><circle cx="511.6" cy="291.2" r="1.6" opacity="0.14"/><circle cx="129.9" cy="187.8" r="1.6" opacity="0.29"/><circle cx="702.7" cy="315.6" r="2.0" opacity="0.34"/><circle cx="269.0" cy="228.6" r="1.1" opacity="0.58"/><circle cx="512.2" cy="340.4" r="1.1" opacity="0.32"/><circle cx="671.8" cy="165.0" r="1.1" opacity="0.31"/><circle cx="245.6" cy="80.1" r="0.82" opacity="0.43"/><circle cx="500.2" cy="326.7" r="0.68" opacity="0.57"/><circle cx="567.0" cy="209.9" r="1.6" opacity="0.40"/><circle cx="721.4" cy="131.1" r="0.82" opacity="0.21"/><circle cx="833.2" cy="303.2" r="1.6" opacity="0.21"/><circle cx="501.7" cy="374.8" r="1.6" opacity="0.34"/><circle cx="796.2" cy="242.1" r="2.0" opacity="0.31"/><circle cx="449.9" cy="340.6" r="1.1" opacity="0.46"/><circle cx="501.8" cy="379.0" r="0.82" opacity="0.42"/><circle cx="290.8" cy="229.9" r="1.6" opacity="0.16"/><circle cx="323.1" cy="352.0" r="0.82" opacity="0.40"/><circle cx="361.2" cy="258.0" r="1.6" opacity="0.17"/><circle cx="234.8" cy="316.6" r="2.0" opacity="0.15"/><circle cx="392.8" cy="240.8" r="2.0" opacity="0.36"/><circle cx="501.7" cy="135.1" r="0.82" opacity="0.25"/><circle cx="681.6" cy="412.0" r="0.82" opacity="0.19"/><circle cx="534.4" cy="262.5" r="1.6" opacity="0.21"/><circle cx="61.0" cy="199.7" r="0.82" opacity="0.21"/><circle cx="867.1" cy="239.7" r="0.68" opacity="0.56"/><circle cx="727.0" cy="62.8" r="1.6" opacity="0.48"/><circle cx="425.6" cy="320.3" r="0.68" opacity="0.53"/><circle cx="537.5" cy="281.2" r="0.68" opacity="0.19"/><circle cx="488.7" cy="208.8" r="1.6" opacity="0.14"/><circle cx="602.7" cy="263.6" r="1.1" opacity="0.41"/><circle cx="277.7" cy="137.4" r="1.6" opacity="0.54"/><circle cx="511.8" cy="54.2" r="0.82" opacity="0.31"/><circle cx="870.8" cy="229.9" r="0.82" opacity="0.41"/><circle cx="551.2" cy="305.3" r="2.0" opacity="0.12"/><circle cx="606.1" cy="331.5" r="0.68" opacity="0.42"/><circle cx="444.0" cy="157.1" r="1.1" opacity="0.17"/><circle cx="119.5" cy="298.4" r="2.0" opacity="0.21"/><circle cx="548.6" cy="132.5" r="1.6" opacity="0.42"/><circle cx="736.8" cy="383.3" r="2.0" opacity="0.30"/><circle cx="784.5" cy="125.4" r="0.82" opacity="0.38"/><circle cx="285.4" cy="421.9" r="0.82" opacity="0.59"/><circle cx="784.5" cy="225.8" r="0.68" opacity="0.48"/><circle cx="429.3" cy="21.8" r="0.82" opacity="0.50"/><circle cx="457.3" cy="291.7" r="0.82" opacity="0.40"/><circle cx="700.8" cy="422.8" r="0.82" opacity="0.50"/><circle cx="659.6" cy="399.1" r="0.68" opacity="0.47"/><circle cx="714.9" cy="261.2" r="1.1" opacity="0.42"/><circle cx="666.5" cy="118.6" r="1.1" opacity="0.16"/><circle cx="531.0" cy="201.3" r="2.0" opacity="0.30"/><circle cx="608.9" cy="256.1" r="1.6" opacity="0.37"/><circle cx="467.5" cy="169.2" r="0.68" opacity="0.19"/><circle cx="818.6" cy="168.9" r="1.6" opacity="0.47"/><circle cx="534.7" cy="196.3" r="1.1" opacity="0.37"/><circle cx="490.2" cy="250.9" r="2.0" opacity="0.26"/><circle cx="313.7" cy="246.7" r="1.6" opacity="0.53"/><circle cx="769.0" cy="222.9" r="0.68" opacity="0.37"/><circle cx="686.3" cy="324.3" r="1.1" opacity="0.48"/><circle cx="506.3" cy="74.3" r="0.82" opacity="0.13"/><circle cx="313.1" cy="189.9" r="2.0" opacity="0.49"/><circle cx="328.3" cy="302.5" r="0.82" opacity="0.14"/><circle cx="249.3" cy="299.8" r="1.6" opacity="0.61"/><circle cx="571.4" cy="125.2" r="1.1" opacity="0.34"/><circle cx="378.1" cy="78.8" r="0.68" opacity="0.32"/><circle cx="442.1" cy="335.0" r="1.6" opacity="0.34"/><circle cx="278.3" cy="190.4" r="0.68" opacity="0.44"/><circle cx="233.0" cy="390.3" r="0.68" opacity="0.22"/><circle cx="650.2" cy="351.3" r="0.82" opacity="0.14"/><circle cx="758.9" cy="257.4" r="0.82" opacity="0.16"/></g></svg><!-- From Uiverse.io by Cksunandh - https://uiverse.io/Cksunandh/loud-crab-37
@@ -626,7 +658,7 @@ MIT License, Copyright (c) Cksunandh (Sunandh ck) -->
 </section>
 <section class="slide " data-key="capabilities" data-title="像桌面开发环境一样打造" inert><div class="copy"><div class="kicker">CAPABILITIES</div><h2>像桌面开发环境一样打造</h2></div><div class="visual trait-orbit tools" data-v-label="capk"><svg class="orbit-dust" viewBox="0 0 500 365" preserveAspectRatio="none" aria-hidden="true"><circle cx="155.9" cy="65.4" r="0.95" fill="#83bbff" opacity="0.14"/><circle cx="372.2" cy="135.2" r="1.01" fill="#83bbff" opacity="0.15"/><circle cx="243.6" cy="252.1" r="0.88" fill="#83bbff" opacity="0.29"/><circle cx="445.8" cy="182.2" r="0.89" fill="#83bbff" opacity="0.46"/><circle cx="437.2" cy="181.2" r="0.43" fill="#83bbff" opacity="0.41"/><circle cx="292.7" cy="190.6" r="0.74" fill="#83bbff" opacity="0.21"/><circle cx="320.8" cy="117.6" r="0.59" fill="#83bbff" opacity="0.37"/><circle cx="80.4" cy="105.5" r="0.61" fill="#83bbff" opacity="0.22"/><circle cx="460.5" cy="129.1" r="0.58" fill="#83bbff" opacity="0.30"/><circle cx="396.2" cy="151.1" r="0.55" fill="#83bbff" opacity="0.43"/><circle cx="97.0" cy="118.6" r="0.49" fill="#83bbff" opacity="0.46"/><circle cx="368.9" cy="153.7" r="1.06" fill="#83bbff" opacity="0.14"/><circle cx="291.7" cy="235.9" r="0.70" fill="#83bbff" opacity="0.27"/><circle cx="208.1" cy="210.6" r="1.01" fill="#83bbff" opacity="0.33"/><circle cx="267.2" cy="216.6" r="0.48" fill="#83bbff" opacity="0.38"/><circle cx="356.7" cy="122.0" r="0.85" fill="#83bbff" opacity="0.32"/><circle cx="272.2" cy="228.9" r="0.92" fill="#83bbff" opacity="0.23"/><circle cx="83.6" cy="215.5" r="0.63" fill="#83bbff" opacity="0.44"/><circle cx="332.1" cy="151.0" r="0.47" fill="#83bbff" opacity="0.23"/><circle cx="319.7" cy="159.1" r="0.90" fill="#83bbff" opacity="0.22"/><circle cx="224.0" cy="288.0" r="0.58" fill="#83bbff" opacity="0.37"/><circle cx="181.9" cy="146.6" r="1.01" fill="#83bbff" opacity="0.24"/><circle cx="107.8" cy="97.9" r="0.49" fill="#83bbff" opacity="0.44"/><circle cx="376.2" cy="145.6" r="0.45" fill="#83bbff" opacity="0.38"/><circle cx="138.7" cy="188.5" r="0.51" fill="#83bbff" opacity="0.23"/><circle cx="392.0" cy="135.6" r="0.46" fill="#83bbff" opacity="0.36"/><circle cx="70.9" cy="231.3" r="1.00" fill="#83bbff" opacity="0.40"/><circle cx="301.3" cy="264.5" r="1.09" fill="#83bbff" opacity="0.15"/><circle cx="248.3" cy="130.5" r="0.90" fill="#83bbff" opacity="0.31"/><circle cx="409.1" cy="151.0" r="0.88" fill="#83bbff" opacity="0.18"/><circle cx="355.4" cy="122.5" r="0.96" fill="#83bbff" opacity="0.25"/><circle cx="326.6" cy="215.4" r="0.99" fill="#83bbff" opacity="0.24"/><circle cx="158.7" cy="157.6" r="0.67" fill="#83bbff" opacity="0.13"/><circle cx="351.1" cy="208.6" r="1.09" fill="#83bbff" opacity="0.35"/><circle cx="189.6" cy="244.7" r="0.41" fill="#83bbff" opacity="0.36"/><circle cx="343.5" cy="110.7" r="0.66" fill="#83bbff" opacity="0.32"/><circle cx="459.2" cy="227.5" r="0.79" fill="#83bbff" opacity="0.13"/><circle cx="202.0" cy="172.1" r="0.46" fill="#83bbff" opacity="0.22"/><circle cx="43.8" cy="251.1" r="0.93" fill="#83bbff" opacity="0.44"/><circle cx="170.3" cy="172.5" r="0.39" fill="#83bbff" opacity="0.46"/><circle cx="250.1" cy="216.9" r="0.93" fill="#83bbff" opacity="0.31"/><circle cx="95.5" cy="178.1" r="0.79" fill="#83bbff" opacity="0.42"/><circle cx="424.7" cy="40.2" r="1.00" fill="#83bbff" opacity="0.16"/><circle cx="104.8" cy="119.2" r="0.81" fill="#83bbff" opacity="0.38"/><circle cx="134.8" cy="142.5" r="1.08" fill="#83bbff" opacity="0.45"/><circle cx="332.2" cy="156.4" r="1.06" fill="#83bbff" opacity="0.43"/><circle cx="360.9" cy="176.4" r="0.89" fill="#83bbff" opacity="0.15"/><circle cx="308.8" cy="123.2" r="0.96" fill="#83bbff" opacity="0.43"/><circle cx="161.8" cy="180.6" r="0.81" fill="#83bbff" opacity="0.17"/><circle cx="86.6" cy="183.1" r="0.60" fill="#83bbff" opacity="0.31"/><circle cx="338.3" cy="175.2" r="1.01" fill="#83bbff" opacity="0.14"/><circle cx="63.7" cy="189.3" r="0.95" fill="#83bbff" opacity="0.25"/><circle cx="253.2" cy="266.5" r="0.71" fill="#83bbff" opacity="0.28"/><circle cx="149.6" cy="174.7" r="0.91" fill="#83bbff" opacity="0.18"/><circle cx="192.4" cy="163.9" r="0.99" fill="#83bbff" opacity="0.24"/><circle cx="459.7" cy="231.4" r="0.78" fill="#83bbff" opacity="0.47"/><circle cx="290.8" cy="182.0" r="0.85" fill="#83bbff" opacity="0.32"/><circle cx="53.9" cy="216.0" r="0.89" fill="#83bbff" opacity="0.13"/><circle cx="79.4" cy="252.2" r="0.88" fill="#83bbff" opacity="0.28"/><circle cx="198.8" cy="264.7" r="1.07" fill="#83bbff" opacity="0.26"/><circle cx="101.5" cy="134.0" r="0.49" fill="#83bbff" opacity="0.40"/><circle cx="133.2" cy="227.1" r="0.87" fill="#83bbff" opacity="0.19"/><circle cx="408.6" cy="130.5" r="0.68" fill="#83bbff" opacity="0.41"/><circle cx="253.8" cy="246.8" r="0.74" fill="#83bbff" opacity="0.41"/><circle cx="275.5" cy="162.9" r="1.07" fill="#83bbff" opacity="0.31"/><circle cx="198.4" cy="89.0" r="0.91" fill="#83bbff" opacity="0.45"/><circle cx="426.4" cy="187.9" r="0.85" fill="#83bbff" opacity="0.44"/><circle cx="350.7" cy="271.1" r="0.85" fill="#83bbff" opacity="0.47"/><circle cx="111.1" cy="214.4" r="0.69" fill="#83bbff" opacity="0.37"/><circle cx="149.0" cy="179.5" r="0.78" fill="#83bbff" opacity="0.26"/><circle cx="297.5" cy="234.0" r="0.56" fill="#83bbff" opacity="0.33"/><circle cx="307.4" cy="133.4" r="0.42" fill="#83bbff" opacity="0.27"/><circle cx="219.6" cy="146.2" r="1.02" fill="#83bbff" opacity="0.19"/><circle cx="270.9" cy="110.1" r="0.73" fill="#83bbff" opacity="0.33"/><circle cx="284.5" cy="208.1" r="0.66" fill="#83bbff" opacity="0.40"/><circle cx="200.6" cy="253.8" r="0.43" fill="#83bbff" opacity="0.17"/><circle cx="140.5" cy="218.8" r="0.72" fill="#83bbff" opacity="0.36"/><circle cx="269.8" cy="128.4" r="0.42" fill="#83bbff" opacity="0.19"/><circle cx="258.9" cy="210.8" r="0.90" fill="#83bbff" opacity="0.18"/><circle cx="388.5" cy="243.8" r="0.46" fill="#83bbff" opacity="0.15"/><circle cx="179.6" cy="182.1" r="0.96" fill="#83bbff" opacity="0.26"/><circle cx="125.7" cy="129.9" r="0.60" fill="#83bbff" opacity="0.45"/><circle cx="217.6" cy="89.6" r="0.53" fill="#83bbff" opacity="0.13"/><circle cx="183.2" cy="229.0" r="1.01" fill="#83bbff" opacity="0.38"/><circle cx="230.8" cy="208.4" r="1.12" fill="#83bbff" opacity="0.36"/><circle cx="157.5" cy="140.2" r="0.41" fill="#83bbff" opacity="0.21"/><circle cx="168.2" cy="152.0" r="0.91" fill="#83bbff" opacity="0.27"/><circle cx="54.5" cy="135.5" r="0.55" fill="#83bbff" opacity="0.23"/><circle cx="291.0" cy="206.1" r="0.58" fill="#83bbff" opacity="0.33"/><circle cx="397.0" cy="139.7" r="0.84" fill="#83bbff" opacity="0.40"/><circle cx="279.0" cy="96.6" r="0.68" fill="#83bbff" opacity="0.28"/><circle cx="256.3" cy="186.2" r="0.75" fill="#83bbff" opacity="0.18"/><circle cx="93.4" cy="131.1" r="0.96" fill="#83bbff" opacity="0.16"/><circle cx="215.9" cy="108.1" r="1.01" fill="#83bbff" opacity="0.36"/><circle cx="377.6" cy="165.1" r="0.45" fill="#83bbff" opacity="0.18"/><circle cx="461.7" cy="158.8" r="0.81" fill="#83bbff" opacity="0.25"/><circle cx="395.1" cy="163.9" r="0.94" fill="#83bbff" opacity="0.22"/><circle cx="99.4" cy="195.2" r="0.60" fill="#83bbff" opacity="0.14"/><circle cx="80.8" cy="265.1" r="0.70" fill="#83bbff" opacity="0.27"/><circle cx="410.4" cy="242.1" r="1.02" fill="#83bbff" opacity="0.19"/><circle cx="191.3" cy="246.2" r="0.70" fill="#83bbff" opacity="0.22"/><circle cx="174.8" cy="137.3" r="1.03" fill="#83bbff" opacity="0.15"/><circle cx="343.8" cy="182.1" r="0.67" fill="#83bbff" opacity="0.18"/><circle cx="450.8" cy="149.6" r="0.50" fill="#83bbff" opacity="0.13"/><circle cx="102.7" cy="233.9" r="0.80" fill="#83bbff" opacity="0.28"/><circle cx="186.7" cy="227.1" r="0.72" fill="#83bbff" opacity="0.17"/><circle cx="111.9" cy="107.3" r="0.59" fill="#83bbff" opacity="0.30"/><circle cx="101.9" cy="181.0" r="0.71" fill="#83bbff" opacity="0.14"/><circle cx="399.9" cy="206.7" r="1.03" fill="#83bbff" opacity="0.30"/><circle cx="86.2" cy="195.7" r="0.91" fill="#83bbff" opacity="0.27"/><circle cx="285.2" cy="235.4" r="1.05" fill="#83bbff" opacity="0.31"/><circle cx="109.6" cy="249.1" r="0.96" fill="#83bbff" opacity="0.30"/><circle cx="376.1" cy="246.8" r="0.87" fill="#83bbff" opacity="0.21"/><circle cx="384.5" cy="265.5" r="0.50" fill="#83bbff" opacity="0.40"/><circle cx="365.2" cy="258.0" r="0.66" fill="#83bbff" opacity="0.46"/><circle cx="331.5" cy="191.3" r="1.02" fill="#83bbff" opacity="0.44"/><circle cx="73.1" cy="217.7" r="0.54" fill="#83bbff" opacity="0.43"/><circle cx="136.7" cy="83.7" r="0.63" fill="#83bbff" opacity="0.16"/><circle cx="423.8" cy="140.6" r="0.57" fill="#83bbff" opacity="0.47"/><circle cx="445.6" cy="194.4" r="0.85" fill="#83bbff" opacity="0.38"/><circle cx="443.9" cy="158.9" r="0.75" fill="#83bbff" opacity="0.36"/><circle cx="83.4" cy="96.3" r="0.48" fill="#83bbff" opacity="0.27"/><circle cx="292.8" cy="130.2" r="0.83" fill="#83bbff" opacity="0.19"/><circle cx="88.8" cy="94.5" r="0.92" fill="#83bbff" opacity="0.22"/></svg><article class="trait-card" style="--tint:#8ccaff"><svg viewBox="0 0 56 56" fill="none" stroke="currentColor" stroke-width="2.15" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="13" y="13" width="30" height="30" rx="7"/><path d="M19 6v7m9-7v7m9-7v7M19 43v7m9-7v7m9-7v7M6 19h7m-7 9h7m-7 9h7m30-18h7m-7 9h7m-7 9h7m-20-17-7 9h6l-1 7 8-10h-6z"/></svg><h3>跑在 Apple GPU 上的 PyTorch</h3><p class="visually-hidden">用真正的 MPS 加速训练与推理。NumPy、pandas、scikit-learn 和 OpenCV，全部原生。</p></article><article class="trait-card" style="--tint:#9ee8f7"><svg viewBox="0 0 56 56" fill="none" stroke="currentColor" stroke-width="2.15" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="7" y="11" width="42" height="30" rx="6"/><path d="m16 21 6 5-6 5m12 0h10M19 47h18m-9-6v6"/><circle cx="43" cy="16" r="1"/></svg><h3>通过 SSH 连接你的机器</h3><p class="visually-hidden">用 SSH 和 SFTP 连接自己的服务器，直接在上面跑代码，无需离开 app。</p></article><article class="trait-card" style="--tint:#ecb4ff"><svg viewBox="0 0 56 56" fill="none" stroke="currentColor" stroke-width="2.15" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 18v19m0-5c0-7 18-7 18-14"/><circle cx="19" cy="13" r="5"/><circle cx="19" cy="43" r="5"/><circle cx="37" cy="13" r="5"/></svg><h3>内置 Git 与 GitHub</h3><p class="visually-hidden">克隆、编辑、提交、推送、开 PR，全在设备上完成。</p></article><article class="trait-card" style="--tint:#7fe2ad"><svg viewBox="0 0 56 56" fill="none" stroke="currentColor" stroke-width="2.15" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 38h34a7 7 0 1 0-2-14 13 13 0 0 0-25-2 8 8 0 0 0-7 16Zm7-25 26 31"/></svg><h3>离线运行 Python</h3><p class="visually-hidden">解释器、依赖包和你的笔记本，全都在设备本地。</p></article><article class="trait-card" style="--tint:#b4b6ff"><svg viewBox="0 0 56 56" fill="none" stroke="currentColor" stroke-width="2.15" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="28" cy="28" r="20"/><path d="M8 28h40M28 8c-8 8-8 32 0 40m0-40c8 8 8 32 0 40M12 19h32M12 37h32"/></svg><h3>九种语言</h3><p class="visually-hidden">整个 app 和每一节课都已本地化。</p></article></div></section>
 <section class="slide " data-key="lessons" data-title="在动手中学习，而不是只读" inert><div class="copy"><div class="kicker">GUIDED LESSONS</div><h2>在动手中学习，而不是只读</h2><p class="lead">九种语言的引导式课程画廊：从你的第一张图，到神经网络、物理仿真和 3D 蛋白质结构。</p><a class="cta" href="https://www.mecury.co.uk/vibeit/cookbook/" target="_blank" rel="noopener">打开课程画廊 ↗</a></div><div class="visual lesson-cases"><div class="case-grid" data-v-label="lessonK"><a class="case-card" href="https://www.mecury.co.uk/vibeit/cookbook/bioinformatics/" target="_blank" rel="noopener" style="--tint:#8ccaff"><svg viewBox="0 0 56 56" fill="none" stroke="currentColor" stroke-width="2.15" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 7c0 18 22 21 22 42M39 7c0 18-22 21-22 42M17 10h22M20 20h16M20 37h16M17 47h22"/></svg><span data-v="case0">RNA-seq 分析</span></a><a class="case-card" href="https://www.mecury.co.uk/vibeit/cookbook/bioinformatics/" target="_blank" rel="noopener" style="--tint:#9ee8f7"><svg viewBox="0 0 56 56" fill="none" stroke="currentColor" stroke-width="2.15" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m13 18 15-8 15 9-1 17-15 10-15-10zm0 0 14 9 16-8M27 27v19"/><circle cx="28" cy="10" r="4"/><circle cx="27" cy="27" r="4"/><circle cx="42" cy="37" r="4"/><circle cx="12" cy="36" r="4"/></svg><span data-v="case1">血红蛋白 3D</span></a><a class="case-card" href="https://www.mecury.co.uk/vibeit/cookbook/data-science/" target="_blank" rel="noopener" style="--tint:#ecb4ff"><svg viewBox="0 0 56 56" fill="none" stroke="currentColor" stroke-width="2.15" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 45h40M10 45V10m3 26 27-24" stroke-dasharray="3 4"/><circle cx="19" cy="18" r="3"/><circle cx="24" cy="13" r="3"/><circle cx="16" cy="28" r="3"/><path d="M32 31h5v5h-5zm9-9h5v5h-5zm-1 15h5v5h-5z"/></svg><span data-v="case2">训练分类模型</span></a><a class="case-card" href="https://www.mecury.co.uk/vibeit/cookbook/mathematics/" target="_blank" rel="noopener" style="--tint:#7fe2ad"><svg viewBox="0 0 56 56" fill="none" stroke="currentColor" stroke-width="2.15" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="10" y="10" width="36" height="36" rx="9"/><path d="M20 20h.1M36 20h.1m-8 8h.1M20 36h.1M36 36h.1" stroke-width="5"/></svg><span data-v="case3">蒙特卡洛模拟</span></a><a class="case-card" href="https://www.mecury.co.uk/vibeit/cookbook/physics/" target="_blank" rel="noopener" style="--tint:#b4b6ff"><svg viewBox="0 0 56 56" fill="none" stroke="currentColor" stroke-width="2.15" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 29h9l4-7 4 15 4-20 4 24 5-30 4 32 5-18 4 4h5"/></svg><span data-v="case4">引力波信号</span></a><a class="case-card" href="https://www.mecury.co.uk/vibeit/cookbook/chemistry/" target="_blank" rel="noopener" style="--tint:#ffd0a6"><svg viewBox="0 0 56 56" fill="none" stroke="currentColor" stroke-width="2.15" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 9h12m-9 0v16L13 43a3 3 0 0 0 3 4h24a3 3 0 0 0 3-4L31 25V9M18 36h20"/><circle cx="27" cy="31" r="2"/><circle cx="29" cy="40" r="2"/></svg><span data-v="case5">弱酸滴定</span></a><a class="case-card" href="https://www.mecury.co.uk/vibeit/cookbook/engineering/" target="_blank" rel="noopener" style="--tint:#9fc6f3"><svg viewBox="0 0 56 56" fill="none" stroke="currentColor" stroke-width="2.15" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 38V18h9l3-5 5 10 5-10 5 10 4-5h10v20H32m-8 0H6m18-6v12m8-12v12"/><circle cx="6" cy="38" r="3"/><circle cx="47" cy="18" r="3"/></svg><span data-v="case6">RC 电路</span></a><a class="case-card" href="https://www.mecury.co.uk/vibeit/cookbook/economics/" target="_blank" rel="noopener" style="--tint:#a0eaca"><svg viewBox="0 0 56 56" fill="none" stroke="currentColor" stroke-width="2.15" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 45h40M10 45V10m5 28 9-10 8 4 13-16m-8 0h8v8"/><path d="M22 17h6m-3-3v6"/></svg><span data-v="case7">汇率收益</span></a><a class="case-card" href="https://www.mecury.co.uk/vibeit/cookbook/humanities/" target="_blank" rel="noopener" style="--tint:#fbbade"><svg viewBox="0 0 56 56" fill="none" stroke="currentColor" stroke-width="2.15" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M28 43c-6-5-12-5-20-5V12c8 0 14 1 20 6 6-5 12-6 20-6v26c-8 0-14 0-20 5zm0-25v25M14 21l8 2m-8 5 8 2m12-7 8-2m-8 9 8-2"/></svg><span data-v="case8">历史文本分析</span></a></div></div></section>
-<section class="slide " data-key="aivibe" data-title="写一句注释，得到能跑的代码" inert><div class="copy"><div class="kicker">APPLE INTELLIGENCE · AI VIBECODING</div><h2>写一句注释<br><span>得到能跑的代码</span></h2><p class="lead">设备端补全在你输入时补齐 import。Apple Intelligence 把一句自然语言注释变成可运行的代码，你可以就地采纳。而在 Pro 版，智能体会接手难活——复杂的搭建，以及修复报错，直到单元格真正跑通。</p></div><div class="visual vibecode-visual"><div id="vibecode-stage"><iframe id="vibecode-frame" sandbox="allow-scripts" title="官网演示：自动补全、生成代码、修复报错" tabindex="-1" aria-hidden="true"></iframe></div></div></section>
+<section class="slide " data-key="aivibe" data-title="写一句注释，得到能跑的代码" inert><div class="copy"><div class="kicker">APPLE INTELLIGENCE · AI VIBECODING</div><h2>写一句注释<br><span>得到能跑的代码</span></h2><p class="lead">设备端补全在你输入时补齐 import。Apple Intelligence 把一句自然语言注释变成可运行的代码，你可以就地采纳。而在 Pro 版，智能体会接手难活——复杂的搭建，以及修复报错，直到单元格真正跑通。</p></div><div class="visual vibecode-visual"><div id="vibecode-stage"><img id="phone-demo-code" class="compact-demo" alt="" decoding="async" width="1175" height="841"><iframe id="vibecode-frame" sandbox="allow-scripts" title="官网演示：自动补全、生成代码、修复报错" tabindex="-1" aria-hidden="true"></iframe></div></div></section>
 <section class="slide pricing-deck" data-key="pricing" data-title="免费试用 7 天" inert><div class="pricing-hero"><div class="kicker">VIBEIT STUDIO</div><h2 data-i18n="pricing.title">免费试用 7 天</h2><p data-i18n="pricing.sub">每个方案都从 7 天免费试用开始，随时可取消。</p></div><div class="pricing-controls"><div class="bill-switch">
 <div aria-label="计费周期" class="seg" id="billSwitch" role="group">
 <button aria-pressed="true" data-cycle="monthly" data-i18n="price.monthly" type="button">按月</button>
@@ -690,6 +722,9 @@ MIT License, Copyright (c) Cksunandh (Sunandh ck) -->
 <script>
 'use strict';
 const $=id=>document.getElementById(id), slides=[...document.querySelectorAll('.slide')], reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const mobileVoyage=matchMedia('(max-width:760px), (any-pointer:coarse) and (max-width:950px)').matches;
+if(mobileVoyage)document.body.dataset.voyageRender='eco';
+
 const durations=[7700,40000,10200,8500,9500,9000,8500,9000,9500,6500];
 const end=slides.length-1;
 let index=-1, entered=0, autoplay=false, timer=0, px=0, py=0, mx=0, my=0, W=0, H=0, ratio=1, touch=null;
@@ -741,7 +776,7 @@ addEventListener('wheel',e=>{
 
 const shotButtons=[...document.querySelectorAll('[data-demo-button]')], frame=$('demo-frame');
 const showcaseTimes=[7400,15500,7400,7400];
-let shot=0, shotTimer=0, shotAuto=!reduced, shotReady=false, frameSelection=-2;
+let shot=0, shotTimer=0, shotAuto=!reduced&&!mobileVoyage, shotReady=false, frameSelection=-2;
 const isDocked=()=>index===1&&!flight&&!document.hidden&&!$('toc').open;
 function selectShot(i){
  shot=i;
@@ -754,6 +789,13 @@ function syncShowcase(){
  // Only the carousel clock waits until docking; do not swap render layers then.
  const approaching=index===1&&Boolean(flight)&&!document.hidden&&!$('toc').open;
  const wanted=(docked||approaching)?shot:leaving?frameSelection:-1;
+ if(mobileVoyage){
+  const still=$('phone-demo-features'),url='assets/eclipse/mobile-demo/feature-'+shot+'.webp';
+  if((docked||approaching||index===1)&&still.getAttribute('src')!==url)still.setAttribute('src',url);
+  if(docked&&shotAuto)shotTimer=setTimeout(()=>{if(isDocked()){selectShot((shot+1)%shotButtons.length);syncShowcase();}},showcaseTimes[shot]);
+  return;
+ }
+
  if(shotReady&&frameSelection!==wanted){
    frameSelection=wanted;
    frame.contentWindow.postMessage({kind:'vibeit-demo:set',i:wanted},'*');
@@ -773,7 +815,7 @@ function setShotAuto(on){
 shotButtons.forEach((button,i)=>button.addEventListener('click',()=>{selectShot(i);syncShowcase();}));
 $('showcase-play').onclick=()=>setShotAuto(!shotAuto);
 frame.addEventListener('load',()=>{shotReady=true;frameSelection=-2;syncShowcase();});
-frame.srcdoc=JSON.parse($('showcase-payload').textContent);
+if(!mobileVoyage)frame.srcdoc=JSON.parse($('showcase-payload').textContent);
 addEventListener('message',e=>{
  if(e.source===frame.contentWindow&&e.data?.kind==='vibeit-demo:wheel'&&isDocked())wheelTurn(e.data.d);
 });
@@ -829,6 +871,7 @@ function localizeVoyage(lang,dict,en){
  const productTitle='Vibeit Studio';
  const pass=lang==='zh'?'zh-Hans':lang;
  document.documentElement.lang=pass;
+ updateFullscreen();
  header.dir=footer.dir=dir;
  document.querySelectorAll('#deck .copy,.compute-heading,.compute-caption,#toc').forEach(x=>{x.dir=dir;});
  $('voyage-language').value=lang;
@@ -846,7 +889,7 @@ function localizeVoyage(lang,dict,en){
  set(p('features','.kicker'),'nav.features');
  set(p('features','h2'),'features');
  set(p('features','.lead'),'features.sub');
- aa('.site-showcase','aria-label','demo');aa('#demo-frame','title','demo');aa('.showcase-tabs','aria-label','demo');
+ aa('.site-showcase','aria-label','demo');aa('#demo-frame','title','demo');aa('#phone-demo-features','alt','demo');aa('.showcase-tabs','aria-label','demo');
  shotButtons.forEach((v,i)=>v.textContent=text('tab'+i));
  setShotAuto(shotAuto);
  const chip=el(p('silicon','h2')),accent=document.createElement('em');accent.textContent=text('chipB');
@@ -870,7 +913,7 @@ function localizeVoyage(lang,dict,en){
   li.replaceChildren(li.querySelector('span'),document.createTextNode(text('lesson'+(i+1))));
   li.dir=dir;
  });
- b(p('aivibe','h2'),'vibeA','vibeB');set(p('aivibe','.lead'),'vibeBody');aa('#vibecode-frame','title','vibeDemo');
+ b(p('aivibe','h2'),'vibeA','vibeB');set(p('aivibe','.lead'),'vibeBody');aa('#vibecode-frame','title','vibeDemo');aa('#phone-demo-code','alt','vibeDemo');
  setVoyageDownloadTitle(text('final.title'),lang);
  const badge=el('.ending .store img');badge.src=voyageBadges[lang];badge.alt=text('hero.cta');
  const titles=[
@@ -929,7 +972,7 @@ document.querySelectorAll('.ending h2,.ending .actions,.ending .store img').forE
 addEventListener('resize',alignVoyageDownload,{passive:true});
 document.fonts?.ready.then(alignVoyageDownload);
 function pushVoyageDemoLanguage(){
- if(!currentVoyageLang)return;
+ if(!currentVoyageLang||mobileVoyage)return;
  for(const f of [$('demo-frame'),$('vibecode-frame')]){
    f?.contentWindow?.postMessage({kind:'voyage:language',lang:currentVoyageLang},'*');
  }
@@ -979,7 +1022,27 @@ function showVoyageCredits(){if(typeof $('toc').showModal==='function'){$('toc')
 $('voyage-credits').onclick=showVoyageCredits;
 $('close').onclick=()=>$('toc').close();
 $('toc').onclose=()=>{resetTimer();syncShowcase();(index===end?$('voyage-credits'):bars[index])?.focus();};
-async function fullscreen(){try{if(document.fullscreenElement)await document.exitFullscreen();else if(document.documentElement.requestFullscreen)await document.documentElement.requestFullscreen();else if(document.documentElement.webkitRequestFullscreen)document.documentElement.webkitRequestFullscreen();}catch{}}
+const fullscreenBox=$('voyage-fullscreen');
+const fullscreenText={
+ en:['Full screen','Exit full screen'],zh:['全屏','退出全屏'],ja:['全画面','全画面を終了'],ko:['전체 화면','전체 화면 종료'],fr:['Plein écran','Quitter le plein écran'],it:['Schermo intero','Esci da schermo intero'],de:['Vollbild','Vollbild beenden'],ar:['ملء الشاشة','الخروج من ملء الشاشة'],th:['เต็มหน้าจอ','ออกจากเต็มหน้าจอ']
+};
+function isFullscreen(){return !!(document.fullscreenElement||document.webkitFullscreenElement);}
+function updateFullscreen(){
+ const x=document.documentElement;
+ fullscreenBox.hidden=!(document.fullscreenEnabled||document.webkitFullscreenEnabled)||!(x.requestFullscreen||x.webkitRequestFullscreen);
+ const key=document.documentElement.lang.split('-')[0],font=(fullscreenText[key]||fullscreenText.en)[isFullscreen()?1:0];
+ fullscreenBox.setAttribute('aria-label',font);fullscreenBox.title=font;
+ fullscreenBox.setAttribute('aria-pressed',String(isFullscreen()));
+}
+async function fullscreen(){
+ try{
+  if(isFullscreen()){const exit=document.exitFullscreen||document.webkitExitFullscreen;if(exit)await exit.call(document);}
+  else {const enter=document.documentElement.requestFullscreen||document.documentElement.webkitRequestFullscreen;if(enter)await enter.call(document.documentElement);}
+ }catch{}
+}
+fullscreenBox.onclick=()=>{openVoyageMenu(false);fullscreen();};
+for(const e of ['fullscreenchange','webkitfullscreenchange'])document.addEventListener(e,()=>{updateFullscreen();resize();});
+
 
 addEventListener('hashchange',fromHash);document.addEventListener('visibilitychange',()=>{resetTimer();syncShowcase();});
 addEventListener('keydown',e=>{if(e.ctrlKey||e.metaKey||e.altKey||e.repeat||$('toc').open||e.target.closest?.('select,input,textarea'))return;const k=e.key.toLowerCase();if(k===' '&&e.target.closest?.('button,a'))return;const op={'arrowdown':()=>go(index+1),'arrowright':()=>go(index+1),'pagedown':()=>go(index+1),' ':()=>go(index+1),'arrowup':()=>go(index-1),'arrowleft':()=>go(index-1),'pageup':()=>go(index-1),'home':()=>go(0),'end':()=>go(slides.length-1),a:()=>setAuto(!autoplay),f:fullscreen,o:showVoyageCredits}[k];if(op){e.preventDefault();op()}});
@@ -1006,10 +1069,10 @@ function motionPath(p){
  return v;
 }
 const seed=(s=>()=>((s=Math.imul(1664525,s)+1013904223|0)>>>0)/4294967296)(629801);
-const distant=Array.from({length:710},()=>({x:seed()*3.8-1.9,y:seed()*2.1-1.05,depth:15000+seed()*42000,a:seed(),c:seed(),k:seed(),phi:seed()*Math.PI*2}));
+const distant=Array.from({length:mobileVoyage?300:710},()=>({x:seed()*3.8-1.9,y:seed()*2.1-1.05,depth:15000+seed()*42000,a:seed(),c:seed(),k:seed(),phi:seed()*Math.PI*2}));
 const stars=[];
 for(let j=0;j<36;j++){
- for(let k=0;k<205;k++){
+ for(let k=0;k<(mobileVoyage?80:205);k++){
   stars.push({point:[(seed()-.5)*6400,(seed()-.5)*4600,j*580+seed()*580-270],a:seed(),c:seed(),k:seed(),phi:seed()*6.28318});
  }
 }
@@ -1025,7 +1088,12 @@ float hash(vec3 p){p=fract(p*.3183099+vec3(.17,.33,.49));p*=17.;return fract(p.x
 float n(vec3 p){vec3 i=floor(p),f=fract(p);f=f*f*(3.-2.*f);
 return mix(mix(mix(hash(i),hash(i+vec3(1,0,0)),f.x),mix(hash(i+vec3(0,1,0)),hash(i+vec3(1,1,0)),f.x),f.y),
 mix(mix(hash(i+vec3(0,0,1)),hash(i+vec3(1,0,1)),f.x),mix(hash(i+vec3(0,1,1)),hash(i+vec3(1,1,1)),f.x),f.y),f.z);}
-float fb(vec3 p){float a=.53,k=0.;for(int j=0;j<4;j++){k+=a*n(p);p=p*2.08+vec3(3.31,.94,8.04);a*=.48;}return k;}
+#ifdef MOBILE_RENDER
+#define FOG_OCTAVES 3
+#else
+#define FOG_OCTAVES 4
+#endif
+float fb(vec3 p){float a=.53,k=0.;for(int j=0;j<FOG_OCTAVES;j++){k+=a*n(p);p=p*2.08+vec3(3.31,.94,8.04);a*=.48;}return k;}
 mat2 rot(float a){return mat2(cos(a),sin(a),-sin(a),cos(a));}
 float rayBall(vec3 oc,vec3 rd,float r){float b=dot(oc,rd),h=b*b-dot(oc,oc)+r*r;if(h<0.)return -1.;return -b-sqrt(h);}
 vec3 dust(vec3 rd,vec3 at,vec3 color,float slope,float key){
@@ -1156,12 +1224,16 @@ void main(){
  c+=mix(vec3(.036,.082,.16),vec3(.054,.089,.154),smoothstep(-.55,.68,rd.x))*pow(max(0.,f-.12),2.)*lane*1.08;
  c+=dust(rd,vec3(620.,25.,1840.),vec3(.20,.33,.61),-.36,2.0);
  c+=dust(rd,vec3(1000.,85.,3970.),vec3(.22,.36,.61),-.30,5.5);
+ #ifndef MOBILE_RENDER
  c+=dust(rd,vec3(390.,300.,5820.),vec3(.26,.29,.49),.4,6.2);
+ #endif
  c+=dust(rd,vec3(-240.,70.,7730.),vec3(.13,.41,.53),-.48,9.);
  c+=dust(rd,vec3(980.,40.,10050.),vec3(.24,.30,.56),.32,12.);
  c+=dust(rd,vec3(190.,-30.,13870.),vec3(.27,.34,.6),-.21,14.);
  c+=dust(rd,vec3(830.,260.,16730.),vec3(.12,.25,.49),-.28,11.7);
+ #ifndef MOBILE_RENDER
  c+=dust(rd,vec3(-190.,-360.,20210.),vec3(.16,.30,.55),.37,17.);
+ #endif
  if(F>0.001){
   vec3 scene=planet(c,rd,B5,405.,vec3(.18,.43,.92),5);
   scene=ringedSaturn(scene,rd,B4);
@@ -1184,8 +1256,8 @@ function initGL(){
   const g=cv.getContext('webgl',{alpha:false,antialias:false,powerPreference:'low-power'});
   if(!g)throw Error('WebGL unavailable');
   function shader(type,src){const v=g.createShader(type);g.shaderSource(v,src);g.compileShader(v);if(!g.getShaderParameter(v,g.COMPILE_STATUS))throw Error(g.getShaderInfoLog(v));return v}
-  const wrappedMip=Boolean(g.getExtension('OES_standard_derivatives')&&g.getExtension('EXT_shader_texture_lod'));
-  const prefix=wrappedMip?'#extension GL_OES_standard_derivatives : enable\n#extension GL_EXT_shader_texture_lod : enable\n#define PLANET_GRAD 1\n':'';
+  const wrappedMip=!mobileVoyage&&Boolean(g.getExtension('OES_standard_derivatives')&&g.getExtension('EXT_shader_texture_lod'));
+  const prefix=(wrappedMip?'#extension GL_OES_standard_derivatives : enable\n#extension GL_EXT_shader_texture_lod : enable\n#define PLANET_GRAD 1\n':'')+(mobileVoyage?'#define MOBILE_RENDER 1\n':'');
   const p=g.createProgram();g.attachShader(p,shader(g.VERTEX_SHADER,vs));g.attachShader(p,shader(g.FRAGMENT_SHADER,prefix+fragment));g.linkProgram(p);
   if(!g.getProgramParameter(p,g.LINK_STATUS))throw Error(g.getProgramInfoLog(p));
   g.useProgram(p);g.bindBuffer(g.ARRAY_BUFFER,g.createBuffer());g.bufferData(g.ARRAY_BUFFER,new Float32Array([-1,-1,1,-1,-1,1,1,1]),g.STATIC_DRAW);
@@ -1206,10 +1278,11 @@ cv.addEventListener('webglcontextlost',e=>{e.preventDefault();gl=null;cv.style.v
 cv.addEventListener('webglcontextrestored',()=>{initGL();resize()});
 function resize(){
  W=innerWidth;H=innerHeight;if(!W||!H)return;
- ratio=Math.min(1.5,devicePixelRatio||1);
+ ratio=mobileVoyage?1:Math.min(1.5,devicePixelRatio||1);
+ mobileLayoutKey="";
  spark.width=Math.round(W*ratio);spark.height=Math.round(H*ratio);
  // Keep the globe silhouette close to display resolution, with a bounded shader cost.
- const f=Math.min(Math.max(1,Math.min(1.25,devicePixelRatio||1)),1536/W,960/H,Math.sqrt(1280000/(W*H)));cv.width=Math.max(2,Math.round(W*f));cv.height=Math.max(2,Math.round(H*f));
+ const f=mobileVoyage?Math.min(1,640/W,720/H,Math.sqrt(215000/(W*H))):Math.min(Math.max(1,Math.min(1.25,devicePixelRatio||1)),1536/W,960/H,Math.sqrt(1280000/(W*H)));cv.width=Math.max(2,Math.round(W*f));cv.height=Math.max(2,Math.round(H*f));
  if(gl)gl.viewport(0,0,cv.width,cv.height);
 }
 function camera(ms){
@@ -1342,14 +1415,16 @@ function drawSky(cam,ms,t){
  ctx.globalAlpha=1;
  return bodies;
 }
+let mobileLayoutKey="";
 function tick(ms){
  requestAnimationFrame(tick);
- if(document.hidden||!ready||ms-lastFrame<(reduced?145:15.5))return;
+ if(document.hidden||!ready||ms-lastFrame<(mobileVoyage?(flight?34:100):(reduced?145:15.5)))return;
  lastFrame=ms;
  const navT=reduced?0:ms*.001;
  px=mix(px,mx,.13);py=mix(py,my,.13);
  const cam=camera(ms);
- placePanels(cam);
+ const layout=index+":"+routePosition;
+ if(!mobileVoyage||flight||layout!==mobileLayoutKey){placePanels(cam);mobileLayoutKey=layout;}
 
  worldFrame++;
  const positions=drawSky(cam,ms,navT);
@@ -1363,6 +1438,11 @@ function tick(ms){
 const vibeCodeFrame=$('vibecode-frame'), vibeCodeIndex=slides.findIndex(s=>s.dataset.key==='aivibe');
 let vibeReady=false, vibePrevious=false;
 function syncVibeCoding(){
+ if(mobileVoyage){
+  const still=$('phone-demo-code');
+  if(index===vibeCodeIndex&&!still.hasAttribute('src'))still.src='assets/eclipse/mobile-demo/coding.webp';
+  return;
+ }
  if(!vibeReady)return;
  const on=index===vibeCodeIndex&&!document.hidden&&!$('toc').open;
  if(on===vibePrevious)return;
@@ -1370,7 +1450,7 @@ function syncVibeCoding(){
 }
 vibeCodeFrame.addEventListener('load',()=>{vibeReady=true;vibePrevious=false;syncVibeCoding();});
 new ResizeObserver(([e])=>{vibeCodeFrame.style.transform='scale('+e.contentRect.width/1175+') translate(-72px,-72px)';}).observe($('vibecode-stage'));
-vibeCodeFrame.srcdoc=JSON.parse($('vibecode-payload').textContent);
+if(!mobileVoyage)vibeCodeFrame.srcdoc=JSON.parse($('vibecode-payload').textContent);
 document.addEventListener('visibilitychange',syncVibeCoding);
 new MutationObserver(syncVibeCoding).observe($('toc'),{attributes:true,attributeFilter:['open']});
 
@@ -1865,8 +1945,8 @@ new MutationObserver(syncVibeCoding).observe($('toc'),{attributes:true,attribute
  });
 })();
 
-setShotAuto(!reduced);fromHash();initGL();resize();ready=true;
-addEventListener('resize',resize,{passive:true});requestAnimationFrame(tick);
+setShotAuto(!reduced&&!mobileVoyage);fromHash();initGL();resize();ready=true;
+addEventListener('resize',resize,{passive:true});window.visualViewport?.addEventListener('resize',()=>{if(mobileVoyage&&window.visualViewport.scale===1&&(W!==innerWidth||H!==innerHeight))resize();},{passive:true});requestAnimationFrame(tick);
 
 (() => {
  const scene=document.querySelector('.file-agent');
@@ -1936,7 +2016,7 @@ addEventListener('resize',resize,{passive:true});requestAnimationFrame(tick);
  if(!host||!canvas)return;
  const reduce=matchMedia('(prefers-reduced-motion: reduce)');
  const mobile=matchMedia('(max-width: 760px)').matches||matchMedia('(pointer: coarse)').matches;
- const N=mobile?2350:5300;
+ const N=mobile?1450:5300;
  let gl=null,program=null,uni={},raf=0,retry=0,slots=null,started=0,drawn=0,first=null;
  function makeCloud(){
   let seed=Math.floor(Math.random()*4294967296);
@@ -2044,14 +2124,14 @@ addEventListener('resize',resize,{passive:true});requestAnimationFrame(tick);
    if(++retry>=4){host.classList.add('no-gl');canvas.style.visibility='hidden';cancelAnimationFrame(raf);raf=0;}
    return;
   }
-  if(t-drawn<15)return;
+  if(t-drawn<(mobile?42:15))return;
   drawn=t;
   const g=gl,moving=document.body.dataset.inFlight==='true';
   if(!slots||moving){
    const r=host.getBoundingClientRect();
    slots=[r.left+r.width*.5,r.top+r.height*.5,Math.min(r.height*.77,r.width*.67)];
   }
-  const d=Math.min(devicePixelRatio||1,mobile?1.35:1.70);
+  const d=Math.min(devicePixelRatio||1,mobile?1:1.70);
   const w=Math.round(innerWidth*d),h=Math.round(innerHeight*d);
   if(canvas.width!==w||canvas.height!==h){canvas.width=w;canvas.height=h;g.viewport(0,0,w,h);}
   const [x,y,r]=slots;
