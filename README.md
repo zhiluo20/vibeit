@@ -16,6 +16,12 @@ GitHub Pages fallback:
 https://zhiluo20.github.io/vibeit/
 ```
 
+## Eclipse release and archive
+- Production: [Eclipse](https://www.mecury.co.uk/vibeit/).
+- [Public archive](https://www.mecury.co.uk/vibeit/archive/), including the previously published classic landing page.
+- The pre-release production index is preserved exactly by Git commit `4fe6611feb512636811127c9580f556942a4ca81`; the browsable archive adjusts only asset/fragment resolution and indexing.
+- Eclipse image assets are content-hashed under `assets/eclipse/`. Legal, help, cookbook and research routes are unchanged.
+
 ## Contents
 
 ```text
