@@ -9,7 +9,7 @@
 <meta name="robots" content="index,follow">
 <link rel="canonical" href="https://www.mecury.co.uk/vibeit/">
 <link rel="icon" href="/vibeit/assets/pydev-icon.png">
-<meta name="vibeit-release" content="eclipse-2026-11-26">
+<meta name="vibeit-release" content="eclipse-2026-11-26-safe-area">
 <meta content="website" property="og:type"/>
 <meta content="Vibeit Studio" property="og:site_name"/>
 <meta content="en" property="og:locale"/>
@@ -543,6 +543,25 @@ body[data-in-flight=true] #chapter-rail #count{color:#79e6ff}
 /* Align the badge with the chosen words, measured after the title wraps. */
 .ending .download-title-anchor{white-space:nowrap}
 .ending .store-star{translate:var(--cta-align-x,0px) 0}
+
+/* One horizontal content grid for all three layers of site chrome.
+   Background canvases and the chapter rail stay full bleed. */
+:root{
+ --site-frame-width:1106px;
+ --site-edge:max(calc((100vw - var(--site-frame-width)) / 2),clamp(26px,4.2vw,42px),env(safe-area-inset-left,0px),env(safe-area-inset-right,0px));
+ --site-content-width:calc(100vw - 2 * var(--site-edge));
+ --edge:var(--site-edge);
+}
+.voyage-nav-inner,.voyage-footer-inner{width:100%;padding-inline:var(--site-edge)}
+#deck .slide{padding-inline:var(--site-edge)}
+#deck .slide.home{padding-inline:var(--site-edge)}
+#deck .home .copy{width:min(100%,1052px)}
+#deck .slide > .visual{right:var(--site-edge);max-width:calc(var(--site-content-width) * .54)}
+@media(max-width:760px) and (orientation:portrait){
+ #deck .slide > .visual{right:auto;max-width:100%}
+ .ending .download-title-continuation{display:block;white-space:nowrap}
+ #deck .slide > .visual:not(.vibecode-visual){margin-inline:0}
+}
 </style>
 </head>
 <body>
@@ -883,7 +902,13 @@ function setVoyageDownloadTitle(title,lang){
  else{
   const span=document.createElement('span');
   span.className='download-title-anchor';span.textContent=marker;
-  node.replaceChildren(title.slice(0,idx),span,title.slice(idx+marker.length));
+  const breakAt=title.indexOf('变成');
+  if(breakAt>=0){
+   const continuation=document.createElement('span');
+   continuation.className='download-title-continuation';
+   continuation.append(title.slice(breakAt+1,idx),span,title.slice(idx+marker.length));
+   node.replaceChildren(title.slice(0,breakAt+1),continuation);
+  }else node.replaceChildren(title.slice(0,idx),span,title.slice(idx+marker.length));
  }
  alignVoyageDownload();
 }
