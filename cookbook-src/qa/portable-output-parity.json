@@ -1,0 +1,505 @@
+{
+  "method": "Refresh generated sources and scoped snapshots; retain saved scientific outputs. Only working-folder/results path messages and removed unused snapshot-list messages change. All other output objects and PNG bytes compared exactly.",
+  "notebooks": [
+    {
+      "filename": "01-fasta-to-protein.en.ipynb",
+      "non_path_outputs": "byte-identical",
+      "png_figures_preserved": 3
+    },
+    {
+      "filename": "01-fasta-to-protein.zh-hans.ipynb",
+      "non_path_outputs": "byte-identical",
+      "png_figures_preserved": 3
+    },
+    {
+      "filename": "02-affine-sequence-alignment.en.ipynb",
+      "non_path_outputs": "byte-identical",
+      "png_figures_preserved": 3
+    },
+    {
+      "filename": "02-affine-sequence-alignment.zh-hans.ipynb",
+      "non_path_outputs": "byte-identical",
+      "png_figures_preserved": 3
+    },
+    {
+      "filename": "03-airway-expression.en.ipynb",
+      "non_path_outputs": "byte-identical",
+      "png_figures_preserved": 5
+    },
+    {
+      "filename": "03-airway-expression.zh-hans.ipynb",
+      "non_path_outputs": "byte-identical",
+      "png_figures_preserved": 5
+    },
+    {
+      "filename": "04-reactome-enrichment.en.ipynb",
+      "non_path_outputs": "byte-identical",
+      "png_figures_preserved": 3
+    },
+    {
+      "filename": "04-reactome-enrichment.zh-hans.ipynb",
+      "non_path_outputs": "byte-identical",
+      "png_figures_preserved": 3
+    },
+    {
+      "filename": "05-string-physical-network.en.ipynb",
+      "non_path_outputs": "byte-identical",
+      "png_figures_preserved": 3
+    },
+    {
+      "filename": "05-string-physical-network.zh-hans.ipynb",
+      "non_path_outputs": "byte-identical",
+      "png_figures_preserved": 3
+    },
+    {
+      "filename": "06-hemoglobin-structure.en.ipynb",
+      "non_path_outputs": "byte-identical",
+      "png_figures_preserved": 3
+    },
+    {
+      "filename": "06-hemoglobin-structure.zh-hans.ipynb",
+      "non_path_outputs": "byte-identical",
+      "png_figures_preserved": 3
+    },
+    {
+      "filename": "07-imatinib-pocket.en.ipynb",
+      "non_path_outputs": "byte-identical",
+      "png_figures_preserved": 4
+    },
+    {
+      "filename": "07-imatinib-pocket.zh-hans.ipynb",
+      "non_path_outputs": "byte-identical",
+      "png_figures_preserved": 4
+    },
+    {
+      "filename": "08-trastuzumab-interface.en.ipynb",
+      "non_path_outputs": "byte-identical",
+      "png_figures_preserved": 5
+    },
+    {
+      "filename": "08-trastuzumab-interface.zh-hans.ipynb",
+      "non_path_outputs": "byte-identical",
+      "png_figures_preserved": 5
+    },
+    {
+      "filename": "ds01-iris-audit.en.ipynb",
+      "non_path_outputs": "byte-identical",
+      "png_figures_preserved": 3
+    },
+    {
+      "filename": "ds01-iris-audit.zh-hans.ipynb",
+      "non_path_outputs": "byte-identical",
+      "png_figures_preserved": 3
+    },
+    {
+      "filename": "ds02-iris-pca.en.ipynb",
+      "non_path_outputs": "byte-identical",
+      "png_figures_preserved": 3
+    },
+    {
+      "filename": "ds02-iris-pca.zh-hans.ipynb",
+      "non_path_outputs": "byte-identical",
+      "png_figures_preserved": 3
+    },
+    {
+      "filename": "ds03-iris-knn.en.ipynb",
+      "non_path_outputs": "byte-identical",
+      "png_figures_preserved": 3
+    },
+    {
+      "filename": "ds03-iris-knn.zh-hans.ipynb",
+      "non_path_outputs": "byte-identical",
+      "png_figures_preserved": 3
+    },
+    {
+      "filename": "ds04-wine-clusters.en.ipynb",
+      "non_path_outputs": "byte-identical",
+      "png_figures_preserved": 3
+    },
+    {
+      "filename": "ds04-wine-clusters.zh-hans.ipynb",
+      "non_path_outputs": "byte-identical",
+      "png_figures_preserved": 3
+    },
+    {
+      "filename": "ds05-bike-regression.en.ipynb",
+      "non_path_outputs": "byte-identical",
+      "png_figures_preserved": 3
+    },
+    {
+      "filename": "ds05-bike-regression.zh-hans.ipynb",
+      "non_path_outputs": "byte-identical",
+      "png_figures_preserved": 3
+    },
+    {
+      "filename": "ds06-bike-backtesting.en.ipynb",
+      "non_path_outputs": "byte-identical",
+      "png_figures_preserved": 3
+    },
+    {
+      "filename": "ds06-bike-backtesting.zh-hans.ipynb",
+      "non_path_outputs": "byte-identical",
+      "png_figures_preserved": 3
+    },
+    {
+      "filename": "ma01-numerical-calculus.en.ipynb",
+      "non_path_outputs": "byte-identical",
+      "png_figures_preserved": 3
+    },
+    {
+      "filename": "ma01-numerical-calculus.zh-hans.ipynb",
+      "non_path_outputs": "byte-identical",
+      "png_figures_preserved": 3
+    },
+    {
+      "filename": "ma02-bracketed-roots.en.ipynb",
+      "non_path_outputs": "byte-identical",
+      "png_figures_preserved": 3
+    },
+    {
+      "filename": "ma02-bracketed-roots.zh-hans.ipynb",
+      "non_path_outputs": "byte-identical",
+      "png_figures_preserved": 3
+    },
+    {
+      "filename": "ma03-conditioning.en.ipynb",
+      "non_path_outputs": "byte-identical",
+      "png_figures_preserved": 3
+    },
+    {
+      "filename": "ma03-conditioning.zh-hans.ipynb",
+      "non_path_outputs": "byte-identical",
+      "png_figures_preserved": 3
+    },
+    {
+      "filename": "ma04-monte-carlo.en.ipynb",
+      "non_path_outputs": "byte-identical",
+      "png_figures_preserved": 3
+    },
+    {
+      "filename": "ma04-monte-carlo.zh-hans.ipynb",
+      "non_path_outputs": "byte-identical",
+      "png_figures_preserved": 3
+    },
+    {
+      "filename": "ma05-bootstrap.en.ipynb",
+      "non_path_outputs": "byte-identical",
+      "png_figures_preserved": 3
+    },
+    {
+      "filename": "ma05-bootstrap.zh-hans.ipynb",
+      "non_path_outputs": "byte-identical",
+      "png_figures_preserved": 3
+    },
+    {
+      "filename": "ma06-permutation-tests.en.ipynb",
+      "non_path_outputs": "byte-identical",
+      "png_figures_preserved": 3
+    },
+    {
+      "filename": "ma06-permutation-tests.zh-hans.ipynb",
+      "non_path_outputs": "byte-identical",
+      "png_figures_preserved": 3
+    },
+    {
+      "filename": "ph01-pendulum.en.ipynb",
+      "non_path_outputs": "byte-identical",
+      "png_figures_preserved": 3
+    },
+    {
+      "filename": "ph01-pendulum.zh-hans.ipynb",
+      "non_path_outputs": "byte-identical",
+      "png_figures_preserved": 3
+    },
+    {
+      "filename": "ph02-oscillator.en.ipynb",
+      "non_path_outputs": "byte-identical",
+      "png_figures_preserved": 3
+    },
+    {
+      "filename": "ph02-oscillator.zh-hans.ipynb",
+      "non_path_outputs": "byte-identical",
+      "png_figures_preserved": 3
+    },
+    {
+      "filename": "ph03-projectile.en.ipynb",
+      "non_path_outputs": "byte-identical",
+      "png_figures_preserved": 3
+    },
+    {
+      "filename": "ph03-projectile.zh-hans.ipynb",
+      "non_path_outputs": "byte-identical",
+      "png_figures_preserved": 3
+    },
+    {
+      "filename": "ph04-heat.en.ipynb",
+      "non_path_outputs": "byte-identical",
+      "png_figures_preserved": 3
+    },
+    {
+      "filename": "ph04-heat.zh-hans.ipynb",
+      "non_path_outputs": "byte-identical",
+      "png_figures_preserved": 3
+    },
+    {
+      "filename": "ph05-gw150914.en.ipynb",
+      "non_path_outputs": "byte-identical",
+      "png_figures_preserved": 3
+    },
+    {
+      "filename": "ph05-gw150914.zh-hans.ipynb",
+      "non_path_outputs": "byte-identical",
+      "png_figures_preserved": 3
+    },
+    {
+      "filename": "ph06-blackbody.en.ipynb",
+      "non_path_outputs": "byte-identical",
+      "png_figures_preserved": 3
+    },
+    {
+      "filename": "ph06-blackbody.zh-hans.ipynb",
+      "non_path_outputs": "byte-identical",
+      "png_figures_preserved": 3
+    },
+    {
+      "filename": "ch01-molecular-formulas.en.ipynb",
+      "non_path_outputs": "byte-identical",
+      "png_figures_preserved": 3
+    },
+    {
+      "filename": "ch01-molecular-formulas.zh-hans.ipynb",
+      "non_path_outputs": "byte-identical",
+      "png_figures_preserved": 3
+    },
+    {
+      "filename": "ch02-molecular-graphs.en.ipynb",
+      "non_path_outputs": "byte-identical",
+      "png_figures_preserved": 3
+    },
+    {
+      "filename": "ch02-molecular-graphs.zh-hans.ipynb",
+      "non_path_outputs": "byte-identical",
+      "png_figures_preserved": 3
+    },
+    {
+      "filename": "ch03-caffeine-geometry.en.ipynb",
+      "non_path_outputs": "byte-identical",
+      "png_figures_preserved": 3
+    },
+    {
+      "filename": "ch03-caffeine-geometry.zh-hans.ipynb",
+      "non_path_outputs": "byte-identical",
+      "png_figures_preserved": 3
+    },
+    {
+      "filename": "ch04-titration.en.ipynb",
+      "non_path_outputs": "byte-identical",
+      "png_figures_preserved": 3
+    },
+    {
+      "filename": "ch04-titration.zh-hans.ipynb",
+      "non_path_outputs": "byte-identical",
+      "png_figures_preserved": 3
+    },
+    {
+      "filename": "ch05-vapor-pressure.en.ipynb",
+      "non_path_outputs": "byte-identical",
+      "png_figures_preserved": 3
+    },
+    {
+      "filename": "ch05-vapor-pressure.zh-hans.ipynb",
+      "non_path_outputs": "byte-identical",
+      "png_figures_preserved": 3
+    },
+    {
+      "filename": "ch06-calibration.en.ipynb",
+      "non_path_outputs": "byte-identical",
+      "png_figures_preserved": 3
+    },
+    {
+      "filename": "ch06-calibration.zh-hans.ipynb",
+      "non_path_outputs": "byte-identical",
+      "png_figures_preserved": 3
+    },
+    {
+      "filename": "en01-energy-audit.en.ipynb",
+      "non_path_outputs": "byte-identical",
+      "png_figures_preserved": 3
+    },
+    {
+      "filename": "en01-energy-audit.zh-hans.ipynb",
+      "non_path_outputs": "byte-identical",
+      "png_figures_preserved": 3
+    },
+    {
+      "filename": "en02-energy-regression.en.ipynb",
+      "non_path_outputs": "byte-identical",
+      "png_figures_preserved": 3
+    },
+    {
+      "filename": "en02-energy-regression.zh-hans.ipynb",
+      "non_path_outputs": "byte-identical",
+      "png_figures_preserved": 3
+    },
+    {
+      "filename": "en03-energy-filtering.en.ipynb",
+      "non_path_outputs": "byte-identical",
+      "png_figures_preserved": 3
+    },
+    {
+      "filename": "en03-energy-filtering.zh-hans.ipynb",
+      "non_path_outputs": "byte-identical",
+      "png_figures_preserved": 3
+    },
+    {
+      "filename": "en04-beam-fem.en.ipynb",
+      "non_path_outputs": "byte-identical",
+      "png_figures_preserved": 3
+    },
+    {
+      "filename": "en04-beam-fem.zh-hans.ipynb",
+      "non_path_outputs": "byte-identical",
+      "png_figures_preserved": 3
+    },
+    {
+      "filename": "en05-rc-circuit.en.ipynb",
+      "non_path_outputs": "byte-identical",
+      "png_figures_preserved": 3
+    },
+    {
+      "filename": "en05-rc-circuit.zh-hans.ipynb",
+      "non_path_outputs": "byte-identical",
+      "png_figures_preserved": 3
+    },
+    {
+      "filename": "en06-pid-control.en.ipynb",
+      "non_path_outputs": "byte-identical",
+      "png_figures_preserved": 3
+    },
+    {
+      "filename": "en06-pid-control.zh-hans.ipynb",
+      "non_path_outputs": "byte-identical",
+      "png_figures_preserved": 3
+    },
+    {
+      "filename": "ec01-real-growth.en.ipynb",
+      "non_path_outputs": "byte-identical",
+      "png_figures_preserved": 3
+    },
+    {
+      "filename": "ec01-real-growth.zh-hans.ipynb",
+      "non_path_outputs": "byte-identical",
+      "png_figures_preserved": 3
+    },
+    {
+      "filename": "ec02-inflation.en.ipynb",
+      "non_path_outputs": "byte-identical",
+      "png_figures_preserved": 3
+    },
+    {
+      "filename": "ec02-inflation.zh-hans.ipynb",
+      "non_path_outputs": "byte-identical",
+      "png_figures_preserved": 3
+    },
+    {
+      "filename": "ec03-inequality.en.ipynb",
+      "non_path_outputs": "byte-identical",
+      "png_figures_preserved": 3
+    },
+    {
+      "filename": "ec03-inequality.zh-hans.ipynb",
+      "non_path_outputs": "byte-identical",
+      "png_figures_preserved": 3
+    },
+    {
+      "filename": "ec04-fx-returns.en.ipynb",
+      "non_path_outputs": "byte-identical",
+      "png_figures_preserved": 3
+    },
+    {
+      "filename": "ec04-fx-returns.zh-hans.ipynb",
+      "non_path_outputs": "byte-identical",
+      "png_figures_preserved": 3
+    },
+    {
+      "filename": "ec05-portfolio-variance.en.ipynb",
+      "non_path_outputs": "byte-identical",
+      "png_figures_preserved": 3
+    },
+    {
+      "filename": "ec05-portfolio-variance.zh-hans.ipynb",
+      "non_path_outputs": "byte-identical",
+      "png_figures_preserved": 3
+    },
+    {
+      "filename": "ec06-tail-risk.en.ipynb",
+      "non_path_outputs": "byte-identical",
+      "png_figures_preserved": 3
+    },
+    {
+      "filename": "ec06-tail-risk.zh-hans.ipynb",
+      "non_path_outputs": "byte-identical",
+      "png_figures_preserved": 3
+    },
+    {
+      "filename": "hu01-corpus-audit.en.ipynb",
+      "non_path_outputs": "byte-identical",
+      "png_figures_preserved": 3
+    },
+    {
+      "filename": "hu01-corpus-audit.zh-hans.ipynb",
+      "non_path_outputs": "byte-identical",
+      "png_figures_preserved": 3
+    },
+    {
+      "filename": "hu02-lexical-diversity.en.ipynb",
+      "non_path_outputs": "byte-identical",
+      "png_figures_preserved": 3
+    },
+    {
+      "filename": "hu02-lexical-diversity.zh-hans.ipynb",
+      "non_path_outputs": "byte-identical",
+      "png_figures_preserved": 3
+    },
+    {
+      "filename": "hu03-keyword-context.en.ipynb",
+      "non_path_outputs": "byte-identical",
+      "png_figures_preserved": 3
+    },
+    {
+      "filename": "hu03-keyword-context.zh-hans.ipynb",
+      "non_path_outputs": "byte-identical",
+      "png_figures_preserved": 3
+    },
+    {
+      "filename": "hu04-mention-network.en.ipynb",
+      "non_path_outputs": "byte-identical",
+      "png_figures_preserved": 3
+    },
+    {
+      "filename": "hu04-mention-network.zh-hans.ipynb",
+      "non_path_outputs": "byte-identical",
+      "png_figures_preserved": 3
+    },
+    {
+      "filename": "hu05-text-projection.en.ipynb",
+      "non_path_outputs": "byte-identical",
+      "png_figures_preserved": 3
+    },
+    {
+      "filename": "hu05-text-projection.zh-hans.ipynb",
+      "non_path_outputs": "byte-identical",
+      "png_figures_preserved": 3
+    },
+    {
+      "filename": "hu06-social-indicators.en.ipynb",
+      "non_path_outputs": "byte-identical",
+      "png_figures_preserved": 3
+    },
+    {
+      "filename": "hu06-social-indicators.zh-hans.ipynb",
+      "non_path_outputs": "byte-identical",
+      "png_figures_preserved": 3
+    }
+  ]
+}

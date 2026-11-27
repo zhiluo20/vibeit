@@ -6,6 +6,7 @@ import ast,base64,gzip,hashlib,json,zipfile,re
 import xml.etree.ElementTree as ET
 import nbformat
 from catalog import COURSES, DISCIPLINES, subject_courses
+from build_notebooks import snapshot_payload
 ROOT=Path(__file__).resolve().parent
 SITE=ROOT.parent
 OUT=SITE/"cookbook"
@@ -37,7 +38,7 @@ def main():
             for name,blob in notebook.metadata.vibeit_cookbook.snapshots.items():
                 raw=gzip.decompress(base64.b64decode(blob.gzip_base64,validate=True))
                 assert hashlib.sha256(raw).hexdigest()==blob.sha256
-                assert raw==gzip.decompress((ROOT/"data"/(name+".json.gz")).read_bytes())
+                assert raw==gzip.decompress(snapshot_payload(course,name))
             codes=[c for c in notebook.cells if c.cell_type=="code"]
             assert all(c.execution_count is not None and c.outputs for c in codes)
             for cell in codes:
