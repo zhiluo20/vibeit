@@ -567,7 +567,8 @@ body[data-in-flight=true] #chapter-rail #count{color:#79e6ff}
 .voyage-fullscreen[hidden]{display:none!important}
 .voyage-fullscreen{display:inline-flex;align-items:center;justify-content:center;width:35px;height:34px;border:1px solid #cddcf82b;border-radius:9px;background:#111622e8;color:#d5dff0}
 .voyage-fullscreen svg{width:17px;height:17px}
-.compact-demo{display:none}
+/* The gallery image rule must not show an unloaded phone preview on desktop. */
+.compact-demo,.showcase-gallery .compact-demo{display:none}
 body[data-voyage-render=eco] :is(#demo-frame,#vibecode-frame){display:none!important}
 body[data-voyage-render=eco] .compact-demo{display:block;width:100%;height:auto;object-fit:contain;background:transparent}
 body[data-voyage-render=eco] .compact-demo:not([src]){visibility:hidden}
