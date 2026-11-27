@@ -389,12 +389,10 @@ body[data-scene="start"][data-in-flight="false"] :is(.hud,.voyage-meter,#control
 @keyframes storeStarClockwise{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
 @media(prefers-reduced-motion:reduce){.ending.active .store-halo::after{animation:none!important}}
 
-/* Retain the official site's quiet glass and blue CTA; overlay it on the voyage. */
+/* Fixed navigation; the starfield stays visible behind it. */
 :root{--voyage-bar-h:60px;--voyage-shell: min(100%, 1190px)}
 .voyage-site-header{
- position:fixed;z-index:12;inset:0 0 auto;background:rgba(10,10,14,.72);
- -webkit-backdrop-filter:blur(20px) saturate(145%);backdrop-filter:blur(20px) saturate(145%);
- color:#f4f4f6;border-bottom:1px solid #deebff14;
+ position:fixed;z-index:12;inset:0 0 auto;color:#f4f4f6;
 }
 .voyage-nav-inner,.voyage-footer-inner{width:var(--voyage-shell);margin-inline:auto;padding-inline:clamp(18px,4.2vw,42px)}
 .voyage-nav-inner{min-height:var(--voyage-bar-h);display:flex;align-items:center;gap:clamp(18px,2.8vw,38px)}
@@ -574,10 +572,9 @@ body[data-voyage-render=eco] .compact-demo{display:block;width:100%;height:auto;
 body[data-voyage-render=eco] .compact-demo:not([src]){visibility:hidden}
 body[data-voyage-render=eco] .live-demo{overflow:hidden}
 body[data-voyage-render=eco] #vibecode-stage{overflow:hidden;border-radius:14px}
-body[data-voyage-render=eco] :is(.voyage-site-header,.voyage-site-footer,.file-float,.trait-card,.case-card,.pricing-deck .plan){
+body[data-voyage-render=eco] :is(.voyage-site-footer,.file-float,.trait-card,.case-card,.pricing-deck .plan){
  -webkit-backdrop-filter:none;backdrop-filter:none
 }
-body[data-voyage-render=eco] .voyage-site-header{background:#0a0c12ef}
 body[data-voyage-render=eco] .voyage-site-footer{background:#0b1018f3}
 body[data-voyage-render=eco] .device-duo .official-device-screen{background:#121829}
 @media(max-width:760px) and (orientation:portrait){
